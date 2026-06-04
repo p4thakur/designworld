@@ -1,0 +1,5 @@
+# No third-party deps for day001 — uses stdlib only (urllib, xml, json)
+# Add here as scripts grow:
+# requests
+# feedparser
+# rich
