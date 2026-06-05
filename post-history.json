@@ -1,0 +1,17 @@
+{
+  "posts": [
+    {
+      "date": "2026-06-05",
+      "number": 1,
+      "topic": "Adding more indexes slowed down the writes",
+      "bucket": "hidden_cost",
+      "post_type": "type_a",
+      "hook_style": "surprising_outcome",
+      "reframe_line": "Every index is a write tax. The query optimizer sees the benefit. The write path pays every time.",
+      "key_numbers": "8,000 → 3,200 inserts/sec, 3 indexes, ~15M rows/day, 60% throughput lost",
+      "char_count": 1487,
+      "linkedin_filename": "posts/database/01-indexes-write-cost/linkedin.md",
+      "blog_filename": "posts/database/01-indexes-write-cost/blog.md"
+    }
+  ]
+}
