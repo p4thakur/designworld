@@ -1,342 +1,290 @@
-# Tech War Stories — Staff Engineer LinkedIn Post Skill
+# System Design Post Writer
 
-Posts that sound like they were written by one person who has been burned by the thing they're writing about.
+A skill for writing LinkedIn and Twitter posts about system design case studies — the kind of post that makes an engineer stop scrolling and actually learn something.
+
+The posts should read like they were written by a staff engineer or architect who actually read the engineering blog, not someone summarizing a summary.
 
 ## What this skill produces
 
-For each post:
-1. LinkedIn post — under 3,000 characters, aim for 1,800–2,400
-2. Twitter/X thread — compressed, punchier, its own rhythm
-3. Excalidraw diagram — visualizes the "aha" moment
-4. Long-form blog post — complete explanation, no gaps
+For each post, you produce three things:
+
+1. A **LinkedIn post** (under 3,000 characters — aim for 2,000-2,500 for best engagement)
+2. A **Twitter version** (shorter, thread-friendly)
+3. An **Excalidraw diagram** that visualizes the story (style matches the post type)
 
 ## Hard constraints
 
-- LinkedIn character limit: 3,000 characters maximum. Count before finalizing.
-- First 140 characters visible on mobile before "see more". Hook must land here.
-- No first person. No "I", no "we", no "our team". Ever. Write as an observer.
-- No question hooks. Never open with "Have you ever..." or "Ever wonder why..."
-- Specific numbers beat vague claims. "50M rows", "40 minutes", "Postgres 11" beats "large table".
-- No listicles. No "5 things you didn't know about X." Prose. Short paragraphs.
-- End on substance. Never "what do you think?" or "drop your thoughts below."
-- No backticks or markdown formatting in post text.
+- **LinkedIn character limit: 3,000 characters maximum** (including spaces, emojis, hashtags). Aim for 2,000-2,500 characters. Always count before finalizing.
+- **First 210 characters** are visible before "see more" on desktop (140 on mobile). The opener must hook within this window.
+- **Every factual claim** must come from a verified primary source (engineering blog, conference talk, repo). Never write from memory alone.
+- **Depth over breadth.** One detail that only appears in the primary source (not in any secondary summary) is worth more than five generic facts. This is what makes the post read like an architect wrote it, not a content creator.
 
-## Post DNA
+---
 
-Every post has four parts in this order:
+## When to use
 
-### 1. The hook — surprising outcome or broken assumption
-One or two lines. Something that makes the reader stop.
-- Good: "A schema migration took down writes for 40 minutes. The change was one line."
-- Bad: "Have you ever wondered why your database slows down under load?"
+Trigger this skill when the user wants content about:
+- How a specific company scaled something (Discord messages, Netflix caching, Uber queues, etc.)
+- System design patterns with real-world examples
+- Database migrations or architectural decisions at tech companies
+- Any content that pulls from the [awesome-scalability repo](https://github.com/binhnguyennus/awesome-scalability)
 
-The hook is not a setup. It is the surprising thing itself, stated plainly.
+---
 
-### 2. The reveal
-What actually happened. Specific. Numbers where possible. The mechanism exposed.
+## The workflow
 
-### 3. The reframe
-One sentence that makes the whole thing click. This is the line that gets screenshotted.
-- Good: "The cost isn't memory per request. It's duration."
+Follow these steps in order.
 
-### 4. The implication
-What changes once you know this. Not a CTA. Just: here is what you will do differently.
+### Step 1: Suggest the topic
+
+Propose 3 candidates. Don't ask the user to pick cold.
+
+Before suggesting:
+
+1. **Check `post-history.json`** to see what's been covered. Never repeat a case study unless the user asks for a different angle.
+
+2. **Vary the category** from recent posts. If the last 2 were databases, suggest caching/messaging/search instead.
+
+3. **Vary the post type** from recent posts. If the last 2 were structured case studies, suggest a confessional or contrarian post instead. (See "Post Types" below.)
+
+4. **Pull from three buckets:**
+   - awesome-scalability repo (curated list)
+   - Recent engineering blog posts (2024-2026 preferred)
+   - Trending topics (recent open-source releases, outage postmortems, migrations)
+
+5. **For each suggestion, include:**
+   - One-line description
+   - The counterintuitive or interesting angle
+   - Category
+   - Suggested post type (structured / confessional / narrative / contrarian)
+
+### Step 2: Verify the facts
+
+**Non-negotiable.** Before writing:
+
+- Search for the **primary source** (the actual company engineering blog or conference talk, not a summary site)
+- Verify exact numbers (latency, node counts, timelines)
+- Find at least **one detail that wouldn't appear in a secondary summary** — this is what makes the post credible. Examples: Netflix's midnight spike was caused by users copying a cron example from the docs. Slack can't use Memcache for Flannel because autocomplete needs a searchable in-memory index. These details only show up when you read the actual blog or watch the actual talk.
+
+### Step 3: Choose the post type and opener
+
+**This is where variation happens.** Don't write every post the same way.
+
+See "Post Types" below for the four available structures. Pick the one that fits the story best, and **check the last 2-3 entries in post-history.json** to make sure you're not repeating the same type or opener style.
+
+### Step 4: Draft the post
+
+Write the post following the chosen post type structure. Keep it under 3,000 characters. Make the first 140 characters hook the reader (mobile "see more" cutoff).
+
+### Step 5: Run the tic check
+
+Before finalizing, compare the draft against the last 2-3 posts in the history:
+
+- **Opener style:** Did the last post also start with a question? A number? A pain point? If so, change it.
+- **Post type:** Is this the third structured case study in a row? Consider rewriting as confessional or contrarian.
+- **Arc:** Does this post follow the exact same problem-solution-lesson shape as the last one? If so, vary the ending (reflection instead of lesson, open question instead of principle).
+- **Length:** Are all recent posts the same length? Vary — some posts should be 250 words, some 400.
+
+If the tic check finds repetition, rewrite the opener and/or restructure before finalizing.
+
+### Step 6: Create the diagram
+
+Use the Excalidraw skill. **The diagram style must match the post type.** See "Diagram Types" below.
+
+### Step 7: Verify character count
+
+Count the LinkedIn post characters. Must be under 3,000. Aim for 2,000-2,500.
+
+### Step 8: Update post history
+
+Append to `post-history.json`. Include the new fields: `post_type` and `opening_style`.
 
 ---
 
 ## Post Types
 
-**Type A — Hidden Cost**
-Something assumed to be free or cheap — isn't. Here's what it actually costs.
-Tone: Calm, dry. Ending: The cost framed as a tradeoff to know, not avoid.
+### 1. Structured Case Study
+**When to use:** A clear migration or architectural decision with before/after numbers.
+**Arc:** Problem (with specific numbers) → Root cause → Counterintuitive decision → Results → Lesson
+**Ending:** Generalizable principle ("Your database's ceiling is often the runtime beneath it")
+**Example:** Discord Cassandra to ScyllaDB, Cloudflare containers to V8 isolates
 
-**Type B — Default Is Wrong**
-The obvious choice has a specific failure mode most people hit too late.
-Tone: Opinionated. Backed by specifics. Ending: The question that changes the decision.
+### 2. Confessional
+**When to use:** A company admits a limitation, or a decision that made sense at the time but aged badly.
+**Arc:** What worked → Why it stopped working → The realization → What changed → Honest reflection
+**Ending:** Reflection or reframe, not a packaged principle ("Sometimes the right fix isn't optimizing the system you have. It's building one where the problem doesn't exist.")
+**Tone:** Shorter (250-350 words). Empathy for the original designers. Admits imperfection.
+**Example:** Netflix Meson to Maestro (single-leader hit a ceiling, midnight spike was a documentation problem)
 
-**Type C — Under the Hood**
-When you do X, here is the sequence of things the system actually does.
-Tone: Educational but not textbook. Ending: The one detail that explains the surprising behavior.
+### 3. Narrative
+**When to use:** A story with a tension that unfolds over time, or a bug/incident with layers.
+**Arc:** Tension → Original design → Problem discovered → Architectural shift → Ongoing complexity
+**Ending:** No forced lesson. Can end with "No one was wrong" or "The tradeoffs don't disappear, they move." Let readers extract their own takeaway.
+**Tone:** Medium-long (350-450 words). Story-first. Shows the mess.
+**Example:** Slack's message ordering bug (broadcast-first to persist-first, crash window, second-order ordering problems)
 
-**Type D — Architecture Decision**
-A decision that looks local has system-wide consequences.
-Tone: Measured. Ending: The constraint the decision creates downstream.
+### 4. Contrarian
+**When to use:** A company rejected the "obvious" approach, or common engineering wisdom is wrong in a specific context.
+**Arc:** Challenge the assumption → Show why the obvious fix doesn't work → The contrarian move → Why we default to the wrong thing → The real cost
+**Ending:** Punchy judgment ("Sometimes the right architecture is the complicated one. Not because it's clever. But because the simple one has a fundamental misalignment with the problem's shape.")
+**Tone:** Opinionated. Shorter paragraphs. Pushes back on defaults.
+**Example:** Slack's Flannel (loading everything at boot was elegant but wrong at 366K users)
+
+---
+
+## Opener Bank
+
+Never use the same opener type twice in a row. Check `opening_style` in the last 2-3 history entries.
+
+| Opener Type | Example | Best For |
+|-------------|---------|----------|
+| **Cold fact** | "Netflix's workflow orchestrator ran 500,000 jobs a day. Then it started choking every night at midnight." | Confessional, structured |
+| **Shared pain point** | "Every serverless platform has the same problem: cold starts." | Structured, contrarian |
+| **Challenge assumption** | "Everyone said Slack's startup sequence was efficient." | Contrarian |
+| **Specific number that doesn't add up** | "Slack's largest workspace has 366,000 users. The boot payload was over 100MB." | Contrarian, narrative |
+| **Mid-scene drop** | "Slack's original message send flow had a design flaw that took years to fix." | Narrative |
+| **The decision** | "Cloudflare looked at this problem and made an unusual call: don't use containers at all." | Structured |
 
 ---
 
 ## Writing Style
 
-No first person. Reframe everything:
-- Bad: "We had 20 pods each with a pool of 10."
-- Good: "20 pods. Each with a connection pool of 10."
+**Prose, not bullets.** Short paragraphs. 2-4 sentences each.
 
-Short paragraphs. 2–4 sentences. One idea per paragraph.
-Active, declarative sentences. "Postgres rewrote every row." Not "Every row was rewritten."
-End paragraphs on strong words. No filler.
-Avoid: "game-changing", "deep dive", "unpack", "let's explore", "paradigm"
+**No filler.** Cut "In today's world of distributed systems..." Just make the point.
 
----
+**Active voice.** "Discord migrated" not "The migration was performed."
 
-## Diagram Guidance
+**Specific over general.** "72 nodes" not "fewer nodes." "15ms p99" not "faster."
 
-The diagram shows the hidden mechanism, not the full topic.
-- Type A: Side-by-side comparison. Before assumption vs. actual cost. Numbers in boxes.
-- Type B: Two paths. "What everyone does" vs. "what actually happens". Annotate failure point.
-- Type C: Sequence of steps. Show invisible work. Highlight where surprising thing happens.
-- Type D: Fork or decision tree. Show downstream consequences.
+**Sound like a person.** Occasional opinion is good ("This is a pattern I see constantly"). Empathy for original designers. No textbook voice.
 
-Rules:
-- Max ~10 elements. Readable at LinkedIn preview size.
-- At least one specific number in the diagram worth screenshotting independently.
-- No emoji in Excalidraw text.
-- Vary diagram form and color scheme across posts.
-- Read Excalidraw read_me before drawing every time.
+**Vary the energy.** Some posts are measured and reflective. Some are punchy and opinionated. Match the tone to the post type.
 
 ---
 
-## Blog Post Structure
+## Diagram Types
 
-1. **Opening** — the problem stated plainly (1-2 paragraphs)
-2. **Background** — what most people know (1-2 paragraphs)
-3. **The mechanism** — what actually happens (core section, deep, code examples)
-4. **How to detect it** — specific metrics, tools, queries
-5. **How to fix it** — concrete steps, real order
-6. **The tradeoff** — every fix has a cost, be honest
-7. **Closing** — the one sentence that should stick
+**Do NOT use the same diagram layout for every post.** Match the diagram to the post type and story shape.
 
-Blog voice: conversational tech blog. First person allowed. Address the reader directly.
-Length: write until concept is fully explained. 800–3000 words. No padding, no premature cuts.
+### For Structured Case Study:
+- **Before/after comparison** or **migration timeline** (horizontal flow)
+- Show the journey with specific numbers at each stage
 
-What NOT to do in the blog:
-- No "In this post, I will cover..."
-- No "As we can see from the above..."
-- No hype ("this blew my mind", "game changer")
-- No unanswered "but why?" questions
+### For Confessional:
+- **Timeline** showing how the system evolved over years (2016: worked → 2020: cracks → 2022: rebuilt)
+- **Bar chart or spike visualization** showing the specific problem (e.g., midnight traffic spike)
+- Focus on the *human cause*, not just architecture boxes
 
----
+### For Narrative:
+- **Sequence flow** showing how a request moves through the system
+- Highlight **where the failure happens** (crash window, ordering bug)
+- Show before/after flows side by side
 
-## Topic Backlog (100 posts)
+### For Contrarian:
+- **Scaling curve** showing how a metric grows with usage (payload size vs team size)
+- **Side-by-side architecture** showing "obvious" approach vs what they built
+- Include the specific numbers that make someone stop scrolling
 
-Check `post-history.json` before picking. Never repeat a topic.
+### General diagram rules:
 
-### Database & Storage
-1. Adding more indexes slowed down the writes
-2. Cursor pagination breaks on mutable data
-3. The migration added a NOT NULL column — locked the table for 40 minutes
-4. Soft deletes quietly broke the query planner
-5. The read replica wasn't actually reducing load — ORM opened write transactions by default
-6. Foreign keys have a runtime cost on every INSERT
-7. Long-running transactions and the queue of blocked writers behind them
-8. NoSQL didn't remove the schema — it moved it to the application
-9. Partial indexes: half the size, same query speed — and most engineers never use them
-10. Backfilling a column on a live table — why batching is not optional
-11. The hot row problem: one record getting hammered that no shard can fix
-12. The migration ran. The rollback didn't.
-
-### Caching
-13. Cache stampede: the cache helped until expiry hit
-14. The 5% cache miss was the most expensive traffic
-15. Caching fixed latency and introduced a consistency bug
-16. Redis evicted the wrong keys under memory pressure
-17. Write-through cache doubled the write latency
-18. Local in-process cache is faster than Redis — and wrong more often across pods
-
-### Networking & Connections
-19. DNS resolution isn't always cached the way you think
-20. TLS handshake cost disappears in benchmarks and shows up in production
-21. TCP TIME_WAIT fills up the port table at high throughput
-22. Keep-alive is on by default. It's also misconfigured by default.
-23. Nagle's algorithm makes small messages slow
-24. The load balancer has a connection limit too
-
-### Async, Queues & Events
-25. Making it async didn't make it faster — it hid where it was slow
-26. The DLQ was a graveyard — messages expired before anyone investigated
-27. At-least-once + no idempotency key = silent double charge
-28. The consumer was fast. The acknowledgement was slow. Lag grew anyway.
-29. Event ordering isn't guaranteed unless you designed for it
-30. Retry storms: correct backoff at one service, wrong at system scale
-31. Message size has a cost nobody budgets for
-32. Outbox pattern: why you can't trust "publish after commit"
-
-### Memory, CPU & Runtime
-33. Garbage collection pauses are latency spikes in disguise
-34. Memory leak was a growing event listener, not a data structure
-35. JSON serialization burned 20% of CPU at scale
-36. String interning made the memory profile look clean — until it didn't
-37. CPU throttling in containers is not the same as CPU limit
-38. The pod was OOM-killed with no graceful shutdown
-39. Thread pool size is a hidden throughput ceiling
-
-### APIs & Service Communication
-40. The service had 3 downstream calls. One had no timeout. That one took everything down.
-41. Circuit breakers don't trigger until it's already too late
-42. Timeout cascades: not setting them is worse than wrong values
-43. The endpoint returned 200 for every request — including the failed ones
-44. API gateway added 8ms to every request before any business logic ran
-45. gRPC is faster than REST — until you add a service mesh
-46. Response compression has a CPU cost on the server
-
-### Observability & Debugging
-47. Metrics looked healthy during the outage — averages hid the tail
-48. High cardinality labels broke the metrics system
-49. Correlation IDs existed. They weren't propagated across the async boundary.
-50. Sampling traces at 1% misses the rare slow request
-51. Alert fatigue made the real alert invisible
-52. The load test passed. It tested the wrong thing.
-
-### Scaling & Infrastructure
-53. Autoscaling reacted to CPU — bottleneck was memory
-54. Horizontal scaling hit a vertical limit in the database
-55. Provisioned concurrency "solved" Lambda cold starts by making it always-on
-56. Rolling deploys caused a mixed-version state nobody planned for
-57. The CDN cached a 500 error for 24 hours
-58. Pod resource limits set too low caused CFS throttling, not OOM
-59. Secrets rotation broke the service — old secret cached in memory
-
-### Security & Auth
-60. JWTs don't expire until they expire — revoking requires more than logout
-61. bcrypt is intentionally slow — and that's a DoS surface without rate limiting
-62. CORS misconfiguration: teams flip to reflecting the Origin header, which is worse
-63. Rate limiting at the app layer doesn't protect the app layer
-
-### Concurrency & Race Conditions
-64. Check-then-act: the race condition hiding in plain readable logic
-65. Optimistic locking failed silently — nobody handled the conflict exception
-66. Distributed locks expire while the work is still running
-67. Thread-local state leaks between requests in thread-pool servers
-
-### Deployments & Reliability
-68. Feature flags reduced risk — until there were 200 of them
-69. Health check passed but the service wasn't healthy
-70. Graceful shutdown was 30 seconds. The LB drained in 5.
-71. Canary was green — the bug caused silent data corruption, not errors
-
-### Data & Consistency
-72. Eventual consistency is not "it'll be fine eventually"
-73. Timezone handling broke silently at DST rollover
-74. Duplicate event processing corrupted the balance
-75. Schema migration removed a column still used by the old deploy
-76. NOT IN with a subquery returns zero rows when any value is NULL
-
-### Architecture Tradeoffs
-77. The monolith wasn't slow — the deploys were slow
-78. Shared database between services couples what the architecture separated
-79. The abstraction layer added latency you can't measure directly
-80. Event sourcing is a read problem dressed up as a write solution
-81. CQRS doubled the infrastructure and the eventual consistency bugs
-82. "We'll fix it after launch" — and the data model became load-bearing technical debt
-
-### Real-time & Streaming
-83. SSE reconnects automatically. WebSocket doesn't.
-84. Kafka consumer lag is not the same as Kafka being slow
-85. Kafka consumer group rebalance paused all processing
-86. Heartbeats on WebSocket aren't optional on mobile
-
-### Engineering & System Thinking
-87. The SLA was 99.9%. That's 8.7 hours of downtime per year.
-88. Technical debt isn't code quality — it's decision lag
-89. The abstraction that made v1 fast made v2 impossible
-90. Dependency updates are risk management, not maintenance
-91. Staging didn't reproduce the bug — it had 1% of the data
-92. The runbook existed. Nobody had run it before the incident.
-93. Rewriting the service didn't fix the underlying data model
-94. Complexity doesn't announce itself — it accumulates
-95. The fastest code is the code that doesn't run
-96. The connection pool is a rate limiter — horizontal scaling makes it worse
-97. The benchmark showed 2ms. Production showed 200ms. The difference was network hops.
-98. The feature shipped. The cleanup ticket never did.
-99. Two services, one schema — the microservice boundary was a lie
-100. The system was observable. It just wasn't understandable.
+- **Don't use the same color scheme every time.** Red=bad, green=good is fine once. Vary colors to match the story. Sometimes the "old" system wasn't bad — it was right for its time.
+- **Include at least one number or specific detail** in the diagram that makes it worth screenshotting on its own.
+- **Keep it readable** at LinkedIn preview size. Max ~12 elements. If it's busier, simplify.
+- **Vary the visual form.** Rotate between: timeline, sequence flow, scaling curve, comparison matrix, architecture snapshot. Don't do the same layout twice in a row.
 
 ---
 
-## Workflow (follow every time)
+## Tracking Posts
 
-1. **Pick topic** — check `post-history.json`, never repeat, state number + post type
-2. **Verify numbers** — web search if unsure, use "typically" framing if unverifiable
-3. **Draft LinkedIn post** — hook → reveal → reframe → implication
-4. **Tic check** — different post type from last 2? different hook style? different length?
-5. **Create LinkedIn diagram** (Excalidraw) — match type to post type
-6. **Write Twitter/X version** — same structure, half the length, own rhythm
-7. **Write blog post** — full structure, code examples, expanded diagrams
-8. **Count LinkedIn characters** — must be under 3,000
-9. **Update post-history.json**
+### History file format
 
-## Push location
-
-Push post files organized by technology/type category:
-- `posts/database/` — all Database & Storage topics
-- `posts/caching/` — Caching topics
-- `posts/networking/` — Networking & Connections
-- `posts/async-queues/` — Async, Queues & Events
-- `posts/memory-cpu/` — Memory, CPU & Runtime
-- `posts/apis/` — APIs & Service Communication
-- `posts/observability/` — Observability & Debugging
-- `posts/scaling/` — Scaling & Infrastructure
-- `posts/security/` — Security & Auth
-- `posts/concurrency/` — Concurrency & Race Conditions
-- `posts/deployments/` — Deployments & Reliability
-- `posts/data-consistency/` — Data & Consistency
-- `posts/architecture/` — Architecture Tradeoffs
-- `posts/real-time/` — Real-time & Streaming
-- `posts/engineering/` — Engineering & System Thinking
-
-Each post folder: `posts/<category>/<NN>-<slug>/`
-Files: `linkedin.md`, `twitter.md`, `blog.md`, `diagram.excalidraw`
-
-## Post History Format
+Location: `post-history.json` in the user's output directory.
 
 ```json
 {
   "posts": [
     {
-      "date": "2026-06-05",
-      "number": 1,
-      "topic": "Adding more indexes slowed down the writes",
-      "bucket": "hidden_cost",
-      "post_type": "type_a",
-      "hook_style": "surprising_outcome",
-      "reframe_line": "Every index is a write tax. The query optimizer sees the benefit. The write path pays every time.",
-      "key_numbers": "8,000 → 3,200 inserts/sec, 3 indexes, ~15M rows/day, 60% throughput lost",
-      "char_count": 1487,
-      "linkedin_filename": "posts/database/01-indexes-write-cost/linkedin.md",
-      "blog_filename": "posts/database/01-indexes-write-cost/blog.md"
+      "date": "2026-04-18",
+      "company": "Discord",
+      "topic": "Cassandra to ScyllaDB migration (trillions of messages)",
+      "category": "databases",
+      "post_type": "structured",
+      "opening_style": "rhetorical_question",
+      "hook": "They used fewer nodes, not more, to handle more load",
+      "sources": ["https://discord.com/blog/..."],
+      "key_numbers": "177 to 72 nodes, p99 40-125ms to 15ms",
+      "lesson": "Your database's ceiling is often the runtime beneath it",
+      "filename": "post_1_discord_final.md"
     }
   ]
 }
 ```
 
-Hook styles to rotate: `surprising_outcome` | `broken_assumption` | `the_number` | `the_decision_that_backfired` | `two_things_that_disagree`
+**Required fields:**
+- `post_type`: one of `structured`, `confessional`, `narrative`, `contrarian`
+- `opening_style`: one of `cold_fact`, `shared_pain_point`, `challenge_assumption`, `number_mismatch`, `mid_scene`, `the_decision`, `rhetorical_question`
+
+### How to use the history
+
+**At the start of every run:**
+1. Read `post-history.json`
+2. Note: companies covered, categories used, post types used, opener styles used (last 2-3)
+3. Plan to vary all four dimensions
+
+**When suggesting topics:**
+- Skip anything in history unless user asks for a different angle
+- Vary category from last 2-3 posts
+- Vary post type from last 2-3 posts
+- Flag overlaps to the user
+
+**After writing:**
+- Append the new entry with all fields including `post_type` and `opening_style`
+
+### Categories to rotate
+
+databases, caching, messaging, microservices, search, availability, performance, stability, storage, real-time systems, infrastructure/serverless
+
+If 2 in a row from same category, strongly prefer a different one.
+
+---
+
+## The Twitter version
+
+Same story, compressed. 3-6 short paragraphs. Keeps the hook front and center. Has its own rhythm — not just the LinkedIn version chopped up.
+
+---
 
 ## Checklist before finalizing
 
-LinkedIn post:
-- [ ] Topic not in post-history.json
-- [ ] Post type varied from last 2 posts
-- [ ] Hook style varied from last 2 posts
-- [ ] No first person (no I, we, our)
-- [ ] Hook is not a question
-- [ ] No backticks or markdown formatting in post text
-- [ ] All numbers verified or hedged
-- [ ] Reframe line is one punchy sentence
-- [ ] Ends on substance, not engagement bait
-- [ ] No listicle format
-- [ ] Character count under 3,000
-- [ ] First 140 chars hook the reader
-- [ ] LinkedIn diagram matches post type, has one screenshottable number
-- [ ] Twitter version written with its own rhythm
+- [ ] Checked `post-history.json` before suggesting topics
+- [ ] Every specific number came from a verified primary source
+- [ ] Found at least one detail that only appears in the primary source (not summaries)
+- [ ] Sources listed at top of output file (not in the post itself)
+- [ ] **Tic check passed:** opener, post type, arc, and length differ from last 2-3 posts
+- [ ] **Character count under 3,000** (aim 2,000-2,500)
+- [ ] First 140 characters hook the reader (mobile cutoff)
+- [ ] Post type matches the story shape
+- [ ] Diagram style matches the post type (not the same layout as last time)
+- [ ] Diagram contains at least one screenshottable number/detail
+- [ ] Twitter version exists with its own rhythm
+- [ ] Hashtags: 2-4, relevant
+- [ ] **Updated `post-history.json`** with post_type and opening_style fields
 
-Blog post:
-- [ ] Opens without "In this post I will..."
-- [ ] Background establishes what reader already knows
-- [ ] Mechanism answers every "but why?" question
-- [ ] Code examples show problem first, then fix
-- [ ] Detect section is specific — real metrics, real tools
-- [ ] Fix section is actionable — real steps, real order
-- [ ] Tradeoff section is honest
-- [ ] Closes on the concept, not yourself
-- [ ] No unanswered questions remain
+---
 
-Both:
-- [ ] post-history.json updated with both filenames
+## What NOT to do
+
+- Don't write from memory. Always verify with the primary source.
+- Don't use vague numbers ("millions of users", "very fast"). Get specifics.
+- Don't use the same post structure every time. Rotate between the 4 types.
+- Don't start every post with "Ever wonder..." or any repeated opener. Check history.
+- Don't force a lesson on every post. Confessional and narrative posts can end with reflection.
+- Don't use the same diagram layout every time. Match it to the post type.
+- Don't use red=bad green=good colors on every diagram. Vary the palette.
+- Don't end with a generic CTA ("What do you think?"). End with substance.
+- Don't exceed 3,000 characters. Count before finalizing.
+- Don't skip the diagram. The visual is what makes people stop scrolling.
+- Don't use heavy formatting (headers, lots of bullets). Use prose.
+- Don't pitch the post as "Here are 10 things..." Listicle posts feel cheap.
+- Don't sound like a template. Sound like one person writing about different topics in different moods.
