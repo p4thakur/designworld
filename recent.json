@@ -1,0 +1,22 @@
+{
+  "recent": [
+    {
+      "company": "Uber",
+      "category": "stability",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
+      "company": "Airbnb",
+      "category": "messaging",
+      "post_type": "confessional",
+      "opening_style": "cold_fact"
+    },
+    {
+      "company": "Netflix",
+      "category": "availability",
+      "post_type": "narrative",
+      "opening_style": "mid_scene"
+    }
+  ]
+}

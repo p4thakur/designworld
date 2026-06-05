@@ -41,18 +41,20 @@ Propose 3 candidates. Don't ask the user to pick cold.
 
 Before suggesting:
 
-1. **Check `post-history.json`** to see what's been covered. Never repeat a case study unless the user asks for a different angle.
+1. **Check `covered.json`** — flat list of topic slugs already posted. Never repeat unless user asks for a different angle.
 
-2. **Vary the category** from recent posts. If the last 2 were databases, suggest caching/messaging/search instead.
+2. **Check `recent.json`** — last 3 posts (category, post_type, opening_style). Use this to vary all three dimensions.
 
-3. **Vary the post type** from recent posts. If the last 2 were structured case studies, suggest a confessional or contrarian post instead. (See "Post Types" below.)
+3. **Vary the category** from recent posts. If the last 2 were databases, suggest caching/messaging/search instead.
 
-4. **Pull from three buckets:**
+4. **Vary the post type** from recent posts. If the last 2 were structured case studies, suggest a confessional or contrarian post instead. (See "Post Types" below.)
+
+5. **Pull from three buckets:**
    - awesome-scalability repo (curated list)
    - Recent engineering blog posts (2024-2026 preferred)
    - Trending topics (recent open-source releases, outage postmortems, migrations)
 
-5. **For each suggestion, include:**
+6. **For each suggestion, include:**
    - One-line description
    - The counterintuitive or interesting angle
    - Category
@@ -70,7 +72,7 @@ Before suggesting:
 
 **This is where variation happens.** Don't write every post the same way.
 
-See "Post Types" below for the four available structures. Pick the one that fits the story best, and **check the last 2-3 entries in post-history.json** to make sure you're not repeating the same type or opener style.
+See "Post Types" below for the four available structures. Pick the one that fits the story best, and **check `recent.json`** to make sure you're not repeating the same type or opener style.
 
 ### Step 4: Draft the post
 
@@ -78,7 +80,7 @@ Write the post following the chosen post type structure. Keep it under 3,000 cha
 
 ### Step 5: Run the tic check
 
-Before finalizing, compare the draft against the last 2-3 posts in the history:
+Before finalizing, compare the draft against `recent.json`:
 
 - **Opener style:** Did the last post also start with a question? A number? A pain point? If so, change it.
 - **Post type:** Is this the third structured case study in a row? Consider rewriting as confessional or contrarian.
@@ -95,9 +97,12 @@ Use the Excalidraw skill. **The diagram style must match the post type.** See "D
 
 Count the LinkedIn post characters. Must be under 3,000. Aim for 2,000-2,500.
 
-### Step 8: Update post history
+### Step 8: Update tracking files
 
-Append to `post-history.json`. Include the new fields: `post_type` and `opening_style`.
+Two files to update — both stay small forever:
+
+1. **`covered.json`** — append one slug for the new topic (e.g. `"stripe-idempotency-keys"`). Never grows past one line per post.
+2. **`recent.json`** — prepend a new entry with `{company, category, post_type, opening_style}`. Delete the oldest if list exceeds 3 entries. File stays at 3 entries maximum.
 
 ---
 
@@ -197,49 +202,58 @@ Never use the same opener type twice in a row. Check `opening_style` in the last
 
 ## Tracking Posts
 
-### History file format
+Two files. Both stay small forever.
 
-Location: `post-history.json` in the user's output directory.
+### `covered.json` — deduplication
+
+Flat list of topic slugs. One line per post. Only thing needed to answer "has this been done?"
 
 ```json
 {
-  "posts": [
+  "topics": [
+    "discord-cassandra-to-scylladb",
+    "shopify-pods-architecture",
+    "stripe-idempotency-keys"
+  ]
+}
+```
+
+**At the start of every run:** read this list. If a candidate topic slug matches (or is clearly the same story), skip it.
+**After writing:** append one slug for the new post. That's it.
+
+Slug format: `company-short-topic-description` in kebab-case, 3-6 words.
+
+### `recent.json` — tic check
+
+Last 3 posts only. Prepend new entry, drop the oldest. Never more than 3 entries.
+
+```json
+{
+  "recent": [
     {
-      "date": "2026-04-18",
-      "company": "Discord",
-      "topic": "Cassandra to ScyllaDB migration (trillions of messages)",
-      "category": "databases",
-      "post_type": "structured",
-      "opening_style": "rhetorical_question",
-      "hook": "They used fewer nodes, not more, to handle more load",
-      "sources": ["https://discord.com/blog/..."],
-      "key_numbers": "177 to 72 nodes, p99 40-125ms to 15ms",
-      "lesson": "Your database's ceiling is often the runtime beneath it",
-      "filename": "post_1_discord_final.md"
+      "company": "Uber",
+      "category": "stability",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
+      "company": "Airbnb",
+      "category": "messaging",
+      "post_type": "confessional",
+      "opening_style": "cold_fact"
+    },
+    {
+      "company": "Netflix",
+      "category": "availability",
+      "post_type": "narrative",
+      "opening_style": "mid_scene"
     }
   ]
 }
 ```
 
-**Required fields:**
-- `post_type`: one of `structured`, `confessional`, `narrative`, `contrarian`
-- `opening_style`: one of `cold_fact`, `shared_pain_point`, `challenge_assumption`, `number_mismatch`, `mid_scene`, `the_decision`, `rhetorical_question`
-
-### How to use the history
-
-**At the start of every run:**
-1. Read `post-history.json`
-2. Note: companies covered, categories used, post types used, opener styles used (last 2-3)
-3. Plan to vary all four dimensions
-
-**When suggesting topics:**
-- Skip anything in history unless user asks for a different angle
-- Vary category from last 2-3 posts
-- Vary post type from last 2-3 posts
-- Flag overlaps to the user
-
-**After writing:**
-- Append the new entry with all fields including `post_type` and `opening_style`
+**At the start of every run:** read this to see what post types and opener styles were used recently. Vary all dimensions.
+**After writing:** prepend new entry `{company, category, post_type, opening_style}`, delete entry at index 3 if it exists.
 
 ### Categories to rotate
 
@@ -257,7 +271,7 @@ Same story, compressed. 3-6 short paragraphs. Keeps the hook front and center. H
 
 ## Checklist before finalizing
 
-- [ ] Checked `post-history.json` before suggesting topics
+- [ ] Checked `covered.json` — topic slug not already listed
 - [ ] Every specific number came from a verified primary source
 - [ ] Found at least one detail that only appears in the primary source (not summaries)
 - [ ] Sources listed at top of output file (not in the post itself)
@@ -269,7 +283,8 @@ Same story, compressed. 3-6 short paragraphs. Keeps the hook front and center. H
 - [ ] Diagram contains at least one screenshottable number/detail
 - [ ] Twitter version exists with its own rhythm
 - [ ] Hashtags: 2-4, relevant
-- [ ] **Updated `post-history.json`** with post_type and opening_style fields
+- [ ] **`covered.json`** updated — new slug appended
+- [ ] **`recent.json`** updated — new entry prepended, oldest dropped if list exceeds 3
 
 ---
 

@@ -1,0 +1,20 @@
+{
+  "topics": [
+    "discord-cassandra-to-scylladb",
+    "shopify-pods-architecture",
+    "figma-multiplayer-ot-rejection",
+    "cloudflare-workers-v8-isolates",
+    "notion-sharding-postgres",
+    "instagram-sharding-ids",
+    "uber-doma-microservices",
+    "netflix-evcache-ram-to-ssd",
+    "stripe-idempotency-keys",
+    "linkedin-kafka-origin",
+    "doordash-lucene-search-engine",
+    "uber-crisp-critical-path",
+    "meta-mysql-raft",
+    "netflix-chaos-monkey-simian-army",
+    "airbnb-dynein-delayed-jobs",
+    "uber-kafka-dead-letter-queues"
+  ]
+}
