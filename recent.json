@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Dropbox",
+      "category": "storage",
+      "post_type": "structured",
+      "opening_style": "specific_number"
+    },
+    {
       "company": "Uber",
       "category": "stability",
       "post_type": "contrarian",
@@ -11,12 +17,6 @@
       "category": "messaging",
       "post_type": "confessional",
       "opening_style": "cold_fact"
-    },
-    {
-      "company": "Netflix",
-      "category": "availability",
-      "post_type": "narrative",
-      "opening_style": "mid_scene"
     }
   ]
 }

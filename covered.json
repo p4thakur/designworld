@@ -15,6 +15,7 @@
     "meta-mysql-raft",
     "netflix-chaos-monkey-simian-army",
     "airbnb-dynein-delayed-jobs",
-    "uber-kafka-dead-letter-queues"
+    "uber-kafka-dead-letter-queues",
+    "dropbox-magic-pocket-s3-exit"
   ]
 }
