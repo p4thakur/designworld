@@ -16,6 +16,7 @@
     "netflix-chaos-monkey-simian-army",
     "airbnb-dynein-delayed-jobs",
     "uber-kafka-dead-letter-queues",
-    "dropbox-magic-pocket-s3-exit"
+    "dropbox-magic-pocket-s3-exit",
+    "github-mysql1-four-outages"
   ]
 }

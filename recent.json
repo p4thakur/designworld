@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "GitHub",
+      "category": "databases",
+      "post_type": "narrative",
+      "opening_style": "mid_scene"
+    },
+    {
       "company": "Dropbox",
       "category": "storage",
       "post_type": "structured",
@@ -11,12 +17,6 @@
       "category": "stability",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption"
-    },
-    {
-      "company": "Airbnb",
-      "category": "messaging",
-      "post_type": "confessional",
-      "opening_style": "cold_fact"
     }
   ]
 }
