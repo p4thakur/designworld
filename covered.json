@@ -17,6 +17,7 @@
     "airbnb-dynein-delayed-jobs",
     "uber-kafka-dead-letter-queues",
     "dropbox-magic-pocket-s3-exit",
-    "github-mysql1-four-outages"
+    "github-mysql1-four-outages",
+    "netflix-maestro-meson-single-leader"
   ]
 }
