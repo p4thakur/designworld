@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Slack",
+      "category": "caching",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
       "company": "Netflix",
       "category": "infrastructure",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "databases",
       "post_type": "narrative",
       "opening_style": "mid_scene"
-    },
-    {
-      "company": "Dropbox",
-      "category": "storage",
-      "post_type": "structured",
-      "opening_style": "specific_number"
     }
   ]
 }

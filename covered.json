@@ -18,6 +18,7 @@
     "uber-kafka-dead-letter-queues",
     "dropbox-magic-pocket-s3-exit",
     "github-mysql1-four-outages",
-    "netflix-maestro-meson-single-leader"
+    "netflix-maestro-meson-single-leader",
+    "slack-flannel-edge-cache"
   ]
 }
