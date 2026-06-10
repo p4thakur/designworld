@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Amazon Prime Video",
+      "category": "microservices",
+      "post_type": "structured_case_study",
+      "opening_style": "specific_number_that_doesnt_add_up"
+    },
+    {
       "company": "Slack",
       "category": "caching",
       "post_type": "contrarian",
@@ -11,12 +17,6 @@
       "category": "infrastructure",
       "post_type": "confessional",
       "opening_style": "cold_fact"
-    },
-    {
-      "company": "GitHub",
-      "category": "databases",
-      "post_type": "narrative",
-      "opening_style": "mid_scene"
     }
   ]
 }
