@@ -21,6 +21,7 @@
     "netflix-maestro-meson-single-leader",
     "slack-flannel-edge-cache",
     "prime-video-avqs-microservices-to-monolith",
-    "whatsapp-erlang-2-engineers-billion-users"
+    "whatsapp-erlang-2-engineers-billion-users",
+    "cloudflare-pingora-nginx-replacement"
   ]
 }
