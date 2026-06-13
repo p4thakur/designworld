@@ -22,6 +22,7 @@
     "slack-flannel-edge-cache",
     "prime-video-avqs-microservices-to-monolith",
     "whatsapp-erlang-2-engineers-billion-users",
-    "cloudflare-pingora-nginx-replacement"
+    "cloudflare-pingora-nginx-replacement",
+    "facebook-tao-graph-cache"
   ]
 }
