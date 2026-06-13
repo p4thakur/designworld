@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Facebook",
+      "category": "caching",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
       "company": "Cloudflare",
       "category": "infrastructure",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "messaging",
       "post_type": "narrative",
       "opening_style": "mid_scene_drop"
-    },
-    {
-      "company": "Amazon Prime Video",
-      "category": "microservices",
-      "post_type": "structured_case_study",
-      "opening_style": "specific_number_that_doesnt_add_up"
     }
   ]
 }
