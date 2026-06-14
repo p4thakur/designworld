@@ -23,6 +23,7 @@
     "prime-video-avqs-microservices-to-monolith",
     "whatsapp-erlang-2-engineers-billion-users",
     "cloudflare-pingora-nginx-replacement",
-    "facebook-tao-graph-cache"
+    "facebook-tao-graph-cache",
+    "twitter-timeline-fanout-hybrid"
   ]
 }
