@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Roblox",
+      "category": "availability",
+      "post_type": "narrative",
+      "opening_style": "mid_scene"
+    },
+    {
       "company": "Twitter",
       "category": "real-time systems",
       "post_type": "structured",
@@ -11,12 +17,6 @@
       "category": "caching",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption"
-    },
-    {
-      "company": "Cloudflare",
-      "category": "infrastructure",
-      "post_type": "confessional",
-      "opening_style": "cold_fact"
     }
   ]
 }
