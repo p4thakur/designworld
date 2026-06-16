@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "YouTube",
+      "category": "database",
+      "post_type": "confessional",
+      "opening_style": "cold_fact"
+    },
+    {
       "company": "Roblox",
       "category": "availability",
       "post_type": "narrative",
@@ -11,12 +17,6 @@
       "category": "real-time systems",
       "post_type": "structured",
       "opening_style": "specific_number"
-    },
-    {
-      "company": "Facebook",
-      "category": "caching",
-      "post_type": "contrarian",
-      "opening_style": "challenge_assumption"
     }
   ]
 }

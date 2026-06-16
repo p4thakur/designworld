@@ -25,6 +25,7 @@
     "cloudflare-pingora-nginx-replacement",
     "facebook-tao-graph-cache",
     "twitter-timeline-fanout-hybrid",
-    "roblox-73-hour-outage"
+    "roblox-73-hour-outage",
+    "youtube-vitess-mysql-sharding"
   ]
 }
