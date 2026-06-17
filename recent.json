@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Google",
+      "category": "infrastructure",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
       "company": "YouTube",
       "category": "database",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "availability",
       "post_type": "narrative",
       "opening_style": "mid_scene"
-    },
-    {
-      "company": "Twitter",
-      "category": "real-time systems",
-      "post_type": "structured",
-      "opening_style": "specific_number"
     }
   ]
 }
