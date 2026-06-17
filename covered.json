@@ -26,6 +26,7 @@
     "facebook-tao-graph-cache",
     "twitter-timeline-fanout-hybrid",
     "roblox-73-hour-outage",
-    "youtube-vitess-mysql-sharding"
+    "youtube-vitess-mysql-sharding",
+    "google-zanzibar-permissions-at-scale"
   ]
 }
