@@ -28,6 +28,7 @@
     "roblox-73-hour-outage",
     "youtube-vitess-mysql-sharding",
     "google-zanzibar-permissions-at-scale",
-    "facebook-memcache-nsdi-scaling"
+    "facebook-memcache-nsdi-scaling",
+    "github-code-search-blackbird-elasticsearch"
   ]
 }
