@@ -29,6 +29,7 @@
     "youtube-vitess-mysql-sharding",
     "google-zanzibar-permissions-at-scale",
     "facebook-memcache-nsdi-scaling",
-    "github-code-search-blackbird-elasticsearch"
+    "github-code-search-blackbird-elasticsearch",
+    "uber-schemaless-nosql-on-mysql"
   ]
 }
