@@ -30,6 +30,7 @@
     "google-zanzibar-permissions-at-scale",
     "facebook-memcache-nsdi-scaling",
     "github-code-search-blackbird-elasticsearch",
-    "uber-schemaless-nosql-on-mysql"
+    "uber-schemaless-nosql-on-mysql",
+    "twitch-irc-go-gc-pauses"
   ]
 }

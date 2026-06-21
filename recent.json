@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Twitch",
+      "category": "real-time",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
       "company": "Uber",
       "category": "database",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "search",
       "post_type": "narrative",
       "opening_style": "mid_scene"
-    },
-    {
-      "company": "Facebook",
-      "category": "caching",
-      "post_type": "structured",
-      "opening_style": "shared_pain_point"
     }
   ]
 }
