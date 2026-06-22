@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Pinterest",
+      "category": "infrastructure",
+      "post_type": "structured",
+      "opening_style": "specific_number"
+    },
+    {
       "company": "Twitch",
       "category": "real-time",
       "post_type": "contrarian",
@@ -11,12 +17,6 @@
       "category": "database",
       "post_type": "confessional",
       "opening_style": "cold_fact"
-    },
-    {
-      "company": "GitHub",
-      "category": "search",
-      "post_type": "narrative",
-      "opening_style": "mid_scene"
     }
   ]
 }
