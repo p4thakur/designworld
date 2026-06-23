@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Slack",
+      "category": "messaging",
+      "post_type": "narrative",
+      "opening_style": "mid_scene_drop"
+    },
+    {
       "company": "Pinterest",
       "category": "infrastructure",
       "post_type": "structured",
@@ -11,12 +17,6 @@
       "category": "real-time",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption"
-    },
-    {
-      "company": "Uber",
-      "category": "database",
-      "post_type": "confessional",
-      "opening_style": "cold_fact"
     }
   ]
 }

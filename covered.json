@@ -32,6 +32,7 @@
     "github-code-search-blackbird-elasticsearch",
     "uber-schemaless-nosql-on-mysql",
     "twitch-irc-go-gc-pauses",
-    "pinterest-kubernetes-cadvisor-wss"
+    "pinterest-kubernetes-cadvisor-wss",
+    "slack-message-ordering-persist-broadcast"
   ]
 }
