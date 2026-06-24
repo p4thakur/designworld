@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Airbnb",
+      "category": "microservices",
+      "post_type": "confessional",
+      "opening_style": "cold_fact"
+    },
+    {
       "company": "Slack",
       "category": "messaging",
       "post_type": "narrative",
@@ -11,12 +17,6 @@
       "category": "infrastructure",
       "post_type": "structured",
       "opening_style": "specific_number"
-    },
-    {
-      "company": "Twitch",
-      "category": "real-time",
-      "post_type": "contrarian",
-      "opening_style": "challenge_assumption"
     }
   ]
 }
