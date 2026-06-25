@@ -34,6 +34,7 @@
     "twitch-irc-go-gc-pauses",
     "pinterest-kubernetes-cadvisor-wss",
     "slack-message-ordering-persist-broadcast",
-    "airbnb-monorail-great-migration-soa"
+    "airbnb-monorail-great-migration-soa",
+    "discord-go-to-rust-read-states"
   ]
 }

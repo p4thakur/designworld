@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Discord",
+      "category": "performance",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
       "company": "Airbnb",
       "category": "microservices",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "messaging",
       "post_type": "narrative",
       "opening_style": "mid_scene_drop"
-    },
-    {
-      "company": "Pinterest",
-      "category": "infrastructure",
-      "post_type": "structured",
-      "opening_style": "specific_number"
     }
   ]
 }
