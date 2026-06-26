@@ -35,6 +35,7 @@
     "pinterest-kubernetes-cadvisor-wss",
     "slack-message-ordering-persist-broadcast",
     "airbnb-monorail-great-migration-soa",
-    "discord-go-to-rust-read-states"
+    "discord-go-to-rust-read-states",
+    "facebook-haystack-blob-storage"
   ]
 }

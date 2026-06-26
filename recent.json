@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Facebook",
+      "category": "storage",
+      "post_type": "structured",
+      "opening_style": "specific_number_doesnt_add_up"
+    },
+    {
       "company": "Discord",
       "category": "performance",
       "post_type": "contrarian",
@@ -11,12 +17,6 @@
       "category": "microservices",
       "post_type": "confessional",
       "opening_style": "cold_fact"
-    },
-    {
-      "company": "Slack",
-      "category": "messaging",
-      "post_type": "narrative",
-      "opening_style": "mid_scene_drop"
     }
   ]
 }
