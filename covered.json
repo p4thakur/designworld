@@ -36,6 +36,7 @@
     "slack-message-ordering-persist-broadcast",
     "airbnb-monorail-great-migration-soa",
     "discord-go-to-rust-read-states",
-    "facebook-haystack-blob-storage"
+    "facebook-haystack-blob-storage",
+    "amazon-dynamo-shopping-cart-eventual-consistency"
   ]
 }
