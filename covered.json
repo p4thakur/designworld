@@ -37,6 +37,7 @@
     "airbnb-monorail-great-migration-soa",
     "discord-go-to-rust-read-states",
     "facebook-haystack-blob-storage",
-    "amazon-dynamo-shopping-cart-eventual-consistency"
+    "amazon-dynamo-shopping-cart-eventual-consistency",
+    "netflix-tudum-cqrs-kafka-to-raw-hollow"
   ]
 }
