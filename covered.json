@@ -39,6 +39,7 @@
     "facebook-haystack-blob-storage",
     "amazon-dynamo-shopping-cart-eventual-consistency",
     "netflix-tudum-cqrs-kafka-to-raw-hollow",
-    "segment-centrifuge-ordered-delivery"
+    "segment-centrifuge-ordered-delivery",
+    "shopify-redis-to-mysql-inventory-skip-locked"
   ]
 }
