@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Cloudflare",
+      "category": "availability",
+      "post_type": "narrative",
+      "opening_style": "mid_scene_drop"
+    },
+    {
       "company": "Shopify",
       "category": "caching",
       "post_type": "structured",
@@ -11,12 +17,6 @@
       "category": "messaging",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption"
-    },
-    {
-      "company": "Netflix",
-      "category": "infrastructure",
-      "post_type": "confessional",
-      "opening_style": "cold_fact"
     }
   ]
 }
