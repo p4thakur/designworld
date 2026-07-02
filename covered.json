@@ -41,6 +41,7 @@
     "netflix-tudum-cqrs-kafka-to-raw-hollow",
     "segment-centrifuge-ordered-delivery",
     "shopify-redis-to-mysql-inventory-skip-locked",
-    "cloudflare-nov-2025-bot-management-outage"
+    "cloudflare-nov-2025-bot-management-outage",
+    "37signals-aws-cloud-exit"
   ]
 }
