@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Figma",
+      "category": "performance",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
       "company": "37signals",
       "category": "infrastructure",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "availability",
       "post_type": "narrative",
       "opening_style": "mid_scene_drop"
-    },
-    {
-      "company": "Shopify",
-      "category": "caching",
-      "post_type": "structured",
-      "opening_style": "specific_number"
     }
   ]
 }

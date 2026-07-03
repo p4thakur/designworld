@@ -42,6 +42,7 @@
     "segment-centrifuge-ordered-delivery",
     "shopify-redis-to-mysql-inventory-skip-locked",
     "cloudflare-nov-2025-bot-management-outage",
-    "37signals-aws-cloud-exit"
+    "37signals-aws-cloud-exit",
+    "figma-cpp-wasm-rendering-engine"
   ]
 }
