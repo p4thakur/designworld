@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Twitter",
+      "category": "databases",
+      "post_type": "structured",
+      "opening_style": "the_decision"
+    },
+    {
       "company": "Figma",
       "category": "performance",
       "post_type": "contrarian",
@@ -11,12 +17,6 @@
       "category": "infrastructure",
       "post_type": "confessional",
       "opening_style": "cold_fact"
-    },
-    {
-      "company": "Cloudflare",
-      "category": "availability",
-      "post_type": "narrative",
-      "opening_style": "mid_scene_drop"
     }
   ]
 }

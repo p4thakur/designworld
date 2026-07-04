@@ -43,6 +43,7 @@
     "shopify-redis-to-mysql-inventory-skip-locked",
     "cloudflare-nov-2025-bot-management-outage",
     "37signals-aws-cloud-exit",
-    "figma-cpp-wasm-rendering-engine"
+    "figma-cpp-wasm-rendering-engine",
+    "twitter-manhattan-rocksdb-migration"
   ]
 }
