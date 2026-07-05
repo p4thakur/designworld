@@ -12,14 +12,14 @@
         "https://www.infoq.com/news/2023/06/discord-cassandra-scylladb/",
         "https://thenewstack.io/how-discord-migrated-trillions-of-messages-to-scylladb/"
       ],
-      "key_numbers": "177 \u2192 72 nodes, p99 read 40-125ms \u2192 15ms, p99 write 5-70ms \u2192 5ms",
+      "key_numbers": "177 → 72 nodes, p99 read 40-125ms → 15ms, p99 write 5-70ms → 5ms",
       "lesson": "Your database's ceiling is often the runtime beneath it, not the database design",
       "filename": "post_1_discord_final.md"
     },
     {
       "date": "2026-04-19",
       "company": "Shopify",
-      "topic": "Pod architecture \u2014 isolated data cells instead of microservices",
+      "topic": "Pod architecture — isolated data cells instead of microservices",
       "category": "availability",
       "hook": "Monolith survives Black Friday by isolating state, not splitting services",
       "opening_style": "rhetorical question (Ever wonder how Shopify's platform...)",
@@ -37,7 +37,7 @@
     {
       "date": "2026-04-20",
       "company": "Figma",
-      "topic": "Multiplayer editing \u2014 rejected OT in favor of last-writer-wins per property",
+      "topic": "Multiplayer editing — rejected OT in favor of last-writer-wins per property",
       "category": "real-time systems",
       "hook": "Rejected the industry-standard algorithm (OT) because design isn't text",
       "opening_style": "rhetorical question (Ever wonder how Figma lets 30 people...)",
@@ -54,7 +54,7 @@
     {
       "date": "2026-04-21",
       "company": "Cloudflare",
-      "topic": "Workers run on V8 isolates, not containers \u2014 100x faster cold starts",
+      "topic": "Workers run on V8 isolates, not containers — 100x faster cold starts",
       "category": "infrastructure / serverless",
       "hook": "Rejected containers as the isolation primitive and rebuilt serverless around V8",
       "opening_style": "shared-pain-point opener (Every serverless platform has the same problem: cold starts.)",
@@ -72,24 +72,22 @@
     {
       "date": "2026-04-21",
       "company": "Notion",
-      "topic": "Sharding Postgres monolith \u2014 480 logical shards, workspace ID partition key, then re-sharding 32\u219296 physical DBs",
+      "topic": "Sharding Postgres monolith — 480 logical shards, workspace ID partition key, then re-sharding 32→96 physical DBs",
       "category": "databases",
-      "post_type": "structured",
-      "opening_style": "cold_fact",
       "hook": "Monolith lasted 5 years and 4 orders of magnitude. Then VACUUM stopped working.",
       "sources": [
         "https://www.notion.com/blog/sharding-postgres-at-notion",
         "https://www.notion.com/blog/the-great-re-shard",
         "https://www.notion.com/blog/building-and-scaling-notions-data-lake"
       ],
-      "key_numbers": "480 logical shards, 32\u219296 physical DBs, 20B\u2192200B blocks in 3 years, 96-CPU migration machine, 5 min downtime, TXID wraparound at 4B",
+      "key_numbers": "480 logical shards, 32→96 physical DBs, 20B→200B blocks in 3 years, 96-CPU migration machine, 5 min downtime, TXID wraparound at 4B",
       "lesson": "Shard before your database is so strained that the migration itself becomes dangerous.",
       "filename": "post_5_notion_final.md"
     },
     {
       "date": "2026-04-23",
       "company": "Instagram",
-      "topic": "Sharding IDs \u2014 64-bit self-routing IDs using PL/pgSQL inside Postgres, rejected Snowflake/UUID/ticket servers",
+      "topic": "Sharding IDs — 64-bit self-routing IDs using PL/pgSQL inside Postgres, rejected Snowflake/UUID/ticket servers",
       "category": "databases",
       "post_type": "structured",
       "opening_style": "the_decision",
@@ -104,7 +102,7 @@
     {
       "date": "2026-05-10",
       "company": "Uber",
-      "topic": "DOMA \u2014 Domain-Oriented Microservice Architecture, organizing 2200 services into 70 domains with gateways and layers",
+      "topic": "DOMA — Domain-Oriented Microservice Architecture, organizing 2200 services into 70 domains with gateways and layers",
       "category": "microservices",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption",
@@ -112,14 +110,14 @@
       "sources": [
         "https://www.uber.com/en-BG/blog/microservice-architecture/"
       ],
-      "key_numbers": "2200 services \u2192 70 domains. Half-life 1.5 years. 50 services across 12 teams for 1 bug. Integration time 3 days \u2192 3 hours. Onboarding reduced 25-50%.",
+      "key_numbers": "2200 services → 70 domains. Half-life 1.5 years. 50 services across 12 teams for 1 bug. Integration time 3 days → 3 hours. Onboarding reduced 25-50%.",
       "lesson": "The organizing principle above microservices matters more than the microservices themselves.",
       "filename": "post_7_uber_final.md"
     },
     {
       "date": "2026-05-10",
       "company": "Netflix",
-      "topic": "EVCache evolution from RAM to SSD \u2014 Moneta (RocksDB) then extstore, trillions of ops/day",
+      "topic": "EVCache evolution from RAM to SSD — Moneta (RocksDB) then extstore, trillions of ops/day",
       "category": "caching",
       "post_type": "narrative",
       "opening_style": "mid_scene",
@@ -129,18 +127,18 @@
         "https://medium.com/netflix-techblog/application-data-caching-using-ssds-5bf25df851ef",
         "https://netflixtechblog.com/cache-warming-agility-for-a-stateful-service-2d3b1da82642"
       ],
-      "key_numbers": "Petabytes, hundreds of billions items, trillions ops/day. RAM <1\u03bcs, SSD 100-500\u03bcs, SLA 1ms. Moneta: 60% cluster reduction. r3 80GB \u2192 i2 800GB (10x storage).",
-      "lesson": "The real question is not RAM or disk \u2014 it is what latency does your SLA actually require.",
+      "key_numbers": "Petabytes, hundreds of billions items, trillions ops/day. RAM <1μs, SSD 100-500μs, SLA 1ms. Moneta: 60% cluster reduction. r3 80GB → i2 800GB (10x storage).",
+      "lesson": "The real question is not RAM or disk — it is what latency does your SLA actually require.",
       "filename": "post_8_netflix_final.md"
     },
     {
       "date": "2026-05-10",
       "company": "Stripe",
-      "topic": "Idempotency keys \u2014 3 failure modes, UUID per request, cached response, 24hr expiry, 500 edge case",
+      "topic": "Idempotency keys — 3 failure modes, UUID per request, cached response, 24hr expiry, 500 edge case",
       "category": "stability",
       "post_type": "confessional",
       "opening_style": "number_mismatch",
-      "hook": "A request fails in 3 ways and only one is obvious \u2014 the third is the dangerous one.",
+      "hook": "A request fails in 3 ways and only one is obvious — the third is the dangerous one.",
       "sources": [
         "https://stripe.com/blog/idempotency",
         "https://docs.stripe.com/error-low-level",
@@ -153,17 +151,17 @@
     {
       "date": "2026-05-10",
       "company": "LinkedIn",
-      "topic": "Kafka origin \u2014 M\u00d7N pipeline problem, distributed commit log, 1B to 7T messages/day, internal release branch",
+      "topic": "Kafka origin — M×N pipeline problem, distributed commit log, 1B to 7T messages/day, internal release branch",
       "category": "messaging",
       "post_type": "structured",
       "opening_style": "cold_fact",
-      "hook": "In 2010, LinkedIn had a data problem existing tools could not solve \u2014 so they built Kafka.",
+      "hook": "In 2010, LinkedIn had a data problem existing tools could not solve — so they built Kafka.",
       "sources": [
         "https://engineering.linkedin.com/apache-kafka/how-we_re-improving-and-advancing-kafka-linkedin",
         "https://www.linkedin.com/blog/engineering/open-source/apache-kafka-trillion-messages",
         "https://www.confluent.io/blog/apache-kafka-hits-1-1-trillion-messages-per-day-joins-the-4-comma-club/"
       ],
-      "key_numbers": "1B/day (2011) \u2192 20B (2012) \u2192 200B (2013) \u2192 1T/4.5M sec peak (2014) \u2192 7T/day today. 100+ clusters, 4000+ brokers, 100K topics, 7M partitions.",
+      "key_numbers": "1B/day (2011) → 20B (2012) → 200B (2013) → 1T/4.5M sec peak (2014) → 7T/day today. 100+ clusters, 4000+ brokers, 100K topics, 7M partitions.",
       "lesson": "The log is a more fundamental abstraction than most engineers realize. Pull model + persistence + partitioning generalizes to every organization generating continuous event data.",
       "filename": "post_10_linkedin_kafka_final.md",
       "blog_filename": "blog_10_linkedin_kafka.md"
@@ -171,7 +169,7 @@
     {
       "date": "2026-05-10",
       "company": "DoorDash",
-      "topic": "Replaced Elasticsearch with Apache Lucene-based in-house search engine \u2014 segment replication, indexer/searcher split",
+      "topic": "Replaced Elasticsearch with Apache Lucene-based in-house search engine — segment replication, indexer/searcher split",
       "category": "search",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption",
@@ -179,7 +177,7 @@
       "sources": [
         "https://doordash.engineering/2024/02/27/introducing-doordashs-in-house-search-engine/"
       ],
-      "key_numbers": "p99.9 latency -50%, hardware costs -75%. Shard replication \u2192 segment replication via S3. Indexer + Searcher scale independently.",
+      "key_numbers": "p99.9 latency -50%, hardware costs -75%. Shard replication → segment replication via S3. Indexer + Searcher scale independently.",
       "lesson": "The tool you outgrow made assumptions that stopped fitting your workload. Going down one abstraction layer and building to fit is sometimes cheaper than fighting the default.",
       "filename": "post_11_doordash_final.md",
       "blog_filename": "blog_11_doordash_search.md"
@@ -187,7 +185,7 @@
     {
       "date": "2026-05-20",
       "company": "Uber",
-      "topic": "CRISP \u2014 critical path analysis for microservices, finds actual bottleneck vs slowest service",
+      "topic": "CRISP — critical path analysis for microservices, finds actual bottleneck vs slowest service",
       "category": "performance",
       "post_type": "structured",
       "opening_style": "the_decision",
@@ -204,7 +202,7 @@
     {
       "date": "2026-05-20",
       "company": "Meta",
-      "topic": "MySQL Raft \u2014 Raft consensus built into MySQL, binlog as Raft log, leadership inside mysqld",
+      "topic": "MySQL Raft — Raft consensus built into MySQL, binlog as Raft log, leadership inside mysqld",
       "category": "databases",
       "post_type": "structured",
       "opening_style": "number_mismatch",
@@ -222,7 +220,7 @@
     {
       "date": "2026-05-20",
       "company": "Netflix",
-      "topic": "Chaos Monkey and the Simian Army \u2014 intentionally killing production instances to build resilience",
+      "topic": "Chaos Monkey and the Simian Army — intentionally killing production instances to build resilience",
       "category": "availability",
       "post_type": "narrative",
       "opening_style": "mid_scene",
@@ -240,7 +238,7 @@
     {
       "date": "2026-05-20",
       "company": "Airbnb",
-      "topic": "Dynein \u2014 Resque to Quartz+MySQL to SQS+DynamoDB. Query amplification was the bottleneck.",
+      "topic": "Dynein — Resque to Quartz+MySQL to SQS+DynamoDB. Query amplification was the bottleneck.",
       "category": "messaging",
       "post_type": "confessional",
       "opening_style": "cold_fact",
@@ -257,7 +255,7 @@
     {
       "date": "2026-05-20",
       "company": "Uber",
-      "topic": "Kafka Dead Letter Queues \u2014 non-blocking reprocessing via retry topic cascade, leaky bucket delay, DLQ merge",
+      "topic": "Kafka Dead Letter Queues — non-blocking reprocessing via retry topic cascade, leaky bucket delay, DLQ merge",
       "category": "stability",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption",
@@ -271,6 +269,24 @@
       "lesson": "Separate the fast path from the slow path. Primary consumer must never be blocked by failure recovery. Retry happens on its own timeline.",
       "filename": "post_17_uber_kafka_dlq_final.md",
       "blog_filename": "blog_17_uber_kafka_dlq.md"
+    },
+    {
+      "date": "2026-07-05",
+      "company": "Amazon (AWS)",
+      "topic": "S3 US-EAST-1 outage — mistyped capacity-removal command, index + placement subsystem full restart, status dashboard hosted on S3 itself",
+      "category": "storage",
+      "post_type": "narrative",
+      "opening_style": "mid_scene",
+      "hook": "A routine billing-debug playbook command, one wrong input, and AWS's own status page couldn't load because it was hosted on the S3 that had just gone dark",
+      "sources": [
+        "https://aws.amazon.com/message/41926/",
+        "https://www.gremlin.com/blog/the-2017-amazon-s-3-outage",
+        "https://www.npr.org/sections/thetwo-way/2017/03/03/518322734/amazon-and-the-150-million-typo",
+        "https://www.axios.com/2017/12/15/amazon-outage-cost-sp-500-companies-150m-1513300728"
+      ],
+      "key_numbers": "9:37 AM PST start, ~4 hours total outage, ~2 hours before status dashboard could update, ~$150M in S&P 500 losses (Cyence estimate)",
+      "lesson": "The failure mode that mattered wasn't in the code. It was in a system so reliable that no one had rehearsed what a full restart of its core subsystems would actually cost.",
+      "filename": "2026-07-05-aws-s3-2017-typo-outage.md"
     }
   ]
 }
