@@ -44,6 +44,7 @@
     "cloudflare-nov-2025-bot-management-outage",
     "37signals-aws-cloud-exit",
     "figma-cpp-wasm-rendering-engine",
-    "twitter-manhattan-rocksdb-migration"
+    "twitter-manhattan-rocksdb-migration",
+    "aws-s3-2017-typo-outage"
   ]
 }
