@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Amazon (AWS)",
+      "category": "storage",
+      "post_type": "narrative",
+      "opening_style": "mid_scene"
+    },
+    {
       "company": "Twitter",
       "category": "databases",
       "post_type": "structured",
@@ -11,12 +17,6 @@
       "category": "performance",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption"
-    },
-    {
-      "company": "37signals",
-      "category": "infrastructure",
-      "post_type": "confessional",
-      "opening_style": "cold_fact"
     }
   ]
 }
