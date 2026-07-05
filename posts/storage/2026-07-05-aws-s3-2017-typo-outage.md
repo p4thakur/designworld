@@ -1,37 +1,37 @@
-&lt;!-- sources --&gt;
-&lt;!-- Primary: AWS, "Summary of the Amazon S3 Service Disruption in the Northern Virginia (US-EAST-1) Region" (Feb 28, 2017) --&gt;
-&lt;!-- URL: https://aws.amazon.com/message/41926/ --&gt;
-&lt;!-- Note: direct fetch of aws.amazon.com/message/41926/ returned HTTP 403 under this session's egress policy; --&gt;
-&lt;!-- facts and figures below are cross-checked across multiple independent search-result excerpts quoting the --&gt;
-&lt;!-- primary AWS postmortem directly (exact phrasing on the index/placement subsystems and the safety-check delay --&gt;
-&lt;!-- matched verbatim across sources), rather than a single full-text fetch. --&gt;
-&lt;!-- Corroborating (cross-checked, consistent on figures below): --&gt;
-&lt;!--   https://www.gremlin.com/blog/the-2017-amazon-s-3-outage --&gt;
-&lt;!--   https://www.datacenterknowledge.com/outages/aws-outage-that-broke-the-internet-caused-by-mistyped-command --&gt;
-&lt;!--   https://www.networkworld.com/article/960912/read-the-full-text-of-amazons-post-mortem-from-its-s3-cloud-brownout.html --&gt;
-&lt;!--   https://www.npr.org/sections/thetwo-way/2017/03/03/518322734/amazon-and-the-150-million-typo --&gt;
-&lt;!--   https://www.axios.com/2017/12/15/amazon-outage-cost-sp-500-companies-150m-1513300728 --&gt;
-&lt;!--   https://www.theregister.com/2017/03/02/aws_s3_meltdown/ --&gt;
-&lt;!--   https://www.csoonline.com/article/560421/aws-says-a-typo-caused-the-massive-s3-failure-this-week.html --&gt;
-&lt;!-- Key verifiable details (cross-referenced across primary + corroborating sources): --&gt;
-&lt;!-- 1. Feb 28, 2017, 9:37 AM PST: an authorized S3 team member, using an established playbook, executed a command --&gt;
-&lt;!--    to remove a small number of servers supporting the S3 billing subsystem in US-EAST-1; one input parameter --&gt;
-&lt;!--    was entered incorrectly, removing a much larger set of servers than intended --&gt;
-&lt;!-- 2. Two subsystems went down as a result: the index subsystem (tracks metadata/location for every S3 object in --&gt;
-&lt;!--    the region; required for all GET/LIST/PUT/DELETE requests) and the placement subsystem (allocates storage --&gt;
-&lt;!--    for new objects) --&gt;
-&lt;!-- 3. Neither subsystem had been fully restarted in US-EAST-1 (one of the largest regions) in several years; the --&gt;
-&lt;!--    restart plus the safety checks needed to validate metadata integrity before serving traffic again "took --&gt;
-&lt;!--    longer than expected" --&gt;
-&lt;!-- 4. AWS's own Service Health Dashboard was itself hosted on assets served from S3 in the same affected region, --&gt;
-&lt;!--    so it could not be updated for roughly the first two hours of the ~4-hour incident --&gt;
-&lt;!-- 5. Total outage duration was approximately four hours (from 9:37 AM PST to just before 2 PM PST) --&gt;
-&lt;!-- 6. Affected services/sites included Quora, Medium, Slack, Trello, Docker, Imgur, GitHub, Expedia, Coursera, and --&gt;
-&lt;!-- 6. the SEC's EDGAR filings system, among many others relying on S3 in US-EAST-1 --&gt;
-&lt;!-- 7. Cyence, a cyber-risk modeling firm, estimated S&amp;P 500 companies alone lost about $150 million from the outage --&gt;
-&lt;!-- 8. AWS's remediation: modified the capacity-removal tooling to remove server capacity more slowly, added a --&gt;
-&lt;!--    safeguard preventing removal below a subsystem's minimum required capacity, and made the Service Health --&gt;
-&lt;!--    Dashboard run across multiple AWS regions instead of depending on a single one --&gt;
+<!-- sources -->
+<!-- Primary: AWS, "Summary of the Amazon S3 Service Disruption in the Northern Virginia (US-EAST-1) Region" (Feb 28, 2017) -->
+<!-- URL: https://aws.amazon.com/message/41926/ -->
+<!-- Note: direct fetch of aws.amazon.com/message/41926/ returned HTTP 403 under this session's egress policy; -->
+<!-- facts and figures below are cross-checked across multiple independent search-result excerpts quoting the -->
+<!-- primary AWS postmortem directly (exact phrasing on the index/placement subsystems and the safety-check delay -->
+<!-- matched verbatim across sources), rather than a single full-text fetch. -->
+<!-- Corroborating (cross-checked, consistent on figures below): -->
+<!--   https://www.gremlin.com/blog/the-2017-amazon-s-3-outage -->
+<!--   https://www.datacenterknowledge.com/outages/aws-outage-that-broke-the-internet-caused-by-mistyped-command -->
+<!--   https://www.networkworld.com/article/960912/read-the-full-text-of-amazons-post-mortem-from-its-s3-cloud-brownout.html -->
+<!--   https://www.npr.org/sections/thetwo-way/2017/03/03/518322734/amazon-and-the-150-million-typo -->
+<!--   https://www.axios.com/2017/12/15/amazon-outage-cost-sp-500-companies-150m-1513300728 -->
+<!--   https://www.theregister.com/2017/03/02/aws_s3_meltdown/ -->
+<!--   https://www.csoonline.com/article/560421/aws-says-a-typo-caused-the-massive-s3-failure-this-week.html -->
+<!-- Key verifiable details (cross-referenced across primary + corroborating sources): -->
+<!-- 1. Feb 28, 2017, 9:37 AM PST: an authorized S3 team member, using an established playbook, executed a command -->
+<!--    to remove a small number of servers supporting the S3 billing subsystem in US-EAST-1; one input parameter -->
+<!--    was entered incorrectly, removing a much larger set of servers than intended -->
+<!-- 2. Two subsystems went down as a result: the index subsystem (tracks metadata/location for every S3 object in -->
+<!--    the region; required for all GET/LIST/PUT/DELETE requests) and the placement subsystem (allocates storage -->
+<!--    for new objects) -->
+<!-- 3. Neither subsystem had been fully restarted in US-EAST-1 (one of the largest regions) in several years; the -->
+<!--    restart plus the safety checks needed to validate metadata integrity before serving traffic again "took -->
+<!--    longer than expected" -->
+<!-- 4. AWS's own Service Health Dashboard was itself hosted on assets served from S3 in the same affected region, -->
+<!--    so it could not be updated for roughly the first two hours of the ~4-hour incident -->
+<!-- 5. Total outage duration was approximately four hours (from 9:37 AM PST to just before 2 PM PST) -->
+<!-- 6. Affected services/sites included Quora, Medium, Slack, Trello, Docker, Imgur, GitHub, Expedia, Coursera, and -->
+<!-- 6. the SEC's EDGAR filings system, among many others relying on S3 in US-EAST-1 -->
+<!-- 7. Cyence, a cyber-risk modeling firm, estimated S&P 500 companies alone lost about $150 million from the outage -->
+<!-- 8. AWS's remediation: modified the capacity-removal tooling to remove server capacity more slowly, added a -->
+<!--    safeguard preventing removal below a subsystem's minimum required capacity, and made the Service Health -->
+<!--    Dashboard run across multiple AWS regions instead of depending on a single one -->
 
 # AWS S3, February 28, 2017: The Playbook That Worked Until It Didn't
 
