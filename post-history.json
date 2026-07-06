@@ -287,6 +287,24 @@
       "key_numbers": "9:37 AM PST start, ~4 hours total outage, ~2 hours before status dashboard could update, ~$150M in S&P 500 losses (Cyence estimate)",
       "lesson": "The failure mode that mattered wasn't in the code. It was in a system so reliable that no one had rehearsed what a full restart of its core subsystems would actually cost.",
       "filename": "2026-07-05-aws-s3-2017-typo-outage.md"
+    },
+    {
+      "date": "2026-07-06",
+      "company": "Twitter (X)",
+      "topic": "Earlybird real-time search — MySQL to custom Lucene rewrite in 2010, then unrolled linked lists to skip lists in 2020 to fix 15-second indexing lag",
+      "category": "search",
+      "post_type": "confessional",
+      "opening_style": "specific_number",
+      "hook": "A decade after Twitter first solved 'real-time' search, a new tweet could still take up to 15 seconds to become searchable — because the fix from 2010 had its own aging assumption baked in",
+      "sources": [
+        "https://blog.twitter.com/engineering/en_us/a/2010/twitters-new-search-architecture",
+        "https://blog.twitter.com/engineering/en_us/a/2011/the-engineering-behind-twitter-s-new-search-experience",
+        "https://blog.twitter.com/engineering/en_us/topics/infrastructure/2020/reducing-search-indexing-latency-to-one-second",
+        "https://ieeexplore.ieee.org/document/6228205"
+      ],
+      "key_numbers": "~6,000 tweets/sec ingested (~500M/day), 2B+ queries/day at ~50ms avg latency, 17K QPS on a 16M-tweet segment, 15s indexing lag in 2019 cut to ~1s (>90% reduction) via skip lists in 2020",
+      "lesson": "The system built to escape one era's staleness spent the next decade quietly becoming the source of the next one — 'real-time' isn't a fixed target.",
+      "filename": "2026-07-06-twitter-earlybird-real-time-search.md"
     }
   ]
 }

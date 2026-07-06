@@ -45,6 +45,7 @@
     "37signals-aws-cloud-exit",
     "figma-cpp-wasm-rendering-engine",
     "twitter-manhattan-rocksdb-migration",
-    "aws-s3-2017-typo-outage"
+    "aws-s3-2017-typo-outage",
+    "twitter-earlybird-real-time-search"
   ]
 }
