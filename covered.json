@@ -46,6 +46,7 @@
     "figma-cpp-wasm-rendering-engine",
     "twitter-manhattan-rocksdb-migration",
     "aws-s3-2017-typo-outage",
-    "twitter-earlybird-real-time-search"
+    "twitter-earlybird-real-time-search",
+    "discord-elixir-manifold-distribution"
   ]
 }

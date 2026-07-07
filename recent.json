@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Discord",
+      "category": "real-time",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
       "company": "Twitter",
       "category": "search",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "storage",
       "post_type": "narrative",
       "opening_style": "mid_scene"
-    },
-    {
-      "company": "Twitter",
-      "category": "databases",
-      "post_type": "structured",
-      "opening_style": "the_decision"
     }
   ]
 }

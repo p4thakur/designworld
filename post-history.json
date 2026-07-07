@@ -305,6 +305,24 @@
       "key_numbers": "~6,000 tweets/sec ingested (~500M/day), 2B+ queries/day at ~50ms avg latency, 17K QPS on a 16M-tweet segment, 15s indexing lag in 2019 cut to ~1s (>90% reduction) via skip lists in 2020",
       "lesson": "The system built to escape one era's staleness spent the next decade quietly becoming the source of the next one — 'real-time' isn't a fixed target.",
       "filename": "2026-07-06-twitter-earlybird-real-time-search.md"
+    },
+    {
+      "date": "2026-07-07",
+      "company": "Discord",
+      "topic": "Elixir at 5M concurrent users — Manifold batches cross-node sends by remote node instead of looping send/2 per PID, and the consistent-hash ring rewritten into pure Elixir + ETS to remove a single-owner-process bottleneck",
+      "category": "real-time",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption",
+      "hook": "Distributed Erlang makes a remote send/2 look identical in code to a local one — Discord found out that at 100,000 PIDs per guild process, 'looks the same' and 'costs the same' are different claims",
+      "sources": [
+        "https://discord.com/blog/how-discord-scaled-elixir-to-5-000-000-concurrent-users",
+        "https://github.com/discord/manifold",
+        "https://github.com/discord/ex_hash_ring",
+        "https://elixir-lang.org/blog/2020/10/08/real-time-communication-at-scale-with-elixir-at-discord/"
+      ],
+      "key_numbers": "Up to 30K concurrent users in one guild (r/Overwatch), ~100K session PIDs on busy guild processes, ~70µs per remote send/2, packets/sec -50% immediately after Manifold, ring lookup ~12µs each, ~30s aggregate lookup cost during a mass-reconnect storm",
+      "lesson": "Location transparency didn't get removed by either fix — Discord just stopped paying its cost by accident, once per PID, and started paying it on purpose, once per node.",
+      "filename": "2026-07-07-discord-elixir-manifold-distribution.md"
     }
   ]
 }
