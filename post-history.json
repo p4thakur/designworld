@@ -323,6 +323,24 @@
       "key_numbers": "Up to 30K concurrent users in one guild (r/Overwatch), ~100K session PIDs on busy guild processes, ~70µs per remote send/2, packets/sec -50% immediately after Manifold, ring lookup ~12µs each, ~30s aggregate lookup cost during a mass-reconnect storm",
       "lesson": "Location transparency didn't get removed by either fix — Discord just stopped paying its cost by accident, once per PID, and started paying it on purpose, once per node.",
       "filename": "2026-07-07-discord-elixir-manifold-distribution.md"
+    },
+    {
+      "date": "2026-07-08",
+      "company": "Pinterest",
+      "topic": "Manual MySQL sharding — rejected auto-clustering (Cassandra/Membase) after a rebalancing bug lost ~20% of data, rebuilt on deterministic 64-bit IDs (16-bit shard + 10-bit type + 36-bit local) with no auto-failover, ever",
+      "category": "database",
+      "post_type": "structured",
+      "opening_style": "cold_fact",
+      "hook": "A rebalancing bug flipped a secondary to primary mid-transfer and cost Pinterest ~20% of its data — so they threw out automatic clustering and wrote a sharding function by hand instead",
+      "sources": [
+        "https://medium.com/pinterest-engineering/sharding-pinterest-how-we-scaled-our-mysql-fleet-3f341e96ca6f",
+        "https://highscalability.com/scaling-pinterest-from-0-to-10s-of-billions-of-page-views-a/",
+        "https://gigaom.com/2012/09/27/scaling-pinterest-and-adventures-in-database-sharding/",
+        "https://read.engineerscodex.com/p/how-pinterest-scaled-to-11-million"
+      ],
+      "key_numbers": "Jan 2012: 11.7M monthly users, 6 engineers. Oct 2012: ~22M monthly users, 40 engineers, 88 sharded MySQL boxes. 64-bit ID = 16-bit shard + 10-bit type + 36-bit local. 4,096 shards live at launch of 65,536 possible. ~20% data lost in the rebalancing failure that triggered the rewrite.",
+      "lesson": "Automation isn't the goal. A failure mode you can actually reason about at 3am is — Pinterest traded invisible auto-rebalancing for a slower, manual, human-owned failover.",
+      "filename": "2026-07-08-pinterest-mysql-manual-sharding.md"
     }
   ]
 }

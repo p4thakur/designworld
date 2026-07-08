@@ -47,6 +47,7 @@
     "twitter-manhattan-rocksdb-migration",
     "aws-s3-2017-typo-outage",
     "twitter-earlybird-real-time-search",
-    "discord-elixir-manifold-distribution"
+    "discord-elixir-manifold-distribution",
+    "pinterest-mysql-manual-sharding"
   ]
 }
