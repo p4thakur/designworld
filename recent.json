@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Facebook",
+      "category": "infrastructure",
+      "post_type": "narrative",
+      "opening_style": "mid_scene"
+    },
+    {
       "company": "Pinterest",
       "category": "database",
       "post_type": "structured",
@@ -11,12 +17,6 @@
       "category": "real-time",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption"
-    },
-    {
-      "company": "Twitter",
-      "category": "search",
-      "post_type": "confessional",
-      "opening_style": "specific_number"
     }
   ]
 }

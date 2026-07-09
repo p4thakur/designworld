@@ -48,6 +48,7 @@
     "aws-s3-2017-typo-outage",
     "twitter-earlybird-real-time-search",
     "discord-elixir-manifold-distribution",
-    "pinterest-mysql-manual-sharding"
+    "pinterest-mysql-manual-sharding",
+    "facebook-2021-bgp-outage"
   ]
 }

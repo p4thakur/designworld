@@ -341,6 +341,25 @@
       "key_numbers": "Jan 2012: 11.7M monthly users, 6 engineers. Oct 2012: ~22M monthly users, 40 engineers, 88 sharded MySQL boxes. 64-bit ID = 16-bit shard + 10-bit type + 36-bit local. 4,096 shards live at launch of 65,536 possible. ~20% data lost in the rebalancing failure that triggered the rewrite.",
       "lesson": "Automation isn't the goal. A failure mode you can actually reason about at 3am is — Pinterest traded invisible auto-rebalancing for a slower, manual, human-owned failover.",
       "filename": "2026-07-08-pinterest-mysql-manual-sharding.md"
+    },
+    {
+      "date": "2026-07-09",
+      "company": "Facebook (Meta)",
+      "topic": "October 4, 2021 global outage — an audit-tool bug let a routine backbone-capacity command withdraw every BGP route, and Facebook's own DNS servers correctly self-withdrew their advertisements when they lost the backbone, which then broke the internal recovery tools and the badge readers on data center doors, all of which ran on the same network",
+      "category": "infrastructure",
+      "post_type": "narrative",
+      "opening_style": "mid_scene",
+      "hook": "A safety mechanism designed to make DNS servers withdraw themselves when unhealthy worked exactly as intended — and that correctness is what took Facebook, Instagram, and WhatsApp off the internet for six hours, then locked the engineers who could fix it out of the building",
+      "sources": [
+        "https://engineering.fb.com/2021/10/05/networking-traffic/outage-details/",
+        "https://engineering.fb.com/2021/10/04/networking-traffic/outage/",
+        "https://en.wikipedia.org/wiki/2021_Facebook_outage",
+        "https://www.theregister.com/2021/10/06/facebook_outage_explained_in_detail/",
+        "https://www.kentik.com/blog/facebooks-historic-outage-explained/"
+      ],
+      "key_numbers": "15:39 UTC command run, BGP restored ~21:50 UTC, DNS ~22:05 UTC, full service ~23:00 UTC (~6-7 hrs total), ~3.5B people affected across the app family, ~$60-100M estimated lost revenue for the day, Meta stock closed down ~4.9%",
+      "lesson": "The tradeoffs don't disappear when you add a safety mechanism. They just move — usually into the one scenario nobody modeled: everything failing at once.",
+      "filename": "2026-07-09-facebook-2021-bgp-outage.md"
     }
   ]
 }
