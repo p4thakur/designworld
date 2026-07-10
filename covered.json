@@ -49,6 +49,7 @@
     "twitter-earlybird-real-time-search",
     "discord-elixir-manifold-distribution",
     "pinterest-mysql-manual-sharding",
-    "facebook-2021-bgp-outage"
+    "facebook-2021-bgp-outage",
+    "cloudflare-2019-regex-waf-outage"
   ]
 }
