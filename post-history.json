@@ -360,6 +360,25 @@
       "key_numbers": "15:39 UTC command run, BGP restored ~21:50 UTC, DNS ~22:05 UTC, full service ~23:00 UTC (~6-7 hrs total), ~3.5B people affected across the app family, ~$60-100M estimated lost revenue for the day, Meta stock closed down ~4.9%",
       "lesson": "The tradeoffs don't disappear when you add a safety mechanism. They just move — usually into the one scenario nobody modeled: everything failing at once.",
       "filename": "2026-07-09-facebook-2021-bgp-outage.md"
+    },
+    {
+      "date": "2026-07-10",
+      "company": "Cloudflare",
+      "topic": "July 2019 global outage — a WAF refactor meant to cut CPU use quietly deleted the circuit breaker for runaway regexes; three weeks later a routine rule with a nested-wildcard regex pinned CPU near 100% worldwide, and the fix was the same instant-global-push mechanism that caused it",
+      "category": "availability",
+      "post_type": "confessional",
+      "opening_style": "specific_number",
+      "hook": "One misconfigured regex, 100% CPU across the entire global network, and a 27-minute wait to reach for a kill switch nobody had planned to use against themselves",
+      "sources": [
+        "https://blog.cloudflare.com/details-of-the-cloudflare-outage-on-july-2-2019/",
+        "https://blog.cloudflare.com/cloudflare-outage/",
+        "https://www.theregister.com/2019/07/12/cloudflare_cpu_cockup/",
+        "https://surfingcomplexity.blog/2019/08/02/contributors-mitigators-risks-cloudflare-2019-07-02-outage/",
+        "https://news.ycombinator.com/item?id=20421538"
+      ],
+      "key_numbers": "13:42 UTC deploy, 13:45 UTC first page (CPU near 100% worldwide), 14:02 UTC root cause isolated, 14:09 UTC recovered — 27 minutes total. CPU protection removed 3 weeks earlier during a WAF refactor. ~3,868 WAF Managed Rules hand-audited afterward.",
+      "lesson": "They kept the tool that pushes a fix everywhere in seconds. They just made sure it could no longer push an unbounded bug everywhere in seconds without anyone noticing first.",
+      "filename": "2026-07-10-cloudflare-2019-regex-waf-outage.md"
     }
   ]
 }
