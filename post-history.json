@@ -379,6 +379,25 @@
       "key_numbers": "13:42 UTC deploy, 13:45 UTC first page (CPU near 100% worldwide), 14:02 UTC root cause isolated, 14:09 UTC recovered — 27 minutes total. CPU protection removed 3 weeks earlier during a WAF refactor. ~3,868 WAF Managed Rules hand-audited afterward.",
       "lesson": "They kept the tool that pushes a fix everywhere in seconds. They just made sure it could no longer push an unbounded bug everywhere in seconds without anyone noticing first.",
       "filename": "2026-07-10-cloudflare-2019-regex-waf-outage.md"
+    },
+    {
+      "date": "2026-07-11",
+      "company": "Backblaze",
+      "topic": "Storage Pods (2009) — built a $7,867 4U box of 45 consumer SATA drives instead of buying an EMC SAN/NetApp filer/Amazon S3, solved chassis vibration by pinning drives rigid instead of cushioning them, then in 2013 tested a full pod of 'enterprise' drives against the consumer fleet and found the enterprise drives failed more often",
+      "category": "storage",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption",
+      "hook": "Backblaze tested the 'pay for enterprise storage' assumption twice — once on the hardware, once on the drives — and the enterprise option lost both times",
+      "sources": [
+        "https://www.backblaze.com/blog/petabytes-on-a-budget-how-to-build-cheap-cloud-storage/",
+        "https://www.backblaze.com/blog/enterprise-drive-reliability/",
+        "https://www.backblaze.com/blog/open-source-data-storage-server/",
+        "https://www.backblaze.com/cloud-storage/resources/storage-pod",
+        "https://www.storagereview.com/news/do-it-yourself-backblaze-offers-135tb-of-storage-for-under-8k"
+      ],
+      "key_numbers": "Sept 2009: 67TB, 45 consumer SATA drives, $7,867 material cost, ~$0.11/GB, ~1/10th the all-in cost of EMC/NetApp/Dell/S3. Pod 5.0: $0.044/GB. Pod 6.0 (60 drives, 480TB, one 4U box): $0.036/GB. 2013 experiment: one full pod of enterprise drives had a higher failure rate than the consumer fleet.",
+      "lesson": "We default to paying for the enterprise label because verifying it ourselves feels like too much work. Backblaze ran the numbers instead of assuming them — on the box, then on the drives — and cheaper won both times.",
+      "filename": "2026-07-11-backblaze-storage-pods-consumer-drives.md"
     }
   ]
 }

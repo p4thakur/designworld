@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Backblaze",
+      "category": "storage",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
       "company": "Cloudflare",
       "category": "availability",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "infrastructure",
       "post_type": "narrative",
       "opening_style": "mid_scene"
-    },
-    {
-      "company": "Pinterest",
-      "category": "database",
-      "post_type": "structured",
-      "opening_style": "cold_fact"
     }
   ]
 }
