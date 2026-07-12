@@ -51,6 +51,7 @@
     "pinterest-mysql-manual-sharding",
     "facebook-2021-bgp-outage",
     "cloudflare-2019-regex-waf-outage",
-    "backblaze-storage-pods-consumer-drives"
+    "backblaze-storage-pods-consumer-drives",
+    "doordash-iguazu-kafka-selfserve"
   ]
 }

@@ -22,7 +22,6 @@
       "topic": "Pod architecture — isolated data cells instead of microservices",
       "category": "availability",
       "hook": "Monolith survives Black Friday by isolating state, not splitting services",
-      "opening_style": "rhetorical question (Ever wonder how Shopify's platform...)",
       "sources": [
         "https://shopify.engineering/a-pods-architecture-to-allow-shopify-to-scale",
         "https://shopify.engineering/bfcm-readiness-2025",
@@ -398,6 +397,26 @@
       "key_numbers": "Sept 2009: 67TB, 45 consumer SATA drives, $7,867 material cost, ~$0.11/GB, ~1/10th the all-in cost of EMC/NetApp/Dell/S3. Pod 5.0: $0.044/GB. Pod 6.0 (60 drives, 480TB, one 4U box): $0.036/GB. 2013 experiment: one full pod of enterprise drives had a higher failure rate than the consumer fleet.",
       "lesson": "We default to paying for the enterprise label because verifying it ourselves feels like too much work. Backblaze ran the numbers instead of assuming them — on the box, then on the drives — and cheaper won both times.",
       "filename": "2026-07-11-backblaze-storage-pods-consumer-drives.md"
+    },
+    {
+      "date": "2026-07-12",
+      "company": "DoorDash",
+      "topic": "Iguazu event platform — consolidated one-off SQS/Kinesis pipelines per event type onto a single Kafka+Flink platform (HTTP Kafka proxy extended from Confluent's OSS version, Flink fan-out to Snowflake/Redis/Chronosphere, Protobuf schemas validated in CI), cutting latency to Snowflake from a day to minutes at hundreds of billions of events/day — then found onboarding a new event source was still gated by a GitHub-PR-plus-Atlantis-plus-Terraform chain requiring manual on-call approval by email, and replaced it with a self-service API",
+      "category": "messaging",
+      "post_type": "structured",
+      "opening_style": "cold_fact",
+      "hook": "DoorDash's event platform moves hundreds of billions of events a day at 99.99% reliability. Its bottleneck for years wasn't Kafka throughput — it was an on-call engineer's inbox",
+      "sources": [
+        "https://careersatdoordash.com/blog/building-scalable-real-time-event-processing-with-kafka-and-flink/",
+        "https://careersatdoordash.com/blog/api-first-approach-to-kafka-topic-creation/",
+        "https://careersatdoordash.com/blog/doordash-engineers-with-kafka-self-serve/",
+        "https://www.infoq.com/presentations/doordash-event-system/",
+        "https://factorhouse.io/articles/doordash-kafka-architecture",
+        "https://www.kai-waehner.de/blog/2022/08/18/why-doordash-migrated-from-cloud-native-amazon-sqs-and-kinesis-to-apache-kafka-and-flink/"
+      ],
+      "key_numbers": "Latency to Snowflake: up to 1 day → a few minutes. Hundreds of billions of events/day, 99.99% delivery. Topic onboarding: ~48hr guarantee → under 1hr (often ~15 min), a 95% reduction. On-call load: -4hrs/week. ~100 topics self-served/week. Product-launch PR queues could exceed 20/hour under the old process.",
+      "lesson": "The part of a system engineers spend the most time optimizing is rarely the part that's actually slowing it down. A platform tuned to move hundreds of billions of events a day was throttled by a pull request waiting on a human.",
+      "filename": "2026-07-12-doordash-iguazu-kafka-selfserve.md"
     }
   ]
 }
