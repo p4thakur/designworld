@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Lyft",
+      "category": "microservices",
+      "post_type": "narrative",
+      "opening_style": "mid_scene"
+    },
+    {
       "company": "DoorDash",
       "category": "messaging",
       "post_type": "structured",
@@ -11,12 +17,6 @@
       "category": "storage",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption"
-    },
-    {
-      "company": "Cloudflare",
-      "category": "availability",
-      "post_type": "confessional",
-      "opening_style": "specific_number"
     }
   ]
 }

@@ -417,6 +417,25 @@
       "key_numbers": "Latency to Snowflake: up to 1 day → a few minutes. Hundreds of billions of events/day, 99.99% delivery. Topic onboarding: ~48hr guarantee → under 1hr (often ~15 min), a 95% reduction. On-call load: -4hrs/week. ~100 topics self-served/week. Product-launch PR queues could exceed 20/hour under the old process.",
       "lesson": "The part of a system engineers spend the most time optimizing is rarely the part that's actually slowing it down. A platform tuned to move hundreds of billions of events a day was throttled by a pull request waiting on a human.",
       "filename": "2026-07-12-doordash-iguazu-kafka-selfserve.md"
+    },
+    {
+      "date": "2026-07-13",
+      "company": "Lyft",
+      "topic": "Envoy origin story — built as a language-agnostic sidecar proxy to replace a mishmash of per-language client libraries (PHP, Python) and an ELB/CloudWatch layer that couldn't report p50/p99 latency, so a struggling downstream degraded via capped concurrent retries and circuit breaking instead of triggering a retry-storm cascading failure",
+      "category": "microservices",
+      "post_type": "narrative",
+      "opening_style": "mid_scene",
+      "hook": "By 2015, Lyft had about 30 microservices — not a lot — and its own engineers were already wary of putting a single service call in a critical path. Not because the services were slow. Because when a call failed, nobody could say why",
+      "sources": [
+        "https://eng.lyft.com/announcing-envoy-c-l7-proxy-and-communication-bus-92520b6c8191",
+        "https://eng.lyft.com/envoy-joins-the-cncf-dc18baefbc22",
+        "https://www.infoq.com/news/2017/01/lyft-envoy/",
+        "https://www.infoq.com/articles/envoy-service-mesh-cascading-failure/",
+        "https://mattklein123.dev/2021/09/14/5-years-envoy-oss/"
+      ],
+      "key_numbers": "~30 microservices when Matt Klein joined Lyft (May 2015). By Sept 2016 open-source launch: 100+ services meshed, millions of req/sec. By Sept 2017 CNCF donation: thousands of nodes, 2M+ req/sec, every system at Lyft. Envoy graduated CNCF Nov 2018; later adopted as the data plane under Istio and AWS App Mesh.",
+      "lesson": "The sidecar didn't make the network simple — it added a proxy hop to every call. It moved the complexity somewhere everyone could see, instrument once, and fix in one place, instead of copy-pasted into thirty different client libraries.",
+      "filename": "2026-07-13-lyft-envoy-service-mesh-origin.md"
     }
   ]
 }
