@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Monzo",
+      "category": "stability",
+      "post_type": "confessional",
+      "opening_style": "specific_number"
+    },
+    {
       "company": "Lyft",
       "category": "microservices",
       "post_type": "narrative",
@@ -11,12 +17,6 @@
       "category": "messaging",
       "post_type": "structured",
       "opening_style": "cold_fact"
-    },
-    {
-      "company": "Backblaze",
-      "category": "storage",
-      "post_type": "contrarian",
-      "opening_style": "challenge_assumption"
     }
   ]
 }

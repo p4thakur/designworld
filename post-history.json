@@ -436,6 +436,25 @@
       "key_numbers": "~30 microservices when Matt Klein joined Lyft (May 2015). By Sept 2016 open-source launch: 100+ services meshed, millions of req/sec. By Sept 2017 CNCF donation: thousands of nodes, 2M+ req/sec, every system at Lyft. Envoy graduated CNCF Nov 2018; later adopted as the data plane under Istio and AWS App Mesh.",
       "lesson": "The sidecar didn't make the network simple — it added a proxy hop to every call. It moved the complexity somewhere everyone could see, instrument once, and fix in one place, instead of copy-pasted into thirty different client libraries.",
       "filename": "2026-07-13-lyft-envoy-service-mesh-origin.md"
+    },
+    {
+      "date": "2026-07-14",
+      "company": "Monzo",
+      "topic": "July 2019 core banking outage caused by a misconfigured Cassandra auto_bootstrap flag — new nodes added during a routine scale-up took over their assigned token ranges immediately, before streaming the underlying data in, so queries against those ranges returned wrong balances and missing transactions",
+      "category": "stability",
+      "post_type": "confessional",
+      "opening_style": "specific_number",
+      "hook": "Monzo ran its core banking ledger on one Cassandra cluster — 21 nodes, replication factor 3, quorum reads. On July 29th, 2019, they scaled it the way they always did: added 6 more servers. Forty-some minutes later, customers' account balances were showing the wrong numbers.",
+      "sources": [
+        "https://monzo.com/blog/2019/09/08/why-monzo-wasnt-working-on-july-29th",
+        "https://news.ycombinator.com/item?id=20231863",
+        "https://community.monzo.com/t/we-had-issues-with-monzo-on-29th-july-heres-what-happened-and-what-we-did-to-fix-it/75903",
+        "https://downtimeproject.com/podcast/monzos-2019-cassandra-outage/",
+        "https://www.infoq.com/articles/cassandra-kubernetes-microservices/"
+      ],
+      "key_numbers": "21-node Cassandra cluster, RF3, local quorum reads → +6 servers at ~13:10 on July 29, 2019 → wrong balances within ~40 minutes → ~1 hour from first alert to confirming Cassandra as the cause → fully resolved in ~90 minutes, nodes decommissioned one at a time at ~8-10 min each.",
+      "lesson": "Nobody set auto_bootstrap wrong on purpose. It's the kind of assumption that's correct right up until the day it's tested for real, on a live system, with customers' money running through it.",
+      "filename": "2026-07-14-monzo-cassandra-auto-bootstrap-outage.md"
     }
   ]
 }

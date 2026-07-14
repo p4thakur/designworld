@@ -53,6 +53,7 @@
     "cloudflare-2019-regex-waf-outage",
     "backblaze-storage-pods-consumer-drives",
     "doordash-iguazu-kafka-selfserve",
-    "lyft-envoy-service-mesh-origin"
+    "lyft-envoy-service-mesh-origin",
+    "monzo-cassandra-auto-bootstrap-outage"
   ]
 }
