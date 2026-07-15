@@ -54,6 +54,7 @@
     "backblaze-storage-pods-consumer-drives",
     "doordash-iguazu-kafka-selfserve",
     "lyft-envoy-service-mesh-origin",
-    "monzo-cassandra-auto-bootstrap-outage"
+    "monzo-cassandra-auto-bootstrap-outage",
+    "stackoverflow-monolith-vertical-scaling"
   ]
 }

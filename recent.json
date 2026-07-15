@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Stack Overflow",
+      "category": "performance",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
       "company": "Monzo",
       "category": "stability",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "microservices",
       "post_type": "narrative",
       "opening_style": "mid_scene"
-    },
-    {
-      "company": "DoorDash",
-      "category": "messaging",
-      "post_type": "structured",
-      "opening_style": "cold_fact"
     }
   ]
 }

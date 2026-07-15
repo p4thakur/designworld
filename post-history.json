@@ -455,6 +455,27 @@
       "key_numbers": "21-node Cassandra cluster, RF3, local quorum reads → +6 servers at ~13:10 on July 29, 2019 → wrong balances within ~40 minutes → ~1 hour from first alert to confirming Cassandra as the cause → fully resolved in ~90 minutes, nodes decommissioned one at a time at ~8-10 min each.",
       "lesson": "Nobody set auto_bootstrap wrong on purpose. It's the kind of assumption that's correct right up until the day it's tested for real, on a live system, with customers' money running through it.",
       "filename": "2026-07-14-monzo-cassandra-auto-bootstrap-outage.md"
+    },
+    {
+      "date": "2026-07-15",
+      "company": "Stack Overflow",
+      "topic": "Rejected the microservices + cloud-autoscaling default and ran the entire Q&A network on a monolith across 9 on-premise web servers, individually specced hardware (Dell R630 web tier, NVMe-backed SQL clusters with 384-768GB RAM, dedicated Redis and Elasticsearch tiers) instead of scaling out horizontally",
+      "category": "performance",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption",
+      "hook": "On February 9th, 2016, Stack Overflow's engineers published exactly what their infrastructure looked like — nine web servers, one monolith, on-premise hardware — and it broke every rule of the standard 'break the monolith, move to the cloud, scale out horizontally' playbook.",
+      "sources": [
+        "https://nickcraver.com/blog/2016/02/17/stack-overflow-the-architecture-2016-edition/",
+        "https://nickcraver.com/blog/2016/03/29/stack-overflow-the-hardware-2016-edition/",
+        "https://raw.githubusercontent.com/NickCraver/nickcraver.github.com/main/blog/_posts/2016-02-17-stack-overflow-the-architecture-2016-edition.markdown",
+        "https://raw.githubusercontent.com/NickCraver/nickcraver.github.com/main/blog/_posts/2016-03-29-stack-overflow-the-hardware-2016-edition.markdown",
+        "https://www.datacenterdynamics.com/en/news/stack-overflow-still-on-prem-runs-qa-platform-off-just-nine-servers/",
+        "https://highscalability.com/stackoverflow-update-560m-pageviews-a-month-25-servers-and-i/",
+        "https://newsletter.techworld-with-milan.com/p/stack-overflow-architecture"
+      ],
+      "key_numbers": "Feb 9, 2016 (one day, 9 web servers): 209.4M HTTP requests, 66.3M page loads, 504.8M SQL queries, 5.8B Redis hits, 17.2M Elasticsearch searches. Question page render: 22.71ms avg server-side. SQL server CPU: 5-10% almost always. Redis: ~160B ops/month at <2% CPU per instance. Hardware: Dell R630 web tier (dual 12-core Xeons, 64GB RAM); SQL clusters at 384GB and 768GB RAM over NVMe; 4 HAProxy load balancers.",
+      "lesson": "Microservices and cloud autoscaling are the default because they solve real problems — team autonomy, isolated deploys, bursty load. Stack Overflow didn't have those problems. It had predictable traffic and engineers who measured the ceiling before building anything to raise it. The industry's default architecture isn't wrong — it's just routinely applied to bottlenecks nobody bothered to check for.",
+      "filename": "2026-07-15-stackoverflow-monolith-vertical-scaling.md"
     }
   ]
 }
