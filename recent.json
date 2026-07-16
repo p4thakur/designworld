@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Facebook",
+      "category": "databases",
+      "post_type": "structured",
+      "opening_style": "cold_fact"
+    },
+    {
       "company": "Stack Overflow",
       "category": "performance",
       "post_type": "contrarian",
@@ -11,12 +17,6 @@
       "category": "stability",
       "post_type": "confessional",
       "opening_style": "specific_number"
-    },
-    {
-      "company": "Lyft",
-      "category": "microservices",
-      "post_type": "narrative",
-      "opening_style": "mid_scene"
     }
   ]
 }

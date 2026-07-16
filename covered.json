@@ -55,6 +55,7 @@
     "doordash-iguazu-kafka-selfserve",
     "lyft-envoy-service-mesh-origin",
     "monzo-cassandra-auto-bootstrap-outage",
-    "stackoverflow-monolith-vertical-scaling"
+    "stackoverflow-monolith-vertical-scaling",
+    "facebook-gorilla-tsdb-compression"
   ]
 }

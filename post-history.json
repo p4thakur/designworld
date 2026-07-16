@@ -476,6 +476,24 @@
       "key_numbers": "Feb 9, 2016 (one day, 9 web servers): 209.4M HTTP requests, 66.3M page loads, 504.8M SQL queries, 5.8B Redis hits, 17.2M Elasticsearch searches. Question page render: 22.71ms avg server-side. SQL server CPU: 5-10% almost always. Redis: ~160B ops/month at <2% CPU per instance. Hardware: Dell R630 web tier (dual 12-core Xeons, 64GB RAM); SQL clusters at 384GB and 768GB RAM over NVMe; 4 HAProxy load balancers.",
       "lesson": "Microservices and cloud autoscaling are the default because they solve real problems — team autonomy, isolated deploys, bursty load. Stack Overflow didn't have those problems. It had predictable traffic and engineers who measured the ceiling before building anything to raise it. The industry's default architecture isn't wrong — it's just routinely applied to bottlenecks nobody bothered to check for.",
       "filename": "2026-07-15-stackoverflow-monolith-vertical-scaling.md"
+    },
+    {
+      "date": "2026-07-16",
+      "company": "Facebook",
+      "topic": "Gorilla in-memory time series database — 26-hour write-through cache in front of HBase, delta-of-delta timestamp encoding + XOR float compression bringing 16-byte points down to 1.37 bytes average",
+      "category": "databases",
+      "post_type": "structured",
+      "opening_style": "cold_fact",
+      "hook": "The slowest query Facebook's monitoring system served was the one an on-call engineer ran mid-incident — so they built a database whose entire trick was fitting 26 hours of every metric on the fleet into RAM",
+      "sources": [
+        "https://www.vldb.org/pvldb/vol8/p1816-teller.pdf",
+        "https://dl.acm.org/doi/10.14778/2824032.2824078",
+        "https://engineering.fb.com/2017/02/03/core-infra/beringei-a-high-performance-time-series-storage-engine/",
+        "https://github.com/facebookarchive/beringei"
+      ],
+      "key_numbers": "16 bytes raw/point → 1.37 bytes avg (~12x compression). ~73x lower query latency, ~14x higher throughput vs HBase. ODS: ~450 qps at launch → Gorilla 5,000+ steady-state qps, peaks past 40,000. 26-hour in-memory retention window. Prolonged outage: keeps ~1 minute of data, drops the rest. Beringei open-sourced 2017, archived 2018.",
+      "lesson": "The architecture wasn't the trick — fitting a full day of every metric on the fleet into RAM was. The compression scheme mirrors the shape of the signal it compresses: fixed interval, barely changing, read as a recent range.",
+      "filename": "2026-07-16-facebook-gorilla-tsdb-compression.md"
     }
   ]
 }
