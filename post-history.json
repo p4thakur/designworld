@@ -494,6 +494,37 @@
       "key_numbers": "16 bytes raw/point → 1.37 bytes avg (~12x compression). ~73x lower query latency, ~14x higher throughput vs HBase. ODS: ~450 qps at launch → Gorilla 5,000+ steady-state qps, peaks past 40,000. 26-hour in-memory retention window. Prolonged outage: keeps ~1 minute of data, drops the rest. Beringei open-sourced 2017, archived 2018.",
       "lesson": "The architecture wasn't the trick — fitting a full day of every metric on the fleet into RAM was. The compression scheme mirrors the shape of the signal it compresses: fixed interval, barely changing, read as a recent range.",
       "filename": "2026-07-16-facebook-gorilla-tsdb-compression.md"
+    },
+    {
+      "date": "2026-07-17",
+      "company": "Twitter (X)",
+      "topic": "Kafka-buffered Elasticsearch ingestion — an Ingestion Service queues client writes into one Kafka topic per Elasticsearch cluster, drained by a bounded worker pool, after direct writes into a bounded ES write thread pool caused total index/cluster loss under traffic spikes",
+      "category": "search",
+      "post_type": "narrative",
+      "opening_style": "mid_scene",
+      "hook": "It's a breaking-news night, and somewhere inside Twitter's search infrastructure a queue tied to a thread pool is filling faster than it drains. Minutes later the cluster isn't slow. It's gone.",
+      "sources": [
+        "https://blog.x.com/engineering/en_us/topics/infrastructure/2022/stability-and-scalability-for-search"
+      ],
+      "key_numbers": "Not independently verified with hard node/QPS/latency figures from the primary source (post focuses on architecture, not those metrics). Backfill Service operations described as often spanning several, sometimes hundreds of terabytes of data.",
+      "lesson": "The tradeoffs didn't disappear. They moved — from a database that falls over loudly to a queue that falls behind quietly.",
+      "filename": "2026-07-17-twitter-elasticsearch-kafka-ingestion-buffer.md"
+    },
+    {
+      "date": "2026-07-18",
+      "company": "Etsy",
+      "topic": "Cache smearing — Ketama consistent hashing let Etsy resize memcached pools for years without a mass rehash, until one hot key's own GET traffic alone saturated a single host's NIC; adding more hosts didn't help because consistent hashing guarantees that key always lands on exactly one host, so the fix was appending random entropy to the key on every read/write, splitting one logical key into up to 16 physical keys spread across the pool",
+      "category": "caching",
+      "post_type": "confessional",
+      "opening_style": "specific_number",
+      "hook": "One key. On a memcached pool spread across dozens of hosts, a single hot key pushed one box's network interface to 960 megabits a second — on a 1 gigabit card.",
+      "sources": [
+        "https://www.etsy.com/codeascraft/how-etsy-caches/",
+        "https://www.etsy.com/codeascraft/mctop-a-tool-for-analyzing-memcache-get-traffic/"
+      ],
+      "key_numbers": "Outbound > 800Mbps: p90 GET latency 5ms → 35ms. NIC saturates near 960Mbps on a 1Gbps card: latency > 200ms. Smearing entropy range: 0-8, sometimes 0-16 (up to 16 physical keys per hot key).",
+      "lesson": "Consistent hashing's whole guarantee is one key maps to one host, deterministically, at any pool size — exactly what makes horizontal scaling free for ordinary keys, and exactly why it's powerless against one key that's hot enough on its own.",
+      "filename": "2026-07-18-etsy-cache-smearing-hot-keys.md"
     }
   ]
 }

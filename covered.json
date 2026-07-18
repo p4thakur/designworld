@@ -57,6 +57,7 @@
     "monzo-cassandra-auto-bootstrap-outage",
     "stackoverflow-monolith-vertical-scaling",
     "facebook-gorilla-tsdb-compression",
-    "twitter-elasticsearch-kafka-ingestion-buffer"
+    "twitter-elasticsearch-kafka-ingestion-buffer",
+    "etsy-cache-smearing-hot-keys"
   ]
 }
