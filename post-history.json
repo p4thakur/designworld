@@ -525,6 +525,22 @@
       "key_numbers": "Outbound > 800Mbps: p90 GET latency 5ms → 35ms. NIC saturates near 960Mbps on a 1Gbps card: latency > 200ms. Smearing entropy range: 0-8, sometimes 0-16 (up to 16 physical keys per hot key).",
       "lesson": "Consistent hashing's whole guarantee is one key maps to one host, deterministically, at any pool size — exactly what makes horizontal scaling free for ordinary keys, and exactly why it's powerless against one key that's hot enough on its own.",
       "filename": "2026-07-18-etsy-cache-smearing-hot-keys.md"
+    },
+    {
+      "date": "2026-07-19",
+      "company": "Uber",
+      "topic": "H3 hexagonal hierarchical spatial index — pre-H3 surge pricing ran on geofenced zones, producing an \"edge effect\" where riders meters apart across a zone boundary paid very different multipliers and drivers idled inside high-price zones; squares can't fix this even at finer resolution because they have two neighbor distances (edge d vs. corner d×√2), while a hexagon's 6 neighbors all share an edge at one distance — the exact uniformity a price-smoothing gradient needs — at the cost of exactly 12 topologically mandatory pentagon cells (5 neighbors) at every resolution, which Uber orients into open ocean via the icosahedron's placement",
+      "category": "geospatial",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption",
+      "hook": "Every mapping tool you've ever used defaults to squares. Pixels are squares. Lat/lon grids are squares. Spreadsheets are squares. Uber's surge-pricing team looked at that default and threw it out — they rebuilt the map out of hexagons.",
+      "sources": [
+        "https://www.uber.com/blog/h3/",
+        "https://h3geo.org/docs/core-library/overview/"
+      ],
+      "key_numbers": "16 H3 resolutions; average edge length ~1,107.71km at res 0 down to ~0.51m at res 15; res 8 (~461m edge, ~0.5km² per cell) is the resolution surge pricing commonly runs at; square neighbor distance ratio d×1.41 (corner) vs. d (edge); resolution 0 has exactly 122 base cells (110 hexagons + 12 pentagons).",
+      "lesson": "Surge pricing needs to interpolate a continuous value across discrete cells — a gradient, not a lookup table — which only works if every neighbor is the same distance away; H3 doesn't make pricing smoother by being cleverer about zones, it changes the shape of space so smoothing becomes arithmetic, at the cost of 12 topologically unavoidable pentagons Uber has to hide in the ocean.",
+      "filename": "2026-07-19-uber-h3-hexagonal-surge-pricing.md"
     }
   ]
 }

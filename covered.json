@@ -58,6 +58,7 @@
     "stackoverflow-monolith-vertical-scaling",
     "facebook-gorilla-tsdb-compression",
     "twitter-elasticsearch-kafka-ingestion-buffer",
-    "etsy-cache-smearing-hot-keys"
+    "etsy-cache-smearing-hot-keys",
+    "uber-h3-hexagonal-surge-pricing"
   ]
 }

@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Uber",
+      "category": "geospatial",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
       "company": "Etsy",
       "category": "caching",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "search",
       "post_type": "narrative",
       "opening_style": "mid_scene"
-    },
-    {
-      "company": "Facebook",
-      "category": "databases",
-      "post_type": "structured",
-      "opening_style": "cold_fact"
     }
   ]
 }
