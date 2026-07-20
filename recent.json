@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Figma",
+      "category": "database",
+      "post_type": "structured case study",
+      "opening_style": "cold_fact"
+    },
+    {
       "company": "Uber",
       "category": "geospatial",
       "post_type": "contrarian",
@@ -11,12 +17,6 @@
       "category": "caching",
       "post_type": "confessional",
       "opening_style": "specific_number"
-    },
-    {
-      "company": "Twitter",
-      "category": "search",
-      "post_type": "narrative",
-      "opening_style": "mid_scene"
     }
   ]
 }

@@ -541,6 +541,23 @@
       "key_numbers": "16 H3 resolutions; average edge length ~1,107.71km at res 0 down to ~0.51m at res 15; res 8 (~461m edge, ~0.5km² per cell) is the resolution surge pricing commonly runs at; square neighbor distance ratio d×1.41 (corner) vs. d (edge); resolution 0 has exactly 122 base cells (110 hexagons + 12 pentagons).",
       "lesson": "Surge pricing needs to interpolate a continuous value across discrete cells — a gradient, not a lookup table — which only works if every neighbor is the same distance away; H3 doesn't make pricing smoother by being cleverer about zones, it changes the shape of space so smoothing becomes arithmetic, at the cost of 12 topologically unavoidable pentagons Uber has to hide in the ocean.",
       "filename": "2026-07-19-uber-h3-hexagonal-surge-pricing.md"
+    },
+    {
+      "date": "2026-07-20",
+      "company": "Figma",
+      "topic": "Postgres scaling — a single primary on AWS's largest instance hit reliability problems from autovacuum on multi-terabyte tables, so Figma moved whole tables to their own databases (vertical partitioning) via a logical-replication cutover that dropped and rebuilt indexes to survive terabyte-scale copies, then validated a view-based logical sharding layer with 100% shadow reads before building DBProxy, a Go query proxy that parses SQL to an AST and routes by shard key",
+      "category": "database",
+      "post_type": "structured case study",
+      "opening_style": "cold_fact",
+      "hook": "Figma's database stack grew almost 100x between 2020 and 2024. In 2020: one Postgres primary, already on AWS's largest physical instance. By end of 2022: a dozen separate databases. By September 2023: parts of it finally sharded. Nobody just \"added shards\" — the path between those points is the interesting part.",
+      "sources": [
+        "https://www.figma.com/blog/how-figmas-databases-team-lived-to-tell-the-scale/",
+        "https://www.figma.com/blog/how-figma-scaled-to-multiple-databases/",
+        "https://pganalyze.com/blog/5mins-postgres-figma-dbproxy-sharding-postgres"
+      ],
+      "key_numbers": "2020: 1 primary on AWS's largest instance. End of 2022: a dozen vertically partitioned databases. Database stack grew ~100x, 2020-2024. Logical replication cutover reduced to hours by dropping/rebuilding indexes. Shadow-read overhead: minimal typical, <10% worst case. First sharded tables live September 2023.",
+      "lesson": "The real ceiling wasn't table size, it was that Postgres autovacuum's cost scales with table size (MVCC dead tuples + transaction ID freezing), so the maintenance operation that keeps the database correct stopped fitting inside the traffic pattern; sharding wasn't one decision but a sequence of smaller, reversible ones, each validated before the next became load-bearing.",
+      "filename": "2026-07-20-figma-postgres-sharding-dbproxy.md"
     }
   ]
 }
