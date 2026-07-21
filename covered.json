@@ -60,6 +60,7 @@
     "twitter-elasticsearch-kafka-ingestion-buffer",
     "etsy-cache-smearing-hot-keys",
     "uber-h3-hexagonal-surge-pricing",
-    "figma-postgres-sharding-dbproxy"
+    "figma-postgres-sharding-dbproxy",
+    "slack-2021-transit-gateway-outage"
   ]
 }
