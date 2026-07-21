@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Slack",
+      "category": "infrastructure",
+      "post_type": "narrative",
+      "opening_style": "mid_scene"
+    },
+    {
       "company": "Figma",
       "category": "database",
       "post_type": "structured case study",
@@ -11,12 +17,6 @@
       "category": "geospatial",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption"
-    },
-    {
-      "company": "Etsy",
-      "category": "caching",
-      "post_type": "confessional",
-      "opening_style": "specific_number"
     }
   ]
 }
