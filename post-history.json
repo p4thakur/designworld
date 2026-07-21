@@ -558,6 +558,24 @@
       "key_numbers": "2020: 1 primary on AWS's largest instance. End of 2022: a dozen vertically partitioned databases. Database stack grew ~100x, 2020-2024. Logical replication cutover reduced to hours by dropping/rebuilding indexes. Shadow-read overhead: minimal typical, <10% worst case. First sharded tables live September 2023.",
       "lesson": "The real ceiling wasn't table size, it was that Postgres autovacuum's cost scales with table size (MVCC dead tuples + transaction ID freezing), so the maintenance operation that keeps the database correct stopped fitting inside the traffic pattern; sharding wasn't one decision but a sequence of smaller, reversible ones, each validated before the next became load-bearing.",
       "filename": "2026-07-20-figma-postgres-sharding-dbproxy.md"
+    },
+    {
+      "date": "2026-07-21",
+      "company": "Slack",
+      "topic": "January 4th 2021 Transit Gateway outage - cold-cache reconnect storm saturated a shared AWS Transit Gateway, packet loss made CPU-based autoscaling read the incident as idle capacity and scale the web tier down, then the autoscaler's overcorrection (1,200 servers requested in 15 minutes) drove provision-service into a Linux open-file-descriptor limit",
+      "category": "infrastructure",
+      "post_type": "narrative",
+      "opening_style": "mid_scene",
+      "hook": "6:57am PST: Slack's message-send success rate reads 99%. Normal is above 99.999% - a thousand-fold jump in failures, and the incident is just getting started.",
+      "sources": [
+        "https://slack.engineering/slacks-outage-on-january-4th-2021/",
+        "https://surfingcomplexity.blog/2021/02/08/slacks-jan-2021-outage-a-tale-of-saturation/",
+        "https://www.theregister.com/2021/02/02/slack_outage_aws_autoscaling/",
+        "https://www.techtarget.com/searchunifiedcommunications/news/252495267/Massive-Slack-outage-caused-by-AWS-gateway-failure"
+      ],
+      "key_numbers": "6:57am PST message-send success rate ~99% vs normal >99.999%. 7:01-7:15am PST: 1,200 servers requested at once. Provisioning hit a Linux open-file-descriptor limit. ~90 min fully unusable, ~8:15am PST provision-service recovers.",
+      "lesson": "CPU utilization is a fine proxy for load only when compute is what's actually saturated - under network I/O wait it inverts, reading idle exactly when the service is most saturated, which is why the autoscaler scaled down mid-incident before overcorrecting into a second, un-load-tested limit.",
+      "filename": "2026-07-21-slack-2021-transit-gateway-outage.md"
     }
   ]
 }
