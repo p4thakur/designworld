@@ -61,6 +61,7 @@
     "etsy-cache-smearing-hot-keys",
     "uber-h3-hexagonal-surge-pricing",
     "figma-postgres-sharding-dbproxy",
-    "slack-2021-transit-gateway-outage"
+    "slack-2021-transit-gateway-outage",
+    "spotify-annoy-mmap-random-projection-trees"
   ]
 }
