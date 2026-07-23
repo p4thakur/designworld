@@ -593,6 +593,23 @@
       "key_numbers": "5,000,000 items × 40 floats × 4 bytes = 800MB (Annoy's own illustrative math). × 32 worker processes with private copies = 25.6GB vs. 800MB flat when mmap'd and shared. search_k defaults to n_trees × n. Built 2013, in a couple of afternoons during a Hack Week.",
       "lesson": "The same random-projection trick that makes the search approximate is what makes the index a flat, pointer-free, read-only file — exactly the shape mmap needs to back every worker process with one physical copy instead of many.",
       "filename": "2026-07-22-spotify-annoy-mmap-random-projection-trees.md"
+    },
+    {
+      "date": "2026-07-23",
+      "company": "Instagram",
+      "topic": "Why a 3-engineer team never split the Django app into microservices — a stateless app tier scales by cloning the process, while the genuinely hard sharding/replication/consistency problems were pushed one layer down into Postgres, Redis, and Memcached",
+      "category": "microservices",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption",
+      "hook": "Instagram hit 14 million users in about 14 months with 3 backend engineers, and never broke up the monolith — not then, not at 300 million users, not in 2024 when Meta shipped Threads off the same codebase in five months",
+      "sources": [
+        "https://instagram-engineering.com/what-powers-instagram-hundreds-of-instances-dozens-of-technologies-adf2e22da2ad",
+        "https://instagram-engineering.com/static-analysis-at-scale-an-instagram-story-8f498ab71a0c",
+        "https://www.infoq.com/news/2024/04/meta-threads-instagram-5-months/"
+      ],
+      "key_numbers": "3 backend engineers, 14M users in ~14 months. App tier: 3 nginx + 25+ stateless Django/Gunicorn instances behind an ELB. Data tier: 12 large Postgres instances, Redis holding a ~300M photo-to-user-ID map in ~5GB, 6 Memcached nodes. By 2019: several million lines of Python, a few thousand Django endpoints, ~100 custom lint rules, ~100 deploys/day. 2024: Threads shipped off the same monolith in 5 months.",
+      "lesson": "Statelessness is the specific property that makes horizontal cloning of a monolith nearly free — the problem was request/data volume, not code complexity needing independent ownership, so the real hard distributed-systems work (sharding, replication, consistency) got pushed into the data tier instead of spread across a service mesh.",
+      "filename": "2026-07-23-instagram-monolith-vs-microservices.md"
     }
   ]
 }

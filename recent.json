@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Instagram",
+      "category": "microservices",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
       "company": "Spotify",
       "category": "search",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "infrastructure",
       "post_type": "narrative",
       "opening_style": "mid_scene"
-    },
-    {
-      "company": "Figma",
-      "category": "database",
-      "post_type": "structured case study",
-      "opening_style": "cold_fact"
     }
   ]
 }
