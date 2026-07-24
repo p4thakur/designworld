@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Cloudflare",
+      "category": "storage",
+      "post_type": "structured",
+      "opening_style": "cold_fact"
+    },
+    {
       "company": "Instagram",
       "category": "microservices",
       "post_type": "contrarian",
@@ -11,12 +17,6 @@
       "category": "search",
       "post_type": "confessional",
       "opening_style": "specific_number"
-    },
-    {
-      "company": "Slack",
-      "category": "infrastructure",
-      "post_type": "narrative",
-      "opening_style": "mid_scene"
     }
   ]
 }

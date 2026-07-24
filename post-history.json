@@ -610,6 +610,25 @@
       "key_numbers": "3 backend engineers, 14M users in ~14 months. App tier: 3 nginx + 25+ stateless Django/Gunicorn instances behind an ELB. Data tier: 12 large Postgres instances, Redis holding a ~300M photo-to-user-ID map in ~5GB, 6 Memcached nodes. By 2019: several million lines of Python, a few thousand Django endpoints, ~100 custom lint rules, ~100 deploys/day. 2024: Threads shipped off the same monolith in 5 months.",
       "lesson": "Statelessness is the specific property that makes horizontal cloning of a monolith nearly free — the problem was request/data volume, not code complexity needing independent ownership, so the real hard distributed-systems work (sharding, replication, consistency) got pushed into the data tier instead of spread across a service mesh.",
       "filename": "2026-07-23-instagram-monolith-vs-microservices.md"
+    },
+    {
+      "date": "2026-07-24",
+      "company": "Cloudflare",
+      "topic": "Quicksilver config-distribution store — replaced single-root Kyoto Tycoon with per-server LMDB (memory-mapped B+tree, single-writer/multi-reader MVCC) and a hash-chained async replication tree, then split into replica/proxy roles in 2025 as the dataset outgrew small colocations",
+      "category": "storage",
+      "post_type": "structured",
+      "opening_style": "cold_fact",
+      "hook": "One physical root server for every config change on Cloudflare's edge. Faulty hardware made it disappear, so they rebuilt config distribution around a memory-mapped database on every single box instead.",
+      "sources": [
+        "https://blog.cloudflare.com/introducing-quicksilver-configuration-distribution-at-internet-scale/",
+        "https://blog.cloudflare.com/moving-quicksilver-into-production/",
+        "https://blog.cloudflare.com/pipefail-how-a-missing-shell-option-slowed-cloudflare-down/",
+        "https://blog.cloudflare.com/quicksilver-v2-evolution-of-a-globally-distributed-key-value-store-part-1/",
+        "https://blog.cloudflare.com/quicksilver-v2-evolution-of-a-globally-distributed-key-value-store-part-2-of-2/"
+      ],
+      "key_numbers": "5B+ key-value pairs, 1.6TB total, 3B+ keys/sec served worldwide, 90% of requests <1ms, 99.9% <7ms. DNS/rule changes reach 90% of the fleet in seconds. Kyoto Tycoon removal took ~4 years across 50+ producer teams. PIPEFAIL incident: Dec 16 2021, 20:10-20:40 UTC, up to 5s added latency for 30 minutes.",
+      "lesson": "The exact mechanism that makes global replication fast — near-instant fan-out of tiny deltas to every server — is the same mechanism that turns one bad write into a global incident just as fast.",
+      "filename": "2026-07-24-cloudflare-quicksilver-config-distribution.md"
     }
   ]
 }
