@@ -629,6 +629,25 @@
       "key_numbers": "5B+ key-value pairs, 1.6TB total, 3B+ keys/sec served worldwide, 90% of requests <1ms, 99.9% <7ms. DNS/rule changes reach 90% of the fleet in seconds. Kyoto Tycoon removal took ~4 years across 50+ producer teams. PIPEFAIL incident: Dec 16 2021, 20:10-20:40 UTC, up to 5s added latency for 30 minutes.",
       "lesson": "The exact mechanism that makes global replication fast — near-instant fan-out of tiny deltas to every server — is the same mechanism that turns one bad write into a global incident just as fast.",
       "filename": "2026-07-24-cloudflare-quicksilver-config-distribution.md"
+    },
+    {
+      "date": "2026-07-25",
+      "company": "Redis / Redis community (antirez vs. Martin Kleppmann)",
+      "topic": "The 2016 Redlock debate — Redis's quorum-based distributed lock (5 independent masters, majority acquisition, elapsed-time TTL check) versus Kleppmann's fencing-token critique of what happens after a client wins the lock and then stalls",
+      "category": "stability",
+      "post_type": "narrative",
+      "opening_style": "mid_scene",
+      "hook": "In February 2016, Redis's creator and a Cambridge database researcher spent two weeks publicly disagreeing about whether a lock actually locks anything.",
+      "sources": [
+        "https://martin.kleppmann.com/2016/02/08/how-to-do-distributed-locking.html",
+        "https://antirez.com/news/101",
+        "https://redis.io/docs/latest/develop/clients/patterns/distributed-locks/",
+        "https://news.ycombinator.com/item?id=11065933",
+        "https://redisson.pro/glossary/redlock-algorithm.html"
+      ],
+      "key_numbers": "Redlock: 5 independent Redis masters, no replication between them, majority = 3/5, canonical 10s TTL, clock drift margin ~1% of TTL + a couple ms. Worked failure case: Client 1 acquires lock, hits a ~30s GC pause, lease expires at T+10s, Client 2 acquires at T+10.2s and writes, Client 1 wakes at T+30s unaware and writes too — no fencing token to distinguish the writes.",
+      "lesson": "Redlock's quorum solves the failure mode of a crashed or failed-over node forging a second lock grant; it does not and cannot solve a live client that pauses past its own lease, because the lock itself is a yes/no with no monotonically increasing token — that gap only closes if the protected resource enforces a fencing check itself.",
+      "filename": "2026-07-25-redis-redlock-fencing-token-debate.md"
     }
   ]
 }

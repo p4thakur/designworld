@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Redis",
+      "category": "stability",
+      "post_type": "narrative",
+      "opening_style": "mid_scene"
+    },
+    {
       "company": "Cloudflare",
       "category": "storage",
       "post_type": "structured",
@@ -11,12 +17,6 @@
       "category": "microservices",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption"
-    },
-    {
-      "company": "Spotify",
-      "category": "search",
-      "post_type": "confessional",
-      "opening_style": "specific_number"
     }
   ]
 }

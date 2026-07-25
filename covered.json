@@ -64,6 +64,7 @@
     "slack-2021-transit-gateway-outage",
     "spotify-annoy-mmap-random-projection-trees",
     "instagram-monolith-vs-microservices",
-    "cloudflare-quicksilver-config-distribution"
+    "cloudflare-quicksilver-config-distribution",
+    "redis-redlock-fencing-token-debate"
   ]
 }
