@@ -648,6 +648,25 @@
       "key_numbers": "Redlock: 5 independent Redis masters, no replication between them, majority = 3/5, canonical 10s TTL, clock drift margin ~1% of TTL + a couple ms. Worked failure case: Client 1 acquires lock, hits a ~30s GC pause, lease expires at T+10s, Client 2 acquires at T+10.2s and writes, Client 1 wakes at T+30s unaware and writes too — no fencing token to distinguish the writes.",
       "lesson": "Redlock's quorum solves the failure mode of a crashed or failed-over node forging a second lock grant; it does not and cannot solve a live client that pauses past its own lease, because the lock itself is a yes/no with no monotonically increasing token — that gap only closes if the protected resource enforces a fencing check itself.",
       "filename": "2026-07-25-redis-redlock-fencing-token-debate.md"
+    },
+    {
+      "date": "2026-07-26",
+      "company": "Uber",
+      "topic": "Why Uber Engineering switched from Postgres to MySQL in 2016 — physical index write amplification, autovacuum full-table scans, and a Postgres 9.2 replication-corruption incident that forced hand resyncing every replica",
+      "category": "databases",
+      "post_type": "confessional",
+      "opening_style": "number_mismatch",
+      "hook": "Postgres indexes point straight at a row's physical location on disk. MySQL's InnoDB indexes point at the primary key instead — one extra hop. That single architectural difference is most of the reason Uber ripped Postgres out, ten years ago this week.",
+      "sources": [
+        "https://www.uber.com/en-US/blog/postgres-to-mysql-migration/",
+        "https://www.uber.com/blog/schemaless-part-one-mysql-datastore/",
+        "https://lwn.net/Articles/696085/",
+        "https://www.infoq.com/news/2016/08/Uber-Engineering-Postgres-MySQL",
+        "https://use-the-index-luke.com/blog/2016-07-29/on-ubers-choice-of-databases"
+      ],
+      "key_numbers": "Published July 26, 2016, exactly ten years before this post. Postgres secondary indexes point at a row's physical heap offset (every column update rewrites every index on the row); MySQL/InnoDB secondary indexes point at the primary key (one extra lookup hop, only the clustered index moves on a row relocation). A Postgres 9.2 bug during a routine upgrade corrupted index pages on a handful of rows per database; because Postgres replication is physical (page-level WAL), the corruption replayed onto every standby while the newly promoted master stayed clean, forcing a full manual resync of every replica from a fresh snapshot. Uber had already run out of room on its Postgres trip tables by early 2014 and had Schemaless (append-only, sharded, on plain MySQL) live in production by October 2014.",
+      "lesson": "Postgres wasn't the wrong database in 2011 — it was the wrong database for the write pattern and scale Uber grew into by 2015. A row-store's physical-index design is a real, specific cost (write amplification, vacuum scans, replication fragility under corruption) that only shows up once you're pushing enough writes through it, and by then the fix is architectural, not a config tweak.",
+      "filename": "2026-07-26-uber-postgres-to-mysql-migration.md"
     }
   ]
 }
