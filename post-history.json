@@ -667,6 +667,25 @@
       "key_numbers": "Published July 26, 2016, exactly ten years before this post. Postgres secondary indexes point at a row's physical heap offset (every column update rewrites every index on the row); MySQL/InnoDB secondary indexes point at the primary key (one extra lookup hop, only the clustered index moves on a row relocation). A Postgres 9.2 bug during a routine upgrade corrupted index pages on a handful of rows per database; because Postgres replication is physical (page-level WAL), the corruption replayed onto every standby while the newly promoted master stayed clean, forcing a full manual resync of every replica from a fresh snapshot. Uber had already run out of room on its Postgres trip tables by early 2014 and had Schemaless (append-only, sharded, on plain MySQL) live in production by October 2014.",
       "lesson": "Postgres wasn't the wrong database in 2011 — it was the wrong database for the write pattern and scale Uber grew into by 2015. A row-store's physical-index design is a real, specific cost (write amplification, vacuum scans, replication fragility under corruption) that only shows up once you're pushing enough writes through it, and by then the fix is architectural, not a config tweak.",
       "filename": "2026-07-26-uber-postgres-to-mysql-migration.md"
+    },
+    {
+      "date": "2026-07-27",
+      "company": "Apache Kafka / Confluent",
+      "topic": "KIP-500 removed Kafka's ZooKeeper dependency — full-metadata-tree reloads on controller failover and one-shot-watch RPC fan-out were replaced by a self-managed Raft metadata quorum (KRaft), cutting failover from 20+ minutes to under a second",
+      "category": "messaging",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption",
+      "hook": "For a decade, the fix for a slow Kafka controller failover was \"give ZooKeeper more headroom.\" That was never going to work.",
+      "sources": [
+        "https://cwiki.apache.org/confluence/display/KAFKA/KIP-500:+Replace+ZooKeeper+with+a+Self-Managed+Metadata+Quorum",
+        "https://cwiki.apache.org/confluence/display/KAFKA/KIP-833:+Mark+KRaft+as+Production+Ready",
+        "https://www.confluent.io/blog/removing-zookeeper-dependency-in-kafka/",
+        "https://www.confluent.io/blog/apache-kafka-supports-200k-partitions-per-cluster/",
+        "https://issues.apache.org/jira/browse/KAFKA-6879"
+      ],
+      "key_numbers": "On controller failover, the ZooKeeper-based controller had to reload the entire metadata tree (every topic, partition, replica assignment, ISR) into memory before issuing any LeaderAndIsr directives — an O(total partitions) reload that KIP-500's own motivation cites as stretching past 20 minutes on large clusters, capping practical cluster size around roughly 200,000 partitions. ZooKeeper watches are one-shot (fire once, must be re-registered), and the controller's own metadata propagation used full-state UpdateMetadataRequest RPCs to every broker on every change. KIP-500 (proposed 2019) replaced this with an embedded Raft quorum over a __cluster_metadata log; standby controllers are Raft followers already replaying that log, so failover became a leader vote instead of a data-load — typically under a second. KIP-833 marked KRaft production-ready in Kafka 3.3 (October 3, 2022). KAFKA-6879 is a real filed bug: a ZooKeeper session expiration could deadlock the controller's own internal lock against its own expiry-handling latch, leaving a silent \"zombie\" controller that never issued another directive until manually restarted.",
+      "lesson": "For a decade the instinct was to tune ZooKeeper harder because it was the proven, boring default embedded across HBase, Solr, and Kafka itself. But the bottleneck was never ZooKeeper's throughput — it was that an external, session-based coordination service forces a full-state reload on every failover, no matter how well-provisioned the ensemble is. Sometimes the slow thing isn't slow because it needs tuning; it's slow because your control plane's source of truth lives in somebody else's system.",
+      "filename": "2026-07-27-kafka-kraft-zookeeper-removal.md"
     }
   ]
 }

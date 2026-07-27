@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Apache Kafka / Confluent",
+      "category": "messaging",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
       "company": "Uber",
       "category": "databases",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "stability",
       "post_type": "narrative",
       "opening_style": "mid_scene"
-    },
-    {
-      "company": "Cloudflare",
-      "category": "storage",
-      "post_type": "structured",
-      "opening_style": "cold_fact"
     }
   ]
 }

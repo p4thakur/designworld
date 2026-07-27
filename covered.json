@@ -66,6 +66,7 @@
     "instagram-monolith-vs-microservices",
     "cloudflare-quicksilver-config-distribution",
     "redis-redlock-fencing-token-debate",
-    "uber-postgres-to-mysql-migration"
+    "uber-postgres-to-mysql-migration",
+    "kafka-kraft-zookeeper-removal"
   ]
 }
