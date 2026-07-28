@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Netflix",
+      "category": "microservices",
+      "post_type": "structured",
+      "opening_style": "shared_pain_point"
+    },
+    {
       "company": "Apache Kafka / Confluent",
       "category": "messaging",
       "post_type": "contrarian",
@@ -11,12 +17,6 @@
       "category": "databases",
       "post_type": "confessional",
       "opening_style": "number_mismatch"
-    },
-    {
-      "company": "Redis",
-      "category": "stability",
-      "post_type": "narrative",
-      "opening_style": "mid_scene"
     }
   ]
 }

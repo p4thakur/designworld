@@ -686,6 +686,26 @@
       "key_numbers": "On controller failover, the ZooKeeper-based controller had to reload the entire metadata tree (every topic, partition, replica assignment, ISR) into memory before issuing any LeaderAndIsr directives — an O(total partitions) reload that KIP-500's own motivation cites as stretching past 20 minutes on large clusters, capping practical cluster size around roughly 200,000 partitions. ZooKeeper watches are one-shot (fire once, must be re-registered), and the controller's own metadata propagation used full-state UpdateMetadataRequest RPCs to every broker on every change. KIP-500 (proposed 2019) replaced this with an embedded Raft quorum over a __cluster_metadata log; standby controllers are Raft followers already replaying that log, so failover became a leader vote instead of a data-load — typically under a second. KIP-833 marked KRaft production-ready in Kafka 3.3 (October 3, 2022). KAFKA-6879 is a real filed bug: a ZooKeeper session expiration could deadlock the controller's own internal lock against its own expiry-handling latch, leaving a silent \"zombie\" controller that never issued another directive until manually restarted.",
       "lesson": "For a decade the instinct was to tune ZooKeeper harder because it was the proven, boring default embedded across HBase, Solr, and Kafka itself. But the bottleneck was never ZooKeeper's throughput — it was that an external, session-based coordination service forces a full-state reload on every failover, no matter how well-provisioned the ensemble is. Sometimes the slow thing isn't slow because it needs tuning; it's slow because your control plane's source of truth lives in somebody else's system.",
       "filename": "2026-07-27-kafka-kraft-zookeeper-removal.md"
+    },
+    {
+      "date": "2026-07-28",
+      "company": "Netflix",
+      "topic": "Zuul's two rewrites — the 2017 move from thread-per-connection (Zuul 1, Servlet) to a Netty event-loop architecture (Zuul 2) to fix thread-pool exhaustion under retry storms, and the 2023 fix for the connection-count explosion that the event-loop rewrite introduced",
+      "category": "microservices",
+      "post_type": "structured",
+      "opening_style": "shared_pain_point",
+      "hook": "Every reverse proxy has the same nightmare: a backend gets slow, and the thing meant to protect you from it runs out of capacity right along with it.",
+      "sources": [
+        "https://netflixtechblog.com/zuul-2-the-netflix-journey-to-asynchronous-non-blocking-systems-45947377fb5c",
+        "https://netflixtechblog.com/curbing-connection-churn-in-zuul-2feb273a3598",
+        "https://netflixtechblog.com/open-sourcing-zuul-2-82ea476cb2b3",
+        "https://www.infoq.com/news/2016/10/netflix-zuul-asynch-nonblocking",
+        "https://arthur.gonigberg.com/2017/10/02/zuul-2-non-blocking/",
+        "https://github.com/Netflix/zuul/wiki/How-It-Works-2.0"
+      ],
+      "key_numbers": "Zuul 1 (2013): one thread per connection (Servlet model); backend slowdowns held threads longer while retries added connections, exhausting the thread pool. Zuul 2 (2017, Netty, non-blocking): one event loop per CPU core, Linux epoll (edge-triggered) underneath, separate outbound connection pool per host per event loop. Measured after months in production, not uniform: +25% throughput / -25% CPU on the I/O-bound logging-pipeline cluster (write-heavy, large requests, small responses), 0% gain on the CPU-bound API cluster (metrics, encryption, compression done per request). By 2018, 80+ Zuul 2 clusters routing to ~100 backend service clusters, 1M+ requests/second aggregate. 2023 fix (HTTP/2 multiplexing + host subsetting) cut peak connections by ~10x across all 3 AWS regions, with some shards reduced by up to 13 million connections at peak.",
+      "lesson": "The primitive that scales with your traffic is whatever quantity you multiply requests by. Thread-per-connection multiplies by concurrent slow waits; an event loop fixes that by holding pending state as callback data on a fixed thread count instead of blocking an OS thread per wait. But the fix didn't remove the multiplication, it moved it — from threads to connections (instances x event loops x backend hosts) — which is why the same gateway needed a second, unrelated rewrite six years later.",
+      "filename": "2026-07-28-netflix-zuul2-nonblocking-connection-churn.md"
     }
   ]
 }
