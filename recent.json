@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Linear",
+      "category": "real-time",
+      "post_type": "narrative",
+      "opening_style": "mid_scene"
+    },
+    {
       "company": "Netflix",
       "category": "microservices",
       "post_type": "structured",
@@ -11,12 +17,6 @@
       "category": "messaging",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption"
-    },
-    {
-      "company": "Uber",
-      "category": "databases",
-      "post_type": "confessional",
-      "opening_style": "number_mismatch"
     }
   ]
 }

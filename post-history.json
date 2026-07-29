@@ -706,6 +706,23 @@
       "key_numbers": "Zuul 1 (2013): one thread per connection (Servlet model); backend slowdowns held threads longer while retries added connections, exhausting the thread pool. Zuul 2 (2017, Netty, non-blocking): one event loop per CPU core, Linux epoll (edge-triggered) underneath, separate outbound connection pool per host per event loop. Measured after months in production, not uniform: +25% throughput / -25% CPU on the I/O-bound logging-pipeline cluster (write-heavy, large requests, small responses), 0% gain on the CPU-bound API cluster (metrics, encryption, compression done per request). By 2018, 80+ Zuul 2 clusters routing to ~100 backend service clusters, 1M+ requests/second aggregate. 2023 fix (HTTP/2 multiplexing + host subsetting) cut peak connections by ~10x across all 3 AWS regions, with some shards reduced by up to 13 million connections at peak.",
       "lesson": "The primitive that scales with your traffic is whatever quantity you multiply requests by. Thread-per-connection multiplies by concurrent slow waits; an event loop fixes that by holding pending state as callback data on a fixed thread count instead of blocking an OS thread per wait. But the fix didn't remove the multiplication, it moved it — from threads to connections (instances x event loops x backend hosts) — which is why the same gateway needed a second, unrelated rewrite six years later.",
       "filename": "2026-07-28-netflix-zuul2-nonblocking-connection-churn.md"
+    },
+    {
+      "date": "2026-07-29",
+      "company": "Linear",
+      "topic": "The sync engine — treating each browser tab as a Postgres-style logical replica: a global monotonically increasing sync id (client-side LSN) driving ordered delta-packet broadcast over WebSocket, IndexedDB as the local replica, and lazy per-view hydration of unbounded tables to keep bootstrap cost tied to workspace structure rather than workspace size",
+      "category": "real-time",
+      "post_type": "narrative",
+      "opening_style": "mid_scene",
+      "hook": "Every field you edit in Linear writes to your browser's IndexedDB before a single byte reaches the server.",
+      "sources": [
+        "https://linear.app/now/scaling-the-linear-sync-engine",
+        "https://github.com/wzhudev/reverse-linear-sync-engine",
+        "https://performance.dev/how-is-linear-so-fast-a-technical-breakdown"
+      ],
+      "key_numbers": "Single global lastSyncId counter incremented once per accepted mutation across the whole system; each mutation emits a delta packet (Insert/Update/Archive/Delete/etc.) tagged with that id, broadcast to every connected client including the originator. Bootstrap fetches a full snapshot at a known sync id then streams deltas forward, mirroring snapshot + streaming-WAL logical replication. Issues and comments (the two unbounded tables) lazy-hydrate per view via partial indexes; bounded workspace metadata (labels, states, projects) still bootstraps eagerly. Result: a 10,000-issue workspace boots in about the same time as a 100-issue one.",
+      "lesson": "Nobody CRDT'd their way out of merge conflicts here. They noticed the problem was never reconciling concurrent edits, it was keeping a replica caught up — and reached for the same log-tailing idea Postgres has used for decades, one browser tab at a time.",
+      "filename": "2026-07-29-linear-sync-engine-global-sync-id.md"
     }
   ]
 }

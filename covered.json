@@ -68,6 +68,7 @@
     "redis-redlock-fencing-token-debate",
     "uber-postgres-to-mysql-migration",
     "kafka-kraft-zookeeper-removal",
-    "netflix-zuul2-nonblocking-connection-churn"
+    "netflix-zuul2-nonblocking-connection-churn",
+    "linear-sync-engine-global-sync-id"
   ]
 }
