@@ -12,14 +12,14 @@
         "https://www.infoq.com/news/2023/06/discord-cassandra-scylladb/",
         "https://thenewstack.io/how-discord-migrated-trillions-of-messages-to-scylladb/"
       ],
-      "key_numbers": "177 → 72 nodes, p99 read 40-125ms → 15ms, p99 write 5-70ms → 5ms",
+      "key_numbers": "177 \u2192 72 nodes, p99 read 40-125ms \u2192 15ms, p99 write 5-70ms \u2192 5ms",
       "lesson": "Your database's ceiling is often the runtime beneath it, not the database design",
       "filename": "post_1_discord_final.md"
     },
     {
       "date": "2026-04-19",
       "company": "Shopify",
-      "topic": "Pod architecture — isolated data cells instead of microservices",
+      "topic": "Pod architecture \u2014 isolated data cells instead of microservices",
       "category": "availability",
       "hook": "Monolith survives Black Friday by isolating state, not splitting services",
       "sources": [
@@ -36,7 +36,7 @@
     {
       "date": "2026-04-20",
       "company": "Figma",
-      "topic": "Multiplayer editing — rejected OT in favor of last-writer-wins per property",
+      "topic": "Multiplayer editing \u2014 rejected OT in favor of last-writer-wins per property",
       "category": "real-time systems",
       "hook": "Rejected the industry-standard algorithm (OT) because design isn't text",
       "opening_style": "rhetorical question (Ever wonder how Figma lets 30 people...)",
@@ -53,7 +53,7 @@
     {
       "date": "2026-04-21",
       "company": "Cloudflare",
-      "topic": "Workers run on V8 isolates, not containers — 100x faster cold starts",
+      "topic": "Workers run on V8 isolates, not containers \u2014 100x faster cold starts",
       "category": "infrastructure / serverless",
       "hook": "Rejected containers as the isolation primitive and rebuilt serverless around V8",
       "opening_style": "shared-pain-point opener (Every serverless platform has the same problem: cold starts.)",
@@ -71,7 +71,7 @@
     {
       "date": "2026-04-21",
       "company": "Notion",
-      "topic": "Sharding Postgres monolith — 480 logical shards, workspace ID partition key, then re-sharding 32→96 physical DBs",
+      "topic": "Sharding Postgres monolith \u2014 480 logical shards, workspace ID partition key, then re-sharding 32\u219296 physical DBs",
       "category": "databases",
       "hook": "Monolith lasted 5 years and 4 orders of magnitude. Then VACUUM stopped working.",
       "sources": [
@@ -79,14 +79,14 @@
         "https://www.notion.com/blog/the-great-re-shard",
         "https://www.notion.com/blog/building-and-scaling-notions-data-lake"
       ],
-      "key_numbers": "480 logical shards, 32→96 physical DBs, 20B→200B blocks in 3 years, 96-CPU migration machine, 5 min downtime, TXID wraparound at 4B",
+      "key_numbers": "480 logical shards, 32\u219296 physical DBs, 20B\u2192200B blocks in 3 years, 96-CPU migration machine, 5 min downtime, TXID wraparound at 4B",
       "lesson": "Shard before your database is so strained that the migration itself becomes dangerous.",
       "filename": "post_5_notion_final.md"
     },
     {
       "date": "2026-04-23",
       "company": "Instagram",
-      "topic": "Sharding IDs — 64-bit self-routing IDs using PL/pgSQL inside Postgres, rejected Snowflake/UUID/ticket servers",
+      "topic": "Sharding IDs \u2014 64-bit self-routing IDs using PL/pgSQL inside Postgres, rejected Snowflake/UUID/ticket servers",
       "category": "databases",
       "post_type": "structured",
       "opening_style": "the_decision",
@@ -101,7 +101,7 @@
     {
       "date": "2026-05-10",
       "company": "Uber",
-      "topic": "DOMA — Domain-Oriented Microservice Architecture, organizing 2200 services into 70 domains with gateways and layers",
+      "topic": "DOMA \u2014 Domain-Oriented Microservice Architecture, organizing 2200 services into 70 domains with gateways and layers",
       "category": "microservices",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption",
@@ -109,14 +109,14 @@
       "sources": [
         "https://www.uber.com/en-BG/blog/microservice-architecture/"
       ],
-      "key_numbers": "2200 services → 70 domains. Half-life 1.5 years. 50 services across 12 teams for 1 bug. Integration time 3 days → 3 hours. Onboarding reduced 25-50%.",
+      "key_numbers": "2200 services \u2192 70 domains. Half-life 1.5 years. 50 services across 12 teams for 1 bug. Integration time 3 days \u2192 3 hours. Onboarding reduced 25-50%.",
       "lesson": "The organizing principle above microservices matters more than the microservices themselves.",
       "filename": "post_7_uber_final.md"
     },
     {
       "date": "2026-05-10",
       "company": "Netflix",
-      "topic": "EVCache evolution from RAM to SSD — Moneta (RocksDB) then extstore, trillions of ops/day",
+      "topic": "EVCache evolution from RAM to SSD \u2014 Moneta (RocksDB) then extstore, trillions of ops/day",
       "category": "caching",
       "post_type": "narrative",
       "opening_style": "mid_scene",
@@ -126,18 +126,18 @@
         "https://medium.com/netflix-techblog/application-data-caching-using-ssds-5bf25df851ef",
         "https://netflixtechblog.com/cache-warming-agility-for-a-stateful-service-2d3b1da82642"
       ],
-      "key_numbers": "Petabytes, hundreds of billions items, trillions ops/day. RAM <1μs, SSD 100-500μs, SLA 1ms. Moneta: 60% cluster reduction. r3 80GB → i2 800GB (10x storage).",
-      "lesson": "The real question is not RAM or disk — it is what latency does your SLA actually require.",
+      "key_numbers": "Petabytes, hundreds of billions items, trillions ops/day. RAM <1\u03bcs, SSD 100-500\u03bcs, SLA 1ms. Moneta: 60% cluster reduction. r3 80GB \u2192 i2 800GB (10x storage).",
+      "lesson": "The real question is not RAM or disk \u2014 it is what latency does your SLA actually require.",
       "filename": "post_8_netflix_final.md"
     },
     {
       "date": "2026-05-10",
       "company": "Stripe",
-      "topic": "Idempotency keys — 3 failure modes, UUID per request, cached response, 24hr expiry, 500 edge case",
+      "topic": "Idempotency keys \u2014 3 failure modes, UUID per request, cached response, 24hr expiry, 500 edge case",
       "category": "stability",
       "post_type": "confessional",
       "opening_style": "number_mismatch",
-      "hook": "A request fails in 3 ways and only one is obvious — the third is the dangerous one.",
+      "hook": "A request fails in 3 ways and only one is obvious \u2014 the third is the dangerous one.",
       "sources": [
         "https://stripe.com/blog/idempotency",
         "https://docs.stripe.com/error-low-level",
@@ -150,17 +150,17 @@
     {
       "date": "2026-05-10",
       "company": "LinkedIn",
-      "topic": "Kafka origin — M×N pipeline problem, distributed commit log, 1B to 7T messages/day, internal release branch",
+      "topic": "Kafka origin \u2014 M\u00d7N pipeline problem, distributed commit log, 1B to 7T messages/day, internal release branch",
       "category": "messaging",
       "post_type": "structured",
       "opening_style": "cold_fact",
-      "hook": "In 2010, LinkedIn had a data problem existing tools could not solve — so they built Kafka.",
+      "hook": "In 2010, LinkedIn had a data problem existing tools could not solve \u2014 so they built Kafka.",
       "sources": [
         "https://engineering.linkedin.com/apache-kafka/how-we_re-improving-and-advancing-kafka-linkedin",
         "https://www.linkedin.com/blog/engineering/open-source/apache-kafka-trillion-messages",
         "https://www.confluent.io/blog/apache-kafka-hits-1-1-trillion-messages-per-day-joins-the-4-comma-club/"
       ],
-      "key_numbers": "1B/day (2011) → 20B (2012) → 200B (2013) → 1T/4.5M sec peak (2014) → 7T/day today. 100+ clusters, 4000+ brokers, 100K topics, 7M partitions.",
+      "key_numbers": "1B/day (2011) \u2192 20B (2012) \u2192 200B (2013) \u2192 1T/4.5M sec peak (2014) \u2192 7T/day today. 100+ clusters, 4000+ brokers, 100K topics, 7M partitions.",
       "lesson": "The log is a more fundamental abstraction than most engineers realize. Pull model + persistence + partitioning generalizes to every organization generating continuous event data.",
       "filename": "post_10_linkedin_kafka_final.md",
       "blog_filename": "blog_10_linkedin_kafka.md"
@@ -168,7 +168,7 @@
     {
       "date": "2026-05-10",
       "company": "DoorDash",
-      "topic": "Replaced Elasticsearch with Apache Lucene-based in-house search engine — segment replication, indexer/searcher split",
+      "topic": "Replaced Elasticsearch with Apache Lucene-based in-house search engine \u2014 segment replication, indexer/searcher split",
       "category": "search",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption",
@@ -176,7 +176,7 @@
       "sources": [
         "https://doordash.engineering/2024/02/27/introducing-doordashs-in-house-search-engine/"
       ],
-      "key_numbers": "p99.9 latency -50%, hardware costs -75%. Shard replication → segment replication via S3. Indexer + Searcher scale independently.",
+      "key_numbers": "p99.9 latency -50%, hardware costs -75%. Shard replication \u2192 segment replication via S3. Indexer + Searcher scale independently.",
       "lesson": "The tool you outgrow made assumptions that stopped fitting your workload. Going down one abstraction layer and building to fit is sometimes cheaper than fighting the default.",
       "filename": "post_11_doordash_final.md",
       "blog_filename": "blog_11_doordash_search.md"
@@ -184,7 +184,7 @@
     {
       "date": "2026-05-20",
       "company": "Uber",
-      "topic": "CRISP — critical path analysis for microservices, finds actual bottleneck vs slowest service",
+      "topic": "CRISP \u2014 critical path analysis for microservices, finds actual bottleneck vs slowest service",
       "category": "performance",
       "post_type": "structured",
       "opening_style": "the_decision",
@@ -201,7 +201,7 @@
     {
       "date": "2026-05-20",
       "company": "Meta",
-      "topic": "MySQL Raft — Raft consensus built into MySQL, binlog as Raft log, leadership inside mysqld",
+      "topic": "MySQL Raft \u2014 Raft consensus built into MySQL, binlog as Raft log, leadership inside mysqld",
       "category": "databases",
       "post_type": "structured",
       "opening_style": "number_mismatch",
@@ -219,7 +219,7 @@
     {
       "date": "2026-05-20",
       "company": "Netflix",
-      "topic": "Chaos Monkey and the Simian Army — intentionally killing production instances to build resilience",
+      "topic": "Chaos Monkey and the Simian Army \u2014 intentionally killing production instances to build resilience",
       "category": "availability",
       "post_type": "narrative",
       "opening_style": "mid_scene",
@@ -237,7 +237,7 @@
     {
       "date": "2026-05-20",
       "company": "Airbnb",
-      "topic": "Dynein — Resque to Quartz+MySQL to SQS+DynamoDB. Query amplification was the bottleneck.",
+      "topic": "Dynein \u2014 Resque to Quartz+MySQL to SQS+DynamoDB. Query amplification was the bottleneck.",
       "category": "messaging",
       "post_type": "confessional",
       "opening_style": "cold_fact",
@@ -254,7 +254,7 @@
     {
       "date": "2026-05-20",
       "company": "Uber",
-      "topic": "Kafka Dead Letter Queues — non-blocking reprocessing via retry topic cascade, leaky bucket delay, DLQ merge",
+      "topic": "Kafka Dead Letter Queues \u2014 non-blocking reprocessing via retry topic cascade, leaky bucket delay, DLQ merge",
       "category": "stability",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption",
@@ -272,7 +272,7 @@
     {
       "date": "2026-07-05",
       "company": "Amazon (AWS)",
-      "topic": "S3 US-EAST-1 outage — mistyped capacity-removal command, index + placement subsystem full restart, status dashboard hosted on S3 itself",
+      "topic": "S3 US-EAST-1 outage \u2014 mistyped capacity-removal command, index + placement subsystem full restart, status dashboard hosted on S3 itself",
       "category": "storage",
       "post_type": "narrative",
       "opening_style": "mid_scene",
@@ -290,11 +290,11 @@
     {
       "date": "2026-07-06",
       "company": "Twitter (X)",
-      "topic": "Earlybird real-time search — MySQL to custom Lucene rewrite in 2010, then unrolled linked lists to skip lists in 2020 to fix 15-second indexing lag",
+      "topic": "Earlybird real-time search \u2014 MySQL to custom Lucene rewrite in 2010, then unrolled linked lists to skip lists in 2020 to fix 15-second indexing lag",
       "category": "search",
       "post_type": "confessional",
       "opening_style": "specific_number",
-      "hook": "A decade after Twitter first solved 'real-time' search, a new tweet could still take up to 15 seconds to become searchable — because the fix from 2010 had its own aging assumption baked in",
+      "hook": "A decade after Twitter first solved 'real-time' search, a new tweet could still take up to 15 seconds to become searchable \u2014 because the fix from 2010 had its own aging assumption baked in",
       "sources": [
         "https://blog.twitter.com/engineering/en_us/a/2010/twitters-new-search-architecture",
         "https://blog.twitter.com/engineering/en_us/a/2011/the-engineering-behind-twitter-s-new-search-experience",
@@ -302,35 +302,35 @@
         "https://ieeexplore.ieee.org/document/6228205"
       ],
       "key_numbers": "~6,000 tweets/sec ingested (~500M/day), 2B+ queries/day at ~50ms avg latency, 17K QPS on a 16M-tweet segment, 15s indexing lag in 2019 cut to ~1s (>90% reduction) via skip lists in 2020",
-      "lesson": "The system built to escape one era's staleness spent the next decade quietly becoming the source of the next one — 'real-time' isn't a fixed target.",
+      "lesson": "The system built to escape one era's staleness spent the next decade quietly becoming the source of the next one \u2014 'real-time' isn't a fixed target.",
       "filename": "2026-07-06-twitter-earlybird-real-time-search.md"
     },
     {
       "date": "2026-07-07",
       "company": "Discord",
-      "topic": "Elixir at 5M concurrent users — Manifold batches cross-node sends by remote node instead of looping send/2 per PID, and the consistent-hash ring rewritten into pure Elixir + ETS to remove a single-owner-process bottleneck",
+      "topic": "Elixir at 5M concurrent users \u2014 Manifold batches cross-node sends by remote node instead of looping send/2 per PID, and the consistent-hash ring rewritten into pure Elixir + ETS to remove a single-owner-process bottleneck",
       "category": "real-time",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption",
-      "hook": "Distributed Erlang makes a remote send/2 look identical in code to a local one — Discord found out that at 100,000 PIDs per guild process, 'looks the same' and 'costs the same' are different claims",
+      "hook": "Distributed Erlang makes a remote send/2 look identical in code to a local one \u2014 Discord found out that at 100,000 PIDs per guild process, 'looks the same' and 'costs the same' are different claims",
       "sources": [
         "https://discord.com/blog/how-discord-scaled-elixir-to-5-000-000-concurrent-users",
         "https://github.com/discord/manifold",
         "https://github.com/discord/ex_hash_ring",
         "https://elixir-lang.org/blog/2020/10/08/real-time-communication-at-scale-with-elixir-at-discord/"
       ],
-      "key_numbers": "Up to 30K concurrent users in one guild (r/Overwatch), ~100K session PIDs on busy guild processes, ~70µs per remote send/2, packets/sec -50% immediately after Manifold, ring lookup ~12µs each, ~30s aggregate lookup cost during a mass-reconnect storm",
-      "lesson": "Location transparency didn't get removed by either fix — Discord just stopped paying its cost by accident, once per PID, and started paying it on purpose, once per node.",
+      "key_numbers": "Up to 30K concurrent users in one guild (r/Overwatch), ~100K session PIDs on busy guild processes, ~70\u00b5s per remote send/2, packets/sec -50% immediately after Manifold, ring lookup ~12\u00b5s each, ~30s aggregate lookup cost during a mass-reconnect storm",
+      "lesson": "Location transparency didn't get removed by either fix \u2014 Discord just stopped paying its cost by accident, once per PID, and started paying it on purpose, once per node.",
       "filename": "2026-07-07-discord-elixir-manifold-distribution.md"
     },
     {
       "date": "2026-07-08",
       "company": "Pinterest",
-      "topic": "Manual MySQL sharding — rejected auto-clustering (Cassandra/Membase) after a rebalancing bug lost ~20% of data, rebuilt on deterministic 64-bit IDs (16-bit shard + 10-bit type + 36-bit local) with no auto-failover, ever",
+      "topic": "Manual MySQL sharding \u2014 rejected auto-clustering (Cassandra/Membase) after a rebalancing bug lost ~20% of data, rebuilt on deterministic 64-bit IDs (16-bit shard + 10-bit type + 36-bit local) with no auto-failover, ever",
       "category": "database",
       "post_type": "structured",
       "opening_style": "cold_fact",
-      "hook": "A rebalancing bug flipped a secondary to primary mid-transfer and cost Pinterest ~20% of its data — so they threw out automatic clustering and wrote a sharding function by hand instead",
+      "hook": "A rebalancing bug flipped a secondary to primary mid-transfer and cost Pinterest ~20% of its data \u2014 so they threw out automatic clustering and wrote a sharding function by hand instead",
       "sources": [
         "https://medium.com/pinterest-engineering/sharding-pinterest-how-we-scaled-our-mysql-fleet-3f341e96ca6f",
         "https://highscalability.com/scaling-pinterest-from-0-to-10s-of-billions-of-page-views-a/",
@@ -338,17 +338,17 @@
         "https://read.engineerscodex.com/p/how-pinterest-scaled-to-11-million"
       ],
       "key_numbers": "Jan 2012: 11.7M monthly users, 6 engineers. Oct 2012: ~22M monthly users, 40 engineers, 88 sharded MySQL boxes. 64-bit ID = 16-bit shard + 10-bit type + 36-bit local. 4,096 shards live at launch of 65,536 possible. ~20% data lost in the rebalancing failure that triggered the rewrite.",
-      "lesson": "Automation isn't the goal. A failure mode you can actually reason about at 3am is — Pinterest traded invisible auto-rebalancing for a slower, manual, human-owned failover.",
+      "lesson": "Automation isn't the goal. A failure mode you can actually reason about at 3am is \u2014 Pinterest traded invisible auto-rebalancing for a slower, manual, human-owned failover.",
       "filename": "2026-07-08-pinterest-mysql-manual-sharding.md"
     },
     {
       "date": "2026-07-09",
       "company": "Facebook (Meta)",
-      "topic": "October 4, 2021 global outage — an audit-tool bug let a routine backbone-capacity command withdraw every BGP route, and Facebook's own DNS servers correctly self-withdrew their advertisements when they lost the backbone, which then broke the internal recovery tools and the badge readers on data center doors, all of which ran on the same network",
+      "topic": "October 4, 2021 global outage \u2014 an audit-tool bug let a routine backbone-capacity command withdraw every BGP route, and Facebook's own DNS servers correctly self-withdrew their advertisements when they lost the backbone, which then broke the internal recovery tools and the badge readers on data center doors, all of which ran on the same network",
       "category": "infrastructure",
       "post_type": "narrative",
       "opening_style": "mid_scene",
-      "hook": "A safety mechanism designed to make DNS servers withdraw themselves when unhealthy worked exactly as intended — and that correctness is what took Facebook, Instagram, and WhatsApp off the internet for six hours, then locked the engineers who could fix it out of the building",
+      "hook": "A safety mechanism designed to make DNS servers withdraw themselves when unhealthy worked exactly as intended \u2014 and that correctness is what took Facebook, Instagram, and WhatsApp off the internet for six hours, then locked the engineers who could fix it out of the building",
       "sources": [
         "https://engineering.fb.com/2021/10/05/networking-traffic/outage-details/",
         "https://engineering.fb.com/2021/10/04/networking-traffic/outage/",
@@ -357,13 +357,13 @@
         "https://www.kentik.com/blog/facebooks-historic-outage-explained/"
       ],
       "key_numbers": "15:39 UTC command run, BGP restored ~21:50 UTC, DNS ~22:05 UTC, full service ~23:00 UTC (~6-7 hrs total), ~3.5B people affected across the app family, ~$60-100M estimated lost revenue for the day, Meta stock closed down ~4.9%",
-      "lesson": "The tradeoffs don't disappear when you add a safety mechanism. They just move — usually into the one scenario nobody modeled: everything failing at once.",
+      "lesson": "The tradeoffs don't disappear when you add a safety mechanism. They just move \u2014 usually into the one scenario nobody modeled: everything failing at once.",
       "filename": "2026-07-09-facebook-2021-bgp-outage.md"
     },
     {
       "date": "2026-07-10",
       "company": "Cloudflare",
-      "topic": "July 2019 global outage — a WAF refactor meant to cut CPU use quietly deleted the circuit breaker for runaway regexes; three weeks later a routine rule with a nested-wildcard regex pinned CPU near 100% worldwide, and the fix was the same instant-global-push mechanism that caused it",
+      "topic": "July 2019 global outage \u2014 a WAF refactor meant to cut CPU use quietly deleted the circuit breaker for runaway regexes; three weeks later a routine rule with a nested-wildcard regex pinned CPU near 100% worldwide, and the fix was the same instant-global-push mechanism that caused it",
       "category": "availability",
       "post_type": "confessional",
       "opening_style": "specific_number",
@@ -375,18 +375,18 @@
         "https://surfingcomplexity.blog/2019/08/02/contributors-mitigators-risks-cloudflare-2019-07-02-outage/",
         "https://news.ycombinator.com/item?id=20421538"
       ],
-      "key_numbers": "13:42 UTC deploy, 13:45 UTC first page (CPU near 100% worldwide), 14:02 UTC root cause isolated, 14:09 UTC recovered — 27 minutes total. CPU protection removed 3 weeks earlier during a WAF refactor. ~3,868 WAF Managed Rules hand-audited afterward.",
+      "key_numbers": "13:42 UTC deploy, 13:45 UTC first page (CPU near 100% worldwide), 14:02 UTC root cause isolated, 14:09 UTC recovered \u2014 27 minutes total. CPU protection removed 3 weeks earlier during a WAF refactor. ~3,868 WAF Managed Rules hand-audited afterward.",
       "lesson": "They kept the tool that pushes a fix everywhere in seconds. They just made sure it could no longer push an unbounded bug everywhere in seconds without anyone noticing first.",
       "filename": "2026-07-10-cloudflare-2019-regex-waf-outage.md"
     },
     {
       "date": "2026-07-11",
       "company": "Backblaze",
-      "topic": "Storage Pods (2009) — built a $7,867 4U box of 45 consumer SATA drives instead of buying an EMC SAN/NetApp filer/Amazon S3, solved chassis vibration by pinning drives rigid instead of cushioning them, then in 2013 tested a full pod of 'enterprise' drives against the consumer fleet and found the enterprise drives failed more often",
+      "topic": "Storage Pods (2009) \u2014 built a $7,867 4U box of 45 consumer SATA drives instead of buying an EMC SAN/NetApp filer/Amazon S3, solved chassis vibration by pinning drives rigid instead of cushioning them, then in 2013 tested a full pod of 'enterprise' drives against the consumer fleet and found the enterprise drives failed more often",
       "category": "storage",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption",
-      "hook": "Backblaze tested the 'pay for enterprise storage' assumption twice — once on the hardware, once on the drives — and the enterprise option lost both times",
+      "hook": "Backblaze tested the 'pay for enterprise storage' assumption twice \u2014 once on the hardware, once on the drives \u2014 and the enterprise option lost both times",
       "sources": [
         "https://www.backblaze.com/blog/petabytes-on-a-budget-how-to-build-cheap-cloud-storage/",
         "https://www.backblaze.com/blog/enterprise-drive-reliability/",
@@ -395,17 +395,17 @@
         "https://www.storagereview.com/news/do-it-yourself-backblaze-offers-135tb-of-storage-for-under-8k"
       ],
       "key_numbers": "Sept 2009: 67TB, 45 consumer SATA drives, $7,867 material cost, ~$0.11/GB, ~1/10th the all-in cost of EMC/NetApp/Dell/S3. Pod 5.0: $0.044/GB. Pod 6.0 (60 drives, 480TB, one 4U box): $0.036/GB. 2013 experiment: one full pod of enterprise drives had a higher failure rate than the consumer fleet.",
-      "lesson": "We default to paying for the enterprise label because verifying it ourselves feels like too much work. Backblaze ran the numbers instead of assuming them — on the box, then on the drives — and cheaper won both times.",
+      "lesson": "We default to paying for the enterprise label because verifying it ourselves feels like too much work. Backblaze ran the numbers instead of assuming them \u2014 on the box, then on the drives \u2014 and cheaper won both times.",
       "filename": "2026-07-11-backblaze-storage-pods-consumer-drives.md"
     },
     {
       "date": "2026-07-12",
       "company": "DoorDash",
-      "topic": "Iguazu event platform — consolidated one-off SQS/Kinesis pipelines per event type onto a single Kafka+Flink platform (HTTP Kafka proxy extended from Confluent's OSS version, Flink fan-out to Snowflake/Redis/Chronosphere, Protobuf schemas validated in CI), cutting latency to Snowflake from a day to minutes at hundreds of billions of events/day — then found onboarding a new event source was still gated by a GitHub-PR-plus-Atlantis-plus-Terraform chain requiring manual on-call approval by email, and replaced it with a self-service API",
+      "topic": "Iguazu event platform \u2014 consolidated one-off SQS/Kinesis pipelines per event type onto a single Kafka+Flink platform (HTTP Kafka proxy extended from Confluent's OSS version, Flink fan-out to Snowflake/Redis/Chronosphere, Protobuf schemas validated in CI), cutting latency to Snowflake from a day to minutes at hundreds of billions of events/day \u2014 then found onboarding a new event source was still gated by a GitHub-PR-plus-Atlantis-plus-Terraform chain requiring manual on-call approval by email, and replaced it with a self-service API",
       "category": "messaging",
       "post_type": "structured",
       "opening_style": "cold_fact",
-      "hook": "DoorDash's event platform moves hundreds of billions of events a day at 99.99% reliability. Its bottleneck for years wasn't Kafka throughput — it was an on-call engineer's inbox",
+      "hook": "DoorDash's event platform moves hundreds of billions of events a day at 99.99% reliability. Its bottleneck for years wasn't Kafka throughput \u2014 it was an on-call engineer's inbox",
       "sources": [
         "https://careersatdoordash.com/blog/building-scalable-real-time-event-processing-with-kafka-and-flink/",
         "https://careersatdoordash.com/blog/api-first-approach-to-kafka-topic-creation/",
@@ -414,18 +414,18 @@
         "https://factorhouse.io/articles/doordash-kafka-architecture",
         "https://www.kai-waehner.de/blog/2022/08/18/why-doordash-migrated-from-cloud-native-amazon-sqs-and-kinesis-to-apache-kafka-and-flink/"
       ],
-      "key_numbers": "Latency to Snowflake: up to 1 day → a few minutes. Hundreds of billions of events/day, 99.99% delivery. Topic onboarding: ~48hr guarantee → under 1hr (often ~15 min), a 95% reduction. On-call load: -4hrs/week. ~100 topics self-served/week. Product-launch PR queues could exceed 20/hour under the old process.",
+      "key_numbers": "Latency to Snowflake: up to 1 day \u2192 a few minutes. Hundreds of billions of events/day, 99.99% delivery. Topic onboarding: ~48hr guarantee \u2192 under 1hr (often ~15 min), a 95% reduction. On-call load: -4hrs/week. ~100 topics self-served/week. Product-launch PR queues could exceed 20/hour under the old process.",
       "lesson": "The part of a system engineers spend the most time optimizing is rarely the part that's actually slowing it down. A platform tuned to move hundreds of billions of events a day was throttled by a pull request waiting on a human.",
       "filename": "2026-07-12-doordash-iguazu-kafka-selfserve.md"
     },
     {
       "date": "2026-07-13",
       "company": "Lyft",
-      "topic": "Envoy origin story — built as a language-agnostic sidecar proxy to replace a mishmash of per-language client libraries (PHP, Python) and an ELB/CloudWatch layer that couldn't report p50/p99 latency, so a struggling downstream degraded via capped concurrent retries and circuit breaking instead of triggering a retry-storm cascading failure",
+      "topic": "Envoy origin story \u2014 built as a language-agnostic sidecar proxy to replace a mishmash of per-language client libraries (PHP, Python) and an ELB/CloudWatch layer that couldn't report p50/p99 latency, so a struggling downstream degraded via capped concurrent retries and circuit breaking instead of triggering a retry-storm cascading failure",
       "category": "microservices",
       "post_type": "narrative",
       "opening_style": "mid_scene",
-      "hook": "By 2015, Lyft had about 30 microservices — not a lot — and its own engineers were already wary of putting a single service call in a critical path. Not because the services were slow. Because when a call failed, nobody could say why",
+      "hook": "By 2015, Lyft had about 30 microservices \u2014 not a lot \u2014 and its own engineers were already wary of putting a single service call in a critical path. Not because the services were slow. Because when a call failed, nobody could say why",
       "sources": [
         "https://eng.lyft.com/announcing-envoy-c-l7-proxy-and-communication-bus-92520b6c8191",
         "https://eng.lyft.com/envoy-joins-the-cncf-dc18baefbc22",
@@ -434,17 +434,17 @@
         "https://mattklein123.dev/2021/09/14/5-years-envoy-oss/"
       ],
       "key_numbers": "~30 microservices when Matt Klein joined Lyft (May 2015). By Sept 2016 open-source launch: 100+ services meshed, millions of req/sec. By Sept 2017 CNCF donation: thousands of nodes, 2M+ req/sec, every system at Lyft. Envoy graduated CNCF Nov 2018; later adopted as the data plane under Istio and AWS App Mesh.",
-      "lesson": "The sidecar didn't make the network simple — it added a proxy hop to every call. It moved the complexity somewhere everyone could see, instrument once, and fix in one place, instead of copy-pasted into thirty different client libraries.",
+      "lesson": "The sidecar didn't make the network simple \u2014 it added a proxy hop to every call. It moved the complexity somewhere everyone could see, instrument once, and fix in one place, instead of copy-pasted into thirty different client libraries.",
       "filename": "2026-07-13-lyft-envoy-service-mesh-origin.md"
     },
     {
       "date": "2026-07-14",
       "company": "Monzo",
-      "topic": "July 2019 core banking outage caused by a misconfigured Cassandra auto_bootstrap flag — new nodes added during a routine scale-up took over their assigned token ranges immediately, before streaming the underlying data in, so queries against those ranges returned wrong balances and missing transactions",
+      "topic": "July 2019 core banking outage caused by a misconfigured Cassandra auto_bootstrap flag \u2014 new nodes added during a routine scale-up took over their assigned token ranges immediately, before streaming the underlying data in, so queries against those ranges returned wrong balances and missing transactions",
       "category": "stability",
       "post_type": "confessional",
       "opening_style": "specific_number",
-      "hook": "Monzo ran its core banking ledger on one Cassandra cluster — 21 nodes, replication factor 3, quorum reads. On July 29th, 2019, they scaled it the way they always did: added 6 more servers. Forty-some minutes later, customers' account balances were showing the wrong numbers.",
+      "hook": "Monzo ran its core banking ledger on one Cassandra cluster \u2014 21 nodes, replication factor 3, quorum reads. On July 29th, 2019, they scaled it the way they always did: added 6 more servers. Forty-some minutes later, customers' account balances were showing the wrong numbers.",
       "sources": [
         "https://monzo.com/blog/2019/09/08/why-monzo-wasnt-working-on-july-29th",
         "https://news.ycombinator.com/item?id=20231863",
@@ -452,7 +452,7 @@
         "https://downtimeproject.com/podcast/monzos-2019-cassandra-outage/",
         "https://www.infoq.com/articles/cassandra-kubernetes-microservices/"
       ],
-      "key_numbers": "21-node Cassandra cluster, RF3, local quorum reads → +6 servers at ~13:10 on July 29, 2019 → wrong balances within ~40 minutes → ~1 hour from first alert to confirming Cassandra as the cause → fully resolved in ~90 minutes, nodes decommissioned one at a time at ~8-10 min each.",
+      "key_numbers": "21-node Cassandra cluster, RF3, local quorum reads \u2192 +6 servers at ~13:10 on July 29, 2019 \u2192 wrong balances within ~40 minutes \u2192 ~1 hour from first alert to confirming Cassandra as the cause \u2192 fully resolved in ~90 minutes, nodes decommissioned one at a time at ~8-10 min each.",
       "lesson": "Nobody set auto_bootstrap wrong on purpose. It's the kind of assumption that's correct right up until the day it's tested for real, on a live system, with customers' money running through it.",
       "filename": "2026-07-14-monzo-cassandra-auto-bootstrap-outage.md"
     },
@@ -463,7 +463,7 @@
       "category": "performance",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption",
-      "hook": "On February 9th, 2016, Stack Overflow's engineers published exactly what their infrastructure looked like — nine web servers, one monolith, on-premise hardware — and it broke every rule of the standard 'break the monolith, move to the cloud, scale out horizontally' playbook.",
+      "hook": "On February 9th, 2016, Stack Overflow's engineers published exactly what their infrastructure looked like \u2014 nine web servers, one monolith, on-premise hardware \u2014 and it broke every rule of the standard 'break the monolith, move to the cloud, scale out horizontally' playbook.",
       "sources": [
         "https://nickcraver.com/blog/2016/02/17/stack-overflow-the-architecture-2016-edition/",
         "https://nickcraver.com/blog/2016/03/29/stack-overflow-the-hardware-2016-edition/",
@@ -474,31 +474,31 @@
         "https://newsletter.techworld-with-milan.com/p/stack-overflow-architecture"
       ],
       "key_numbers": "Feb 9, 2016 (one day, 9 web servers): 209.4M HTTP requests, 66.3M page loads, 504.8M SQL queries, 5.8B Redis hits, 17.2M Elasticsearch searches. Question page render: 22.71ms avg server-side. SQL server CPU: 5-10% almost always. Redis: ~160B ops/month at <2% CPU per instance. Hardware: Dell R630 web tier (dual 12-core Xeons, 64GB RAM); SQL clusters at 384GB and 768GB RAM over NVMe; 4 HAProxy load balancers.",
-      "lesson": "Microservices and cloud autoscaling are the default because they solve real problems — team autonomy, isolated deploys, bursty load. Stack Overflow didn't have those problems. It had predictable traffic and engineers who measured the ceiling before building anything to raise it. The industry's default architecture isn't wrong — it's just routinely applied to bottlenecks nobody bothered to check for.",
+      "lesson": "Microservices and cloud autoscaling are the default because they solve real problems \u2014 team autonomy, isolated deploys, bursty load. Stack Overflow didn't have those problems. It had predictable traffic and engineers who measured the ceiling before building anything to raise it. The industry's default architecture isn't wrong \u2014 it's just routinely applied to bottlenecks nobody bothered to check for.",
       "filename": "2026-07-15-stackoverflow-monolith-vertical-scaling.md"
     },
     {
       "date": "2026-07-16",
       "company": "Facebook",
-      "topic": "Gorilla in-memory time series database — 26-hour write-through cache in front of HBase, delta-of-delta timestamp encoding + XOR float compression bringing 16-byte points down to 1.37 bytes average",
+      "topic": "Gorilla in-memory time series database \u2014 26-hour write-through cache in front of HBase, delta-of-delta timestamp encoding + XOR float compression bringing 16-byte points down to 1.37 bytes average",
       "category": "databases",
       "post_type": "structured",
       "opening_style": "cold_fact",
-      "hook": "The slowest query Facebook's monitoring system served was the one an on-call engineer ran mid-incident — so they built a database whose entire trick was fitting 26 hours of every metric on the fleet into RAM",
+      "hook": "The slowest query Facebook's monitoring system served was the one an on-call engineer ran mid-incident \u2014 so they built a database whose entire trick was fitting 26 hours of every metric on the fleet into RAM",
       "sources": [
         "https://www.vldb.org/pvldb/vol8/p1816-teller.pdf",
         "https://dl.acm.org/doi/10.14778/2824032.2824078",
         "https://engineering.fb.com/2017/02/03/core-infra/beringei-a-high-performance-time-series-storage-engine/",
         "https://github.com/facebookarchive/beringei"
       ],
-      "key_numbers": "16 bytes raw/point → 1.37 bytes avg (~12x compression). ~73x lower query latency, ~14x higher throughput vs HBase. ODS: ~450 qps at launch → Gorilla 5,000+ steady-state qps, peaks past 40,000. 26-hour in-memory retention window. Prolonged outage: keeps ~1 minute of data, drops the rest. Beringei open-sourced 2017, archived 2018.",
-      "lesson": "The architecture wasn't the trick — fitting a full day of every metric on the fleet into RAM was. The compression scheme mirrors the shape of the signal it compresses: fixed interval, barely changing, read as a recent range.",
+      "key_numbers": "16 bytes raw/point \u2192 1.37 bytes avg (~12x compression). ~73x lower query latency, ~14x higher throughput vs HBase. ODS: ~450 qps at launch \u2192 Gorilla 5,000+ steady-state qps, peaks past 40,000. 26-hour in-memory retention window. Prolonged outage: keeps ~1 minute of data, drops the rest. Beringei open-sourced 2017, archived 2018.",
+      "lesson": "The architecture wasn't the trick \u2014 fitting a full day of every metric on the fleet into RAM was. The compression scheme mirrors the shape of the signal it compresses: fixed interval, barely changing, read as a recent range.",
       "filename": "2026-07-16-facebook-gorilla-tsdb-compression.md"
     },
     {
       "date": "2026-07-17",
       "company": "Twitter (X)",
-      "topic": "Kafka-buffered Elasticsearch ingestion — an Ingestion Service queues client writes into one Kafka topic per Elasticsearch cluster, drained by a bounded worker pool, after direct writes into a bounded ES write thread pool caused total index/cluster loss under traffic spikes",
+      "topic": "Kafka-buffered Elasticsearch ingestion \u2014 an Ingestion Service queues client writes into one Kafka topic per Elasticsearch cluster, drained by a bounded worker pool, after direct writes into a bounded ES write thread pool caused total index/cluster loss under traffic spikes",
       "category": "search",
       "post_type": "narrative",
       "opening_style": "mid_scene",
@@ -507,49 +507,49 @@
         "https://blog.x.com/engineering/en_us/topics/infrastructure/2022/stability-and-scalability-for-search"
       ],
       "key_numbers": "Not independently verified with hard node/QPS/latency figures from the primary source (post focuses on architecture, not those metrics). Backfill Service operations described as often spanning several, sometimes hundreds of terabytes of data.",
-      "lesson": "The tradeoffs didn't disappear. They moved — from a database that falls over loudly to a queue that falls behind quietly.",
+      "lesson": "The tradeoffs didn't disappear. They moved \u2014 from a database that falls over loudly to a queue that falls behind quietly.",
       "filename": "2026-07-17-twitter-elasticsearch-kafka-ingestion-buffer.md"
     },
     {
       "date": "2026-07-18",
       "company": "Etsy",
-      "topic": "Cache smearing — Ketama consistent hashing let Etsy resize memcached pools for years without a mass rehash, until one hot key's own GET traffic alone saturated a single host's NIC; adding more hosts didn't help because consistent hashing guarantees that key always lands on exactly one host, so the fix was appending random entropy to the key on every read/write, splitting one logical key into up to 16 physical keys spread across the pool",
+      "topic": "Cache smearing \u2014 Ketama consistent hashing let Etsy resize memcached pools for years without a mass rehash, until one hot key's own GET traffic alone saturated a single host's NIC; adding more hosts didn't help because consistent hashing guarantees that key always lands on exactly one host, so the fix was appending random entropy to the key on every read/write, splitting one logical key into up to 16 physical keys spread across the pool",
       "category": "caching",
       "post_type": "confessional",
       "opening_style": "specific_number",
-      "hook": "One key. On a memcached pool spread across dozens of hosts, a single hot key pushed one box's network interface to 960 megabits a second — on a 1 gigabit card.",
+      "hook": "One key. On a memcached pool spread across dozens of hosts, a single hot key pushed one box's network interface to 960 megabits a second \u2014 on a 1 gigabit card.",
       "sources": [
         "https://www.etsy.com/codeascraft/how-etsy-caches/",
         "https://www.etsy.com/codeascraft/mctop-a-tool-for-analyzing-memcache-get-traffic/"
       ],
-      "key_numbers": "Outbound > 800Mbps: p90 GET latency 5ms → 35ms. NIC saturates near 960Mbps on a 1Gbps card: latency > 200ms. Smearing entropy range: 0-8, sometimes 0-16 (up to 16 physical keys per hot key).",
-      "lesson": "Consistent hashing's whole guarantee is one key maps to one host, deterministically, at any pool size — exactly what makes horizontal scaling free for ordinary keys, and exactly why it's powerless against one key that's hot enough on its own.",
+      "key_numbers": "Outbound > 800Mbps: p90 GET latency 5ms \u2192 35ms. NIC saturates near 960Mbps on a 1Gbps card: latency > 200ms. Smearing entropy range: 0-8, sometimes 0-16 (up to 16 physical keys per hot key).",
+      "lesson": "Consistent hashing's whole guarantee is one key maps to one host, deterministically, at any pool size \u2014 exactly what makes horizontal scaling free for ordinary keys, and exactly why it's powerless against one key that's hot enough on its own.",
       "filename": "2026-07-18-etsy-cache-smearing-hot-keys.md"
     },
     {
       "date": "2026-07-19",
       "company": "Uber",
-      "topic": "H3 hexagonal hierarchical spatial index — pre-H3 surge pricing ran on geofenced zones, producing an \"edge effect\" where riders meters apart across a zone boundary paid very different multipliers and drivers idled inside high-price zones; squares can't fix this even at finer resolution because they have two neighbor distances (edge d vs. corner d×√2), while a hexagon's 6 neighbors all share an edge at one distance — the exact uniformity a price-smoothing gradient needs — at the cost of exactly 12 topologically mandatory pentagon cells (5 neighbors) at every resolution, which Uber orients into open ocean via the icosahedron's placement",
+      "topic": "H3 hexagonal hierarchical spatial index \u2014 pre-H3 surge pricing ran on geofenced zones, producing an \"edge effect\" where riders meters apart across a zone boundary paid very different multipliers and drivers idled inside high-price zones; squares can't fix this even at finer resolution because they have two neighbor distances (edge d vs. corner d\u00d7\u221a2), while a hexagon's 6 neighbors all share an edge at one distance \u2014 the exact uniformity a price-smoothing gradient needs \u2014 at the cost of exactly 12 topologically mandatory pentagon cells (5 neighbors) at every resolution, which Uber orients into open ocean via the icosahedron's placement",
       "category": "geospatial",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption",
-      "hook": "Every mapping tool you've ever used defaults to squares. Pixels are squares. Lat/lon grids are squares. Spreadsheets are squares. Uber's surge-pricing team looked at that default and threw it out — they rebuilt the map out of hexagons.",
+      "hook": "Every mapping tool you've ever used defaults to squares. Pixels are squares. Lat/lon grids are squares. Spreadsheets are squares. Uber's surge-pricing team looked at that default and threw it out \u2014 they rebuilt the map out of hexagons.",
       "sources": [
         "https://www.uber.com/blog/h3/",
         "https://h3geo.org/docs/core-library/overview/"
       ],
-      "key_numbers": "16 H3 resolutions; average edge length ~1,107.71km at res 0 down to ~0.51m at res 15; res 8 (~461m edge, ~0.5km² per cell) is the resolution surge pricing commonly runs at; square neighbor distance ratio d×1.41 (corner) vs. d (edge); resolution 0 has exactly 122 base cells (110 hexagons + 12 pentagons).",
-      "lesson": "Surge pricing needs to interpolate a continuous value across discrete cells — a gradient, not a lookup table — which only works if every neighbor is the same distance away; H3 doesn't make pricing smoother by being cleverer about zones, it changes the shape of space so smoothing becomes arithmetic, at the cost of 12 topologically unavoidable pentagons Uber has to hide in the ocean.",
+      "key_numbers": "16 H3 resolutions; average edge length ~1,107.71km at res 0 down to ~0.51m at res 15; res 8 (~461m edge, ~0.5km\u00b2 per cell) is the resolution surge pricing commonly runs at; square neighbor distance ratio d\u00d71.41 (corner) vs. d (edge); resolution 0 has exactly 122 base cells (110 hexagons + 12 pentagons).",
+      "lesson": "Surge pricing needs to interpolate a continuous value across discrete cells \u2014 a gradient, not a lookup table \u2014 which only works if every neighbor is the same distance away; H3 doesn't make pricing smoother by being cleverer about zones, it changes the shape of space so smoothing becomes arithmetic, at the cost of 12 topologically unavoidable pentagons Uber has to hide in the ocean.",
       "filename": "2026-07-19-uber-h3-hexagonal-surge-pricing.md"
     },
     {
       "date": "2026-07-20",
       "company": "Figma",
-      "topic": "Postgres scaling — a single primary on AWS's largest instance hit reliability problems from autovacuum on multi-terabyte tables, so Figma moved whole tables to their own databases (vertical partitioning) via a logical-replication cutover that dropped and rebuilt indexes to survive terabyte-scale copies, then validated a view-based logical sharding layer with 100% shadow reads before building DBProxy, a Go query proxy that parses SQL to an AST and routes by shard key",
+      "topic": "Postgres scaling \u2014 a single primary on AWS's largest instance hit reliability problems from autovacuum on multi-terabyte tables, so Figma moved whole tables to their own databases (vertical partitioning) via a logical-replication cutover that dropped and rebuilt indexes to survive terabyte-scale copies, then validated a view-based logical sharding layer with 100% shadow reads before building DBProxy, a Go query proxy that parses SQL to an AST and routes by shard key",
       "category": "database",
       "post_type": "structured case study",
       "opening_style": "cold_fact",
-      "hook": "Figma's database stack grew almost 100x between 2020 and 2024. In 2020: one Postgres primary, already on AWS's largest physical instance. By end of 2022: a dozen separate databases. By September 2023: parts of it finally sharded. Nobody just \"added shards\" — the path between those points is the interesting part.",
+      "hook": "Figma's database stack grew almost 100x between 2020 and 2024. In 2020: one Postgres primary, already on AWS's largest physical instance. By end of 2022: a dozen separate databases. By September 2023: parts of it finally sharded. Nobody just \"added shards\" \u2014 the path between those points is the interesting part.",
       "sources": [
         "https://www.figma.com/blog/how-figmas-databases-team-lived-to-tell-the-scale/",
         "https://www.figma.com/blog/how-figma-scaled-to-multiple-databases/",
@@ -580,41 +580,41 @@
     {
       "date": "2026-07-22",
       "company": "Spotify",
-      "topic": "Annoy approximate nearest-neighbor search — random-projection forest of trees for music-recommendation vectors, plus mmap'd read-only index files so many worker processes share one physical copy instead of duplicating it per process",
+      "topic": "Annoy approximate nearest-neighbor search \u2014 random-projection forest of trees for music-recommendation vectors, plus mmap'd read-only index files so many worker processes share one physical copy instead of duplicating it per process",
       "category": "search",
       "post_type": "confessional",
       "opening_style": "specific_number",
-      "hook": "Erik Bernhardsson built Annoy at Spotify in a couple of afternoons during a Hack Week in 2013 — and thirteen years later it's still doing the job it was hacked together for",
+      "hook": "Erik Bernhardsson built Annoy at Spotify in a couple of afternoons during a Hack Week in 2013 \u2014 and thirteen years later it's still doing the job it was hacked together for",
       "sources": [
         "https://erikbern.com/2013/04/12/annoy.html",
         "https://erikbern.com/2015/10/01/nearest-neighbors-and-vector-models-part-2-how-to-search-in-high-dimensional-spaces.html",
         "https://github.com/spotify/annoy/blob/main/README.rst"
       ],
-      "key_numbers": "5,000,000 items × 40 floats × 4 bytes = 800MB (Annoy's own illustrative math). × 32 worker processes with private copies = 25.6GB vs. 800MB flat when mmap'd and shared. search_k defaults to n_trees × n. Built 2013, in a couple of afternoons during a Hack Week.",
-      "lesson": "The same random-projection trick that makes the search approximate is what makes the index a flat, pointer-free, read-only file — exactly the shape mmap needs to back every worker process with one physical copy instead of many.",
+      "key_numbers": "5,000,000 items \u00d7 40 floats \u00d7 4 bytes = 800MB (Annoy's own illustrative math). \u00d7 32 worker processes with private copies = 25.6GB vs. 800MB flat when mmap'd and shared. search_k defaults to n_trees \u00d7 n. Built 2013, in a couple of afternoons during a Hack Week.",
+      "lesson": "The same random-projection trick that makes the search approximate is what makes the index a flat, pointer-free, read-only file \u2014 exactly the shape mmap needs to back every worker process with one physical copy instead of many.",
       "filename": "2026-07-22-spotify-annoy-mmap-random-projection-trees.md"
     },
     {
       "date": "2026-07-23",
       "company": "Instagram",
-      "topic": "Why a 3-engineer team never split the Django app into microservices — a stateless app tier scales by cloning the process, while the genuinely hard sharding/replication/consistency problems were pushed one layer down into Postgres, Redis, and Memcached",
+      "topic": "Why a 3-engineer team never split the Django app into microservices \u2014 a stateless app tier scales by cloning the process, while the genuinely hard sharding/replication/consistency problems were pushed one layer down into Postgres, Redis, and Memcached",
       "category": "microservices",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption",
-      "hook": "Instagram hit 14 million users in about 14 months with 3 backend engineers, and never broke up the monolith — not then, not at 300 million users, not in 2024 when Meta shipped Threads off the same codebase in five months",
+      "hook": "Instagram hit 14 million users in about 14 months with 3 backend engineers, and never broke up the monolith \u2014 not then, not at 300 million users, not in 2024 when Meta shipped Threads off the same codebase in five months",
       "sources": [
         "https://instagram-engineering.com/what-powers-instagram-hundreds-of-instances-dozens-of-technologies-adf2e22da2ad",
         "https://instagram-engineering.com/static-analysis-at-scale-an-instagram-story-8f498ab71a0c",
         "https://www.infoq.com/news/2024/04/meta-threads-instagram-5-months/"
       ],
       "key_numbers": "3 backend engineers, 14M users in ~14 months. App tier: 3 nginx + 25+ stateless Django/Gunicorn instances behind an ELB. Data tier: 12 large Postgres instances, Redis holding a ~300M photo-to-user-ID map in ~5GB, 6 Memcached nodes. By 2019: several million lines of Python, a few thousand Django endpoints, ~100 custom lint rules, ~100 deploys/day. 2024: Threads shipped off the same monolith in 5 months.",
-      "lesson": "Statelessness is the specific property that makes horizontal cloning of a monolith nearly free — the problem was request/data volume, not code complexity needing independent ownership, so the real hard distributed-systems work (sharding, replication, consistency) got pushed into the data tier instead of spread across a service mesh.",
+      "lesson": "Statelessness is the specific property that makes horizontal cloning of a monolith nearly free \u2014 the problem was request/data volume, not code complexity needing independent ownership, so the real hard distributed-systems work (sharding, replication, consistency) got pushed into the data tier instead of spread across a service mesh.",
       "filename": "2026-07-23-instagram-monolith-vs-microservices.md"
     },
     {
       "date": "2026-07-24",
       "company": "Cloudflare",
-      "topic": "Quicksilver config-distribution store — replaced single-root Kyoto Tycoon with per-server LMDB (memory-mapped B+tree, single-writer/multi-reader MVCC) and a hash-chained async replication tree, then split into replica/proxy roles in 2025 as the dataset outgrew small colocations",
+      "topic": "Quicksilver config-distribution store \u2014 replaced single-root Kyoto Tycoon with per-server LMDB (memory-mapped B+tree, single-writer/multi-reader MVCC) and a hash-chained async replication tree, then split into replica/proxy roles in 2025 as the dataset outgrew small colocations",
       "category": "storage",
       "post_type": "structured",
       "opening_style": "cold_fact",
@@ -627,13 +627,13 @@
         "https://blog.cloudflare.com/quicksilver-v2-evolution-of-a-globally-distributed-key-value-store-part-2-of-2/"
       ],
       "key_numbers": "5B+ key-value pairs, 1.6TB total, 3B+ keys/sec served worldwide, 90% of requests <1ms, 99.9% <7ms. DNS/rule changes reach 90% of the fleet in seconds. Kyoto Tycoon removal took ~4 years across 50+ producer teams. PIPEFAIL incident: Dec 16 2021, 20:10-20:40 UTC, up to 5s added latency for 30 minutes.",
-      "lesson": "The exact mechanism that makes global replication fast — near-instant fan-out of tiny deltas to every server — is the same mechanism that turns one bad write into a global incident just as fast.",
+      "lesson": "The exact mechanism that makes global replication fast \u2014 near-instant fan-out of tiny deltas to every server \u2014 is the same mechanism that turns one bad write into a global incident just as fast.",
       "filename": "2026-07-24-cloudflare-quicksilver-config-distribution.md"
     },
     {
       "date": "2026-07-25",
       "company": "Redis / Redis community (antirez vs. Martin Kleppmann)",
-      "topic": "The 2016 Redlock debate — Redis's quorum-based distributed lock (5 independent masters, majority acquisition, elapsed-time TTL check) versus Kleppmann's fencing-token critique of what happens after a client wins the lock and then stalls",
+      "topic": "The 2016 Redlock debate \u2014 Redis's quorum-based distributed lock (5 independent masters, majority acquisition, elapsed-time TTL check) versus Kleppmann's fencing-token critique of what happens after a client wins the lock and then stalls",
       "category": "stability",
       "post_type": "narrative",
       "opening_style": "mid_scene",
@@ -645,18 +645,18 @@
         "https://news.ycombinator.com/item?id=11065933",
         "https://redisson.pro/glossary/redlock-algorithm.html"
       ],
-      "key_numbers": "Redlock: 5 independent Redis masters, no replication between them, majority = 3/5, canonical 10s TTL, clock drift margin ~1% of TTL + a couple ms. Worked failure case: Client 1 acquires lock, hits a ~30s GC pause, lease expires at T+10s, Client 2 acquires at T+10.2s and writes, Client 1 wakes at T+30s unaware and writes too — no fencing token to distinguish the writes.",
-      "lesson": "Redlock's quorum solves the failure mode of a crashed or failed-over node forging a second lock grant; it does not and cannot solve a live client that pauses past its own lease, because the lock itself is a yes/no with no monotonically increasing token — that gap only closes if the protected resource enforces a fencing check itself.",
+      "key_numbers": "Redlock: 5 independent Redis masters, no replication between them, majority = 3/5, canonical 10s TTL, clock drift margin ~1% of TTL + a couple ms. Worked failure case: Client 1 acquires lock, hits a ~30s GC pause, lease expires at T+10s, Client 2 acquires at T+10.2s and writes, Client 1 wakes at T+30s unaware and writes too \u2014 no fencing token to distinguish the writes.",
+      "lesson": "Redlock's quorum solves the failure mode of a crashed or failed-over node forging a second lock grant; it does not and cannot solve a live client that pauses past its own lease, because the lock itself is a yes/no with no monotonically increasing token \u2014 that gap only closes if the protected resource enforces a fencing check itself.",
       "filename": "2026-07-25-redis-redlock-fencing-token-debate.md"
     },
     {
       "date": "2026-07-26",
       "company": "Uber",
-      "topic": "Why Uber Engineering switched from Postgres to MySQL in 2016 — physical index write amplification, autovacuum full-table scans, and a Postgres 9.2 replication-corruption incident that forced hand resyncing every replica",
+      "topic": "Why Uber Engineering switched from Postgres to MySQL in 2016 \u2014 physical index write amplification, autovacuum full-table scans, and a Postgres 9.2 replication-corruption incident that forced hand resyncing every replica",
       "category": "databases",
       "post_type": "confessional",
       "opening_style": "number_mismatch",
-      "hook": "Postgres indexes point straight at a row's physical location on disk. MySQL's InnoDB indexes point at the primary key instead — one extra hop. That single architectural difference is most of the reason Uber ripped Postgres out, ten years ago this week.",
+      "hook": "Postgres indexes point straight at a row's physical location on disk. MySQL's InnoDB indexes point at the primary key instead \u2014 one extra hop. That single architectural difference is most of the reason Uber ripped Postgres out, ten years ago this week.",
       "sources": [
         "https://www.uber.com/en-US/blog/postgres-to-mysql-migration/",
         "https://www.uber.com/blog/schemaless-part-one-mysql-datastore/",
@@ -665,13 +665,13 @@
         "https://use-the-index-luke.com/blog/2016-07-29/on-ubers-choice-of-databases"
       ],
       "key_numbers": "Published July 26, 2016, exactly ten years before this post. Postgres secondary indexes point at a row's physical heap offset (every column update rewrites every index on the row); MySQL/InnoDB secondary indexes point at the primary key (one extra lookup hop, only the clustered index moves on a row relocation). A Postgres 9.2 bug during a routine upgrade corrupted index pages on a handful of rows per database; because Postgres replication is physical (page-level WAL), the corruption replayed onto every standby while the newly promoted master stayed clean, forcing a full manual resync of every replica from a fresh snapshot. Uber had already run out of room on its Postgres trip tables by early 2014 and had Schemaless (append-only, sharded, on plain MySQL) live in production by October 2014.",
-      "lesson": "Postgres wasn't the wrong database in 2011 — it was the wrong database for the write pattern and scale Uber grew into by 2015. A row-store's physical-index design is a real, specific cost (write amplification, vacuum scans, replication fragility under corruption) that only shows up once you're pushing enough writes through it, and by then the fix is architectural, not a config tweak.",
+      "lesson": "Postgres wasn't the wrong database in 2011 \u2014 it was the wrong database for the write pattern and scale Uber grew into by 2015. A row-store's physical-index design is a real, specific cost (write amplification, vacuum scans, replication fragility under corruption) that only shows up once you're pushing enough writes through it, and by then the fix is architectural, not a config tweak.",
       "filename": "2026-07-26-uber-postgres-to-mysql-migration.md"
     },
     {
       "date": "2026-07-27",
       "company": "Apache Kafka / Confluent",
-      "topic": "KIP-500 removed Kafka's ZooKeeper dependency — full-metadata-tree reloads on controller failover and one-shot-watch RPC fan-out were replaced by a self-managed Raft metadata quorum (KRaft), cutting failover from 20+ minutes to under a second",
+      "topic": "KIP-500 removed Kafka's ZooKeeper dependency \u2014 full-metadata-tree reloads on controller failover and one-shot-watch RPC fan-out were replaced by a self-managed Raft metadata quorum (KRaft), cutting failover from 20+ minutes to under a second",
       "category": "messaging",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption",
@@ -683,14 +683,14 @@
         "https://www.confluent.io/blog/apache-kafka-supports-200k-partitions-per-cluster/",
         "https://issues.apache.org/jira/browse/KAFKA-6879"
       ],
-      "key_numbers": "On controller failover, the ZooKeeper-based controller had to reload the entire metadata tree (every topic, partition, replica assignment, ISR) into memory before issuing any LeaderAndIsr directives — an O(total partitions) reload that KIP-500's own motivation cites as stretching past 20 minutes on large clusters, capping practical cluster size around roughly 200,000 partitions. ZooKeeper watches are one-shot (fire once, must be re-registered), and the controller's own metadata propagation used full-state UpdateMetadataRequest RPCs to every broker on every change. KIP-500 (proposed 2019) replaced this with an embedded Raft quorum over a __cluster_metadata log; standby controllers are Raft followers already replaying that log, so failover became a leader vote instead of a data-load — typically under a second. KIP-833 marked KRaft production-ready in Kafka 3.3 (October 3, 2022). KAFKA-6879 is a real filed bug: a ZooKeeper session expiration could deadlock the controller's own internal lock against its own expiry-handling latch, leaving a silent \"zombie\" controller that never issued another directive until manually restarted.",
-      "lesson": "For a decade the instinct was to tune ZooKeeper harder because it was the proven, boring default embedded across HBase, Solr, and Kafka itself. But the bottleneck was never ZooKeeper's throughput — it was that an external, session-based coordination service forces a full-state reload on every failover, no matter how well-provisioned the ensemble is. Sometimes the slow thing isn't slow because it needs tuning; it's slow because your control plane's source of truth lives in somebody else's system.",
+      "key_numbers": "On controller failover, the ZooKeeper-based controller had to reload the entire metadata tree (every topic, partition, replica assignment, ISR) into memory before issuing any LeaderAndIsr directives \u2014 an O(total partitions) reload that KIP-500's own motivation cites as stretching past 20 minutes on large clusters, capping practical cluster size around roughly 200,000 partitions. ZooKeeper watches are one-shot (fire once, must be re-registered), and the controller's own metadata propagation used full-state UpdateMetadataRequest RPCs to every broker on every change. KIP-500 (proposed 2019) replaced this with an embedded Raft quorum over a __cluster_metadata log; standby controllers are Raft followers already replaying that log, so failover became a leader vote instead of a data-load \u2014 typically under a second. KIP-833 marked KRaft production-ready in Kafka 3.3 (October 3, 2022). KAFKA-6879 is a real filed bug: a ZooKeeper session expiration could deadlock the controller's own internal lock against its own expiry-handling latch, leaving a silent \"zombie\" controller that never issued another directive until manually restarted.",
+      "lesson": "For a decade the instinct was to tune ZooKeeper harder because it was the proven, boring default embedded across HBase, Solr, and Kafka itself. But the bottleneck was never ZooKeeper's throughput \u2014 it was that an external, session-based coordination service forces a full-state reload on every failover, no matter how well-provisioned the ensemble is. Sometimes the slow thing isn't slow because it needs tuning; it's slow because your control plane's source of truth lives in somebody else's system.",
       "filename": "2026-07-27-kafka-kraft-zookeeper-removal.md"
     },
     {
       "date": "2026-07-28",
       "company": "Netflix",
-      "topic": "Zuul's two rewrites — the 2017 move from thread-per-connection (Zuul 1, Servlet) to a Netty event-loop architecture (Zuul 2) to fix thread-pool exhaustion under retry storms, and the 2023 fix for the connection-count explosion that the event-loop rewrite introduced",
+      "topic": "Zuul's two rewrites \u2014 the 2017 move from thread-per-connection (Zuul 1, Servlet) to a Netty event-loop architecture (Zuul 2) to fix thread-pool exhaustion under retry storms, and the 2023 fix for the connection-count explosion that the event-loop rewrite introduced",
       "category": "microservices",
       "post_type": "structured",
       "opening_style": "shared_pain_point",
@@ -704,13 +704,13 @@
         "https://github.com/Netflix/zuul/wiki/How-It-Works-2.0"
       ],
       "key_numbers": "Zuul 1 (2013): one thread per connection (Servlet model); backend slowdowns held threads longer while retries added connections, exhausting the thread pool. Zuul 2 (2017, Netty, non-blocking): one event loop per CPU core, Linux epoll (edge-triggered) underneath, separate outbound connection pool per host per event loop. Measured after months in production, not uniform: +25% throughput / -25% CPU on the I/O-bound logging-pipeline cluster (write-heavy, large requests, small responses), 0% gain on the CPU-bound API cluster (metrics, encryption, compression done per request). By 2018, 80+ Zuul 2 clusters routing to ~100 backend service clusters, 1M+ requests/second aggregate. 2023 fix (HTTP/2 multiplexing + host subsetting) cut peak connections by ~10x across all 3 AWS regions, with some shards reduced by up to 13 million connections at peak.",
-      "lesson": "The primitive that scales with your traffic is whatever quantity you multiply requests by. Thread-per-connection multiplies by concurrent slow waits; an event loop fixes that by holding pending state as callback data on a fixed thread count instead of blocking an OS thread per wait. But the fix didn't remove the multiplication, it moved it — from threads to connections (instances x event loops x backend hosts) — which is why the same gateway needed a second, unrelated rewrite six years later.",
+      "lesson": "The primitive that scales with your traffic is whatever quantity you multiply requests by. Thread-per-connection multiplies by concurrent slow waits; an event loop fixes that by holding pending state as callback data on a fixed thread count instead of blocking an OS thread per wait. But the fix didn't remove the multiplication, it moved it \u2014 from threads to connections (instances x event loops x backend hosts) \u2014 which is why the same gateway needed a second, unrelated rewrite six years later.",
       "filename": "2026-07-28-netflix-zuul2-nonblocking-connection-churn.md"
     },
     {
       "date": "2026-07-29",
       "company": "Linear",
-      "topic": "The sync engine — treating each browser tab as a Postgres-style logical replica: a global monotonically increasing sync id (client-side LSN) driving ordered delta-packet broadcast over WebSocket, IndexedDB as the local replica, and lazy per-view hydration of unbounded tables to keep bootstrap cost tied to workspace structure rather than workspace size",
+      "topic": "The sync engine \u2014 treating each browser tab as a Postgres-style logical replica: a global monotonically increasing sync id (client-side LSN) driving ordered delta-packet broadcast over WebSocket, IndexedDB as the local replica, and lazy per-view hydration of unbounded tables to keep bootstrap cost tied to workspace structure rather than workspace size",
       "category": "real-time",
       "post_type": "narrative",
       "opening_style": "mid_scene",
@@ -721,8 +721,26 @@
         "https://performance.dev/how-is-linear-so-fast-a-technical-breakdown"
       ],
       "key_numbers": "Single global lastSyncId counter incremented once per accepted mutation across the whole system; each mutation emits a delta packet (Insert/Update/Archive/Delete/etc.) tagged with that id, broadcast to every connected client including the originator. Bootstrap fetches a full snapshot at a known sync id then streams deltas forward, mirroring snapshot + streaming-WAL logical replication. Issues and comments (the two unbounded tables) lazy-hydrate per view via partial indexes; bounded workspace metadata (labels, states, projects) still bootstraps eagerly. Result: a 10,000-issue workspace boots in about the same time as a 100-issue one.",
-      "lesson": "Nobody CRDT'd their way out of merge conflicts here. They noticed the problem was never reconciling concurrent edits, it was keeping a replica caught up — and reached for the same log-tailing idea Postgres has used for decades, one browser tab at a time.",
+      "lesson": "Nobody CRDT'd their way out of merge conflicts here. They noticed the problem was never reconciling concurrent edits, it was keeping a replica caught up \u2014 and reached for the same log-tailing idea Postgres has used for decades, one browser tab at a time.",
       "filename": "2026-07-29-linear-sync-engine-global-sync-id.md"
+    },
+    {
+      "date": "2026-07-30",
+      "company": "Facebook",
+      "topic": "f4, Facebook's warm BLOB storage system \u2014 decoupling durability from throughput by replacing Haystack's uniform 3.6x triple replication with Reed-Solomon(10,4) erasure coding (1.4x local overhead) plus cross-datacenter XOR coding (2.1x effective), routed by a trailing 99th-percentile IOPS/TB signal per volume",
+      "category": "storage",
+      "post_type": "confessional",
+      "opening_style": "cold_fact",
+      "hook": "By 2014, Facebook was storing over 65 petabytes in Haystack, and every byte \u2014 ten seconds old or four years old \u2014 was replicated 3.6 times.",
+      "sources": [
+        "https://www.usenix.org/system/files/conference/osdi14/osdi14-paper-muralidhar.pdf",
+        "https://www.usenix.org/conference/osdi14/technical-sessions/presentation/muralidhar",
+        "https://blog.acolyer.org/2014/12/16/f4-facebooks-warm-blob-storage-system/",
+        "https://www.umbrant.com/2014/10/29/paper-review-facebook-f4/"
+      ],
+      "key_numbers": "65PB+ logical BLOBs stored by f4 at publication. Haystack replication factor: 3x geographic x 1.2 RAID-6 = 3.6x. For 8 of 9 BLOB types, week-old content saw an order-of-magnitude fewer reads than day-old content. Migration trigger: 99th-percentile IOPS/TB below 20 (a 4TB drive safely serves ~80 IOPS). Photos migrate to f4 at 3 months, other types at 1 month; profile photos never migrate. f4 mechanism: Reed-Solomon(10,4) = 1.4x single-DC overhead, geo-mirrored to 2.8x, XOR-coded across datacenters down to 2.1x effective replication factor, still tolerant of a full datacenter loss.",
+      "lesson": "Haystack wasn't a bad design, it was tuned for 2008's corpus where almost everything was recently uploaded. The real problem was that one replication number was answering two different questions -- durability and throughput -- for six years after the corpus's shape had already changed underneath it.",
+      "filename": "2026-07-30-facebook-f4-warm-storage-erasure-coding.md"
     }
   ]
 }

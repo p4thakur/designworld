@@ -69,6 +69,7 @@
     "uber-postgres-to-mysql-migration",
     "kafka-kraft-zookeeper-removal",
     "netflix-zuul2-nonblocking-connection-churn",
-    "linear-sync-engine-global-sync-id"
+    "linear-sync-engine-global-sync-id",
+    "facebook-f4-warm-blob-storage-erasure-coding"
   ]
 }
