@@ -70,6 +70,7 @@
     "kafka-kraft-zookeeper-removal",
     "netflix-zuul2-nonblocking-connection-churn",
     "linear-sync-engine-global-sync-id",
-    "facebook-f4-warm-blob-storage-erasure-coding"
+    "facebook-f4-warm-blob-storage-erasure-coding",
+    "google-spanner-truetime-commit-wait"
   ]
 }

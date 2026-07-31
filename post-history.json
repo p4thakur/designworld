@@ -741,6 +741,25 @@
       "key_numbers": "65PB+ logical BLOBs stored by f4 at publication. Haystack replication factor: 3x geographic x 1.2 RAID-6 = 3.6x. For 8 of 9 BLOB types, week-old content saw an order-of-magnitude fewer reads than day-old content. Migration trigger: 99th-percentile IOPS/TB below 20 (a 4TB drive safely serves ~80 IOPS). Photos migrate to f4 at 3 months, other types at 1 month; profile photos never migrate. f4 mechanism: Reed-Solomon(10,4) = 1.4x single-DC overhead, geo-mirrored to 2.8x, XOR-coded across datacenters down to 2.1x effective replication factor, still tolerant of a full datacenter loss.",
       "lesson": "Haystack wasn't a bad design, it was tuned for 2008's corpus where almost everything was recently uploaded. The real problem was that one replication number was answering two different questions -- durability and throughput -- for six years after the corpus's shape had already changed underneath it.",
       "filename": "2026-07-30-facebook-f4-warm-storage-erasure-coding.md"
+    },
+    {
+      "date": "2026-07-31",
+      "company": "Google",
+      "topic": "Spanner's TrueTime — bounding physical clock uncertainty to single-digit milliseconds with GPS + atomic-clock time masters and Marzullo's algorithm, then explicitly waiting out that bound (commit-wait) to get external consistency across causally unrelated transactions, instead of falling back to logical clocks",
+      "category": "stability",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption",
+      "hook": "Every distributed-systems text says the same thing: never trust wall-clock time. Google built Spanner by trusting it more than anyone ever had.",
+      "sources": [
+        "https://research.google/pubs/spanner-googles-globally-distributed-database/",
+        "https://sookocheff.com/post/time/truetime/",
+        "https://docs.cloud.google.com/spanner/docs/true-time-external-consistency",
+        "https://www.cockroachlabs.com/blog/living-without-atomic-clocks/",
+        "https://en.wikipedia.org/wiki/Marzullo's_algorithm"
+      ],
+      "key_numbers": "TrueTime API returns TTinterval = [earliest, latest] instead of a point timestamp. Epsilon (ε) follows a sawtooth: time masters (GPS-based, plus a minority of pure-atomic-clock 'Armageddon masters') are polled every 30s; assuming a worst-case drift rate of ~200μs/s, ε swings from ~1ms right after a sync to ~7ms right before the next, combined via Marzullo's algorithm across multiple noisy references. Commit-wait holds a transaction's result until TT.now().earliest is provably past its commit timestamp s — typically a few ms, bounded by ε rather than round-trip time. External consistency: if T2 starts after T1 commits in real time, T2's commit timestamp is guaranteed greater than T1's, even with zero causal link between them — a guarantee logical clocks (Lamport, vector) cannot make since they only order communicating events.",
+      "lesson": "\"Avoid physical time\" is the industry default because it's the cheap way out — Spanner instead priced the hard problem honestly, in racks of GPS receivers and atomic clocks, and found it cheaper than living without a global commit order. The same hardware dependency is why nobody outside Google adopts TrueTime directly; CockroachDB built Hybrid Logical Clocks instead, trading a tighter real-time bound for commodity hardware and more transaction retries under clock skew.",
+      "filename": "2026-07-31-google-spanner-truetime-commit-wait.md"
     }
   ]
 }

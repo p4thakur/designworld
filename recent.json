@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Google",
+      "category": "stability",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
       "company": "Facebook",
       "category": "storage",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "real-time",
       "post_type": "narrative",
       "opening_style": "mid_scene"
-    },
-    {
-      "company": "Netflix",
-      "category": "microservices",
-      "post_type": "structured",
-      "opening_style": "shared_pain_point"
     }
   ]
 }
