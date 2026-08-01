@@ -745,7 +745,7 @@
     {
       "date": "2026-07-31",
       "company": "Google",
-      "topic": "Spanner's TrueTime — bounding physical clock uncertainty to single-digit milliseconds with GPS + atomic-clock time masters and Marzullo's algorithm, then explicitly waiting out that bound (commit-wait) to get external consistency across causally unrelated transactions, instead of falling back to logical clocks",
+      "topic": "Spanner's TrueTime \u2014 bounding physical clock uncertainty to single-digit milliseconds with GPS + atomic-clock time masters and Marzullo's algorithm, then explicitly waiting out that bound (commit-wait) to get external consistency across causally unrelated transactions, instead of falling back to logical clocks",
       "category": "stability",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption",
@@ -757,9 +757,28 @@
         "https://www.cockroachlabs.com/blog/living-without-atomic-clocks/",
         "https://en.wikipedia.org/wiki/Marzullo's_algorithm"
       ],
-      "key_numbers": "TrueTime API returns TTinterval = [earliest, latest] instead of a point timestamp. Epsilon (ε) follows a sawtooth: time masters (GPS-based, plus a minority of pure-atomic-clock 'Armageddon masters') are polled every 30s; assuming a worst-case drift rate of ~200μs/s, ε swings from ~1ms right after a sync to ~7ms right before the next, combined via Marzullo's algorithm across multiple noisy references. Commit-wait holds a transaction's result until TT.now().earliest is provably past its commit timestamp s — typically a few ms, bounded by ε rather than round-trip time. External consistency: if T2 starts after T1 commits in real time, T2's commit timestamp is guaranteed greater than T1's, even with zero causal link between them — a guarantee logical clocks (Lamport, vector) cannot make since they only order communicating events.",
-      "lesson": "\"Avoid physical time\" is the industry default because it's the cheap way out — Spanner instead priced the hard problem honestly, in racks of GPS receivers and atomic clocks, and found it cheaper than living without a global commit order. The same hardware dependency is why nobody outside Google adopts TrueTime directly; CockroachDB built Hybrid Logical Clocks instead, trading a tighter real-time bound for commodity hardware and more transaction retries under clock skew.",
+      "key_numbers": "TrueTime API returns TTinterval = [earliest, latest] instead of a point timestamp. Epsilon (\u03b5) follows a sawtooth: time masters (GPS-based, plus a minority of pure-atomic-clock 'Armageddon masters') are polled every 30s; assuming a worst-case drift rate of ~200\u03bcs/s, \u03b5 swings from ~1ms right after a sync to ~7ms right before the next, combined via Marzullo's algorithm across multiple noisy references. Commit-wait holds a transaction's result until TT.now().earliest is provably past its commit timestamp s \u2014 typically a few ms, bounded by \u03b5 rather than round-trip time. External consistency: if T2 starts after T1 commits in real time, T2's commit timestamp is guaranteed greater than T1's, even with zero causal link between them \u2014 a guarantee logical clocks (Lamport, vector) cannot make since they only order communicating events.",
+      "lesson": "\"Avoid physical time\" is the industry default because it's the cheap way out \u2014 Spanner instead priced the hard problem honestly, in racks of GPS receivers and atomic clocks, and found it cheaper than living without a global commit order. The same hardware dependency is why nobody outside Google adopts TrueTime directly; CockroachDB built Hybrid Logical Clocks instead, trading a tighter real-time bound for commodity hardware and more transaction retries under clock skew.",
       "filename": "2026-07-31-google-spanner-truetime-commit-wait.md"
+    },
+    {
+      "date": "2026-08-01",
+      "company": "Monzo",
+      "topic": "rpcmap \u2014 deriving Calico NetworkPolicy for 1,500+ microservices from static analysis of the actual Go RPC-client call graph instead of a hand-maintained policy document, then staging default-deny enforcement (alerts-only, then logging, then +1 month with drops still off) specifically to surface rarely-triggered, including yearly, code paths before going live",
+      "category": "microservices",
+      "post_type": "structured case study",
+      "opening_style": "the_decision",
+      "hook": "Monzo made an unusual call for a bank running 1,500 microservices: deny every connection between services by default, and only reopen the paths a machine could prove were real.",
+      "sources": [
+        "https://monzo.com/blog/we-built-network-isolation-for-1-500-services",
+        "https://monzo.com/blog/2016/09/19/building-a-modern-bank-backend",
+        "https://monzo.com/blog/2022/11/02/argo-rollouts-at-scale",
+        "https://monzo.com/blog/how-we-run-migrations-across-2800-microservices",
+        "https://www.infoq.com/news/2019/12/network-isolation-kubernetes/"
+      ],
+      "key_numbers": "~1,500 services with 9,300+ live service-to-service calls on a flat Kubernetes network (2019). rpcmap statically derives the RPC call graph from Go source; Calico NetworkPolicy is generated from that graph as default-deny + pod-label allow-lists (not IPs). Rollout: alerts-only for weeks, then logging (sized via calico-accountant), then drops held off a further month to catch yearly-cadence code paths, before enforcement. Fleet later grew to 2,100+ services with Prometheus-driven automated rollback (2022) and 2,800 services with a dedicated migrations team and config-driven gradual rollout (2024).",
+      "lesson": "Past a few hundred services, any process that assumes a human is keeping two systems in sync \u2014 a policy doc and the code, a dashboard and a live deploy, a migration and every service owner's calendar \u2014 is already lying to you. The fix isn't better documentation, it's generating the documentation from the thing it describes.",
+      "filename": "2026-08-01-monzo-rpcmap-network-isolation.md"
     }
   ]
 }
