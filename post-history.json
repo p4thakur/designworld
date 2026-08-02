@@ -779,6 +779,23 @@
       "key_numbers": "~1,500 services with 9,300+ live service-to-service calls on a flat Kubernetes network (2019). rpcmap statically derives the RPC call graph from Go source; Calico NetworkPolicy is generated from that graph as default-deny + pod-label allow-lists (not IPs). Rollout: alerts-only for weeks, then logging (sized via calico-accountant), then drops held off a further month to catch yearly-cadence code paths, before enforcement. Fleet later grew to 2,100+ services with Prometheus-driven automated rollback (2022) and 2,800 services with a dedicated migrations team and config-driven gradual rollout (2024).",
       "lesson": "Past a few hundred services, any process that assumes a human is keeping two systems in sync \u2014 a policy doc and the code, a dashboard and a live deploy, a migration and every service owner's calendar \u2014 is already lying to you. The fix isn't better documentation, it's generating the documentation from the thing it describes.",
       "filename": "2026-08-01-monzo-rpcmap-network-isolation.md"
+    },
+    {
+      "date": "2026-08-02",
+      "company": "DoorDash",
+      "topic": "Entity Cache \u2014 moving service-to-service caching out of each microservice process and into the Envoy-based service mesh (backed by Valkey), so concurrent cache misses for the same entity coalesce via a single-flight lock instead of each pod independently hammering the upstream",
+      "category": "caching",
+      "post_type": "narrative",
+      "opening_style": "mid_scene",
+      "hook": "A hundred pods once watched the same cache entry expire within the same second \u2014 and all hundred independently called the same upstream service to refetch it.",
+      "sources": [
+        "https://careersatdoordash.com/blog/high-performance-proxy-cache-for-doordash-services/",
+        "https://careersatdoordash.com/blog/how-doordash-standardized-and-improved-microservices-caching/",
+        "https://www.infoq.com/news/2026/07/doordash-entity-cache-proxy/"
+      ],
+      "key_numbers": "Entity Cache serves 1.5M+ requests/sec across 100+ endpoints and 50 services, 90%+ cache hit rate on the busiest endpoints, 99.99999% availability. Optimizations (custom buffer pools, lock-free single-flight, XFetch probabilistic early refresh) cut allocation rates 50-60%, raised per-pod throughput ~5x, and cut P99 latency spikes by up to 80%. Invalidation is Kafka-event-driven, comparing update timestamps instead of pushing distributed deletes.",
+      "lesson": "No one was wrong. Per-service caching does cut a process's own repeat calls \u2014 it just can't see what every other pod is asking for at the same instant. The tradeoff didn't disappear when DoorDash moved caching into the mesh. It moved to whoever forgets to publish a Kafka event.",
+      "filename": "2026-08-02-doordash-entity-cache-request-coalescing.md"
     }
   ]
 }

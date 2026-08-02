@@ -72,6 +72,7 @@
     "linear-sync-engine-global-sync-id",
     "facebook-f4-warm-blob-storage-erasure-coding",
     "google-spanner-truetime-commit-wait",
-    "monzo-rpcmap-network-isolation"
+    "monzo-rpcmap-network-isolation",
+    "doordash-entity-cache-request-coalescing"
   ]
 }

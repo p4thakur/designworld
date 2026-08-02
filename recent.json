@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "DoorDash",
+      "category": "caching",
+      "post_type": "narrative",
+      "opening_style": "mid_scene"
+    },
+    {
       "company": "Monzo",
       "category": "microservices",
       "post_type": "structured case study",
@@ -11,12 +17,6 @@
       "category": "stability",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption"
-    },
-    {
-      "company": "Facebook",
-      "category": "storage",
-      "post_type": "confessional",
-      "opening_style": "cold_fact"
     }
   ]
 }
