@@ -796,6 +796,25 @@
       "key_numbers": "Entity Cache serves 1.5M+ requests/sec across 100+ endpoints and 50 services, 90%+ cache hit rate on the busiest endpoints, 99.99999% availability. Optimizations (custom buffer pools, lock-free single-flight, XFetch probabilistic early refresh) cut allocation rates 50-60%, raised per-pod throughput ~5x, and cut P99 latency spikes by up to 80%. Invalidation is Kafka-event-driven, comparing update timestamps instead of pushing distributed deletes.",
       "lesson": "No one was wrong. Per-service caching does cut a process's own repeat calls \u2014 it just can't see what every other pod is asking for at the same instant. The tradeoff didn't disappear when DoorDash moved caching into the mesh. It moved to whoever forgets to publish a Kafka event.",
       "filename": "2026-08-02-doordash-entity-cache-request-coalescing.md"
+    },
+    {
+      "date": "2026-08-03",
+      "company": "Heroku",
+      "topic": "Random routing \u2014 how a shared-nothing router mesh that scales horizontally by having every node decide independently also quietly drifted from idle-aware dispatch into statistically random placement as the router fleet grew",
+      "category": "performance",
+      "post_type": "confessional",
+      "opening_style": "cold_fact",
+      "hook": "In 2007, Heroku's routing mesh tracked which of your dynos were busy and sent requests to ones that were free. By 2010, that stopped being true \u2014 and nobody said so for three years.",
+      "sources": [
+        "https://blog.heroku.com/routing_and_web_performance_on_heroku_a_faq",
+        "https://blog.heroku.com/routing_performance_update",
+        "https://blog.heroku.com/bamboo_routing_performance",
+        "https://genius.engineering/herokus-ugly-secret/",
+        "https://techcrunch.com/2013/02/14/heroku-admits-to-performance-degradation-over-the-past-3-years-after-criticism-from-rap-genius/"
+      ],
+      "key_numbers": "Router fleet grew from a handful of nodes (mid-2000s) to hundreds by 2013, each deciding independently with zero shared queue-state; single-threaded Unicorn dynos meant a request landing behind a 15s request took 15.1s even with idle dynos elsewhere; degradation ran undocumented for roughly 3 years before the Feb 2013 public admission.",
+      "lesson": "The trade Heroku made in 2010 \u2014 stateless horizontal scalability over global routing accuracy \u2014 was never undone. It just got mitigated a layer down, by pushing concurrency onto the customer's web server instead of fixing the router.",
+      "filename": "2026-08-03-heroku-random-routing-shared-nothing.md"
     }
   ]
 }
