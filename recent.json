@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Heroku",
+      "category": "performance",
+      "post_type": "confessional",
+      "opening_style": "cold_fact"
+    },
+    {
       "company": "DoorDash",
       "category": "caching",
       "post_type": "narrative",
@@ -11,12 +17,6 @@
       "category": "microservices",
       "post_type": "structured case study",
       "opening_style": "the_decision"
-    },
-    {
-      "company": "Google",
-      "category": "stability",
-      "post_type": "contrarian",
-      "opening_style": "challenge_assumption"
     }
   ]
 }
