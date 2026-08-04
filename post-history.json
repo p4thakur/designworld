@@ -815,6 +815,25 @@
       "key_numbers": "Router fleet grew from a handful of nodes (mid-2000s) to hundreds by 2013, each deciding independently with zero shared queue-state; single-threaded Unicorn dynos meant a request landing behind a 15s request took 15.1s even with idle dynos elsewhere; degradation ran undocumented for roughly 3 years before the Feb 2013 public admission.",
       "lesson": "The trade Heroku made in 2010 \u2014 stateless horizontal scalability over global routing accuracy \u2014 was never undone. It just got mitigated a layer down, by pushing concurrency onto the customer's web server instead of fixing the router.",
       "filename": "2026-08-03-heroku-random-routing-shared-nothing.md"
+    },
+    {
+      "date": "2026-08-04",
+      "company": "AWS (Aurora)",
+      "topic": "Aurora's storage-compute separation \u2014 replicating only redo log records via quorum-based distributed storage instead of synchronously mirroring the full database write path",
+      "category": "database",
+      "post_type": "contrarian",
+      "opening_style": "specific_number",
+      "hook": "In a 30-minute benchmark AWS published themselves: stock MySQL did 780,000 transactions at 7.4 I/Os each. Aurora did 27,378,000 transactions while writing to six storage nodes on every commit.",
+      "sources": [
+        "https://www.amazon.science/publications/amazon-aurora-design-considerations-for-high-throughput-cloud-native-relational-databases",
+        "https://www.allthingsdistributed.com/2017/05/amazon-aurora-design-considerations.html",
+        "https://aws.amazon.com/rds/aurora/faqs/",
+        "https://blog.acolyer.org/2019/03/25/amazon-aurora-design-considerations-for-high-throughput-cloud-native-relational-databases/",
+        "https://muratbuffalo.blogspot.com/2022/03/amazon-aurora-design-considerations-and.html"
+      ],
+      "key_numbers": "MySQL: 780,000 tx / 30 min, 7.4 I/Os per tx (mirrored). Aurora: 27,378,000 tx / 30 min, 0.95 I/Os per tx on the DB node despite 6-way storage writes -- a 7.7x reduction in per-transaction network I/O. Write quorum 4-of-6, read quorum 3-of-6, across 3 AZs. Crash recovery under 60s vs ~5-minute single-threaded checkpoint replay in traditional MySQL.",
+      "lesson": "Full-object mirroring is simple because every replica is an interchangeable full copy, but it means every replica pays the same write amplification forever. Aurora's move only pays off if you already own a purpose-built quorum storage fleet underneath -- otherwise you've traded a boring standby for a harder distributed-storage problem.",
+      "filename": "2026-08-04-aws-aurora-log-is-the-database.md"
     }
   ]
 }

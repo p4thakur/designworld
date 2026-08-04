@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "AWS (Aurora)",
+      "category": "database",
+      "post_type": "contrarian",
+      "opening_style": "specific_number"
+    },
+    {
       "company": "Heroku",
       "category": "performance",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "caching",
       "post_type": "narrative",
       "opening_style": "mid_scene"
-    },
-    {
-      "company": "Monzo",
-      "category": "microservices",
-      "post_type": "structured case study",
-      "opening_style": "the_decision"
     }
   ]
 }
