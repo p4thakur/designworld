@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Stripe",
+      "category": "stability",
+      "post_type": "structured case study",
+      "opening_style": "shared_pain_point"
+    },
+    {
       "company": "AWS (Aurora)",
       "category": "database",
       "post_type": "contrarian",
@@ -11,12 +17,6 @@
       "category": "performance",
       "post_type": "confessional",
       "opening_style": "cold_fact"
-    },
-    {
-      "company": "DoorDash",
-      "category": "caching",
-      "post_type": "narrative",
-      "opening_style": "mid_scene"
     }
   ]
 }

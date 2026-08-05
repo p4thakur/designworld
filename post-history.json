@@ -834,6 +834,22 @@
       "key_numbers": "MySQL: 780,000 tx / 30 min, 7.4 I/Os per tx (mirrored). Aurora: 27,378,000 tx / 30 min, 0.95 I/Os per tx on the DB node despite 6-way storage writes -- a 7.7x reduction in per-transaction network I/O. Write quorum 4-of-6, read quorum 3-of-6, across 3 AZs. Crash recovery under 60s vs ~5-minute single-threaded checkpoint replay in traditional MySQL.",
       "lesson": "Full-object mirroring is simple because every replica is an interchangeable full copy, but it means every replica pays the same write amplification forever. Aurora's move only pays off if you already own a purpose-built quorum storage fleet underneath -- otherwise you've traded a boring standby for a harder distributed-storage problem.",
       "filename": "2026-08-04-aws-aurora-log-is-the-database.md"
+    },
+    {
+      "date": "2026-08-05",
+      "company": "Stripe",
+      "topic": "Layered rate limiting -- a per-key token bucket and per-key concurrency limiter (Redis sorted set) stacked underneath two fleet-wide load shedders (global concurrency cap, probabilistic worker-utilization shedder), each catching a different shape of overload a single requests-per-second cap can't see",
+      "category": "stability",
+      "post_type": "structured case study",
+      "opening_style": "shared_pain_point",
+      "hook": "Every API serving thousands of independent tenants has the same problem: one customer's misbehaving integration can eat capacity meant for everyone else.",
+      "sources": [
+        "https://stripe.com/blog/rate-limiters",
+        "https://gist.github.com/ptarjan/e38f45f2dfe601419ca3af937fff574d"
+      ],
+      "key_numbers": "Token bucket: 100 req/s replenish, 500 token capacity (5s burst), keys TTL after 10s idle. Concurrency limiter: 100 concurrent requests per key, 60s staleness window for crash-safe eviction. Worker utilization shedder: 0.7/0.8 good/bad thresholds, 92-second ramp (28s grace to 120s full shed) from 0% to 100% drop probability. Redis fail-open observed at ~0.01% of requests.",
+      "lesson": "One rate limit only catches one shape of overload. Real overload arrives as too fast, too long, too many at once, and too much in aggregate, all at once -- which is why the fix was four limiters, each matched to how the same resource actually runs out.",
+      "filename": "2026-08-05-stripe-layered-rate-limiters.md"
     }
   ]
 }
