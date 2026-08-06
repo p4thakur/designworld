@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Netflix",
+      "category": "microservices",
+      "post_type": "structured",
+      "opening_style": "the_decision"
+    },
+    {
       "company": "AWS (Aurora)",
       "category": "database",
       "post_type": "contrarian",
@@ -11,12 +17,6 @@
       "category": "performance",
       "post_type": "confessional",
       "opening_style": "cold_fact"
-    },
-    {
-      "company": "DoorDash",
-      "category": "caching",
-      "post_type": "narrative",
-      "opening_style": "mid_scene"
     }
   ]
 }
