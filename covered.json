@@ -75,6 +75,7 @@
     "monzo-rpcmap-network-isolation",
     "doordash-entity-cache-request-coalescing",
     "heroku-random-routing-shared-nothing",
-    "aws-aurora-log-is-the-database"
+    "aws-aurora-log-is-the-database",
+    "netflix-2008-outage-microservices-migration"
   ]
 }
