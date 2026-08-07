@@ -834,6 +834,42 @@
       "key_numbers": "MySQL: 780,000 tx / 30 min, 7.4 I/Os per tx (mirrored). Aurora: 27,378,000 tx / 30 min, 0.95 I/Os per tx on the DB node despite 6-way storage writes -- a 7.7x reduction in per-transaction network I/O. Write quorum 4-of-6, read quorum 3-of-6, across 3 AZs. Crash recovery under 60s vs ~5-minute single-threaded checkpoint replay in traditional MySQL.",
       "lesson": "Full-object mirroring is simple because every replica is an interchangeable full copy, but it means every replica pays the same write amplification forever. Aurora's move only pays off if you already own a purpose-built quorum storage fleet underneath -- otherwise you've traded a boring standby for a harder distributed-storage problem.",
       "filename": "2026-08-04-aws-aurora-log-is-the-database.md"
+    },
+    {
+      "date": "2026-08-06",
+      "company": "Netflix",
+      "topic": "August 2008 Oracle corruption event took DVD shipping dark for 3 days across all 55 shipping centers, which pushed Netflix to delete the single-datacenter assumption entirely -- Cassandra's denormalized per-service keyspaces replaced one shared Oracle schema, and Hystrix's per-dependency thread pools (bulkheads) replaced shared-fate request handling, over a 7.5-year incremental migration to AWS",
+      "category": "microservices",
+      "post_type": "structured",
+      "opening_style": "the_decision",
+      "hook": "Netflix looked at a three-day outage and made an unusual call: don't harden the datacenter. Delete the idea of having just one.",
+      "sources": [
+        "https://www.usenix.org/system/files/login/articles/cockcroft_0.pdf",
+        "https://netflixtechblog.com/completing-the-netflix-cloud-migration-29e0b3ddfd11",
+        "https://www.nbcnews.com/id/wbna23795233",
+        "https://github.com/Netflix/Hystrix/wiki"
+      ],
+      "key_numbers": "Aug 11, 2008 Oracle corruption, 3-day DVD-shipping outage across 55 shipping centers, ~$1.36B business affected. First AWS production service 2009. Billing (last piece) off the last data center Jan 2016 (~7.5 years post-outage). Hystrix went into maintenance mode ~2018-2020, replaced by an Envoy sidecar mesh.",
+      "lesson": "The datacenter wasn't the failure. Being one single thing was.",
+      "filename": "2026-08-06-netflix-2008-outage-microservices-migration.md"
+    },
+    {
+      "date": "2026-08-07",
+      "company": "Discord",
+      "topic": "Search infrastructure rebuild -- legacy 200+ node Elasticsearch clusters turned single-node failures into cascading bulk-index failures and silent Redis message drops, while old/large guilds independently hit Lucene's ~2.1 billion per-shard document ceiling; rebuilt as many small Kubernetes-hosted Elasticsearch 'cells' (ECK operator) with dedicated multi-shard indices for oversized guilds and a Pub/Sub-backed guaranteed-delivery queue replacing Redis",
+      "category": "search",
+      "post_type": "narrative",
+      "opening_style": "mid_scene",
+      "hook": "A Redis queue filling faster than it drains. A bulk batch of 50 messages fanning out across a 200-node cluster. One bad node, and the whole batch -- not just its bad slice -- comes back failed.",
+      "sources": [
+        "https://discord.com/blog/how-discord-indexes-trillions-of-messages",
+        "https://discord.com/blog/how-discord-indexes-billions-of-messages",
+        "https://www.scylladb.com/tech-talk/how-discord-indexes-trillions-of-messages-scaling-search-infrastructure/",
+        "https://dev.to/mehul_budasana/from-redis-to-kubernetes-how-discord-fixed-its-search-system-1c9h"
+      ],
+      "key_numbers": "Legacy clusters grew past 200 nodes each. Bulk batches of 50 messages per request. Single node failures cascaded into 40% of bulk operations failing. Lucene MAX_DOC ceiling ~2 billion (2.1B) documents per shard. Fix: many small Elasticsearch 'cells' on Kubernetes/ECK, guild messages sharded by guild_id, DMs re-sharded by user_id into their own cell, Redis queue replaced by Pub/Sub.",
+      "lesson": "The 2017 design wasn't wrong. It ran billions of messages fine for years. It just had a limit nobody would hit until a server had been alive long enough -- and by 2025, some had.",
+      "filename": "2026-08-07-discord-search-cell-architecture-lucene-limit.md"
     }
   ]
 }

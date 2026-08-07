@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Discord",
+      "category": "search",
+      "post_type": "narrative",
+      "opening_style": "mid_scene"
+    },
+    {
       "company": "Netflix",
       "category": "microservices",
       "post_type": "structured",
@@ -11,12 +17,6 @@
       "category": "database",
       "post_type": "contrarian",
       "opening_style": "specific_number"
-    },
-    {
-      "company": "Heroku",
-      "category": "performance",
-      "post_type": "confessional",
-      "opening_style": "cold_fact"
     }
   ]
 }
