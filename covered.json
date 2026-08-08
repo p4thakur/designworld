@@ -76,6 +76,7 @@
     "doordash-entity-cache-request-coalescing",
     "heroku-random-routing-shared-nothing",
     "aws-aurora-log-is-the-database",
-    "netflix-2008-outage-microservices-migration"
+    "netflix-2008-outage-microservices-migration",
+    "uber-ringpop-swim-gossip-consistent-hashing"
   ]
 }

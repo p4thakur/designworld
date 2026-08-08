@@ -834,6 +834,25 @@
       "key_numbers": "MySQL: 780,000 tx / 30 min, 7.4 I/Os per tx (mirrored). Aurora: 27,378,000 tx / 30 min, 0.95 I/Os per tx on the DB node despite 6-way storage writes -- a 7.7x reduction in per-transaction network I/O. Write quorum 4-of-6, read quorum 3-of-6, across 3 AZs. Crash recovery under 60s vs ~5-minute single-threaded checkpoint replay in traditional MySQL.",
       "lesson": "Full-object mirroring is simple because every replica is an interchangeable full copy, but it means every replica pays the same write amplification forever. Aurora's move only pays off if you already own a purpose-built quorum storage fleet underneath -- otherwise you've traded a boring standby for a harder distributed-storage problem.",
       "filename": "2026-08-04-aws-aurora-log-is-the-database.md"
+    },
+    {
+      "date": "2026-08-08",
+      "company": "Uber",
+      "topic": "Ringpop \u2014 consistent hash ring + SWIM gossip for application-layer sharding of dispatch cluster state",
+      "category": "infrastructure",
+      "post_type": "narrative",
+      "opening_style": "mid_scene",
+      "hook": "A client could hit any node in the cluster \u2014 that was the design. Wrong node forwards, never rejects.",
+      "sources": [
+        "https://www.uber.com/blog/ringpop-open-source-nodejs-library/",
+        "https://github.com/uber-node/ringpop-common/blob/master/docs/architecture_design.md",
+        "https://github.com/uber-node/ringpop-common/blob/master/docs/partitions.md",
+        "https://github.com/uber/cadence/issues/2471",
+        "https://archon-eight.vercel.app/company-architecture/uber-dispatch"
+      ],
+      "key_numbers": "FarmHash + red-black tree ring, O(log n) lookups. TChannel forwarding: ~20,000-40,000 ops/sec. Cadence's Ringpop replacement (Serf) chosen to preserve sub-1-2-second failure detection.",
+      "lesson": "The coordination cost you avoid by not having a coordinator doesn't vanish -- it gets paid in gossip chatter that scales with cluster size, and eventually that bill comes due.",
+      "filename": "2026-08-08-uber-ringpop-swim-gossip-consistent-hashing.md"
     }
   ]
 }
