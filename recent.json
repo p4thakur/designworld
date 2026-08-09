@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "GitLab",
+      "category": "stability",
+      "post_type": "confessional",
+      "opening_style": "cold_fact"
+    },
+    {
       "company": "Uber",
       "category": "infrastructure",
       "post_type": "narrative",
@@ -11,12 +17,6 @@
       "category": "microservices",
       "post_type": "structured",
       "opening_style": "the_decision"
-    },
-    {
-      "company": "AWS (Aurora)",
-      "category": "database",
-      "post_type": "contrarian",
-      "opening_style": "specific_number"
     }
   ]
 }

@@ -77,6 +77,7 @@
     "heroku-random-routing-shared-nothing",
     "aws-aurora-log-is-the-database",
     "netflix-2008-outage-microservices-migration",
-    "uber-ringpop-swim-gossip-consistent-hashing"
+    "uber-ringpop-swim-gossip-consistent-hashing",
+    "gitlab-2017-database-outage-backup-failures"
   ]
 }
