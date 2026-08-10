@@ -873,6 +873,27 @@
       "key_numbers": "~300GB deleted from the primary by mistake. 4 of 5 backup/replication mechanisms non-functional or stale. Surviving LVM snapshot ~6 hours stale, ~18 hours to restore. ~6 hours of production data lost for good: ~5,000 projects, ~5,000 comments, ~700 accounts.",
       "lesson": "An untested backup isn't a backup. It's a hope.",
       "filename": "2026-08-09-gitlab-2017-database-outage-backup-failures.md"
+    },
+    {
+      "date": "2026-08-10",
+      "company": "AWS",
+      "topic": "DynamoDB DNS Enactor race condition — Oct 19-20 2025 us-east-1 outage cascading into EC2",
+      "category": "availability",
+      "post_type": "narrative",
+      "opening_style": "in_medias_res",
+      "hook": "Two processes were built to make DynamoDB's DNS safer. They raced each other, and the loser won by accident.",
+      "sources": [
+        "https://aws.amazon.com/message/",
+        "https://www.theregister.com/2025/10/23/amazon_outage_postmortem/",
+        "https://www.constellationr.com/blog-news/insights/aws-delivers-outage-post-mortem-when-automation-bites-back",
+        "https://www.thousandeyes.com/blog/aws-outage-analysis-october-20-2025",
+        "https://www.computerworld.com/article/4082890/the-aws-outage-post-mortem-is-more-revealing-in-what-it-doesnt-say.html",
+        "https://www.infoq.com/news/2025/11/aws-dynamodb-outage-postmortem",
+        "https://www.gremlin.com/blog/reliability-lessons-from-the-2025-aws-dynamodb-outage"
+      ],
+      "key_numbers": "DNS fixed in ~3 hours, EC2 recovery took ~12 more (~15hr total). 70+ AWS services, 1,000+ downstream services affected (Snapchat, Fortnite, Roblox, Ring, Duolingo, Signal). Leases mostly restored ~5:28am ET.",
+      "lesson": "Redundant writers without a single source of truth aren't more available. They're a race with better uptime.",
+      "filename": "2026-08-10-aws-dynamodb-dns-race-condition-outage.md"
     }
   ]
 }

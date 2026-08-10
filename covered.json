@@ -78,6 +78,7 @@
     "aws-aurora-log-is-the-database",
     "netflix-2008-outage-microservices-migration",
     "uber-ringpop-swim-gossip-consistent-hashing",
-    "gitlab-2017-database-outage-backup-failures"
+    "gitlab-2017-database-outage-backup-failures",
+    "aws-dynamodb-dns-race-condition-outage"
   ]
 }
