@@ -894,6 +894,29 @@
       "key_numbers": "DNS fixed in ~3 hours, EC2 recovery took ~12 more (~15hr total). 70+ AWS services, 1,000+ downstream services affected (Snapchat, Fortnite, Roblox, Ring, Duolingo, Signal). Leases mostly restored ~5:28am ET.",
       "lesson": "Redundant writers without a single source of truth aren't more available. They're a race with better uptime.",
       "filename": "2026-08-10-aws-dynamodb-dns-race-condition-outage.md"
+    },
+    {
+      "date": "2026-08-11",
+      "company": "Fastly",
+      "topic": "June 8, 2021 global CDN outage — dormant validation bug from a May 12 deploy, triggered by one legitimate customer config change",
+      "category": "stability",
+      "post_type": "confessional",
+      "opening_style": "cold_fact",
+      "hook": "One customer pushed a completely ordinary config change. 85% of Fastly's network was erroring within a minute.",
+      "sources": [
+        "https://www.fastly.com/blog/summary-of-june-8-outage",
+        "https://www.thousandeyes.com/blog/inside-the-fastly-outage-analysis-and-lessons-learned",
+        "https://www.techtimes.com/articles/261249/20210609/fastly-internet-outage-due-software-update-bug-installed-one-customer.htm",
+        "https://www.pymnts.com/safety-and-security/2021/fastly-implements-fix-for-software-bug-that-caused-outage/",
+        "https://www.asiapacificsecuritymagazine.com/customer-configuration-change-triggers-fastly-outage/",
+        "https://www.fastcompany.com/90645391/how-did-fastly-break-the-internet-one-customer-crashed-amazon-reddit-twitch-etc",
+        "https://techcrunch.com/2021/06/08/numerous-popular-websites-are-facing-an-outage/",
+        "https://www.npr.org/2021/06/09/1004684932/fastly-tuesday-internet-outage-down-was-caused-by-one-customer-changing-setting",
+        "https://www.axios.com/2021/06/09/internet-outage-fastly-software-bug"
+      ],
+      "key_numbers": "Bug introduced May 12, 2021; sat dormant 27 days. Triggered June 8 ~9:50 UTC. 85% of network erroring within ~1 minute. Detected in 1 minute; 95% restored by minute 49. Permanent fix shipped in <8 hours. Amazon estimated (third-party figure) to have lost up to $32M in sales during the window.",
+      "lesson": "Fast, global propagation is the product. It's also the blast radius — detection and rollback speed aren't a substitute for isolation.",
+      "filename": "2026-08-11-fastly-2021-single-customer-config-outage.md"
     }
   ]
 }
