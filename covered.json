@@ -80,6 +80,7 @@
     "uber-ringpop-swim-gossip-consistent-hashing",
     "gitlab-2017-database-outage-backup-failures",
     "aws-dynamodb-dns-race-condition-outage",
-    "fastly-2021-single-customer-config-outage"
+    "fastly-2021-single-customer-config-outage",
+    "linkedin-espresso-mysql-over-cassandra"
   ]
 }

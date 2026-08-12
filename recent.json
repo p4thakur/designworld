@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "LinkedIn",
+      "category": "database",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
       "company": "Fastly",
       "category": "stability",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "infrastructure",
       "post_type": "narrative",
       "opening_style": "mid_scene"
-    },
-    {
-      "company": "Netflix",
-      "category": "microservices",
-      "post_type": "structured",
-      "opening_style": "the_decision"
     }
   ]
 }
