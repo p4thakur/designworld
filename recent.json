@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Google",
+      "category": "storage",
+      "post_type": "structured",
+      "opening_style": "the_decision"
+    },
+    {
       "company": "LinkedIn",
       "category": "database",
       "post_type": "contrarian",
@@ -11,12 +17,6 @@
       "category": "stability",
       "post_type": "confessional",
       "opening_style": "cold_fact"
-    },
-    {
-      "company": "Uber",
-      "category": "infrastructure",
-      "post_type": "narrative",
-      "opening_style": "mid_scene"
     }
   ]
 }

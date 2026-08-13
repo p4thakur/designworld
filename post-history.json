@@ -917,6 +917,25 @@
       "key_numbers": "Bug introduced May 12, 2021; sat dormant 27 days. Triggered June 8 ~9:50 UTC. 85% of network erroring within ~1 minute. Detected in 1 minute; 95% restored by minute 49. Permanent fix shipped in <8 hours. Amazon estimated (third-party figure) to have lost up to $32M in sales during the window.",
       "lesson": "Fast, global propagation is the product. It's also the blast radius — detection and rollback speed aren't a substitute for isolation.",
       "filename": "2026-08-11-fastly-2021-single-customer-config-outage.md"
+    },
+    {
+      "date": "2026-08-13",
+      "company": "Google",
+      "topic": "Colossus, GFS's successor — moving file system metadata off a single master and into Bigtable",
+      "category": "storage",
+      "post_type": "structured",
+      "opening_style": "the_decision",
+      "hook": "Google's file system hit a scaling wall. The fix wasn't a smarter master — it was handing metadata to a database.",
+      "sources": [
+        "https://cloud.google.com/blog/products/storage-data-transfer/a-peek-behind-colossus-googles-file-system",
+        "https://blog.quastor.org/p/google-stores-exabytes-data",
+        "https://shambhavishandilya.medium.com/colossus-googles-file-system-baced846d9b7",
+        "https://www.systutorials.com/colossus-successor-to-google-file-system-gfs/",
+        "https://pi.skgupta.io/2025/01/paper-insights-google-file-system.html"
+      ],
+      "key_numbers": "GFS: single master, ~64 bytes of metadata per 64MB chunk, built for a cluster of a few million files / hundreds of TB. Colossus: metadata in Bigtable via horizontally scalable Curators; storing metadata in Bigtable let Colossus scale up by over 100x versus the largest GFS clusters; a single cluster now spans exabytes across tens of thousands of machines.",
+      "lesson": "Your file system's ceiling is rarely the disks. It's the metadata design — sometimes the fix isn't a better custom structure, it's admitting a general-purpose database will outscale the bespoke one you built.",
+      "filename": "2026-08-13-google-colossus-gfs-metadata-bigtable.md"
     }
   ]
 }
