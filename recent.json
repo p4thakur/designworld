@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Discord",
+      "category": "real-time",
+      "post_type": "narrative",
+      "opening_style": "mid_scene"
+    },
+    {
       "company": "Google",
       "category": "storage",
       "post_type": "structured",
@@ -11,12 +17,6 @@
       "category": "database",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption"
-    },
-    {
-      "company": "Fastly",
-      "category": "stability",
-      "post_type": "confessional",
-      "opening_style": "cold_fact"
     }
   ]
 }
