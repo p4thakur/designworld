@@ -83,6 +83,7 @@
     "fastly-2021-single-customer-config-outage",
     "linkedin-espresso-mysql-over-cassandra",
     "google-colossus-gfs-metadata-bigtable",
-    "discord-voice-cloudflare-edge-migration"
+    "discord-voice-cloudflare-edge-migration",
+    "segment-goodbye-microservices-monolith"
   ]
 }
