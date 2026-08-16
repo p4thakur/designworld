@@ -84,6 +84,7 @@
     "linkedin-espresso-mysql-over-cassandra",
     "google-colossus-gfs-metadata-bigtable",
     "discord-voice-cloudflare-edge-migration",
-    "segment-goodbye-microservices-monolith"
+    "segment-goodbye-microservices-monolith",
+    "uber-peloton-unified-scheduler"
   ]
 }

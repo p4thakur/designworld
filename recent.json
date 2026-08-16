@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Uber",
+      "category": "infrastructure",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
       "company": "Segment",
       "category": "microservices",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "real-time",
       "post_type": "narrative",
       "opening_style": "mid_scene"
-    },
-    {
-      "company": "Google",
-      "category": "storage",
-      "post_type": "structured",
-      "opening_style": "the_decision"
     }
   ]
 }
