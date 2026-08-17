@@ -85,6 +85,7 @@
     "google-colossus-gfs-metadata-bigtable",
     "discord-voice-cloudflare-edge-migration",
     "segment-goodbye-microservices-monolith",
-    "uber-peloton-unified-scheduler"
+    "uber-peloton-unified-scheduler",
+    "datadog-husky-columnar-storage-migration"
   ]
 }

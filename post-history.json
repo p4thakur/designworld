@@ -936,6 +936,25 @@
       "key_numbers": "GFS: single master, ~64 bytes of metadata per 64MB chunk, built for a cluster of a few million files / hundreds of TB. Colossus: metadata in Bigtable via horizontally scalable Curators; storing metadata in Bigtable let Colossus scale up by over 100x versus the largest GFS clusters; a single cluster now spans exabytes across tens of thousands of machines.",
       "lesson": "Your file system's ceiling is rarely the disks. It's the metadata design — sometimes the fix isn't a better custom structure, it's admitting a general-purpose database will outscale the bespoke one you built.",
       "filename": "2026-08-13-google-colossus-gfs-metadata-bigtable.md"
+    },
+    {
+      "date": "2026-08-17",
+      "company": "Datadog",
+      "topic": "Husky — unbundling log storage from compute across three architecture generations",
+      "category": "storage",
+      "post_type": "structured",
+      "opening_style": "cold_fact",
+      "hook": "Datadog rebuilt its log storage twice. The third rewrite traded a slower median for a dramatically shorter tail.",
+      "sources": [
+        "https://www.datadoghq.com/blog/engineering/introducing-husky/",
+        "https://www.datadoghq.com/blog/engineering/husky-query-architecture/",
+        "https://www.datadoghq.com/blog/engineering/husky-storage-compaction/",
+        "https://www.datadoghq.com/blog/engineering/husky-deep-dive/",
+        "https://www.infoq.com/news/2023/06/datadog-husky-data-ingestion/"
+      ],
+      "key_numbers": "100 trillion events/day, billions of queries/day. 1.5 years from first commit to one migrated product. Query latency: p50/p75 ~2ms, p90 ~6ms, p95 ~20ms, p99 257ms, max observed 12.82s — median rose a few hundred ms vs. the legacy system. Of 1,000 sample query fragments, only 34 need an actual data read and just 4 (0.4%) touch blob storage; on average only 0.6% of underlying data is scanned per query. Locality compaction cut query-worker replica counts 30% on rollout. Writer fragments (thousands of events) compact up to ~1M rows, a ~1,000x increase.",
+      "lesson": "The architecture that wins isn't the one that's fastest on average. It's the one whose worst case doesn't take the whole system down with it.",
+      "filename": "2026-08-17-datadog-husky-columnar-storage-migration.md"
     }
   ]
 }
