@@ -955,6 +955,24 @@
       "key_numbers": "100 trillion events/day, billions of queries/day. 1.5 years from first commit to one migrated product. Query latency: p50/p75 ~2ms, p90 ~6ms, p95 ~20ms, p99 257ms, max observed 12.82s — median rose a few hundred ms vs. the legacy system. Of 1,000 sample query fragments, only 34 need an actual data read and just 4 (0.4%) touch blob storage; on average only 0.6% of underlying data is scanned per query. Locality compaction cut query-worker replica counts 30% on rollout. Writer fragments (thousands of events) compact up to ~1M rows, a ~1,000x increase.",
       "lesson": "The architecture that wins isn't the one that's fastest on average. It's the one whose worst case doesn't take the whole system down with it.",
       "filename": "2026-08-17-datadog-husky-columnar-storage-migration.md"
+    },
+    {
+      "date": "2026-08-18",
+      "company": "Twitter",
+      "topic": "Snowflake — replacing MySQL auto-increment tweet ids with an uncoordinated distributed id generator after moving to Cassandra",
+      "category": "database",
+      "post_type": "narrative",
+      "opening_style": "mid_scene",
+      "hook": "Twitter's entire API leaned on tweet ids only going up. Sharding onto Cassandra broke that assumption overnight.",
+      "sources": [
+        "https://raw.githubusercontent.com/twitter-archive/snowflake/snowflake-2010/README.mkd",
+        "https://blog.x.com/engineering/en_us/a/2010/announcing-snowflake",
+        "https://code.flickr.net/2010/02/08/ticket-servers-distributed-unique-primary-keys-on-the-cheap/",
+        "https://discordlookup.org/docs/discord-snowflake-format"
+      ],
+      "key_numbers": "64-bit id = 41-bit timestamp (ms precision, custom epoch, ~69 years) + 10-bit machine id (1,024 machines) + 12-bit sequence (rolls over every 4,096 ids/machine/ms). Stated bar: minimum 10,000 ids/sec/process, 2ms response time, k-sorted ordering promised within 1s, targeting tens of ms. Rejected alternatives: 128-bit UUIDs, Flickr-style MySQL ticket servers, ZooKeeper sequential znodes. Discord's later variant: 42-bit timestamp / 5-bit worker / 5-bit process / 12-bit increment on its own 2015 epoch.",
+      "lesson": "Nobody was wrong about the MySQL auto-increment column — it was right for a single database. It stopped being right the moment there wasn't a single database anymore.",
+      "filename": "2026-08-18-twitter-snowflake-distributed-id-generation.md"
     }
   ]
 }
