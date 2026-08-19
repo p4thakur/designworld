@@ -87,6 +87,7 @@
     "segment-goodbye-microservices-monolith",
     "uber-peloton-unified-scheduler",
     "datadog-husky-columnar-storage-migration",
-    "twitter-snowflake-distributed-id-generation"
+    "twitter-snowflake-distributed-id-generation",
+    "crowdstrike-channel-file-291-outage"
   ]
 }
