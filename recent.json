@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Grab",
+      "category": "messaging",
+      "post_type": "narrative",
+      "opening_style": "mid_scene"
+    },
+    {
       "company": "CrowdStrike",
       "category": "stability",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "infrastructure",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption"
-    },
-    {
-      "company": "Datadog",
-      "category": "storage",
-      "post_type": "structured",
-      "opening_style": "cold_fact"
     }
   ]
 }

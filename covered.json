@@ -88,6 +88,7 @@
     "uber-peloton-unified-scheduler",
     "datadog-husky-columnar-storage-migration",
     "twitter-snowflake-distributed-id-generation",
-    "crowdstrike-channel-file-291-outage"
+    "crowdstrike-channel-file-291-outage",
+    "grab-kafka-cross-az-networking-cost"
   ]
 }
