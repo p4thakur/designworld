@@ -973,6 +973,61 @@
       "key_numbers": "64-bit id = 41-bit timestamp (ms precision, custom epoch, ~69 years) + 10-bit machine id (1,024 machines) + 12-bit sequence (rolls over every 4,096 ids/machine/ms). Stated bar: minimum 10,000 ids/sec/process, 2ms response time, k-sorted ordering promised within 1s, targeting tens of ms. Rejected alternatives: 128-bit UUIDs, Flickr-style MySQL ticket servers, ZooKeeper sequential znodes. Discord's later variant: 42-bit timestamp / 5-bit worker / 5-bit process / 12-bit increment on its own 2015 epoch.",
       "lesson": "Nobody was wrong about the MySQL auto-increment column — it was right for a single database. It stopped being right the moment there wasn't a single database anymore.",
       "filename": "2026-08-18-twitter-snowflake-distributed-id-generation.md"
+    },
+    {
+      "date": "2026-08-19",
+      "company": "CrowdStrike",
+      "topic": "Channel File 291 — a Rapid Response Content update with a field-count mismatch that crashed 8.5M Windows machines",
+      "category": "stability",
+      "post_type": "confessional",
+      "opening_style": "specific_number",
+      "hook": "8.5 million Windows machines crashed within minutes. The bug wasn't in code CrowdStrike shipped. It was in a config file.",
+      "sources": [
+        "https://www.crowdstrike.com/en-us/blog/channel-file-291-rca-available/",
+        "https://www.crowdstrike.com/en-us/blog/falcon-content-update-preliminary-post-incident-report/",
+        "https://www.crowdstrike.com/wp-content/uploads/2024/08/Channel-File-291-Incident-Root-Cause-Analysis-08.06.2024.pdf",
+        "https://www.cnbc.com/2024/07/20/microsoft-says-about-8point5-million-of-its-devices-affected-by-crowdstrike-related-outage.html",
+        "https://thehackernews.com/2024/08/crowdstrike-reveals-root-cause-of.html",
+        "https://en.wikipedia.org/wiki/2024_CrowdStrike-related_IT_outages"
+      ],
+      "key_numbers": "Channel File 291 pushed 04:09 UTC Jul 19 2024 to every sensor at once (no staged rings). New IPC template declared 21 input fields; sensor interpreter read only 20. Out-of-bounds read crashed the kernel (Ring 0, unrecoverable). ~8.5M Windows devices affected. File pulled at 05:27 UTC, 78 minutes after it began shipping.",
+      "lesson": "Speed and safety weren't in tension. They were running through two different pipelines, and only one of them had brakes.",
+      "filename": "2026-08-19-crowdstrike-channel-file-291-outage.md"
+    },
+    {
+      "date": "2026-08-20",
+      "company": "Grab",
+      "topic": "Zero traffic cost for Kafka consumers — rack-aware fetch-from-follower (KIP-392) to stop paying for cross-AZ Kafka fetches",
+      "category": "messaging",
+      "post_type": "narrative",
+      "opening_style": "mid_scene",
+      "hook": "A Kafka consumer sitting in one availability zone sends a fetch request. The partition leader it needs lives in a different zone. Someone pays for every gigabyte that crosses it.",
+      "sources": [
+        "https://engineering.grab.com/zero-traffic-cost",
+        "https://noise.getoto.net/2023/07/07/zero-traffic-cost-for-kafka-consumers/",
+        "https://aws.amazon.com/blogs/big-data/reduce-network-traffic-costs-of-your-amazon-msk-consumers-with-rack-awareness/",
+        "https://blog.2minutestreaming.com/p/kafka-kip-392-follower-fetching",
+        "https://engineering.grab.com/plumbing-at-scale"
+      ],
+      "key_numbers": "Coban Kafka platform: 300B+ events/week, terabytes of ingress/hour. Replicas spread across 3 AZs meant a consumer's own AZ held the leader only ~1/3 of the time by chance, so ~2 of 3 fetch requests crossed an AZ boundary. That inter-AZ fetch traffic was ~50% of the total Kafka platform cost. Fix (client.rack + KIP-392 fetch-from-follower) is reported to cut Kafka network cost by up to 50%.",
+      "lesson": "The boundary Kafka was built to survive turned out to be the boundary that was quietly the most expensive one to cross.",
+      "filename": "2026-08-20-grab-kafka-cross-az-networking-cost.md"
+    },
+    {
+      "date": "2026-08-21",
+      "company": "DoorDash",
+      "topic": "Fulfillment backend outgrows single-writer Aurora Postgres as new verticals (grocery, convenience) launch — migrated to CockroachDB with hash-sharded indexes",
+      "category": "database",
+      "post_type": "structured",
+      "opening_style": "cold_fact",
+      "hook": "DoorDash has an internal rule: no single Postgres table should cross 500GB. Their fulfillment backend blew past it in months.",
+      "sources": [
+        "https://careersatdoordash.com/blog/how-we-scaled-new-verticals-fulfillment-backend-with-cockroachdb/",
+        "https://thenewstack.io/how-doordash-migrated-from-aurora-postgres-to-cockroachdb/"
+      ],
+      "key_numbers": "store_items materialized view (catalog, inventory, pricing for every item/store) grew toward DoorDash's internal 500GB single-table limit as new verticals (grocery, convenience, retail) launched. Single-writer Aurora Postgres, writer pinned to one AZ; peak-hour writer CPU >80%, bulk-upsert latency doubled on large non-batched, non-partitioned upserts. Migrated to CockroachDB (distributed, shared-nothing) with hash-sharded indexes to avoid range hotspots on sequential keys. Query performance ~10x faster post-migration.",
+      "lesson": "A database's ceiling is often a description of the business it was built for, not a flaw in the database. When the business changes shape, the datastore has to change shape with it.",
+      "filename": "2026-08-21-doordash-cockroachdb-new-verticals.md"
     }
   ]
 }

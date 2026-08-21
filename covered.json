@@ -89,6 +89,7 @@
     "datadog-husky-columnar-storage-migration",
     "twitter-snowflake-distributed-id-generation",
     "crowdstrike-channel-file-291-outage",
-    "grab-kafka-cross-az-networking-cost"
+    "grab-kafka-cross-az-networking-cost",
+    "doordash-cockroachdb-new-verticals"
   ]
 }
