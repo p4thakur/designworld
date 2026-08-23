@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "AWS",
+      "category": "availability",
+      "post_type": "confessional",
+      "opening_style": "the_decision"
+    },
+    {
       "company": "Reddit",
       "category": "storage",
       "post_type": "contrarian",
@@ -11,12 +17,6 @@
       "category": "database",
       "post_type": "structured",
       "opening_style": "cold_fact"
-    },
-    {
-      "company": "Grab",
-      "category": "messaging",
-      "post_type": "narrative",
-      "opening_style": "mid_scene"
     }
   ]
 }

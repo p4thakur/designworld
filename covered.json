@@ -91,6 +91,7 @@
     "crowdstrike-channel-file-291-outage",
     "grab-kafka-cross-az-networking-cost",
     "doordash-cockroachdb-new-verticals",
-    "reddit-thingdb-eav-schema"
+    "reddit-thingdb-eav-schema",
+    "aws-kinesis-2020-cognito-hard-dependency"
   ]
 }
