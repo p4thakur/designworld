@@ -1,1 +1,22 @@
-PLACEHOLDER
+{
+  "recent": [
+    {
+      "company": "Riot Games",
+      "category": "messaging",
+      "post_type": "narrative",
+      "opening_style": "mid_scene_drop"
+    },
+    {
+      "company": "AWS",
+      "category": "availability",
+      "post_type": "confessional",
+      "opening_style": "the_decision"
+    },
+    {
+      "company": "Reddit",
+      "category": "storage",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    }
+  ]
+}
