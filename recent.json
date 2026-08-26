@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Honeycomb",
+      "category": "storage",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
       "company": "LinkedIn",
       "category": "database",
       "post_type": "structured",
@@ -11,12 +17,6 @@
       "category": "messaging",
       "post_type": "narrative",
       "opening_style": "mid_scene_drop"
-    },
-    {
-      "company": "AWS",
-      "category": "availability",
-      "post_type": "confessional",
-      "opening_style": "the_decision"
     }
   ]
 }
