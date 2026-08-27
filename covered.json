@@ -95,6 +95,7 @@
     "aws-kinesis-2020-cognito-hard-dependency",
     "riot-lol-chat-mysql-to-riak",
     "linkedin-venice-derived-data-lambda",
-    "honeycomb-retriever-columnar-store"
+    "honeycomb-retriever-columnar-store",
+    "twitter-segcache-ttl-eviction-rethink"
   ]
 }
