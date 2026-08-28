@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Slack",
+      "category": "messaging",
+      "post_type": "narrative",
+      "opening_style": "mid_scene"
+    },
+    {
       "company": "Twitter",
       "category": "caching",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "storage",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption"
-    },
-    {
-      "company": "LinkedIn",
-      "category": "database",
-      "post_type": "structured",
-      "opening_style": "shared_pain_point"
     }
   ]
 }

@@ -96,6 +96,7 @@
     "riot-lol-chat-mysql-to-riak",
     "linkedin-venice-derived-data-lambda",
     "honeycomb-retriever-columnar-store",
-    "twitter-segcache-ttl-eviction-rethink"
+    "twitter-segcache-ttl-eviction-rethink",
+    "slack-kafkagate-redis-job-queue"
   ]
 }
