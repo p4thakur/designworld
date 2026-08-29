@@ -1028,6 +1028,24 @@
       "key_numbers": "store_items materialized view (catalog, inventory, pricing for every item/store) grew toward DoorDash's internal 500GB single-table limit as new verticals (grocery, convenience, retail) launched. Single-writer Aurora Postgres, writer pinned to one AZ; peak-hour writer CPU >80%, bulk-upsert latency doubled on large non-batched, non-partitioned upserts. Migrated to CockroachDB (distributed, shared-nothing) with hash-sharded indexes to avoid range hotspots on sequential keys. Query performance ~10x faster post-migration.",
       "lesson": "A database's ceiling is often a description of the business it was built for, not a flaw in the database. When the business changes shape, the datastore has to change shape with it.",
       "filename": "2026-08-21-doordash-cockroachdb-new-verticals.md"
+    },
+    {
+      "date": "2026-08-29",
+      "company": "Netflix",
+      "topic": "Christmas Eve 2012 AWS regional outage exposed Netflix single-region dependency; response was live Active-Active multi-region architecture validated continuously by Chaos Kong",
+      "category": "availability",
+      "post_type": "structured",
+      "opening_style": "cold_fact",
+      "hook": "At 12:24 PM on December 24, 2012, an AWS engineer wiped state data off a handful of production load balancers. Netflix went down for Christmas Eve and stayed broken for 17 hours.",
+      "sources": [
+        "https://netflixtechblog.com/a-closer-look-at-the-christmas-eve-outage-d7b409a529ee",
+        "http://techblog.netflix.com/2013/12/active-active-for-multi-regional.html",
+        "http://techblog.netflix.com/2015/09/chaos-engineering-upgraded.html",
+        "https://opensource.com/article/18/4/how-netflix-does-failovers-7-minutes-flat"
+      ],
+      "key_numbers": "Dec 24 2012, 12:24pm PT: AWS engineer accidentally wiped ELB state data; not resolved until ~5:40am the next day (~17 hours down). Netflix ran entirely out of one AWS region (US-EAST-1) at the time. Fix: Active-Active live traffic across 3 regions (US-EAST-1, US-WEST-2, EU-WEST-1), validated by Chaos Kong deliberately killing a region in production. Manual failover was ~45 min (35 min waiting for scale-up); automated failover by 2018 takes 7 minutes flat via pre-scaled shadow clusters. Detection via a custom business metric, Stream Starts Per Second (SPS), not infra metrics alone. Failover orchestration is written in Python (vs. Netflix's mostly-Java stack), maintained by ~3 engineers.",
+      "lesson": "A failover path nobody has exercised recently is a hypothesis, not a plan — the fix wasn't more infrastructure, it was making region failure routine and testable rather than rare and theoretical.",
+      "filename": "2026-08-29-netflix-active-active-region-failover.md"
     }
   ]
 }
