@@ -97,6 +97,7 @@
     "linkedin-venice-derived-data-lambda",
     "honeycomb-retriever-columnar-store",
     "twitter-segcache-ttl-eviction-rethink",
-    "slack-kafkagate-redis-job-queue"
+    "slack-kafkagate-redis-job-queue",
+    "netflix-active-active-region-failover"
   ]
 }
