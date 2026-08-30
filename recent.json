@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Google",
+      "category": "infrastructure",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
       "company": "Netflix",
       "category": "availability",
       "post_type": "structured",
@@ -11,12 +17,6 @@
       "category": "messaging",
       "post_type": "narrative",
       "opening_style": "mid_scene"
-    },
-    {
-      "company": "Twitter",
-      "category": "caching",
-      "post_type": "confessional",
-      "opening_style": "specific_number"
     }
   ]
 }

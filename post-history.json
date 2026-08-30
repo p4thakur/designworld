@@ -1046,6 +1046,25 @@
       "key_numbers": "Dec 24 2012, 12:24pm PT: AWS engineer accidentally wiped ELB state data; not resolved until ~5:40am the next day (~17 hours down). Netflix ran entirely out of one AWS region (US-EAST-1) at the time. Fix: Active-Active live traffic across 3 regions (US-EAST-1, US-WEST-2, EU-WEST-1), validated by Chaos Kong deliberately killing a region in production. Manual failover was ~45 min (35 min waiting for scale-up); automated failover by 2018 takes 7 minutes flat via pre-scaled shadow clusters. Detection via a custom business metric, Stream Starts Per Second (SPS), not infra metrics alone. Failover orchestration is written in Python (vs. Netflix's mostly-Java stack), maintained by ~3 engineers.",
       "lesson": "A failover path nobody has exercised recently is a hypothesis, not a plan — the fix wasn't more infrastructure, it was making region failure routine and testable rather than rare and theoretical.",
       "filename": "2026-08-29-netflix-active-active-region-failover.md"
+    },
+    {
+      "date": "2026-08-30",
+      "company": "Google",
+      "topic": "Common belief is that Kubernetes is Google's internal Borg, open-sourced. It's actually a from-scratch rewrite in Go, built to shed Borg's Google-only dependencies (Chubby, Colossus, BCL), with the same core concept (Borg's alloc) renamed twice already through Omega's SUnit into Kubernetes' Pod.",
+      "category": "infrastructure",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption",
+      "hook": "Everyone repeats the same line about Kubernetes: Google took its internal weapon, Borg, and open-sourced it. That's not what happened.",
+      "sources": [
+        "https://queue.acm.org/detail.cfm?id=2898444",
+        "https://cacm.acm.org/magazines/2016/5/201605-borg-omega-and-kubernetes/fulltext",
+        "https://kubernetes.io/blog/2015/04/borg-predecessor-to-kubernetes/",
+        "https://itnext.io/the-technical-history-of-kubernetes-2fe1988b522a",
+        "https://techcrunch.com/2015/07/21/as-kubernetes-hits-1-0-google-donates-technology-to-newly-formed-cloud-native-computing-foundation-with-ibm-intel-twitter-and-others/"
+      ],
+      "key_numbers": "Borg ran Google's clusters for 10+ years before Kubernetes existed. Borg's task identity ran through the Borg Naming Service, backed by Chubby (Google's lock service); storage assumed Colossus (Google's cluster filesystem); job specs were written in BCL. Kubernetes was written from scratch in Go (Borg is C++) by 3 founding engineers (Joe Beda, Craig McLuckie, Brendan Burns), internally codenamed Project Seven. Borg's \"alloc\" concept became Omega's \"SUnit,\" then Kubernetes' \"Pod.\" Omega used a Paxos-based shared-state store with optimistic concurrency to let multiple schedulers act as peers instead of one centralized master. Kubernetes announced 2014; hit v1.0 and was donated to the newly formed CNCF on the same day, July 21, 2015.",
+      "lesson": "The tidier story (\"Google open-sourced its secret weapon\") survives because it's a better conference anecdote than the real one: Kubernetes is Google's third attempt at the same cluster-management problem, deliberately rebuilt to remove infrastructure only Google has, with a different answer about who gets to hold the lock on shared state.",
+      "filename": "2026-08-30-kubernetes-not-open-sourced-borg.md"
     }
   ]
 }

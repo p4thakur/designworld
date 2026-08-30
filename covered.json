@@ -98,6 +98,7 @@
     "honeycomb-retriever-columnar-store",
     "twitter-segcache-ttl-eviction-rethink",
     "slack-kafkagate-redis-job-queue",
-    "netflix-active-active-region-failover"
+    "netflix-active-active-region-failover",
+    "kubernetes-not-open-sourced-borg"
   ]
 }
