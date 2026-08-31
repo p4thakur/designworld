@@ -99,6 +99,7 @@
     "twitter-segcache-ttl-eviction-rethink",
     "slack-kafkagate-redis-job-queue",
     "netflix-active-active-region-failover",
-    "kubernetes-not-open-sourced-borg"
+    "kubernetes-not-open-sourced-borg",
+    "coinbase-matching-engine-single-az-outage"
   ]
 }

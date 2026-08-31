@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Coinbase",
+      "category": "stability",
+      "post_type": "confessional",
+      "opening_style": "the_decision"
+    },
+    {
       "company": "Google",
       "category": "infrastructure",
       "post_type": "contrarian",
@@ -11,12 +17,6 @@
       "category": "availability",
       "post_type": "structured",
       "opening_style": "cold_fact"
-    },
-    {
-      "company": "Slack",
-      "category": "messaging",
-      "post_type": "narrative",
-      "opening_style": "mid_scene"
     }
   ]
 }
