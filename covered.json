@@ -100,6 +100,7 @@
     "slack-kafkagate-redis-job-queue",
     "netflix-active-active-region-failover",
     "kubernetes-not-open-sourced-borg",
-    "coinbase-matching-engine-single-az-outage"
+    "coinbase-matching-engine-single-az-outage",
+    "discord-search-lucene-cell-architecture"
   ]
 }
