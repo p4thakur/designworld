@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Discord",
+      "category": "search",
+      "post_type": "narrative",
+      "opening_style": "specific_number"
+    },
+    {
       "company": "Coinbase",
       "category": "stability",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "infrastructure",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption"
-    },
-    {
-      "company": "Netflix",
-      "category": "availability",
-      "post_type": "structured",
-      "opening_style": "cold_fact"
     }
   ]
 }
