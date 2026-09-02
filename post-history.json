@@ -1084,6 +1084,26 @@
       "key_numbers": "7:20 PM ET chiller failure in AWS us-east-1 use1-az4; 7:48 PM trading halts; 9:29 PM AWS terminates instances, 3 of 5 matching-engine nodes lost, quorum gone; 2:25 AM cancel-only trading restored; 3:49 AM full trading resumed; 9:53 AM full system recovery (~8 hours degraded, ~14.5 hours to full recovery). Separate AWS MSK control-plane defect stalled partition-leader reelection on 2 Kafka clusters; manual partition reassignment at 3:00 AM, priority-0/1 topics fully available by 9:30 AM.",
       "lesson": "The 3-of-5 quorum design wasn't the flaw the postmortem targets — putting all five voting nodes in a single AWS building was a deliberate trade of resilience for microsecond-level latency, and it held for years until the one room it depended on overheated. Every latency optimization is a bet against a specific kind of failure; most days you collect on it.",
       "filename": "2026-08-31-coinbase-matching-engine-single-az-outage.md"
+    },
+    {
+      "date": "2026-09-02",
+      "company": "Facebook (Meta)",
+      "topic": "CacheLib's Kangaroo flash cache: why set-associative and log-structured caching both fail on ~100-byte objects",
+      "category": "caching",
+      "post_type": "structured",
+      "opening_style": "shared_pain_point",
+      "hook": "Every flash cache built for tiny objects has to pick its poison: burn DRAM, or burn flash.",
+      "sources": [
+        "https://www.usenix.org/conference/osdi20/presentation/berg",
+        "https://dl.acm.org/doi/10.1145/3477132.3483568",
+        "https://engineering.fb.com/2021/09/02/open-source/cachelib/",
+        "https://engineering.fb.com/2021/10/26/core-infra/kangaroo/",
+        "https://github.com/facebook/CacheLib",
+        "https://blocksandfiles.com/2021/10/29/facebooks-kangaroo-jumps-over-flash-cache-limitations/"
+      ],
+      "key_numbers": "~100-byte objects; SSD >10x cheaper per bit than DRAM; set-associative flash caches write ~40x more bytes than the object needs (page-aligned writes); log-structured caches need 1 DRAM index entry per on-flash object; Kangaroo (KLog + KSet) cuts misses 29% vs prior state of the art while matching both the best DRAM footprint and best flash-write footprint at once",
+      "lesson": "The right cache for 100-byte objects wasn't a better version of either existing design — it was refusing to commit to one until the object had earned it.",
+      "filename": "2026-09-02-facebook-kangaroo-flash-cache-tiny-objects.md"
     }
   ]
 }
