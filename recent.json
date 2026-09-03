@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Ably",
+      "category": "infrastructure",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
       "company": "Facebook",
       "category": "caching",
       "post_type": "structured",
@@ -11,12 +17,6 @@
       "category": "search",
       "post_type": "narrative",
       "opening_style": "specific_number"
-    },
-    {
-      "company": "Coinbase",
-      "category": "stability",
-      "post_type": "confessional",
-      "opening_style": "the_decision"
     }
   ]
 }
