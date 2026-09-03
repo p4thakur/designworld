@@ -102,6 +102,7 @@
     "kubernetes-not-open-sourced-borg",
     "coinbase-matching-engine-single-az-outage",
     "discord-search-lucene-cell-architecture",
-    "facebook-kangaroo-flash-cache-tiny-objects"
+    "facebook-kangaroo-flash-cache-tiny-objects",
+    "ably-no-kubernetes-hug-of-death"
   ]
 }
