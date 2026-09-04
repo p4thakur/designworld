@@ -1104,6 +1104,24 @@
       "key_numbers": "~100-byte objects; SSD >10x cheaper per bit than DRAM; set-associative flash caches write ~40x more bytes than the object needs (page-aligned writes); log-structured caches need 1 DRAM index entry per on-flash object; Kangaroo (KLog + KSet) cuts misses 29% vs prior state of the art while matching both the best DRAM footprint and best flash-write footprint at once",
       "lesson": "The right cache for 100-byte objects wasn't a better version of either existing design — it was refusing to commit to one until the object had earned it.",
       "filename": "2026-09-02-facebook-kangaroo-flash-cache-tiny-objects.md"
+    },
+    {
+      "date": "2026-09-04",
+      "company": "LinkedIn",
+      "topic": "Brooklin's partition assignment — consolidating Databus and Kafka MirrorMaker, then discovering count-based assignment could cascade rebalances",
+      "category": "messaging",
+      "post_type": "confessional",
+      "opening_style": "cold_fact",
+      "hook": "Brooklin moves 7+ trillion messages a day. For years it decided how to split that work by counting partitions, not by how busy they were.",
+      "sources": [
+        "https://engineering.linkedin.com/blog/2019/brooklin-open-source",
+        "https://engineering.linkedin.com/blog/2022/load-balanced-brooklin-mirror-maker--replicating-large-scale-kaf",
+        "https://engineering.linkedin.com/blog/2017/10/streaming-data-pipelines-with-brooklin",
+        "https://github.com/linkedin/brooklin/wiki/Kafka-MirrorMaker-Connector"
+      ],
+      "key_numbers": "7+ trillion messages/day mirrored; Brooklin built starting 2016, replacing Databus (CDC) and Kafka MirrorMaker; MirrorMaker connector flow control: pauses a partition at 5,000 in-flight unacked messages, resumes under 1,000; 2022 load-balanced assignment strategy replaced partition-count balancing with per-partition throughput-based balancing to stop rebalance cascades",
+      "lesson": "Consolidating two brittle systems into one doesn't remove brittleness, it relocates it — from 'which system moves this data' to 'which task inside the new system gets the busy partition.'",
+      "filename": "2026-09-04-linkedin-brooklin-partition-rebalancing.md"
     }
   ]
 }
