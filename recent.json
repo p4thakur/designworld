@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "LinkedIn",
+      "category": "messaging",
+      "post_type": "confessional",
+      "opening_style": "cold_fact"
+    },
+    {
       "company": "Ably",
       "category": "infrastructure",
       "post_type": "contrarian",
@@ -11,12 +17,6 @@
       "category": "caching",
       "post_type": "structured",
       "opening_style": "shared_pain_point"
-    },
-    {
-      "company": "Discord",
-      "category": "search",
-      "post_type": "narrative",
-      "opening_style": "specific_number"
     }
   ]
 }
