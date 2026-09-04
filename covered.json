@@ -103,6 +103,7 @@
     "coinbase-matching-engine-single-az-outage",
     "discord-search-lucene-cell-architecture",
     "facebook-kangaroo-flash-cache-tiny-objects",
-    "ably-no-kubernetes-hug-of-death"
+    "ably-no-kubernetes-hug-of-death",
+    "linkedin-brooklin-partition-rebalancing"
   ]
 }
