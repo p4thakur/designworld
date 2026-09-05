@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "GitHub",
+      "category": "storage",
+      "post_type": "narrative",
+      "opening_style": "mid_scene"
+    },
+    {
       "company": "LinkedIn",
       "category": "messaging",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "infrastructure",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption"
-    },
-    {
-      "company": "Facebook",
-      "category": "caching",
-      "post_type": "structured",
-      "opening_style": "shared_pain_point"
     }
   ]
 }

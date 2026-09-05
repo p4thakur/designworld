@@ -1122,6 +1122,25 @@
       "key_numbers": "7+ trillion messages/day mirrored; Brooklin built starting 2016, replacing Databus (CDC) and Kafka MirrorMaker; MirrorMaker connector flow control: pauses a partition at 5,000 in-flight unacked messages, resumes under 1,000; 2022 load-balanced assignment strategy replaced partition-count balancing with per-partition throughput-based balancing to stop rebalance cascades",
       "lesson": "Consolidating two brittle systems into one doesn't remove brittleness, it relocates it — from 'which system moves this data' to 'which task inside the new system gets the busy partition.'",
       "filename": "2026-09-04-linkedin-brooklin-partition-rebalancing.md"
+    },
+    {
+      "date": "2026-09-05",
+      "company": "GitHub",
+      "topic": "Spokes replication — replaced crossover-cabled file-server/hot-spare pairs (RAID + DRBD, still one logical copy) with three independent repository copies synced over Git's own protocol, and a per-write voting protocol instead of leader election",
+      "category": "storage",
+      "post_type": "narrative",
+      "opening_style": "mid_scene",
+      "hook": "Every git push used to be a bet that the one server holding your repository wouldn't die in the next ten seconds — GitHub's fix wasn't a better spare, it was removing the idea of a leader entirely.",
+      "sources": [
+        "https://github.blog/engineering/architecture-optimization/introducing-dgit/",
+        "https://github.blog/engineering/infrastructure/building-resilience-in-spokes/",
+        "https://github.blog/engineering/infrastructure/stretching-spokes/",
+        "https://sdtimes.com/applications/github-rolls-out-dgit-to-stop-downtime-of-repositories/",
+        "https://www.infoq.com/news/2016/04/github-dgit"
+      ],
+      "key_numbers": "Built through 2015, shipped April 2016 as DGit, renamed Spokes months later; 3 independent copies per repo across 3 servers; 38M+ repositories and 36M+ gists replicated; 2 of 3 replicas needed to commit a write (3 of 5 for larger replica sets); no leader ever elected — every write holds its own vote",
+      "lesson": "The tradeoff didn't disappear when GitHub replaced disk mirroring with Spokes. It moved into a protocol that has to hold a fresh vote before it can agree on anything, forever.",
+      "filename": "2026-09-05-github-spokes-no-leader-election-replication.md"
     }
   ]
 }
