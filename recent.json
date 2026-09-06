@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Twitter",
+      "category": "microservices",
+      "post_type": "structured",
+      "opening_style": "the_decision"
+    },
+    {
       "company": "GitHub",
       "category": "storage",
       "post_type": "narrative",
@@ -11,12 +17,6 @@
       "category": "messaging",
       "post_type": "confessional",
       "opening_style": "cold_fact"
-    },
-    {
-      "company": "Ably",
-      "category": "infrastructure",
-      "post_type": "contrarian",
-      "opening_style": "challenge_assumption"
     }
   ]
 }

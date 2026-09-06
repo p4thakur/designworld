@@ -1141,6 +1141,25 @@
       "key_numbers": "Built through 2015, shipped April 2016 as DGit, renamed Spokes months later; 3 independent copies per repo across 3 servers; 38M+ repositories and 36M+ gists replicated; 2 of 3 replicas needed to commit a write (3 of 5 for larger replica sets); no leader ever elected — every write holds its own vote",
       "lesson": "The tradeoff didn't disappear when GitHub replaced disk mirroring with Spokes. It moved into a protocol that has to hold a fresh vote before it can agree on anything, forever.",
       "filename": "2026-09-05-github-spokes-no-leader-election-replication.md"
+    },
+    {
+      "date": "2026-09-06",
+      "company": "Twitter",
+      "topic": "Finagle — rebuilt RPC itself after the Fail Whale era so a client and a server are the same abstraction (Request => Future[Response]), instead of just rewriting the slow Ruby backend in a faster language",
+      "category": "microservices",
+      "post_type": "structured",
+      "opening_style": "the_decision",
+      "hook": "In 2010, Twitter looked at the Fail Whale and made an unusual call: don't rewrite the slow service. Change what \"a service\" means.",
+      "sources": [
+        "https://blog.twitter.com/engineering/en_us/a/2011/finagle-a-protocol-agnostic-rpc-system",
+        "https://monkey.org/~marius/funsrv.pdf",
+        "https://queue.acm.org/detail.cfm?id=3001119",
+        "https://www.infoq.com/articles/twitter-java-use/",
+        "https://www.theregister.com/2012/11/08/twitter_epic_traffic_saved_by_java/"
+      ],
+      "key_numbers": "Ruby MRI GIL limited hosts to ~200-300 req/s; Finagle shipped internally 2010 (URL crawler, HTTP proxy first), open-sourced 2011; JVM services on Finagle reached ~10,000-20,000 req/s per host",
+      "lesson": "When outages come from how N services interact under failure, not from how fast any one of them executes, rewriting the slow one in a faster language just buys you a faster version of the same outage.",
+      "filename": "2026-09-06-twitter-finagle-server-as-function.md"
     }
   ]
 }

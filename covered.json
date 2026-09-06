@@ -105,6 +105,7 @@
     "facebook-kangaroo-flash-cache-tiny-objects",
     "ably-no-kubernetes-hug-of-death",
     "linkedin-brooklin-partition-rebalancing",
-    "github-spokes-no-leader-election-replication"
+    "github-spokes-no-leader-election-replication",
+    "twitter-finagle-server-as-function"
   ]
 }
