@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Netflix",
+      "category": "infrastructure",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
       "company": "Twitter",
       "category": "microservices",
       "post_type": "structured",
@@ -11,12 +17,6 @@
       "category": "storage",
       "post_type": "narrative",
       "opening_style": "mid_scene"
-    },
-    {
-      "company": "LinkedIn",
-      "category": "messaging",
-      "post_type": "confessional",
-      "opening_style": "cold_fact"
     }
   ]
 }
