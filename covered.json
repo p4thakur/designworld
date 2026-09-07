@@ -106,6 +106,7 @@
     "ably-no-kubernetes-hug-of-death",
     "linkedin-brooklin-partition-rebalancing",
     "github-spokes-no-leader-election-replication",
-    "twitter-finagle-server-as-function"
+    "twitter-finagle-server-as-function",
+    "netflix-titus-kubernetes-holdout"
   ]
 }
