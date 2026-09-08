@@ -107,6 +107,7 @@
     "linkedin-brooklin-partition-rebalancing",
     "github-spokes-no-leader-election-replication",
     "twitter-finagle-server-as-function",
-    "netflix-titus-kubernetes-holdout"
+    "netflix-titus-kubernetes-holdout",
+    "cloudflare-workers-kv-gcp-outage-redundancy"
   ]
 }
