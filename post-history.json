@@ -1160,6 +1160,24 @@
       "key_numbers": "Ruby MRI GIL limited hosts to ~200-300 req/s; Finagle shipped internally 2010 (URL crawler, HTTP proxy first), open-sourced 2011; JVM services on Finagle reached ~10,000-20,000 req/s per host",
       "lesson": "When outages come from how N services interact under failure, not from how fast any one of them executes, rewriting the slow one in a faster language just buys you a faster version of the same outage.",
       "filename": "2026-09-06-twitter-finagle-server-as-function.md"
+    },
+    {
+      "date": "2026-09-09",
+      "company": "Stripe",
+      "topic": "Four layered rate limiters — token bucket, concurrency limiter, and two load shedders, where the last shedder had to be built to react slowly on purpose",
+      "category": "stability",
+      "post_type": "narrative",
+      "opening_style": "specific_number",
+      "hook": "Stripe runs four different rate limiters in production. Only one of them limits how fast you can send requests.",
+      "sources": [
+        "https://stripe.com/blog/rate-limiters",
+        "https://gist.github.com/ptarjan/e38f45f2dfe601419ca3af937fff574d",
+        "https://docs.stripe.com/rate-limits",
+        "https://newsletter.systemdesign.one/p/rate-limiter"
+      ],
+      "key_numbers": "Token bucket: 100 req/s refill, 500 burst capacity; concurrency limiter: 100 in-flight requests per account; utilization shedder: 0.7-0.8 dead zone, 28-second delay before shedding starts, ramp capped at 1/120th per second; fails open if Redis is unavailable",
+      "lesson": "No customer did anything wrong at any of the four layers. Four different shapes of the same problem, four different tools, and a shedder that had to be taught patience because speed was the thing that had been breaking it.",
+      "filename": "2026-09-09-stripe-rate-limiters-load-shedding.md"
     }
   ]
 }

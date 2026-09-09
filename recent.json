@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Stripe",
+      "category": "stability",
+      "post_type": "narrative",
+      "opening_style": "specific_number"
+    },
+    {
       "company": "Cloudflare",
       "category": "availability",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "infrastructure",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption"
-    },
-    {
-      "company": "Twitter",
-      "category": "microservices",
-      "post_type": "structured",
-      "opening_style": "the_decision"
     }
   ]
 }
