@@ -1178,6 +1178,24 @@
       "key_numbers": "Token bucket: 100 req/s refill, 500 burst capacity; concurrency limiter: 100 in-flight requests per account; utilization shedder: 0.7-0.8 dead zone, 28-second delay before shedding starts, ramp capped at 1/120th per second; fails open if Redis is unavailable",
       "lesson": "No customer did anything wrong at any of the four layers. Four different shapes of the same problem, four different tools, and a shedder that had to be taught patience because speed was the thing that had been breaking it.",
       "filename": "2026-09-09-stripe-rate-limiters-load-shedding.md"
+    },
+    {
+      "date": "2026-09-11",
+      "company": "DoorDash",
+      "topic": "Clusterless ML feature store on Apache Kvrocks (RocksDB) with S3-backed serving, replacing sharded Redis Cluster",
+      "category": "storage",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption",
+      "hook": "Everyone assumes you scale a Redis-based feature store with a bigger Redis Cluster. DoorDash found the cluster itself was the ceiling.",
+      "sources": [
+        "https://careersatdoordash.com/blog/doordash-clusterless-ml-feature-store/",
+        "https://careersatdoordash.com/blog/building-a-gigascale-ml-feature-store-with-redis/",
+        "https://careersatdoordash.com/blog/how-we-applied-client-side-caching/",
+        "https://x.com/DoorDashEng/status/2056845071857975796"
+      ],
+      "key_numbers": "1.6B+ features/sec at 50ms P999 on the new clusterless system; prior Redis-based system: tens of millions of reads/sec across billions of requests/day, 3x capacity gain from custom string+protobuf+Snappy serialization",
+      "lesson": "The Redis cluster wasn't a bad design, it was right for its era. The fix wasn't avoiding clustering in general, it was noticing that state and serving had been fused together, and prying them apart -- including turning off Kvrocks' own native clustering to do it.",
+      "filename": "2026-09-11-doordash-clusterless-feature-store-kvrocks.md"
     }
   ]
 }

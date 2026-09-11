@@ -110,6 +110,7 @@
     "netflix-titus-kubernetes-holdout",
     "cloudflare-workers-kv-gcp-outage-redundancy",
     "stripe-rate-limiters-load-shedding",
-    "twitter-graphjet-salsa-recommendations"
+    "twitter-graphjet-salsa-recommendations",
+    "doordash-clusterless-feature-store-kvrocks"
   ]
 }
