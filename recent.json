@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Foursquare",
+      "category": "database",
+      "post_type": "confessional",
+      "opening_style": "cold_fact"
+    },
+    {
       "company": "DoorDash",
       "category": "storage",
       "post_type": "contrarian",
@@ -11,12 +17,6 @@
       "category": "real-time",
       "post_type": "structured",
       "opening_style": "the_decision"
-    },
-    {
-      "company": "Stripe",
-      "category": "stability",
-      "post_type": "narrative",
-      "opening_style": "specific_number"
     }
   ]
 }
