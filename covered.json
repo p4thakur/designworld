@@ -112,6 +112,7 @@
     "stripe-rate-limiters-load-shedding",
     "twitter-graphjet-salsa-recommendations",
     "doordash-clusterless-feature-store-kvrocks",
-    "foursquare-mongodb-2010-outage"
+    "foursquare-mongodb-2010-outage",
+    "aws-2021-network-congestion-dashboard-blind"
   ]
 }

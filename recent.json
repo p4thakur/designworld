@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "AWS",
+      "category": "availability",
+      "post_type": "narrative",
+      "opening_style": "specific_number"
+    },
+    {
       "company": "Foursquare",
       "category": "database",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "storage",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption"
-    },
-    {
-      "company": "Twitter",
-      "category": "real-time",
-      "post_type": "structured",
-      "opening_style": "the_decision"
     }
   ]
 }
