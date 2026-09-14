@@ -1215,6 +1215,23 @@
       "key_numbers": "7:30 AM PST trigger; internal DNS resolution fully recovered by 9:28 AM PST (2 hours in) but did not end the outage; EC2 error rates began improving 1:15 PM PST; Route 53 API changes blocked 7:30 AM-2:30 PM PST; Support Contact Center could not create new cases for hours; full recovery ~4:44 PM PST, ~9 hours total",
       "lesson": "No one was wrong about how to build resilience -- multiple isolated networking devices, a standby-region failover, a separate support path all existed. The gap was that the tools for seeing and reporting a network problem shared one dependency with the network itself.",
       "filename": "2026-09-13-aws-2021-network-congestion-dashboard-blind.md"
+    },
+    {
+      "date": "2026-09-14",
+      "company": "Notion",
+      "topic": "Notion's quarterly Elasticsearch reindex on a custom ECS pipeline took over two weeks, riddled with OOMs and worker-coordination failures, plus a separate catchup pipeline that silently dropped edits it couldn't reconcile; replaced with a Spark-native pipeline on Airflow using Elasticsearch's own snapshot format",
+      "category": "search",
+      "post_type": "structured",
+      "opening_style": "shared_pain_point",
+      "hook": "Every Elasticsearch team eventually hits the same wall: a full reindex stops being routine maintenance and starts being an event people schedule around. At Notion, that event happened once a quarter, and it took more than two weeks.",
+      "sources": [
+        "https://www.notion.com/blog/rebuilding-notions-lexical-search-reindexer",
+        "https://www.zenml.io/llmops-database/rebuilding-a-production-search-reindexing-pipeline-at-scale",
+        "https://www.notion.com/blog/two-years-of-vector-search-at-notion"
+      ],
+      "key_numbers": "Full reindex: 2+ weeks -> under 2 days; catchup: 2 days -> under 1 hour; manual engineering effort per reindex: weeks -> under 2 hours with zero on-call pages; adding a new searchable field: a monthlong project -> days",
+      "lesson": "A lot of infrastructure pain isn't the underlying system fighting you -- it's custom glue code re-solving problems the system underneath (Spark's coordination, Elasticsearch's own snapshot format) already solved, worse.",
+      "filename": "2026-09-14-notion-elasticsearch-reindex-spark-rebuild.md"
     }
   ]
 }
