@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Canva",
+      "category": "caching",
+      "post_type": "confessional",
+      "opening_style": "cold_fact"
+    },
+    {
       "company": "Chick-fil-A",
       "category": "infrastructure",
       "post_type": "contrarian",
@@ -11,12 +17,6 @@
       "category": "search",
       "post_type": "structured",
       "opening_style": "shared_pain_point"
-    },
-    {
-      "company": "AWS",
-      "category": "availability",
-      "post_type": "narrative",
-      "opening_style": "specific_number"
     }
   ]
 }

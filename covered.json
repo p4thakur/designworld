@@ -115,6 +115,7 @@
     "foursquare-mongodb-2010-outage",
     "aws-2021-network-congestion-dashboard-blind",
     "notion-elasticsearch-reindex-spark-rebuild",
-    "chickfila-kubernetes-restaurant-edge"
+    "chickfila-kubernetes-restaurant-edge",
+    "canva-session-revocation-s3-cache"
   ]
 }
