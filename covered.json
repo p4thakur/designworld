@@ -117,6 +117,7 @@
     "notion-elasticsearch-reindex-spark-rebuild",
     "chickfila-kubernetes-restaurant-edge",
     "canva-session-revocation-s3-cache",
-    "pinterest-doctorkafka-broker-autohealing"
+    "pinterest-doctorkafka-broker-autohealing",
+    "monzo-centralized-migrations-2800-microservices"
   ]
 }
