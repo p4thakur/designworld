@@ -118,6 +118,7 @@
     "chickfila-kubernetes-restaurant-edge",
     "canva-session-revocation-s3-cache",
     "pinterest-doctorkafka-broker-autohealing",
-    "monzo-centralized-migrations-2800-microservices"
+    "monzo-centralized-migrations-2800-microservices",
+    "aws-firecracker-microvm-serverless-isolation"
   ]
 }

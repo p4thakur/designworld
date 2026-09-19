@@ -1249,6 +1249,23 @@
       "key_numbers": "Roughly 100M active sessions; hundreds of gateway pods each pulling 1M+ revocation rows from MySQL per deploy; 12-hour revocation window sliced into 30-minute S3 chunks of 16-byte binary records; cache memory footprint down 87.5%; MySQL read replicas down to 2 (redundancy only); revocation worker throughput 2,000+ events/sec",
       "lesson": "The in-memory cache was never the mistake -- an engineer defended that design directly, since querying MySQL per-refresh would raise DB load and tie gateway availability to the database's. The mistake was reloading the full set from a relational database on every pod boot, a cost nobody sized for the pod count they'd eventually reach.",
       "filename": "2026-09-16-canva-session-revocation-s3-cache.md"
+    },
+    {
+      "date": "2026-09-19",
+      "company": "AWS",
+      "topic": "Firecracker microVMs -- AWS rejected the assumption that serverless must choose between full-VM isolation and container-level speed; before 2018 Lambda used a container-based sandbox with no time to boot a real VM per invocation while Fargate quietly ran each task inside its own dedicated EC2 VM just to get hardware isolation, so AWS built a VMM stripped to 5 emulated devices plus a jailer/seccomp-bpf layer that both products moved onto",
+      "category": "infrastructure",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption",
+      "hook": "For a decade, serverless treated one tradeoff as physics: real isolation means a full VM, and full VMs are too slow and too expensive to hand out per request.",
+      "sources": [
+        "https://www.usenix.org/conference/nsdi20/presentation/agache",
+        "https://github.com/firecracker-microvm/firecracker",
+        "https://aws.amazon.com/blogs/opensource/firecracker-open-source-secure-fast-microvm-serverless/"
+      ],
+      "key_numbers": "Boot to accepting API calls: under 125ms. Memory overhead: under 5 MiB per microVM. Up to 150 microVMs launched per second on a single host, thousands packed per machine. Only 5 emulated devices (virtio-net, virtio-block, virtio-vsock, serial console, minimal keyboard controller) vs. dozens on a stock hypervisor. Open-sourced November 2018; now powers 15 trillion+ Lambda invocations a month.",
+      "lesson": "\"Fast and cheap\" versus \"isolated and secure\" was never a law of physics -- it was a property of hypervisors built for someone else's workload. AWS wasn't choosing between the two for one product; it was running two separate, expensive workarounds (Lambda's container sandbox, Fargate's one-VM-per-task hack) for the same unsolved problem, and Firecracker is the VMM that let both retire their patch.",
+      "filename": "2026-09-19-aws-firecracker-microvm-serverless-isolation.md"
     }
   ]
 }

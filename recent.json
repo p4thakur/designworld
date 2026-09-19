@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "AWS",
+      "category": "infrastructure",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
       "company": "Monzo",
       "category": "microservices",
       "post_type": "structured",
@@ -11,12 +17,6 @@
       "category": "messaging",
       "post_type": "narrative",
       "opening_style": "mid_scene"
-    },
-    {
-      "company": "Canva",
-      "category": "caching",
-      "post_type": "confessional",
-      "opening_style": "cold_fact"
     }
   ]
 }
