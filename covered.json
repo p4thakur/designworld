@@ -119,6 +119,7 @@
     "canva-session-revocation-s3-cache",
     "pinterest-doctorkafka-broker-autohealing",
     "monzo-centralized-migrations-2800-microservices",
-    "aws-firecracker-microvm-serverless-isolation"
+    "aws-firecracker-microvm-serverless-isolation",
+    "yelp-elasticsearch-to-nrtsearch-cost"
   ]
 }
