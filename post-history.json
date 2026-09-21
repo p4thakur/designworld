@@ -1266,6 +1266,23 @@
       "key_numbers": "Boot to accepting API calls: under 125ms. Memory overhead: under 5 MiB per microVM. Up to 150 microVMs launched per second on a single host, thousands packed per machine. Only 5 emulated devices (virtio-net, virtio-block, virtio-vsock, serial console, minimal keyboard controller) vs. dozens on a stock hypervisor. Open-sourced November 2018; now powers 15 trillion+ Lambda invocations a month.",
       "lesson": "\"Fast and cheap\" versus \"isolated and secure\" was never a law of physics -- it was a property of hypervisors built for someone else's workload. AWS wasn't choosing between the two for one product; it was running two separate, expensive workarounds (Lambda's container sandbox, Fargate's one-VM-per-task hack) for the same unsolved problem, and Firecracker is the VMM that let both retire their patch.",
       "filename": "2026-09-19-aws-firecracker-microvm-serverless-isolation.md"
+    },
+    {
+      "date": "2026-09-21",
+      "company": "Niantic",
+      "topic": "Niantic load-tested Pokémon GO's launch for 5x its most optimistic estimate; real demand hit ~50x within 15 minutes of the Australia/New Zealand launch, and when overloaded backends slowed down instead of crashing, the mobile client's retry logic and Google's own load-balancer retries synchronized into a thundering herd that spiked request volume to 20x the prior global peak and cut Google Cloud's load-balancer capacity worldwide by roughly half -- for every GCP customer, not just Niantic",
+      "category": "availability",
+      "post_type": "narrative",
+      "opening_style": "mid_scene_drop",
+      "hook": "Fifteen minutes after Pokémon GO launched in Australia and New Zealand, the traffic numbers hitting Niantic's dashboards stopped matching any plan anyone had made.",
+      "sources": [
+        "https://sre.google/workbook/managing-load/",
+        "https://cloud.google.com/blog/products/containers-kubernetes/bringing-pokemon-go-to-life-on-google-cloud",
+        "https://cloud.google.com/blog/topics/developers-practitioners/how-pok%C3%A9mon-go-scales-millions-requests"
+      ],
+      "key_numbers": "Load-tested for 5x the most optimistic launch estimate; real traffic hit ~50x within 15 minutes of the AU/NZ launch. Client + GFE retry storm spiked request volume to 20x the previous global RPS peak. GFE SSL-reconnection overload cut GCLB worldwide load-balancer capacity by roughly 50%, affecting every GCP customer sharing that infrastructure.",
+      "lesson": "No single component in this chain misbehaved -- an overloaded database behaved like an overloaded database, a load balancer retried a slow (not dead) backend exactly as designed, and a mobile client retried a failed request exactly as it should. Stacking three individually correct behaviors produced a global capacity cut, and the lasting fix was jitter plus truncated exponential backoff in the client, not more hardware.",
+      "filename": "2026-09-21-niantic-pokemon-go-retry-storm.md"
     }
   ]
 }

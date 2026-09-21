@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Niantic",
+      "category": "availability",
+      "post_type": "narrative",
+      "opening_style": "mid_scene_drop"
+    },
+    {
       "company": "Yelp",
       "category": "search",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "infrastructure",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption"
-    },
-    {
-      "company": "Monzo",
-      "category": "microservices",
-      "post_type": "structured",
-      "opening_style": "the_decision"
     }
   ]
 }
