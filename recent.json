@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "LinkedIn",
+      "category": "storage",
+      "post_type": "structured",
+      "opening_style": "specific_number"
+    },
+    {
       "company": "Niantic",
       "category": "availability",
       "post_type": "narrative",
@@ -11,12 +17,6 @@
       "category": "search",
       "post_type": "confessional",
       "opening_style": "cold_fact"
-    },
-    {
-      "company": "AWS",
-      "category": "infrastructure",
-      "post_type": "contrarian",
-      "opening_style": "challenge_assumption"
     }
   ]
 }

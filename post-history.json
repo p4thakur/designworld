@@ -1283,6 +1283,23 @@
       "key_numbers": "Load-tested for 5x the most optimistic launch estimate; real traffic hit ~50x within 15 minutes of the AU/NZ launch. Client + GFE retry storm spiked request volume to 20x the previous global RPS peak. GFE SSL-reconnection overload cut GCLB worldwide load-balancer capacity by roughly 50%, affecting every GCP customer sharing that infrastructure.",
       "lesson": "No single component in this chain misbehaved -- an overloaded database behaved like an overloaded database, a load balancer retried a slow (not dead) backend exactly as designed, and a mobile client retried a failed request exactly as it should. Stacking three individually correct behaviors produced a global capacity cut, and the lasting fix was jitter plus truncated exponential backoff in the client, not more hardware.",
       "filename": "2026-09-21-niantic-pokemon-go-retry-storm.md"
+    },
+    {
+      "date": "2026-09-22",
+      "company": "LinkedIn",
+      "topic": "LinkedIn's pre-2014 media storage stack (attached-storage filers plus a single monolithic Oracle database for metadata) hit its ceiling not on disk space but on metadata operations -- small objects like profile photos generated CPU/IO spikes disproportionate to their size because Oracle couldn't scale horizontally, driving LinkedIn to build Ambry, a decentralized object store with logical blob grouping, chunked large-object storage, and zero-cost failure detection that piggybacks on live request traffic instead of heartbeats",
+      "category": "storage",
+      "post_type": "structured",
+      "opening_style": "specific_number",
+      "hook": "LinkedIn's media storage system wasn't running out of disk space. It was running out of database.",
+      "sources": [
+        "https://engineering.linkedin.com/blog/2016/05/introducing-and-open-sourcing-ambry---linkedins-new-distributed-",
+        "https://dl.acm.org/doi/10.1145/2882903.2903738",
+        "https://github.com/linkedin/ambry/wiki/FAQ"
+      ],
+      "key_numbers": "Legacy media server: filers + single monolithic Oracle DB for metadata + stateless Solaris routing boxes, not horizontally scalable. Ambry (2 years into production, per the 2016 SIGMOD paper): sub-50ms latency serving 1MB blobs, up to 88% of available network bandwidth utilized, disk load rebalanced 8-10x more evenly, 10,000 requests/sec sustained across 400M+ LinkedIn members. Large blobs chunked into 4-8MB pieces. Open-sourced May 2016.",
+      "lesson": "The old system didn't fail because LinkedIn ran out of storage capacity -- it failed because metadata operations, not bytes, were the resource that ran out first, and a monolithic Oracle database had no horizontal scaling story for that. The fix wasn't more disk, it was eliminating the separate metadata tier and folding placement into a partition scheme (logical blob grouping) that scales the same way the data does.",
+      "filename": "2026-09-22-linkedin-ambry-metadata-bottleneck.md"
     }
   ]
 }
