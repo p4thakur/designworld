@@ -1300,6 +1300,23 @@
       "key_numbers": "Legacy media server: filers + single monolithic Oracle DB for metadata + stateless Solaris routing boxes, not horizontally scalable. Ambry (2 years into production, per the 2016 SIGMOD paper): sub-50ms latency serving 1MB blobs, up to 88% of available network bandwidth utilized, disk load rebalanced 8-10x more evenly, 10,000 requests/sec sustained across 400M+ LinkedIn members. Large blobs chunked into 4-8MB pieces. Open-sourced May 2016.",
       "lesson": "The old system didn't fail because LinkedIn ran out of storage capacity -- it failed because metadata operations, not bytes, were the resource that ran out first, and a monolithic Oracle database had no horizontal scaling story for that. The fix wasn't more disk, it was eliminating the separate metadata tier and folding placement into a partition scheme (logical blob grouping) that scales the same way the data does.",
       "filename": "2026-09-22-linkedin-ambry-metadata-bottleneck.md"
+    },
+    {
+      "date": "2026-09-23",
+      "company": "Shopify",
+      "topic": "While the industry consensus in 2019 was to decompose monoliths into microservices, Shopify deliberately kept Shopify Core as a single Rails application on a single database -- splitting the data model would turn in-process lookups (shop config, catalog, inventory, checkout) into network calls with their own latency and failure modes. Instead they built Packwerk, a static analyzer enforcing component boundaries inside the monolith, and their own retrospective admits the easier half of that tool (privacy checks) became the default effort while the harder half (real dependency isolation) lagged -- with the resulting tech debt still not paid off years later.",
+      "category": "microservices",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption",
+      "hook": "By 2019, \"monolith\" was basically a slur at tech conferences. The accepted move was obvious: break it up, give each service its own database, let teams ship independently.",
+      "sources": [
+        "https://shopify.engineering/deconstructing-monolith-designing-software-maximizes-developer-productivity",
+        "https://shopify.engineering/shopify-monolith",
+        "https://shopify.engineering/a-packwerk-retrospective"
+      ],
+      "key_numbers": "Shopify Core: 2.8 million lines of Ruby, 500,000+ commits, one Rails app split into 37 components (Shop, Product Catalog, Checkout, Payments, Fulfillment). Packwerk enforced on roughly a third of components. Black Friday: tens of terabytes of data moved per minute, on a single database. Packwerk Retrospective (2024): privacy-check technical debt still far from paid off, years after the tool shipped.",
+      "lesson": "Shopify's bet was never that monoliths are good -- it was that splitting a shared data model too early costs more than a big codebase does. No amount of infrastructure tooling fixes a bad boundary; the industry defaults to microservices because a monolith's pain (slow tests, scary deploys) is visible on day one, while premature service decomposition's pain (network calls where there used to be transactions) shows up eighteen months later.",
+      "filename": "2026-09-23-shopify-modular-monolith-packwerk.md"
     }
   ]
 }

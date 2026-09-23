@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Shopify",
+      "category": "microservices",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
       "company": "LinkedIn",
       "category": "storage",
       "post_type": "structured",
@@ -11,12 +17,6 @@
       "category": "availability",
       "post_type": "narrative",
       "opening_style": "mid_scene_drop"
-    },
-    {
-      "company": "Yelp",
-      "category": "search",
-      "post_type": "confessional",
-      "opening_style": "cold_fact"
     }
   ]
 }
