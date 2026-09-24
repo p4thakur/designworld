@@ -1317,6 +1317,23 @@
       "key_numbers": "Shopify Core: 2.8 million lines of Ruby, 500,000+ commits, one Rails app split into 37 components (Shop, Product Catalog, Checkout, Payments, Fulfillment). Packwerk enforced on roughly a third of components. Black Friday: tens of terabytes of data moved per minute, on a single database. Packwerk Retrospective (2024): privacy-check technical debt still far from paid off, years after the tool shipped.",
       "lesson": "Shopify's bet was never that monoliths are good -- it was that splitting a shared data model too early costs more than a big codebase does. No amount of infrastructure tooling fixes a bad boundary; the industry defaults to microservices because a monolith's pain (slow tests, scary deploys) is visible on day one, while premature service decomposition's pain (network calls where there used to be transactions) shows up eighteen months later.",
       "filename": "2026-09-23-shopify-modular-monolith-packwerk.md"
+    },
+    {
+      "date": "2026-09-24",
+      "company": "Grafana Labs",
+      "topic": "Grafana Loki was built on one hard rule -- never index the content of a log line, only the labels on its stream -- because that's what kept the index small and queries cheap. That held until distributed tracing made engineers need to filter by trace_id and customer_id, fields unique per line rather than per stream: adding them as labels exploded the index into millions of streams, leaving them in the log line meant a full-text scan Loki was built to avoid. Grafana's fix, structured metadata (GA in Loki 3.0), attaches key-value pairs to each log line without promoting them into the stream identifier -- a deliberate, narrow exception to the founding rule, with its own documented footgun: a Promtail misconfiguration can silently turn structured metadata back into the exact high-cardinality labels it was built to prevent.",
+      "category": "search",
+      "post_type": "confessional",
+      "opening_style": "cold_fact",
+      "hook": "Grafana Loki has one architectural rule: never index the contents of a log line. Only index the labels -- service, environment, pod -- attached to each stream.",
+      "sources": [
+        "https://grafana.com/docs/loki/latest/get-started/labels/cardinality/",
+        "https://grafana.com/docs/loki/latest/get-started/labels/structured-metadata/",
+        "https://github.com/grafana/loki/issues/13229"
+      ],
+      "key_numbers": "Log compression to object storage: 10-20x. Structured metadata: experimental in Loki 2.9, GA in Loki 3.0 (2024), stored in chunk format v4 (schema v13+). Loki launched at KubeCon Seattle, December 2018, under the tagline \"like Prometheus, but for logs.\" GitHub issue #13229 documents the Promtail relabeling footgun that recreates the cardinality problem structured metadata exists to solve.",
+      "lesson": "Every clean architectural rule collects an exception once real query patterns show up. Loki's founding constraint -- never index log content -- was right for the problem it was built to solve, and still needed a deliberate, narrow crack in it once distributed tracing changed what 'searchable' meant. The harder engineering problem wasn't admitting the exception was needed; it was keeping the exception from quietly becoming the same problem it replaced.",
+      "filename": "2026-09-24-grafana-loki-structured-metadata-cardinality.md"
     }
   ]
 }

@@ -123,6 +123,7 @@
     "yelp-elasticsearch-to-nrtsearch-cost",
     "niantic-pokemon-go-retry-storm",
     "linkedin-ambry-metadata-bottleneck",
-    "shopify-modular-monolith-packwerk"
+    "shopify-modular-monolith-packwerk",
+    "grafana-loki-structured-metadata-cardinality"
   ]
 }

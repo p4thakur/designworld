@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Grafana Labs",
+      "category": "search",
+      "post_type": "confessional",
+      "opening_style": "cold_fact"
+    },
+    {
       "company": "Shopify",
       "category": "microservices",
       "post_type": "contrarian",
@@ -11,12 +17,6 @@
       "category": "storage",
       "post_type": "structured",
       "opening_style": "specific_number"
-    },
-    {
-      "company": "Niantic",
-      "category": "availability",
-      "post_type": "narrative",
-      "opening_style": "mid_scene_drop"
     }
   ]
 }
