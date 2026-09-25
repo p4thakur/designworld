@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Atlassian",
+      "category": "stability",
+      "post_type": "narrative",
+      "opening_style": "mid_scene"
+    },
+    {
       "company": "Grafana Labs",
       "category": "search",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "microservices",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption"
-    },
-    {
-      "company": "LinkedIn",
-      "category": "storage",
-      "post_type": "structured",
-      "opening_style": "specific_number"
     }
   ]
 }

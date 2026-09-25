@@ -124,6 +124,7 @@
     "niantic-pokemon-go-retry-storm",
     "linkedin-ambry-metadata-bottleneck",
     "shopify-modular-monolith-packwerk",
-    "grafana-loki-structured-metadata-cardinality"
+    "grafana-loki-structured-metadata-cardinality",
+    "atlassian-2022-site-deletion-outage"
   ]
 }

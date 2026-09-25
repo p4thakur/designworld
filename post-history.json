@@ -1334,6 +1334,24 @@
       "key_numbers": "Log compression to object storage: 10-20x. Structured metadata: experimental in Loki 2.9, GA in Loki 3.0 (2024), stored in chunk format v4 (schema v13+). Loki launched at KubeCon Seattle, December 2018, under the tagline \"like Prometheus, but for logs.\" GitHub issue #13229 documents the Promtail relabeling footgun that recreates the cardinality problem structured metadata exists to solve.",
       "lesson": "Every clean architectural rule collects an exception once real query patterns show up. Loki's founding constraint -- never index log content -- was right for the problem it was built to solve, and still needed a deliberate, narrow crack in it once distributed tracing changed what 'searchable' meant. The harder engineering problem wasn't admitting the exception was needed; it was keeping the exception from quietly becoming the same problem it replaced.",
       "filename": "2026-09-24-grafana-loki-structured-metadata-cardinality.md"
+    },
+    {
+      "date": "2026-09-25",
+      "company": "Atlassian",
+      "topic": "An internal script built to safely soft-delete a retired app (Insight asset management) was handed the wrong list of IDs -- site_id instead of app_id -- and run in permanently-delete mode instead of mark-for-delete, erasing 883 live Jira and Confluence Cloud sites in 23 minutes. The same multi-tenant design that let the mistake through -- one shared database and backup across all customers, no per-tenant validation -- is also why fixing it took 13 days instead of hours: undoing damage to one customer meant reloading an entire shared backup into a live database and extracting that customer's rows by hand, repeated roughly 400 times, one org at a time.",
+      "category": "stability",
+      "post_type": "narrative",
+      "opening_style": "mid_scene",
+      "hook": "At 07:38 UTC on April 5th, 2022, an Atlassian script finished a maintenance task it had run safely many times before. Twenty-three minutes later, 883 full Jira and Confluence Cloud sites were gone.",
+      "sources": [
+        "https://www.atlassian.com/blog/atlassian-engineering/post-incident-review-april-2022-outage",
+        "https://www.theregister.com/2022/04/14/atlassian_ongoing_outage/",
+        "https://arpitbhayani.me/videos/atlassian-outage-2022-engineering-deep-dive",
+        "https://www.atlassian.com/blog/atlassian-engineering/april-2022-outage-update"
+      ],
+      "key_numbers": "883 Cloud sites deleted between 07:38-08:01 UTC, April 5 2022 (23 minutes). 775 paying customers lost access instantly; ~400 orgs had data actually erased. Full restoration completed April 18, 2022 (13 days). Most customers lost under 5 minutes of writes, bounded by the last write-ahead-log-based incremental backup checkpoint.",
+      "lesson": "The bug and the slow recovery shared one root cause: a system built to trust big, coarse operations without questioning small, precise ones. The API didn't check whether a site_id had wandered into a call meant for app_id. The backup layer didn't distinguish one tenant's rows from another's either -- which is exactly why recovering a single customer meant reloading everyone's data and filtering by hand, four hundred times over.",
+      "filename": "2026-09-25-atlassian-2022-site-deletion-outage.md"
     }
   ]
 }
