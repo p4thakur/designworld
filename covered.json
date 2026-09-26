@@ -125,6 +125,7 @@
     "linkedin-ambry-metadata-bottleneck",
     "shopify-modular-monolith-packwerk",
     "grafana-loki-structured-metadata-cardinality",
-    "atlassian-2022-site-deletion-outage"
+    "atlassian-2022-site-deletion-outage",
+    "uber-m3-time-series-metrics-platform"
   ]
 }
