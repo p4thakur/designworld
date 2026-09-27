@@ -1370,6 +1370,25 @@
       "key_numbers": "6.6 billion time series stored. 500 million metrics/sec aggregated in; 20 million/sec persisted via quorum write to 3 replicas per region. Query engine (as of Nov 2018): ~2,500 queries/sec, ~8.5 billion datapoints/sec, ~35 Gbps. M3TSZ compression: 1.45 bytes/datapoint, 40% better than stock TSZ.",
       "lesson": "Every stage of this story -- Whisper/Carbon, then Cassandra+ElasticSearch, then M3 -- was already a distributed system. The speedup didn't come from adding more machines to do the same per-series work. It came from changing what one unit of work is: M3 Query processes a columnar Block spanning many series over a time window in a single pass, instead of iterating series one at a time.",
       "filename": "2026-09-26-uber-m3-time-series-metrics-platform.md"
+    },
+    {
+      "date": "2026-09-27",
+      "company": "Shopify",
+      "topic": "CRuby's own method-based JIT (MJIT) compiled a whole method once for \"the general case\" and barely helped real Rails apps, since a typical Rails method is called with a dozen different argument shapes per request; Shopify's Ruby & Rails Infrastructure team built YJIT instead, a JIT compiler living inside CRuby using Lazy Basic Block Versioning to compile small blocks lazily and specialize each one on the type shape actually observed at runtime, then later ported the whole compiler from C99 to Rust not for speed but because hand-rolling dynamic arrays out of C macros felt unsafe and awkward.",
+      "category": "performance",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption",
+      "hook": "The standard fix when an interpreted language can't keep up is to leave it: rewrite the hot path in Go, Rust, Java, ship it, move on. Shopify didn't.",
+      "sources": [
+        "https://shopify.engineering/yjit-just-in-time-compiler-cruby",
+        "https://shopify.engineering/porting-yjit-ruby-compiler-to-rust",
+        "https://shopify.engineering/ruby-yjit-is-production-ready",
+        "https://railsatscale.com/2023-09-18-ruby-3-3-s-yjit-runs-shopify-s-production-code-15-faster/",
+        "https://bugs.ruby-lang.org/issues/18229"
+      ],
+      "key_numbers": "railsbench +22%, Liquid template rendering +39%, Storefront Renderer +10% average in production (Ruby 3.2). Ruby 3.3: +15% faster on Shopify's production code, memory usage below the Ruby 3.2 version. C99-to-Rust port: ~3 engineers, ~3 months, zero regressions.",
+      "lesson": "MJIT compiles a whole method once and bets on the general case; YJIT compiles small basic blocks lazily and specializes each one on the type shape actually seen at runtime, which is the mechanism-level reason it wins on polymorphic Rails code where a method-level JIT couldn't. Sometimes the ceiling isn't the language, it's how much your compiler is willing to learn about your code before deciding how to run it.",
+      "filename": "2026-09-27-shopify-yjit-ruby-basic-block-versioning.md"
     }
   ]
 }
