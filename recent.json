@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Slack",
+      "category": "database",
+      "post_type": "confessional",
+      "opening_style": "specific_number"
+    },
+    {
       "company": "Shopify",
       "category": "performance",
       "post_type": "contrarian",
@@ -11,12 +17,6 @@
       "category": "infrastructure",
       "post_type": "structured",
       "opening_style": "shared_pain_point"
-    },
-    {
-      "company": "Atlassian",
-      "category": "stability",
-      "post_type": "narrative",
-      "opening_style": "mid_scene"
     }
   ]
 }

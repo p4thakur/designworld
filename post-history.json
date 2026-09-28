@@ -1389,6 +1389,24 @@
       "key_numbers": "railsbench +22%, Liquid template rendering +39%, Storefront Renderer +10% average in production (Ruby 3.2). Ruby 3.3: +15% faster on Shopify's production code, memory usage below the Ruby 3.2 version. C99-to-Rust port: ~3 engineers, ~3 months, zero regressions.",
       "lesson": "MJIT compiles a whole method once and bets on the general case; YJIT compiles small basic blocks lazily and specializes each one on the type shape actually seen at runtime, which is the mechanism-level reason it wins on polymorphic Rails code where a method-level JIT couldn't. Sometimes the ceiling isn't the language, it's how much your compiler is willing to learn about your code before deciding how to run it.",
       "filename": "2026-09-27-shopify-yjit-ruby-basic-block-versioning.md"
+    },
+    {
+      "date": "2026-09-28",
+      "company": "Slack",
+      "topic": "Slack sharded MySQL by team_id from day one; that worked until an enterprise workspace's reads and writes filled a single shard's host while thousands of other hosts sat idle, because a row (one customer's data) can't split across machines. Slack spent three years and roughly eight engineers migrating to Vitess, YouTube's MySQL sharding middleware, so VTGate could resolve the real shard at query time and resharding could become a live operation instead of an application rewrite. Vitess didn't retire the hot-shard problem, it just changed what could trigger one, as a 2022 mass-delete write storm on a \"leave channel\" cleanup job proved.",
+      "category": "database",
+      "post_type": "confessional",
+      "opening_style": "specific_number",
+      "hook": "Slack runs thousands of MySQL hosts today. Back in 2017, only a handful of them were struggling. The other thousands sat nearly idle.",
+      "sources": [
+        "https://slack.engineering/scaling-datastores-at-slack-with-vitess/",
+        "https://slack.engineering/the-query-strikes-again/",
+        "https://www.percona.com/blog/2018/04/25/percona-live-2018-migrating-to-vitess-at-slack-scale/",
+        "https://www.cncf.io/blog/2019/11/25/how-slack-leverages-vitess-to-keep-up-with-its-ever-growing-storage-needs/"
+      ],
+      "key_numbers": "Migration ran July 2017 to ~Dec 2020 (3 years), ~8 full-time engineers, 0% to 99% of MySQL traffic on Vitess. Peak 2.3M QPS (2M reads / 300K writes), median query latency 2ms, p99 11ms. COVID-19: +50% query rate in one week, resolved via live keyspace split. By 2025: 50B+ queries/day, petabytes of storage under Vitess.",
+      "lesson": "Vitess solved the specific way Slack had broken in 2017 by decoupling the shard boundary from the customer identity (team_id). It didn't make sharding safe in general: in 2022, a mass user-delete triggered a write storm on an unsubscribe job that overwhelmed several shards' replicas and crashed a primary anyway, this time from one bulk operation instead of one big customer. Resharding didn't end the hot-shard problem, it just moved where the next one would come from.",
+      "filename": "2026-09-28-slack-vitess-team-id-hot-shards.md"
     }
   ]
 }
