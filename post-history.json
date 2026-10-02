@@ -1424,6 +1424,23 @@
       "key_numbers": "6M req/s, 1,630B msgs, 150+ fields, 12-node Citus shut down, granularity 32 vs 8192: -50% latency, ~3x throughput",
       "lesson": "Both old designs aggregated before storing and keyed by zone, so the biggest customers set the ceiling.",
       "filename": "2026-09-30-cloudflare-clickhouse-http-analytics-flink-citus.md"
+    },
+    {
+      "date": "2026-10-02",
+      "company": "Instagram",
+      "topic": "Disabling Python GC to preserve copy-on-write memory in forked workers; later gc.freeze()",
+      "category": "performance",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption",
+      "hook": "Everyone knows Python's garbage collector is there to save memory. At Instagram, it was quietly costing them memory.",
+      "sources": [
+        "https://instagram-engineering.com/dismissing-python-garbage-collection-at-instagram-4dca40b29172",
+        "https://instagram-engineering.com/copy-on-write-friendly-python-garbage-collection-ad6ed5233ddf",
+        "https://speakerdeck.com/pycon2018/zekun-li-there-and-back-again-disable-and-re-enable-garbage-collector-at-instagram"
+      ],
+      "key_numbers": "~10% capacity, 140->225 MB shared per worker",
+      "lesson": "Tell the runtime which memory is off limits instead of turning the system off.",
+      "filename": "2026-10-02-instagram-disable-python-gc-copy-on-write.md"
     }
   ]
 }

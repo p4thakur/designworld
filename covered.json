@@ -130,6 +130,7 @@
     "shopify-yjit-ruby-basic-block-versioning",
     "slack-vitess-team-id-hot-shards",
     "uber-consumer-proxy-head-of-line-blocking",
-    "cloudflare-clickhouse-http-analytics-flink-citus"
+    "cloudflare-clickhouse-http-analytics-flink-citus",
+    "instagram-disable-python-gc-copy-on-write"
   ]
 }
