@@ -131,6 +131,7 @@
     "slack-vitess-team-id-hot-shards",
     "uber-consumer-proxy-head-of-line-blocking",
     "cloudflare-clickhouse-http-analytics-flink-citus",
-    "instagram-disable-python-gc-copy-on-write"
+    "instagram-disable-python-gc-copy-on-write",
+    "github-2018-orchestrator-43-second-partition"
   ]
 }

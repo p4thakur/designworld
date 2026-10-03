@@ -1441,6 +1441,22 @@
       "key_numbers": "~10% capacity, 140->225 MB shared per worker",
       "lesson": "Tell the runtime which memory is off limits instead of turning the system off.",
       "filename": "2026-10-02-instagram-disable-python-gc-copy-on-write.md"
+    },
+    {
+      "date": "2026-10-03",
+      "company": "GitHub",
+      "topic": "43-second partition, Orchestrator failover to US West, divergent writes, 24h11m recovery",
+      "category": "availability",
+      "post_type": "narrative",
+      "opening_style": "number_that_doesnt_add_up",
+      "hook": "GitHub's East Coast data center lost connectivity for 43 seconds. The outage that followed lasted 24 hours and 11 minutes.",
+      "sources": [
+        "https://github.blog/news-insights/company-news/oct21-post-incident-analysis/",
+        "https://www.infoq.com/news/2018/11/github-incident-analysis/"
+      ],
+      "key_numbers": "43s, 24h11m, ~40 min writes to West, 954 unreplicated writes",
+      "lesson": "Failover answers who is primary, not what to do with the old primary's last writes.",
+      "filename": "2026-10-03-github-2018-orchestrator-43-second-partition.md"
     }
   ]
 }

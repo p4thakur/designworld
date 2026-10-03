@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "GitHub",
+      "category": "availability",
+      "post_type": "narrative",
+      "opening_style": "number_that_doesnt_add_up"
+    },
+    {
       "company": "Instagram",
       "category": "performance",
       "post_type": "contrarian",
@@ -11,12 +17,6 @@
       "category": "storage",
       "post_type": "structured",
       "opening_style": "shared_pain_point"
-    },
-    {
-      "company": "Uber",
-      "category": "messaging",
-      "post_type": "narrative",
-      "opening_style": "cold_fact"
     }
   ]
 }
