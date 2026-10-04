@@ -1457,6 +1457,22 @@
       "key_numbers": "43s, 24h11m, ~40 min writes to West, 954 unreplicated writes",
       "lesson": "Failover answers who is primary, not what to do with the old primary's last writes.",
       "filename": "2026-10-03-github-2018-orchestrator-43-second-partition.md"
+    },
+    {
+      "date": "2026-10-04",
+      "company": "Reddit",
+      "topic": "Pi Day 2023 outage: K8s 1.24 label rename broke Calico route reflectors",
+      "category": "infrastructure",
+      "post_type": "confessional",
+      "opening_style": "cold_fact",
+      "hook": "Reddit went down for 314 minutes. The change removed one word from a label.",
+      "sources": [
+        "https://www.reddit.com/r/RedditEng/comments/11xx5o0/you_broke_reddit_the_piday_outage/",
+        "https://overmind.tech/blog/reddit-pi-day-outage"
+      ],
+      "key_numbers": "314 min, ~2 min to failure, K8s 1.23->1.24",
+      "lesson": "The upgrade failed because the critical dependency had no author left.",
+      "filename": "2026-10-04-reddit-pi-day-calico-route-reflector-outage.md"
     }
   ]
 }

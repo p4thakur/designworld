@@ -132,6 +132,7 @@
     "uber-consumer-proxy-head-of-line-blocking",
     "cloudflare-clickhouse-http-analytics-flink-citus",
     "instagram-disable-python-gc-copy-on-write",
-    "github-2018-orchestrator-43-second-partition"
+    "github-2018-orchestrator-43-second-partition",
+    "reddit-pi-day-calico-route-reflector-outage"
   ]
 }
