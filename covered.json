@@ -134,6 +134,7 @@
     "instagram-disable-python-gc-copy-on-write",
     "github-2018-orchestrator-43-second-partition",
     "reddit-pi-day-calico-route-reflector-outage",
-    "stripe-online-migrations-dual-writes"
+    "stripe-online-migrations-dual-writes",
+    "google-tail-at-scale-hedged-requests"
   ]
 }
