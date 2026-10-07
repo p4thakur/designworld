@@ -1473,6 +1473,23 @@
       "key_numbers": "314 min, ~2 min to failure, K8s 1.23->1.24",
       "lesson": "The upgrade failed because the critical dependency had no author left.",
       "filename": "2026-10-04-reddit-pi-day-calico-route-reflector-outage.md"
+    },
+    {
+      "date": "2026-10-07",
+      "company": "Dropbox",
+      "topic": "Nucleus sync engine rewrite: three trees, single control thread, deterministic randomized testing",
+      "category": "storage",
+      "post_type": "narrative",
+      "opening_style": "mid_scene",
+      "hook": "Picture a sync test that fails Tuesday, passes Wednesday, no code change.",
+      "sources": [
+        "https://dropbox.tech/infrastructure/rewriting-the-heart-of-our-sync-engine",
+        "https://dropbox.tech/infrastructure/-testing-our-new-sync-engine",
+        "https://www.infoq.com/news/2020/04/dropbox-testing-sync-engine"
+      ],
+      "key_numbers": "3 trees, 1 control thread, 4-year rewrite, tens of millions of nightly runs",
+      "lesson": "Realism and shrinkability trade off; make the tradeoff explicit with two tools.",
+      "filename": "2026-10-07-dropbox-nucleus-three-trees-sync-engine.md"
     }
   ]
 }
