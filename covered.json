@@ -136,6 +136,7 @@
     "reddit-pi-day-calico-route-reflector-outage",
     "stripe-online-migrations-dual-writes",
     "google-tail-at-scale-hedged-requests",
-    "dropbox-nucleus-three-trees-sync-engine"
+    "dropbox-nucleus-three-trees-sync-engine",
+    "netflix-hystrix-to-adaptive-concurrency-limits"
   ]
 }

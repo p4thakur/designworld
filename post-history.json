@@ -1490,6 +1490,23 @@
       "key_numbers": "3 trees, 1 control thread, 4-year rewrite, tens of millions of nightly runs",
       "lesson": "Realism and shrinkability trade off; make the tradeoff explicit with two tools.",
       "filename": "2026-10-07-dropbox-nucleus-three-trees-sync-engine.md"
+    },
+    {
+      "date": "2026-10-08",
+      "company": "Netflix",
+      "topic": "Hystrix static thresholds to adaptive concurrency limits (Vegas/Gradient2)",
+      "category": "stability",
+      "post_type": "confessional",
+      "opening_style": "cold_fact",
+      "hook": "Hystrix is in maintenance mode. Netflix's own README says so, and says why.",
+      "sources": [
+        "https://github.com/Netflix/Hystrix",
+        "https://github.com/Netflix/concurrency-limits",
+        "https://netflixtechblog.medium.com/performance-under-load-3e6fa9a60581"
+      ],
+      "key_numbers": "Vegas alpha 2-3, beta 4-6; Hystrix final release 1.5.18",
+      "lesson": "The number stopped holding still, so stop asking a human for it.",
+      "filename": "2026-10-08-netflix-hystrix-to-adaptive-concurrency-limits.md"
     }
   ]
 }
