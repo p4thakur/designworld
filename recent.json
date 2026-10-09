@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Uber (Cadence)",
+      "category": "microservices",
+      "post_type": "structured",
+      "opening_style": "shared_pain_point"
+    },
+    {
       "company": "Netflix",
       "category": "stability",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "storage",
       "post_type": "narrative",
       "opening_style": "mid_scene"
-    },
-    {
-      "company": "Google",
-      "category": "performance",
-      "post_type": "contrarian",
-      "opening_style": "challenge_assumption"
     }
   ]
 }

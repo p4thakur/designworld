@@ -1507,6 +1507,22 @@
       "key_numbers": "Vegas alpha 2-3, beta 4-6; Hystrix final release 1.5.18",
       "lesson": "The number stopped holding still, so stop asking a human for it.",
       "filename": "2026-10-08-netflix-hystrix-to-adaptive-concurrency-limits.md"
+    },
+    {
+      "date": "2026-10-09",
+      "company": "Uber (Cadence)",
+      "topic": "Cadence numHistoryShards fixed at provisioning: shard count caps cluster size",
+      "category": "microservices",
+      "post_type": "structured",
+      "opening_style": "shared_pain_point",
+      "hook": "Every distributed system has one setting that feels like a detail on day one and turns into a wall on day 700.",
+      "sources": [
+        "https://github.com/cadence-workflow/cadence/blob/master/docs/persistence.md",
+        "https://github.com/cadence-workflow/cadence"
+      ],
+      "key_numbers": "numHistoryShards sample 1024; cluster of 1 to N hosts",
+      "lesson": "A fixed shard count is a capacity plan written in YAML.",
+      "filename": "2026-10-09-uber-cadence-numhistoryshards-one-way-door.md"
     }
   ]
 }

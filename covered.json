@@ -137,6 +137,7 @@
     "stripe-online-migrations-dual-writes",
     "google-tail-at-scale-hedged-requests",
     "dropbox-nucleus-three-trees-sync-engine",
-    "netflix-hystrix-to-adaptive-concurrency-limits"
+    "netflix-hystrix-to-adaptive-concurrency-limits",
+    "uber-cadence-numhistoryshards-one-way-door"
   ]
 }
