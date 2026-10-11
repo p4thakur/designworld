@@ -138,6 +138,7 @@
     "google-tail-at-scale-hedged-requests",
     "dropbox-nucleus-three-trees-sync-engine",
     "netflix-hystrix-to-adaptive-concurrency-limits",
-    "uber-cadence-numhistoryshards-one-way-door"
+    "uber-cadence-numhistoryshards-one-way-door",
+    "figma-livegraph-invalidate-dont-mutate"
   ]
 }
