@@ -139,6 +139,7 @@
     "dropbox-nucleus-three-trees-sync-engine",
     "netflix-hystrix-to-adaptive-concurrency-limits",
     "uber-cadence-numhistoryshards-one-way-door",
-    "figma-livegraph-invalidate-dont-mutate"
+    "figma-livegraph-invalidate-dont-mutate",
+    "github-gh-ost-triggerless-schema-migration"
   ]
 }
