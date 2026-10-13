@@ -1523,6 +1523,21 @@
       "key_numbers": "numHistoryShards sample 1024; cluster of 1 to N hosts",
       "lesson": "A fixed shard count is a capacity plan written in YAML.",
       "filename": "2026-10-09-uber-cadence-numhistoryshards-one-way-door.md"
+    },
+    {
+      "date": "2026-10-13",
+      "company": "Apache Kafka",
+      "topic": "Kafka uses the OS page cache and sendfile instead of an in-process cache and BTree",
+      "category": "messaging",
+      "post_type": "contrarian",
+      "opening_style": "specific_number_doesnt_add_up",
+      "hook": "A disk that writes 600MB/sec and also 100kB/sec. Both numbers are in Kafka's design doc.",
+      "sources": [
+        "https://github.com/apache/kafka/blob/trunk/docs/design/design.md"
+      ],
+      "key_numbers": "600MB/sec vs 100kB/sec; 28-30GB cache on 32GB; 4 copies+2 syscalls vs sendfile",
+      "lesson": "The clever design removes the cache, the tree and the copies.",
+      "filename": "2026-10-13-kafka-pagecache-sendfile-no-inprocess-cache.md"
     }
   ]
 }

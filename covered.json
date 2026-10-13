@@ -140,6 +140,7 @@
     "netflix-hystrix-to-adaptive-concurrency-limits",
     "uber-cadence-numhistoryshards-one-way-door",
     "figma-livegraph-invalidate-dont-mutate",
-    "github-gh-ost-triggerless-schema-migration"
+    "github-gh-ost-triggerless-schema-migration",
+    "kafka-pagecache-sendfile-no-inprocess-cache"
   ]
 }
