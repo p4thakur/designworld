@@ -141,6 +141,7 @@
     "uber-cadence-numhistoryshards-one-way-door",
     "figma-livegraph-invalidate-dont-mutate",
     "github-gh-ost-triggerless-schema-migration",
-    "kafka-pagecache-sendfile-no-inprocess-cache"
+    "kafka-pagecache-sendfile-no-inprocess-cache",
+    "etcd-quorum-math-remove-before-add-disk-liveness"
   ]
 }

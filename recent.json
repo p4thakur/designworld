@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "etcd",
+      "category": "infrastructure",
+      "post_type": "structured",
+      "opening_style": "cold_fact"
+    },
+    {
       "company": "Apache Kafka",
       "category": "messaging",
       "post_type": "contrarian",
@@ -11,12 +17,6 @@
       "category": "database",
       "post_type": "narrative",
       "opening_style": "mid_scene"
-    },
-    {
-      "company": "Figma",
-      "category": "real-time systems",
-      "post_type": "contrarian",
-      "opening_style": "challenge_assumption"
     }
   ]
 }
