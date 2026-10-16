@@ -143,6 +143,7 @@
     "github-gh-ost-triggerless-schema-migration",
     "kafka-pagecache-sendfile-no-inprocess-cache",
     "etcd-quorum-math-remove-before-add-disk-liveness",
-    "redis-fork-copy-on-write-page-table-latency"
+    "redis-fork-copy-on-write-page-table-latency",
+    "postgres-xid-wraparound-freeze-failsafe"
   ]
 }
