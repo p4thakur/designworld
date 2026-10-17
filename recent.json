@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Prometheus",
+      "category": "observability",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
       "company": "PostgreSQL",
       "category": "database",
       "post_type": "narrative",
@@ -11,12 +17,6 @@
       "category": "caching",
       "post_type": "confessional",
       "opening_style": "shared_pain_point"
-    },
-    {
-      "company": "etcd",
-      "category": "infrastructure",
-      "post_type": "structured",
-      "opening_style": "cold_fact"
     }
   ]
 }
