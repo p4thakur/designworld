@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "RabbitMQ",
+      "category": "messaging",
+      "post_type": "structured",
+      "opening_style": "cold_fact"
+    },
+    {
       "company": "Prometheus",
       "category": "observability",
       "post_type": "contrarian",
@@ -11,12 +17,6 @@
       "category": "database",
       "post_type": "narrative",
       "opening_style": "mid_scene"
-    },
-    {
-      "company": "Redis",
-      "category": "caching",
-      "post_type": "confessional",
-      "opening_style": "shared_pain_point"
     }
   ]
 }

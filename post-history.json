@@ -1585,6 +1585,21 @@
       "key_numbers": "200M autovacuum_freeze_max_age; 1.6B vacuum_failsafe_age; 100M warning; 3M hard stop",
       "lesson": "A 32-bit counter bets someone is always vacuuming; the safeguards are what happens when the bet loses.",
       "filename": "2026-10-16-postgres-xid-wraparound-freeze-failsafe.md"
+    },
+    {
+      "date": "2026-10-18",
+      "company": "RabbitMQ",
+      "topic": "Quorum queues replace classic queue mirroring",
+      "category": "messaging",
+      "post_type": "structured",
+      "opening_style": "cold_fact",
+      "hook": "RabbitMQ 4.0 deleted classic queue mirroring",
+      "sources": [
+        "https://github.com/rabbitmq/rabbitmq-website/blob/main/docs/quorum-queues/index.md"
+      ],
+      "key_numbers": "delivery-limit 20; 32 bytes/msg index; 3 nodes tolerate 1 failure",
+      "lesson": "Mirroring paid for rejoins with availability; quorum queues pay with refusal.",
+      "filename": "2026-10-18-rabbitmq-quorum-queues-replace-mirroring.md"
     }
   ]
 }

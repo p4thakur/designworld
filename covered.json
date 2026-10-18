@@ -145,6 +145,7 @@
     "etcd-quorum-math-remove-before-add-disk-liveness",
     "redis-fork-copy-on-write-page-table-latency",
     "postgres-xid-wraparound-freeze-failsafe",
-    "prometheus-pull-model-up-metric-staleness"
+    "prometheus-pull-model-up-metric-staleness",
+    "rabbitmq-quorum-queues-replace-mirroring"
   ]
 }
