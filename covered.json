@@ -146,6 +146,7 @@
     "redis-fork-copy-on-write-page-table-latency",
     "postgres-xid-wraparound-freeze-failsafe",
     "prometheus-pull-model-up-metric-staleness",
-    "rabbitmq-quorum-queues-replace-mirroring"
+    "rabbitmq-quorum-queues-replace-mirroring",
+    "elasticsearch-deep-pagination-search-after-pit"
   ]
 }
