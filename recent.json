@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Apache Cassandra",
+      "category": "database",
+      "post_type": "narrative",
+      "opening_style": "mid_scene"
+    },
+    {
       "company": "Elasticsearch",
       "category": "search",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "messaging",
       "post_type": "structured",
       "opening_style": "cold_fact"
-    },
-    {
-      "company": "Prometheus",
-      "category": "observability",
-      "post_type": "contrarian",
-      "opening_style": "challenge_assumption"
     }
   ]
 }

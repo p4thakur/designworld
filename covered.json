@@ -147,6 +147,7 @@
     "postgres-xid-wraparound-freeze-failsafe",
     "prometheus-pull-model-up-metric-staleness",
     "rabbitmq-quorum-queues-replace-mirroring",
-    "elasticsearch-deep-pagination-search-after-pit"
+    "elasticsearch-deep-pagination-search-after-pit",
+    "cassandra-tombstones-gc-grace-zombie-data"
   ]
 }

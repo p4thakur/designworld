@@ -1616,6 +1616,23 @@
       "key_numbers": "10,000 max_result_window; 5 shards x 10,000 = 50,000 merged for 10 hits",
       "lesson": "Offset pagination hid a cost that showed up at the worst page.",
       "filename": "2026-10-19-elasticsearch-deep-pagination-search-after-pit.md"
+    },
+    {
+      "date": "2026-10-20",
+      "company": "Apache Cassandra",
+      "topic": "Tombstones, gc_grace_seconds and zombie data",
+      "category": "database",
+      "post_type": "narrative",
+      "opening_style": "mid_scene",
+      "hook": "A user deletes their account on Monday. Three weeks later, the account is back.",
+      "sources": [
+        "https://github.com/apache/cassandra/blob/trunk/doc/modules/cassandra/pages/managing/operating/compaction/tombstones.adoc",
+        "https://github.com/apache/cassandra/blob/trunk/doc/modules/cassandra/pages/managing/operating/compaction/overview.adoc",
+        "https://github.com/apache/cassandra/blob/trunk/conf/cassandra.yaml"
+      ],
+      "key_numbers": "gc_grace_seconds 864000 (10 days); warn 1,000 / fail 100,000 tombstones per read",
+      "lesson": "A delete that must outlive every replica's absence moves its cost to the repair schedule.",
+      "filename": "2026-10-20-cassandra-tombstones-gc-grace-zombie-data.md"
     }
   ]
 }
