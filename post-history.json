@@ -1633,6 +1633,22 @@
       "key_numbers": "gc_grace_seconds 864000 (10 days); warn 1,000 / fail 100,000 tombstones per read",
       "lesson": "A delete that must outlive every replica's absence moves its cost to the repair schedule.",
       "filename": "2026-10-20-cassandra-tombstones-gc-grace-zombie-data.md"
+    },
+    {
+      "date": "2026-10-21",
+      "company": "Linux / Kubernetes",
+      "topic": "CPU limits, CFS throttling and frozen containers at low average CPU",
+      "category": "performance",
+      "post_type": "contrarian",
+      "opening_style": "number_that_doesnt_add_up",
+      "hook": "A service averages 12% CPU. Its latency graph looks like it is being strangled.",
+      "sources": [
+        "https://github.com/torvalds/linux/blob/master/Documentation/scheduler/sched-bwc.rst",
+        "https://github.com/kubernetes/website/blob/main/content/en/docs/concepts/configuration/manage-resources-containers.md"
+      ],
+      "key_numbers": "100ms default period; 5ms slice; 8 threads exhaust 100ms quota in 12.5ms",
+      "lesson": "A CPU limit is a time budget shared by all threads; requests already give fairness.",
+      "filename": "2026-10-21-kubernetes-cpu-limits-cfs-throttling-multithread.md"
     }
   ]
 }
