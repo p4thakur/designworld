@@ -1649,6 +1649,21 @@
       "key_numbers": "100ms default period; 5ms slice; 8 threads exhaust 100ms quota in 12.5ms",
       "lesson": "A CPU limit is a time budget shared by all threads; requests already give fairness.",
       "filename": "2026-10-21-kubernetes-cpu-limits-cfs-throttling-multithread.md"
+    },
+    {
+      "date": "2026-10-22",
+      "company": "Redis",
+      "topic": "Probabilistic key expiry: 20-key samples, 25% repeat rule, master-synthesized DEL",
+      "category": "caching",
+      "post_type": "structured",
+      "opening_style": "the_decision",
+      "hook": "Redis made an unusual call about deleting expired keys: don't look for them.",
+      "sources": [
+        "https://github.com/redis/redis-doc/blob/master/commands/expire.md"
+      ],
+      "key_numbers": "10x/sec, 20 samples, 25% threshold, stale <= writes/sec / 4",
+      "lesson": "Bound the garbage instead of guaranteeing exactness.",
+      "filename": "2026-10-22-redis-key-expiry-sampling-25-percent-rule.md"
     }
   ]
 }

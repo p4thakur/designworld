@@ -149,6 +149,7 @@
     "rabbitmq-quorum-queues-replace-mirroring",
     "elasticsearch-deep-pagination-search-after-pit",
     "cassandra-tombstones-gc-grace-zombie-data",
-    "kubernetes-cpu-limits-cfs-throttling-multithread"
+    "kubernetes-cpu-limits-cfs-throttling-multithread",
+    "redis-key-expiry-sampling-25-percent-rule"
   ]
 }
