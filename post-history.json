@@ -1664,6 +1664,23 @@
       "key_numbers": "10x/sec, 20 samples, 25% threshold, stale <= writes/sec / 4",
       "lesson": "Bound the garbage instead of guaranteeing exactness.",
       "filename": "2026-10-22-redis-key-expiry-sampling-25-percent-rule.md"
+    },
+    {
+      "date": "2026-10-23",
+      "company": "RocksDB",
+      "topic": "Write stalls: three triggers per column family, DB-wide penalty",
+      "category": "storage",
+      "post_type": "confessional",
+      "opening_style": "cold_fact",
+      "hook": "A RocksDB write can sleep for about 1ms before it is even attempted, and the database is doing it on purpose.",
+      "sources": [
+        "https://github.com/facebook/rocksdb/wiki/Write-Stalls",
+        "https://github.com/facebook/rocksdb/wiki/Leveled-Compaction",
+        "https://github.com/facebook/rocksdb/wiki/RocksDB-Tuning-Guide"
+      ],
+      "key_numbers": "~1ms per slowed write, leveled write amp often >10, triggers per CF / stall DB-wide",
+      "lesson": "Backpressure is the bill for deferring work.",
+      "filename": "2026-10-23-rocksdb-write-stalls-whole-db-per-column-family.md"
     }
   ]
 }

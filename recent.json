@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "RocksDB",
+      "category": "storage",
+      "post_type": "confessional",
+      "opening_style": "cold_fact"
+    },
+    {
       "company": "Redis",
       "category": "caching",
       "post_type": "structured",
@@ -11,12 +17,6 @@
       "category": "performance",
       "post_type": "contrarian",
       "opening_style": "number_that_doesnt_add_up"
-    },
-    {
-      "company": "Apache Cassandra",
-      "category": "database",
-      "post_type": "narrative",
-      "opening_style": "mid_scene"
     }
   ]
 }
