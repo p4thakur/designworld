@@ -151,6 +151,7 @@
     "cassandra-tombstones-gc-grace-zombie-data",
     "kubernetes-cpu-limits-cfs-throttling-multithread",
     "redis-key-expiry-sampling-25-percent-rule",
-    "rocksdb-write-stalls-whole-db-per-column-family"
+    "rocksdb-write-stalls-whole-db-per-column-family",
+    "kafka-eager-vs-cooperative-consumer-rebalance"
   ]
 }

@@ -1681,6 +1681,23 @@
       "key_numbers": "~1ms per slowed write, leveled write amp often >10, triggers per CF / stall DB-wide",
       "lesson": "Backpressure is the bill for deferring work.",
       "filename": "2026-10-23-rocksdb-write-stalls-whole-db-per-column-family.md"
+    },
+    {
+      "date": "2026-10-24",
+      "company": "Apache Kafka",
+      "topic": "Consumer rebalancing: eager vs cooperative vs static membership",
+      "category": "messaging",
+      "post_type": "narrative",
+      "opening_style": "mid_scene",
+      "hook": "A rolling deploy pauses the whole consumer group, including partitions that never moved.",
+      "sources": [
+        "https://github.com/apache/kafka/blob/trunk/clients/src/main/java/org/apache/kafka/clients/consumer/ConsumerPartitionAssignor.java",
+        "https://github.com/apache/kafka/blob/trunk/clients/src/main/java/org/apache/kafka/clients/consumer/CooperativeStickyAssignor.java",
+        "https://github.com/apache/kafka/blob/trunk/clients/src/main/java/org/apache/kafka/clients/CommonClientConfigs.java"
+      ],
+      "key_numbers": "session.timeout.ms 45000, max.poll.interval.ms 300000, N restarts = N rebalances",
+      "lesson": "Stop-the-world was the price of simplicity; cooperative moves the price into extra rounds.",
+      "filename": "2026-10-24-kafka-eager-vs-cooperative-rebalance.md"
     }
   ]
 }
