@@ -1698,6 +1698,23 @@
       "key_numbers": "session.timeout.ms 45000, max.poll.interval.ms 300000, N restarts = N rebalances",
       "lesson": "Stop-the-world was the price of simplicity; cooperative moves the price into extra rounds.",
       "filename": "2026-10-24-kafka-eager-vs-cooperative-rebalance.md"
+    },
+    {
+      "date": "2026-10-25",
+      "company": "PostgreSQL",
+      "topic": "xmin horizon: one old transaction, slot or standby feedback blocks vacuum for the whole database",
+      "category": "database",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption",
+      "hook": "Tuning autovacuum is the wrong fix when vacuum is not allowed to clean.",
+      "sources": [
+        "https://github.com/postgres/postgres/blob/master/src/backend/storage/ipc/procarray.c",
+        "https://github.com/postgres/postgres/blob/master/src/backend/access/heap/vacuumlazy.c",
+        "https://github.com/postgres/postgres/blob/master/src/backend/utils/misc/postgresql.conf.sample"
+      ],
+      "key_numbers": "one horizon per database; idle_in_transaction_session_timeout=0, transaction_timeout=0, max_slot_wal_keep_size=-1 by default",
+      "lesson": "A cleaner that is not allowed to clean does not need tuning.",
+      "filename": "2026-10-25-postgres-xmin-horizon-one-old-transaction-blocks-vacuum.md"
     }
   ]
 }
