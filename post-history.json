@@ -1715,6 +1715,24 @@
       "key_numbers": "one horizon per database; idle_in_transaction_session_timeout=0, transaction_timeout=0, max_slot_wal_keep_size=-1 by default",
       "lesson": "A cleaner that is not allowed to clean does not need tuning.",
       "filename": "2026-10-25-postgres-xmin-horizon-one-old-transaction-blocks-vacuum.md"
+    },
+    {
+      "date": "2026-10-26",
+      "company": "Envoy Proxy",
+      "topic": "Panic threshold: below 50% healthy, ignore health status; outlier ejection capped at 10%",
+      "category": "availability",
+      "post_type": "structured",
+      "opening_style": "specific_number",
+      "hook": "Envoy will deliberately send traffic to hosts it believes are dead.",
+      "sources": [
+        "https://github.com/envoyproxy/envoy/blob/main/docs/root/intro/arch_overview/upstream/load_balancing/panic_threshold.rst",
+        "https://github.com/envoyproxy/envoy/blob/main/docs/root/intro/arch_overview/upstream/load_balancing/overprovisioning.rst",
+        "https://github.com/envoyproxy/envoy/blob/main/docs/root/intro/arch_overview/upstream/outlier.rst",
+        "https://github.com/envoyproxy/envoy/blob/main/api/envoy/config/cluster/v3/outlier_detection.proto"
+      ],
+      "key_numbers": "panic threshold 50%, overprovisioning 140 => 72%, max_ejection_percent 10%, ejection 30s base / 300s max",
+      "lesson": "A health sensor reading everything dead is more often broken than right.",
+      "filename": "2026-10-26-envoy-panic-threshold-ignore-health-checks.md"
     }
   ]
 }

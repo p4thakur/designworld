@@ -153,6 +153,7 @@
     "redis-key-expiry-sampling-25-percent-rule",
     "rocksdb-write-stalls-whole-db-per-column-family",
     "kafka-eager-vs-cooperative-consumer-rebalance",
-    "postgres-xmin-horizon-old-transaction-blocks-vacuum"
+    "postgres-xmin-horizon-old-transaction-blocks-vacuum",
+    "envoy-panic-threshold-ignore-health-checks"
   ]
 }
