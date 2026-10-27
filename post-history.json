@@ -1733,6 +1733,23 @@
       "key_numbers": "panic threshold 50%, overprovisioning 140 => 72%, max_ejection_percent 10%, ejection 30s base / 300s max",
       "lesson": "A health sensor reading everything dead is more often broken than right.",
       "filename": "2026-10-26-envoy-panic-threshold-ignore-health-checks.md"
+    },
+    {
+      "date": "2026-10-27",
+      "company": "Kubernetes / CoreDNS",
+      "topic": "ndots:5 search-path amplification and CoreDNS autopath caveats",
+      "category": "infrastructure",
+      "post_type": "confessional",
+      "opening_style": "cold_fact",
+      "hook": "Kubernetes gives every pod a DNS setting that makes most external lookups fail three times first.",
+      "sources": [
+        "https://github.com/kubernetes/website/blob/main/content/en/docs/concepts/services-networking/dns-pod-service.md",
+        "https://github.com/coredns/coredns/blob/master/plugin/autopath/README.md",
+        "https://github.com/coredns/coredns/blob/master/plugin/kubernetes/README.md"
+      ],
+      "key_numbers": "ndots:5, 3 search entries, 4 lookups / 3 NXDOMAIN for a 2-dot name",
+      "lesson": "A default tuned for the first problem bills the second.",
+      "filename": "2026-10-27-kubernetes-ndots-5-dns-search-path-amplification.md"
     }
   ]
 }

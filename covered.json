@@ -154,6 +154,7 @@
     "rocksdb-write-stalls-whole-db-per-column-family",
     "kafka-eager-vs-cooperative-consumer-rebalance",
     "postgres-xmin-horizon-old-transaction-blocks-vacuum",
-    "envoy-panic-threshold-ignore-health-checks"
+    "envoy-panic-threshold-ignore-health-checks",
+    "kubernetes-ndots-5-dns-search-path-amplification"
   ]
 }
