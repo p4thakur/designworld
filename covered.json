@@ -155,6 +155,7 @@
     "kafka-eager-vs-cooperative-consumer-rebalance",
     "postgres-xmin-horizon-old-transaction-blocks-vacuum",
     "envoy-panic-threshold-ignore-health-checks",
-    "kubernetes-ndots-5-dns-search-path-amplification"
+    "kubernetes-ndots-5-dns-search-path-amplification",
+    "grpc-l4-load-balancer-max-connection-age"
   ]
 }

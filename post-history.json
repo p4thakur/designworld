@@ -1750,6 +1750,23 @@
       "key_numbers": "ndots:5, 3 search entries, 4 lookups / 3 NXDOMAIN for a 2-dot name",
       "lesson": "A default tuned for the first problem bills the second.",
       "filename": "2026-10-27-kubernetes-ndots-5-dns-search-path-amplification.md"
+    },
+    {
+      "date": "2026-10-28",
+      "company": "gRPC",
+      "topic": "L4 load balancers pin HTTP/2 connections; MAX_CONNECTION_AGE + GOAWAY with jitter",
+      "category": "microservices",
+      "post_type": "narrative",
+      "opening_style": "mid_scene",
+      "hook": "Scale from 4 pods to 12 and 8 stay idle - gRPC is working as documented.",
+      "sources": [
+        "https://github.com/grpc/grpc/blob/master/doc/load-balancing.md",
+        "https://github.com/grpc/proposal/blob/master/A9-server-side-conn-mgt.md",
+        "https://github.com/grpc/grpc/blob/master/doc/keepalive.md"
+      ],
+      "key_numbers": "12 pods/4 hot (illustrative), keepalive server 2h, max_age default infinite, +/-10% jitter",
+      "lesson": "The protocol removed the per-request signal the balancer relied on; make connections expire.",
+      "filename": "2026-10-28-grpc-l4-load-balancer-max-connection-age.md"
     }
   ]
 }

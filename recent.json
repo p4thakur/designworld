@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "gRPC",
+      "category": "microservices",
+      "post_type": "narrative",
+      "opening_style": "mid_scene"
+    },
+    {
       "company": "Envoy Proxy",
       "category": "availability",
       "post_type": "structured",
@@ -11,12 +17,6 @@
       "category": "database",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption"
-    },
-    {
-      "company": "Apache Kafka",
-      "category": "messaging",
-      "post_type": "narrative",
-      "opening_style": "mid_scene"
     }
   ]
 }
