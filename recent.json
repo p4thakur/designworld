@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Apache Kafka",
+      "category": "messaging",
+      "post_type": "contrarian",
+      "opening_style": "cold_fact"
+    },
+    {
       "company": "gRPC",
       "category": "microservices",
       "post_type": "narrative",
@@ -11,12 +17,6 @@
       "category": "availability",
       "post_type": "structured",
       "opening_style": "specific_number"
-    },
-    {
-      "company": "PostgreSQL",
-      "category": "database",
-      "post_type": "contrarian",
-      "opening_style": "challenge_assumption"
     }
   ]
 }

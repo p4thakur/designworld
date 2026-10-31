@@ -1767,6 +1767,21 @@
       "key_numbers": "12 pods/4 hot (illustrative), keepalive server 2h, max_age default infinite, +/-10% jitter",
       "lesson": "The protocol removed the per-request signal the balancer relied on; make connections expire.",
       "filename": "2026-10-28-grpc-l4-load-balancer-max-connection-age.md"
+    },
+    {
+      "date": "2026-10-31",
+      "company": "Apache Kafka",
+      "topic": "Compacted topics drop tombstones after delete.retention.ms (24h); lagging consumers miss deletes",
+      "category": "messaging",
+      "post_type": "contrarian",
+      "opening_style": "cold_fact",
+      "hook": "A compacted topic is not a table: it forgets deletions first.",
+      "sources": [
+        "https://github.com/apache/kafka/blob/trunk/docs/design/design.md"
+      ],
+      "key_numbers": "24h delete.retention.ms, 24 bytes/key, 8GB buffer ~366GB head",
+      "lesson": "Treat delete.retention.ms as a contract with your slowest consumer.",
+      "filename": "kafka-log-compaction-tombstone-delete-retention.md"
     }
   ]
 }
