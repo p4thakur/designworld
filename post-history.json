@@ -1782,6 +1782,22 @@
       "key_numbers": "24h delete.retention.ms, 24 bytes/key, 8GB buffer ~366GB head",
       "lesson": "Treat delete.retention.ms as a contract with your slowest consumer.",
       "filename": "kafka-log-compaction-tombstone-delete-retention.md"
+    },
+    {
+      "date": "2026-11-01",
+      "company": "PostgreSQL",
+      "topic": "full_page_writes: first touch per page after checkpoint logs 8kB to WAL",
+      "category": "database",
+      "post_type": "confessional",
+      "opening_style": "shared_pain_point",
+      "hook": "Postgres rewrites your 8kB page to WAL after every checkpoint, even for one row.",
+      "sources": [
+        "https://github.com/postgres/postgres/blob/master/doc/src/sgml/config.sgml",
+        "https://github.com/postgres/postgres/blob/master/doc/src/sgml/wal.sgml"
+      ],
+      "key_numbers": "8kB page, 512-byte sectors, 5min checkpoint_timeout",
+      "lesson": "The default pays a visible cost to avoid an invisible failure.",
+      "filename": "postgres-full-page-writes-wal-amplification.md"
     }
   ]
 }
