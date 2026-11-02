@@ -158,6 +158,7 @@
     "kubernetes-ndots-5-dns-search-path-amplification",
     "grpc-l4-load-balancer-max-connection-age",
     "kafka-log-compaction-tombstone-delete-retention",
-    "postgres-full-page-writes-wal-amplification"
+    "postgres-full-page-writes-wal-amplification",
+    "lucene-tieredmergepolicy-deletes-pct-allowed"
   ]
 }

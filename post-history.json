@@ -1798,6 +1798,21 @@
       "key_numbers": "8kB page, 512-byte sectors, 5min checkpoint_timeout",
       "lesson": "The default pays a visible cost to avoid an invisible failure.",
       "filename": "postgres-full-page-writes-wal-amplification.md"
+    },
+    {
+      "date": "2026-11-02",
+      "company": "Apache Lucene",
+      "topic": "TieredMergePolicy: deletesPctAllowed=20 and the 1.5x growth guard against O(N^2) merging",
+      "category": "search",
+      "post_type": "structured",
+      "opening_style": "specific_number",
+      "hook": "Up to 20% of a Lucene index can be dead docs by default, on purpose.",
+      "sources": [
+        "https://github.com/apache/lucene/blob/main/lucene/core/src/java/org/apache/lucene/index/TieredMergePolicy.java"
+      ],
+      "key_numbers": "20% deletes, 5GB max segment, 16MB floor, 1.5x growth rule, 5% dark forest",
+      "lesson": "The disk that looks wasted is the budget for not rewriting the index in a loop.",
+      "filename": "lucene-tieredmergepolicy-deletes-pct-allowed.md"
     }
   ]
 }
