@@ -1813,6 +1813,22 @@
       "key_numbers": "20% deletes, 5GB max segment, 16MB floor, 1.5x growth rule, 5% dark forest",
       "lesson": "The disk that looks wasted is the budget for not rewriting the index in a loop.",
       "filename": "lucene-tieredmergepolicy-deletes-pct-allowed.md"
+    },
+    {
+      "date": "2026-11-03",
+      "company": "Linux kernel",
+      "topic": "Accept queue overflow: final ACK dropped silently, client sees ESTABLISHED",
+      "category": "stability",
+      "post_type": "narrative",
+      "opening_style": "mid_scene",
+      "hook": "The load test passed. Production fell over at the first real burst, and the server's graphs looked fine.",
+      "sources": [
+        "https://github.com/torvalds/linux/blob/master/net/ipv4/tcp_minisocks.c",
+        "https://github.com/torvalds/linux/blob/master/Documentation/networking/ip-sysctl.rst"
+      ],
+      "key_numbers": "somaxconn 128->4096 (5.4), synack_retries 5, 63s final timeout",
+      "lesson": "A successful handshake does not mean the server noticed.",
+      "filename": "2026-11-03-linux-tcp-accept-queue-overflow-silent-drop.md"
     }
   ]
 }

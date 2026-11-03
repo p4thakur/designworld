@@ -159,6 +159,7 @@
     "grpc-l4-load-balancer-max-connection-age",
     "kafka-log-compaction-tombstone-delete-retention",
     "postgres-full-page-writes-wal-amplification",
-    "lucene-tieredmergepolicy-deletes-pct-allowed"
+    "lucene-tieredmergepolicy-deletes-pct-allowed",
+    "linux-tcp-accept-queue-overflow-silent-drop"
   ]
 }

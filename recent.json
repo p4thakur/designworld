@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Linux kernel",
+      "category": "stability",
+      "post_type": "narrative",
+      "opening_style": "mid_scene"
+    },
+    {
       "company": "Apache Lucene",
       "category": "search",
       "post_type": "structured",
@@ -11,12 +17,6 @@
       "category": "database",
       "post_type": "confessional",
       "opening_style": "shared_pain_point"
-    },
-    {
-      "company": "Apache Kafka",
-      "category": "messaging",
-      "post_type": "contrarian",
-      "opening_style": "cold_fact"
     }
   ]
 }
