@@ -160,6 +160,7 @@
     "kafka-log-compaction-tombstone-delete-retention",
     "postgres-full-page-writes-wal-amplification",
     "lucene-tieredmergepolicy-deletes-pct-allowed",
-    "linux-tcp-accept-queue-overflow-silent-drop"
+    "linux-tcp-accept-queue-overflow-silent-drop",
+    "linux-nagle-delayed-ack-write-write-read"
   ]
 }
