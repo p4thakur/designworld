@@ -1846,6 +1846,23 @@
    "key_numbers": "1 MB pages, 80B x 13,107, automove >2 free pages",
    "lesson": "Simple allocators are correct only while data keeps its shape.",
    "filename": "2026-11-05-memcached-slab-pages-never-moved-calcification.md"
+  },
+  {
+   "date": "2026-11-07",
+   "company": "PostgreSQL",
+   "topic": "HOT updates and fillfactor",
+   "category": "database",
+   "post_type": "structured",
+   "opening_style": "shared_pain_point",
+   "hook": "Every heavily updated Postgres table pays a hidden tax.",
+   "sources": [
+    "https://github.com/postgres/postgres/blob/master/src/backend/access/heap/README.HOT",
+    "https://github.com/postgres/postgres/blob/master/doc/src/sgml/storage.sgml",
+    "https://github.com/postgres/postgres/blob/master/doc/src/sgml/ref/create_table.sgml"
+   ],
+   "key_numbers": "fillfactor 10-100, default 100",
+   "lesson": "Measure which updates go HOT before trading heap size for write speed.",
+   "filename": "2026-11-07-postgres-hot-updates-fillfactor-index-bloat.md"
   }
  ]
 }
