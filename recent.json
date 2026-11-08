@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Apache Kafka",
+      "category": "messaging",
+      "post_type": "narrative",
+      "opening_style": "number_that_doesnt_add_up"
+    },
+    {
       "company": "PostgreSQL",
       "category": "database",
       "post_type": "structured",
@@ -11,12 +17,6 @@
       "category": "caching",
       "post_type": "confessional",
       "opening_style": "cold_fact"
-    },
-    {
-      "company": "Linux kernel",
-      "category": "performance",
-      "post_type": "contrarian",
-      "opening_style": "challenge_assumption"
     }
   ]
 }

@@ -1863,6 +1863,23 @@
    "key_numbers": "fillfactor 10-100, default 100",
    "lesson": "Measure which updates go HOT before trading heap size for write speed.",
    "filename": "2026-11-07-postgres-hot-updates-fillfactor-index-bloat.md"
+  },
+  {
+   "date": "2026-11-08",
+   "company": "Apache Kafka",
+   "topic": "Idempotent producer 5-batch dedup window",
+   "category": "messaging",
+   "post_type": "narrative",
+   "opening_style": "number_that_doesnt_add_up",
+   "hook": "In-flight cap of 5 matches the broker's 5-batch memory.",
+   "sources": [
+    "https://github.com/apache/kafka/blob/trunk/clients/src/main/java/org/apache/kafka/clients/producer/ProducerConfig.java",
+    "https://github.com/apache/kafka/blob/trunk/storage/src/main/java/org/apache/kafka/storage/internals/log/ProducerStateEntry.java",
+    "https://github.com/apache/kafka/blob/trunk/storage/src/main/java/org/apache/kafka/storage/internals/log/ProducerAppendInfo.java"
+   ],
+   "key_numbers": "NUM_BATCHES_TO_RETAIN=5, max in-flight 5",
+   "lesson": "Limits that look like tuning knobs are often the size of someone's memory.",
+   "filename": "2026-11-08-kafka-idempotent-producer-five-batch-window.md"
   }
  ]
 }
