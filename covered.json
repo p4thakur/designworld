@@ -164,6 +164,7 @@
     "linux-nagle-delayed-ack-write-write-read",
     "memcached-slab-pages-never-moved-calcification",
     "postgres-hot-updates-fillfactor-index-bloat",
-    "kafka-idempotent-producer-five-batch-window"
+    "kafka-idempotent-producer-five-batch-window",
+    "sqlite-wal-checkpoint-starvation-long-reader"
   ]
 }
