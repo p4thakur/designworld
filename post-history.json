@@ -1897,6 +1897,23 @@
       "key_numbers": "autocheckpoint=1000 pages, WAL_NREADER=5",
       "lesson": "Politeness has a cost: the slowest reader sets the pace.",
       "filename": "2026-11-09-sqlite-wal-checkpoint-starvation-long-reader.md"
+    },
+    {
+      "date": "2026-11-10",
+      "company": "nginx",
+      "topic": "accept_mutex vs EPOLLEXCLUSIVE worker skew",
+      "category": "performance",
+      "post_type": "confessional",
+      "opening_style": "cold_fact",
+      "hook": "A lock whose only job is picking which worker calls accept() is off by default.",
+      "sources": [
+        "https://github.com/nginx/nginx/blob/master/src/event/ngx_event.c",
+        "https://github.com/nginx/nginx/blob/master/src/event/ngx_event_accept.c",
+        "https://github.com/nginx/nginx/blob/master/src/event/modules/ngx_epoll_module.c"
+      ],
+      "key_numbers": "accept_mutex_delay=500ms, reorder every 16 accepts, accept_disabled=connection_n/8-free",
+      "lesson": "Wake one and wake fairly are different promises.",
+      "filename": "2026-11-10-nginx-accept-mutex-epollexclusive-reorder.md"
     }
   ]
 }
