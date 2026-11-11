@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "wrk2 (Gil Tene)",
+      "category": "observability",
+      "post_type": "structured",
+      "opening_style": "shared_pain_point"
+    },
+    {
       "company": "nginx",
       "category": "performance",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "storage",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption"
-    },
-    {
-      "company": "Apache Kafka",
-      "category": "messaging",
-      "post_type": "narrative",
-      "opening_style": "number_that_doesnt_add_up"
     }
   ]
 }

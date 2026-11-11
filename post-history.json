@@ -1914,6 +1914,23 @@
       "key_numbers": "accept_mutex_delay=500ms, reorder every 16 accepts, accept_disabled=connection_n/8-free",
       "lesson": "Wake one and wake fairly are different promises.",
       "filename": "2026-11-10-nginx-accept-mutex-epollexclusive-reorder.md"
+    },
+    {
+      "date": "2026-11-11",
+      "company": "wrk2 (Gil Tene)",
+      "topic": "Coordinated Omission and planned-start latency recording",
+      "category": "observability",
+      "post_type": "structured",
+      "opening_style": "shared_pain_point",
+      "hook": "When the server freezes, the load generator politely stops asking.",
+      "sources": [
+        "https://github.com/giltene/wrk2/blob/master/README.md",
+        "https://github.com/giltene/wrk2/blob/master/src/wrk.c",
+        "https://github.com/giltene/wrk2/blob/master/src/wrk.h"
+      ],
+      "key_numbers": "same 39,500 requests: p99 6.04 ms uncorrected vs 1.27 s corrected; 1.4 s stall; catch-up 2x; 10 s calibration",
+      "lesson": "Users wait from when they asked, not from when you started.",
+      "filename": "2026-11-11-wrk2-coordinated-omission-hdrhistogram-latency.md"
     }
   ]
 }
