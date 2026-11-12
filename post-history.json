@@ -1931,6 +1931,25 @@
       "key_numbers": "same 39,500 requests: p99 6.04 ms uncorrected vs 1.27 s corrected; 1.4 s stall; catch-up 2x; 10 s calibration",
       "lesson": "Users wait from when they asked, not from when you started.",
       "filename": "2026-11-11-wrk2-coordinated-omission-hdrhistogram-latency.md"
+    },
+    {
+      "date": "2026-11-12",
+      "company": "Linux kernel (TCP stack)",
+      "topic": "tcp_retries2 924.6 s dead-peer timeout; keepalive skips sockets with unacked data; TCP_USER_TIMEOUT",
+      "category": "availability",
+      "post_type": "narrative",
+      "opening_style": "mid_scene",
+      "hook": "The database host just lost power mid-query... Linux will keep that socket open for at least 924.6 seconds.",
+      "sources": [
+        "https://github.com/torvalds/linux/blob/master/Documentation/networking/ip-sysctl.rst",
+        "https://github.com/torvalds/linux/blob/master/net/ipv4/tcp_timer.c",
+        "https://github.com/torvalds/linux/blob/master/include/net/tcp.h",
+        "https://github.com/torvalds/linux/blob/master/include/uapi/linux/tcp.h",
+        "https://github.com/postgres/postgres/blob/master/doc/src/sgml/libpq.sgml"
+      ],
+      "key_numbers": "tcp_retries2=15 -> 924.6 s (204.6 s doubling + 6x120 s); retries1=3 at ~3 s; keepalive 2 h + 9x75 s; TCP_USER_TIMEOUT = option 18",
+      "lesson": "The kernel is patient. Your failover isn't. Somebody has to pick the number.",
+      "filename": "2026-11-12-linux-tcp-retries2-dead-peer-924-seconds.md"
     }
   ]
 }

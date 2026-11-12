@@ -167,6 +167,7 @@
     "kafka-idempotent-producer-five-batch-window",
     "sqlite-wal-checkpoint-starvation-long-reader",
     "nginx-accept-mutex-epollexclusive-reorder",
-    "wrk2-coordinated-omission-hdrhistogram-latency"
+    "wrk2-coordinated-omission-hdrhistogram-latency",
+    "linux-tcp-retries2-dead-peer-924-seconds"
   ]
 }
