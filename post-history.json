@@ -1950,6 +1950,25 @@
       "key_numbers": "tcp_retries2=15 -> 924.6 s (204.6 s doubling + 6x120 s); retries1=3 at ~3 s; keepalive 2 h + 9x75 s; TCP_USER_TIMEOUT = option 18",
       "lesson": "The kernel is patient. Your failover isn't. Somebody has to pick the number.",
       "filename": "2026-11-12-linux-tcp-retries2-dead-peer-924-seconds.md"
+    },
+    {
+      "date": "2026-11-13",
+      "company": "Go standard library (net/http)",
+      "topic": "DefaultMaxIdleConnsPerHost = 2; errTooManyIdleHost closes excess conns; TIME_WAIT port exhaustion",
+      "category": "microservices",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption",
+      "hook": "\"Reuse one http.Client and Go pools your connections.\" True. It pools exactly 2 per host.",
+      "sources": [
+        "https://github.com/golang/go/blob/master/src/net/http/transport.go",
+        "https://github.com/golang/go/blob/master/src/net/http/transport_pool.go",
+        "https://github.com/golang/go/blob/master/src/net/http/client.go",
+        "https://github.com/torvalds/linux/blob/master/include/net/tcp.h",
+        "https://github.com/torvalds/linux/blob/master/Documentation/networking/ip-sysctl.rst"
+      ],
+      "key_numbers": "DefaultMaxIdleConnsPerHost=2 vs MaxIdleConns=100; 100 burst -> 98 closed; TIME_WAIT 60 s; 28,232 ports -> ~470 conns/s; Go 1.27 drain 256 KiB / 50 ms",
+      "lesson": "A default has to be safe for everyone, so it's optimal for almost no one.",
+      "filename": "2026-11-13-go-http-maxidleconnsperhost-two-time-wait.md"
     }
   ]
 }

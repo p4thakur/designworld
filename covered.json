@@ -168,6 +168,7 @@
     "sqlite-wal-checkpoint-starvation-long-reader",
     "nginx-accept-mutex-epollexclusive-reorder",
     "wrk2-coordinated-omission-hdrhistogram-latency",
-    "linux-tcp-retries2-dead-peer-924-seconds"
+    "linux-tcp-retries2-dead-peer-924-seconds",
+    "go-http-maxidleconnsperhost-two-time-wait"
   ]
 }
