@@ -1969,6 +1969,26 @@
       "key_numbers": "DefaultMaxIdleConnsPerHost=2 vs MaxIdleConns=100; 100 burst -> 98 closed; TIME_WAIT 60 s; 28,232 ports -> ~470 conns/s; Go 1.27 drain 256 KiB / 50 ms",
       "lesson": "A default has to be safe for everyone, so it's optimal for almost no one.",
       "filename": "2026-11-13-go-http-maxidleconnsperhost-two-time-wait.md"
+    },
+    {
+      "date": "2026-11-14",
+      "company": "Kubernetes (kubelet / EndpointSlice)",
+      "topic": "Pod deletion races kubelet SIGTERM against EndpointSlice removal; exec preStop sleep workaround broke on distroless; KEP-3960 native preStop.sleep run by the kubelet",
+      "category": "infrastructure",
+      "post_type": "confessional",
+      "opening_style": "cold_fact",
+      "hook": "Kubernetes' fix for a classic rollout problem is about ten lines of Go: a time.After inside the kubelet.",
+      "sources": [
+        "https://github.com/kubernetes/website/blob/main/content/en/docs/concepts/workloads/pods/pod-lifecycle.md",
+        "https://github.com/kubernetes/website/blob/main/content/en/docs/concepts/containers/container-lifecycle-hooks.md",
+        "https://github.com/kubernetes/enhancements/blob/master/keps/sig-node/3960-pod-lifecycle-sleep-action/README.md",
+        "https://github.com/kubernetes/kubernetes/blob/master/pkg/kubelet/lifecycle/handlers.go",
+        "https://github.com/kubernetes/kubernetes/blob/master/pkg/apis/core/validation/validation.go",
+        "https://github.com/kubernetes/kubernetes/blob/master/pkg/kubelet/metrics/metrics.go"
+      ],
+      "key_numbers": "grace period default 30 s (+2 s one-off preStop extension); KEP filed 2023-04-22; alpha 1.29, beta 1.30, GA 1.34; sleep must be <= terminationGracePeriodSeconds",
+      "lesson": "Eventual consistency gets paid for somewhere; the new field doesn't remove the race, it admits it.",
+      "filename": "2026-11-14-kubernetes-prestop-sleep-endpoint-race.md"
     }
   ]
 }

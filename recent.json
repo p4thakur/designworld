@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Kubernetes (kubelet / EndpointSlice)",
+      "category": "infrastructure",
+      "post_type": "confessional",
+      "opening_style": "cold_fact"
+    },
+    {
       "company": "Go standard library (net/http)",
       "category": "microservices",
       "post_type": "contrarian",
@@ -11,12 +17,6 @@
       "category": "availability",
       "post_type": "narrative",
       "opening_style": "mid_scene"
-    },
-    {
-      "company": "wrk2 (Gil Tene)",
-      "category": "observability",
-      "post_type": "structured",
-      "opening_style": "shared_pain_point"
     }
   ]
 }

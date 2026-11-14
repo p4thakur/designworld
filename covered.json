@@ -169,6 +169,7 @@
     "nginx-accept-mutex-epollexclusive-reorder",
     "wrk2-coordinated-omission-hdrhistogram-latency",
     "linux-tcp-retries2-dead-peer-924-seconds",
-    "go-http-maxidleconnsperhost-two-time-wait"
+    "go-http-maxidleconnsperhost-two-time-wait",
+    "kubernetes-prestop-sleep-endpoint-race"
   ]
 }
