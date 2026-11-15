@@ -170,6 +170,7 @@
     "wrk2-coordinated-omission-hdrhistogram-latency",
     "linux-tcp-retries2-dead-peer-924-seconds",
     "go-http-maxidleconnsperhost-two-time-wait",
-    "kubernetes-prestop-sleep-endpoint-race"
+    "kubernetes-prestop-sleep-endpoint-race",
+    "websocket-permessage-deflate-context-takeover-memory"
   ]
 }

@@ -1989,6 +1989,26 @@
       "key_numbers": "grace period default 30 s (+2 s one-off preStop extension); KEP filed 2023-04-22; alpha 1.29, beta 1.30, GA 1.34; sleep must be <= terminationGracePeriodSeconds",
       "lesson": "Eventual consistency gets paid for somewhere; the new field doesn't remove the race, it admits it.",
       "filename": "2026-11-14-kubernetes-prestop-sleep-endpoint-race.md"
+    },
+    {
+      "date": "2026-11-15",
+      "company": "Python websockets / ws (Node.js) / zlib",
+      "topic": "permessage-deflate context takeover keeps a zlib stream per connection: 316 KiB at zlib defaults vs 64 KiB at websockets' 12/5 default; ws disables server compression and globally limits zlib concurrency to 10",
+      "category": "real-time",
+      "post_type": "structured",
+      "opening_style": "number_doesnt_add_up",
+      "hook": "100,000 idle WebSockets with compression at zlib defaults: ~30 GB of RAM, and none of it is messages.",
+      "sources": [
+        "https://github.com/python-websockets/websockets/blob/main/docs/topics/compression.rst",
+        "https://github.com/python-websockets/websockets/blob/main/src/websockets/extensions/permessage_deflate.py",
+        "https://github.com/madler/zlib/blob/master/zconf.h",
+        "https://github.com/websockets/ws/blob/master/README.md",
+        "https://github.com/websockets/ws/blob/master/lib/permessage-deflate.js",
+        "https://github.com/websockets/ws/blob/master/doc/ws.md"
+      ],
+      "key_numbers": "15/8 = 316 KiB/conn; 12/5 = 64 KiB/conn (+~10% size); 10/3 = 37 KiB (+70%); no takeover = 14 KiB (+350%); ws concurrencyLimit 10, threshold 1024 B",
+      "lesson": "A setting that's per-message on paper can be per-connection in memory.",
+      "filename": "2026-11-15-websocket-permessage-deflate-context-takeover-memory.md"
     }
   ]
 }
