@@ -2009,6 +2009,24 @@
       "key_numbers": "15/8 = 316 KiB/conn; 12/5 = 64 KiB/conn (+~10% size); 10/3 = 37 KiB (+70%); no takeover = 14 KiB (+350%); ws concurrencyLimit 10, threshold 1024 B",
       "lesson": "A setting that's per-message on paper can be per-connection in memory.",
       "filename": "2026-11-15-websocket-permessage-deflate-context-takeover-memory.md"
+    },
+    {
+      "date": "2026-11-16",
+      "company": "Elasticsearch",
+      "topic": "Search-idle shards skip background refresh; explicit refresh_interval '1s' opts out",
+      "category": "search",
+      "post_type": "narrative",
+      "opening_style": "mid_scene",
+      "hook": "The same '1s' refresh interval behaves differently depending on whether you typed it",
+      "sources": [
+        "https://github.com/elastic/elasticsearch/blob/main/server/src/main/java/org/elasticsearch/index/shard/IndexShard.java",
+        "https://github.com/elastic/elasticsearch/blob/main/server/src/main/java/org/elasticsearch/index/IndexSettings.java",
+        "https://github.com/elastic/elasticsearch/blob/main/docs/reference/elasticsearch/index-settings/index-modules.md",
+        "https://github.com/elastic/elasticsearch/blob/7.0/docs/reference/migration/migrate_7_0/indices.asciidoc"
+      ],
+      "key_numbers": "index.search.idle.after = 30 s; default refresh_interval 1 s (5 s serverless); introduced in 7.0 (#27500); isExplicitRefresh() = setting.exists()",
+      "lesson": "An optimization keyed on whether a setting exists, not its value, makes the default and the explicit default two different configs.",
+      "filename": "2026-11-16-elasticsearch-search-idle-shards-explicit-refresh.md"
     }
   ]
 }

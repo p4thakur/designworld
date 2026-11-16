@@ -171,6 +171,7 @@
     "linux-tcp-retries2-dead-peer-924-seconds",
     "go-http-maxidleconnsperhost-two-time-wait",
     "kubernetes-prestop-sleep-endpoint-race",
-    "websocket-permessage-deflate-context-takeover-memory"
+    "websocket-permessage-deflate-context-takeover-memory",
+    "elasticsearch-search-idle-shards-explicit-refresh"
   ]
 }

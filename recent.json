@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Elasticsearch",
+      "category": "search",
+      "post_type": "narrative",
+      "opening_style": "mid_scene"
+    },
+    {
       "company": "Python websockets / ws (Node.js)",
       "category": "real-time",
       "post_type": "structured",
@@ -11,12 +17,6 @@
       "category": "infrastructure",
       "post_type": "confessional",
       "opening_style": "cold_fact"
-    },
-    {
-      "company": "Go standard library (net/http)",
-      "category": "microservices",
-      "post_type": "contrarian",
-      "opening_style": "challenge_assumption"
     }
   ]
 }
