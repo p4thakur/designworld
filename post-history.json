@@ -2027,6 +2027,25 @@
       "key_numbers": "index.search.idle.after = 30 s; default refresh_interval 1 s (5 s serverless); introduced in 7.0 (#27500); isExplicitRefresh() = setting.exists()",
       "lesson": "An optimization keyed on whether a setting exists, not its value, makes the default and the explicit default two different configs.",
       "filename": "2026-11-16-elasticsearch-search-idle-shards-explicit-refresh.md"
+    },
+    {
+      "date": "2026-11-17",
+      "company": "Redis",
+      "topic": "allkeys-lru is approximate: 24-bit stamp, 5 samples, 16-entry eviction pool; no stamp update during fork child",
+      "category": "caching",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption",
+      "hook": "Redis's LRU isn't LRU, and exact LRU would double every key's object header",
+      "sources": [
+        "https://github.com/redis/redis/blob/unstable/src/evict.c",
+        "https://github.com/redis/redis/blob/unstable/src/object.h",
+        "https://github.com/redis/redis/blob/7.2/src/db.c",
+        "https://github.com/redis/redis/blob/unstable/redis.conf",
+        "https://github.com/redis/docs/blob/main/content/develop/reference/eviction/index.md"
+      ],
+      "key_numbers": "LRU_BITS 24 at 1 s resolution (~194-day wrap); maxmemory-samples default 5, max 64; EVPOOL_SIZE 16; pool since 3.0; LFU since 4.0 = 16-bit minutes + 8-bit counter; 16 B robj header in 7.2",
+      "lesson": "Approximate eviction is the design, not the compromise: exactness about cold-key rank costs pointers and writes on every read.",
+      "filename": "2026-11-17-redis-approximate-lru-sampling-eviction-pool.md"
     }
   ]
 }

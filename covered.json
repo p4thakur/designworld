@@ -172,6 +172,7 @@
     "go-http-maxidleconnsperhost-two-time-wait",
     "kubernetes-prestop-sleep-endpoint-race",
     "websocket-permessage-deflate-context-takeover-memory",
-    "elasticsearch-search-idle-shards-explicit-refresh"
+    "elasticsearch-search-idle-shards-explicit-refresh",
+    "redis-approximate-lru-sampling-eviction-pool"
   ]
 }
