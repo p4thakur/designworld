@@ -173,6 +173,7 @@
     "kubernetes-prestop-sleep-endpoint-race",
     "websocket-permessage-deflate-context-takeover-memory",
     "elasticsearch-search-idle-shards-explicit-refresh",
-    "redis-approximate-lru-sampling-eviction-pool"
+    "redis-approximate-lru-sampling-eviction-pool",
+    "mysql-innodb-autoinc-counter-lost-on-restart"
   ]
 }

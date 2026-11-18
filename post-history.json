@@ -2046,6 +2046,26 @@
       "key_numbers": "LRU_BITS 24 at 1 s resolution (~194-day wrap); maxmemory-samples default 5, max 64; EVPOOL_SIZE 16; pool since 3.0; LFU since 4.0 = 16-bit minutes + 8-bit counter; 16 B robj header in 7.2",
       "lesson": "Approximate eviction is the design, not the compromise: exactness about cold-key rank costs pointers and writes on every read.",
       "filename": "2026-11-17-redis-approximate-lru-sampling-eviction-pool.md"
+    },
+    {
+      "date": "2026-11-18",
+      "company": "MySQL (InnoDB)",
+      "topic": "AUTO_INCREMENT counter in memory only through 5.7, rebuilt via SELECT MAX+1 on restart; persisted via redo + innodb_dynamic_metadata in 8.0 (Bug #199, WL#6204)",
+      "category": "databases",
+      "post_type": "confessional",
+      "opening_style": "cold_fact",
+      "hook": "A bug filed in 2003 took 13 years to fix because remembering one integer needed a redo record type and a system table",
+      "sources": [
+        "https://github.com/mysql/mysql-server/blob/5.7/storage/innobase/handler/ha_innodb.cc",
+        "https://github.com/mysql/mysql-server/blob/5.7/storage/innobase/dict/dict0dict.cc",
+        "https://github.com/mysql/mysql-server/blob/8.0/storage/innobase/include/dict0mem.h",
+        "https://github.com/mysql/mysql-server/blob/8.0/storage/innobase/dict/dict0dict.cc",
+        "https://github.com/mysql/mysql-server/blob/8.0/mysql-test/suite/innodb/t/autoinc_persist.test",
+        "https://bugs.mysql.com/bug.php?id=199"
+      ],
+      "key_numbers": "Bug #199 filed 2003, fixed 2016 (WL#6204, 8.0); MLOG_TABLE_DYNAMIC_META = 62; PM_TABLE_AUTO_INC = 2; 12-byte max persisted record",
+      "lesson": "A recomputable value is only safe if nothing outside the database remembers the old one.",
+      "filename": "2026-11-18-mysql-innodb-autoinc-counter-lost-on-restart.md"
     }
   ]
 }
