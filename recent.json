@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Apache Kafka",
+      "category": "messaging",
+      "post_type": "structured",
+      "opening_style": "the_decision"
+    },
+    {
       "company": "MySQL (InnoDB)",
       "category": "databases",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "caching",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption"
-    },
-    {
-      "company": "Elasticsearch",
-      "category": "search",
-      "post_type": "narrative",
-      "opening_style": "mid_scene"
     }
   ]
 }

@@ -2066,6 +2066,28 @@
       "key_numbers": "Bug #199 filed 2003, fixed 2016 (WL#6204, 8.0); MLOG_TABLE_DYNAMIC_META = 62; PM_TABLE_AUTO_INC = 2; 12-byte max persisted record",
       "lesson": "A recomputable value is only safe if nothing outside the database remembers the old one.",
       "filename": "2026-11-18-mysql-innodb-autoinc-counter-lost-on-restart.md"
+    },
+    {
+      "date": "2026-11-19",
+      "company": "Apache Kafka",
+      "topic": "Keyless partitioning: round robin (<=2.3) -> KIP-480 sticky, switch on new batch (2.4) -> KIP-794 BuiltInPartitioner, switch after batch.size bytes + inverse-queue-depth weighting (3.3)",
+      "category": "messaging",
+      "post_type": "structured",
+      "opening_style": "the_decision",
+      "hook": "Switching partitions on new-batch creation let the slowest broker hold the producer longest, a feedback loop fixed by counting bytes",
+      "sources": [
+        "https://github.com/apache/kafka/blob/2.3/clients/src/main/java/org/apache/kafka/clients/producer/internals/DefaultPartitioner.java",
+        "https://github.com/apache/kafka/blob/2.4/clients/src/main/java/org/apache/kafka/clients/producer/internals/StickyPartitionCache.java",
+        "https://github.com/apache/kafka/blob/2.4/clients/src/main/java/org/apache/kafka/clients/producer/KafkaProducer.java",
+        "https://github.com/apache/kafka/blob/trunk/clients/src/main/java/org/apache/kafka/clients/producer/internals/BuiltInPartitioner.java",
+        "https://github.com/apache/kafka/blob/trunk/clients/src/main/java/org/apache/kafka/clients/producer/internals/RecordAccumulator.java",
+        "https://github.com/apache/kafka/blob/trunk/clients/src/main/java/org/apache/kafka/clients/producer/ProducerConfig.java",
+        "https://github.com/apache/kafka/blob/3.3/docs/upgrade.html",
+        "https://www.confluent.io/blog/apache-kafka-producer-improvements-sticky-partitioner/"
+      ],
+      "key_numbers": "batch.size 16384; switch at >= batch.size, capped 2x; CFT 0 3 1 -> 4 1 3 -> 4 5 8 (odds 4/8,1/8,3/8); partitioner.availability.timeout.ms default 0; p99 ~half with 3 producers @1,000 msg/s (Confluent, via search excerpt)",
+      "lesson": "A switch triggered by completion lets the slowest component decide how long work stays with it; count work handed out instead.",
+      "filename": "2026-11-19-kafka-sticky-partitioner-slow-broker-feedback-loop.md"
     }
   ]
 }
