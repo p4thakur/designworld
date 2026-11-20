@@ -2088,6 +2088,29 @@
       "key_numbers": "batch.size 16384; switch at >= batch.size, capped 2x; CFT 0 3 1 -> 4 1 3 -> 4 5 8 (odds 4/8,1/8,3/8); partitioner.availability.timeout.ms default 0; p99 ~half with 3 producers @1,000 msg/s (Confluent, via search excerpt)",
       "lesson": "A switch triggered by completion lets the slowest component decide how long work stays with it; count work handed out instead.",
       "filename": "2026-11-19-kafka-sticky-partitioner-slow-broker-feedback-loop.md"
+    },
+    {
+      "date": "2026-11-20",
+      "company": "Linux kernel (2012 leap second)",
+      "topic": "2012 leap second: second_overflow() stepped xtime back in timer IRQ without clock_was_set(); stale per-CPU hrtimer REALTIME offset made sub-second CLOCK_REALTIME futex waits return ETIMEDOUT instantly -> JVM/MySQL spin; date -s fix; bb88e924 clock_was_set_delayed() in 3.5; Google smear",
+      "category": "stability",
+      "post_type": "narrative",
+      "opening_style": "mid_scene",
+      "hook": "The leap second worked; a cache it forgot to invalidate turned every short timed wait into a spin loop",
+      "sources": [
+        "https://raw.githubusercontent.com/torvalds/linux/v3.4/kernel/time/ntp.c",
+        "https://raw.githubusercontent.com/torvalds/linux/v3.4/kernel/time/timekeeping.c",
+        "https://raw.githubusercontent.com/torvalds/linux/v3.4/kernel/hrtimer.c",
+        "https://raw.githubusercontent.com/torvalds/linux/v3.4/kernel/futex.c",
+        "https://raw.githubusercontent.com/torvalds/linux/v3.5/kernel/hrtimer.c",
+        "https://lkml.iu.edu/hypermail/linux/kernel/1207.0/00026.html",
+        "https://lkml.iu.edu/hypermail/linux/kernel/1207.1/00339.html",
+        "https://www.theregister.com/2012/07/02/leap_second_crashes_airlines/",
+        "https://developers.google.com/time/smear"
+      ],
+      "key_numbers": "23:59:60 UTC 2012-06-30; leap = -1; offset stale by 1 s; deadlines < 1 s fire immediately; fix bb88e924 on 2012-07-09 (9 days); Google smear since 2008, 24 h linear",
+      "lesson": "The tradeoffs move: smearing trades a clock that steps for one that is up to 0.5 s off UTC for a day",
+      "filename": "2026-11-20-linux-2012-leap-second-hrtimer-futex-spin.md"
     }
   ]
 }

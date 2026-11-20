@@ -175,6 +175,7 @@
     "elasticsearch-search-idle-shards-explicit-refresh",
     "redis-approximate-lru-sampling-eviction-pool",
     "mysql-innodb-autoinc-counter-lost-on-restart",
-    "kafka-sticky-partitioner-slow-broker-feedback-loop"
+    "kafka-sticky-partitioner-slow-broker-feedback-loop",
+    "linux-2012-leap-second-hrtimer-futex-spin"
   ]
 }
