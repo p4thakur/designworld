@@ -2111,6 +2111,27 @@
       "key_numbers": "23:59:60 UTC 2012-06-30; leap = -1; offset stale by 1 s; deadlines < 1 s fire immediately; fix bb88e924 on 2012-07-09 (9 days); Google smear since 2008, 24 h linear",
       "lesson": "The tradeoffs move: smearing trades a clock that steps for one that is up to 0.5 s off UTC for a day",
       "filename": "2026-11-20-linux-2012-leap-second-hrtimer-futex-spin.md"
+    },
+    {
+      "date": "2026-11-21",
+      "company": "PostgreSQL (fsyncgate, 2018)",
+      "topic": "Retrying a failed fsync() returned success after Linux dropped the dirty page ('lost async page write'); checkpoint completed past the only WAL copy; 4.13-4.16 errseq seen-at-open gap fixed by b4678df184b3; Postgres 9ccdd7f66 (11.2, Feb 2019) PANICs via data_sync_elevel() and replays WAL; data_sync_retry escape hatch",
+      "category": "storage",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption",
+      "hook": "The retry is what lost the data",
+      "sources": [
+        "https://raw.githubusercontent.com/postgres/postgres/REL_11_2/doc/src/sgml/release-11.sgml",
+        "https://raw.githubusercontent.com/postgres/postgres/REL_11_2/src/backend/storage/file/fd.c",
+        "https://raw.githubusercontent.com/postgres/postgres/REL_11_1/src/backend/storage/smgr/md.c",
+        "https://raw.githubusercontent.com/torvalds/linux/v4.16/fs/buffer.c",
+        "https://raw.githubusercontent.com/torvalds/linux/v4.17/lib/errseq.c",
+        "https://lkml.iu.edu/hypermail/linux/kernel/1804.2/07389.html",
+        "https://www.postgresql.org/message-id/CAMsr%2BYHh%2B5Oq4xziwwoEfhoTZgr07vdGG%2Bhu%3D1adXx59aTeaoQ%40mail.gmail.com"
+      ],
+      "key_numbers": "fsync #1 EIO, #2 returns 0; Linux 4.13-4.16 gap, fixed 4.17 (b4678df184b3); commit 9ccdd7f66 2018-11-19; 11.2 released 2019-02-14, backpatched to 9.4.21; data_sync_retry default off",
+      "lesson": "When the failure destroys what you would retry, the retry only manufactures a false success; crash and rebuild from your own log",
+      "filename": "2026-11-21-postgres-fsyncgate-panic-not-retry.md"
     }
   ]
 }

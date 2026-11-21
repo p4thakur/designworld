@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "PostgreSQL (fsyncgate)",
+      "category": "storage",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
       "company": "Linux kernel (2012 leap second)",
       "category": "stability",
       "post_type": "narrative",
@@ -11,12 +17,6 @@
       "category": "messaging",
       "post_type": "structured",
       "opening_style": "the_decision"
-    },
-    {
-      "company": "MySQL (InnoDB)",
-      "category": "databases",
-      "post_type": "confessional",
-      "opening_style": "cold_fact"
     }
   ]
 }
