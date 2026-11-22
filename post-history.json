@@ -2132,6 +2132,28 @@
       "key_numbers": "fsync #1 EIO, #2 returns 0; Linux 4.13-4.16 gap, fixed 4.17 (b4678df184b3); commit 9ccdd7f66 2018-11-19; 11.2 released 2019-02-14, backpatched to 9.4.21; data_sync_retry default off",
       "lesson": "When the failure destroys what you would retry, the retry only manufactures a false success; crash and rebuild from your own log",
       "filename": "2026-11-21-postgres-fsyncgate-panic-not-retry.md"
+    },
+    {
+      "date": "2026-11-22",
+      "company": "glibc malloc (Apache Hadoop, HADOOP-7154)",
+      "topic": "Per-thread arenas (2.10/2009, default 2.15) capped at 8x online cores; each non-main heap is a 64 MiB PROT_NONE mmap aligned to 64 MiB so free() finds the arena via PTR_ALIGN_DOWN; VSZ explosion on RHEL 6 tripped YARN vmem checks; Hadoop set MALLOC_ARENA_MAX=4; __get_nprocs reads /sys/devices/system/cpu/online so containers see host cores",
+      "category": "performance",
+      "post_type": "confessional",
+      "opening_style": "specific_number",
+      "hook": "8 GB of address space before allocating anything meaningful",
+      "sources": [
+        "https://raw.githubusercontent.com/bminor/glibc/master/malloc/arena.c",
+        "https://raw.githubusercontent.com/bminor/glibc/master/malloc/malloc.c",
+        "https://raw.githubusercontent.com/bminor/glibc/master/sysdeps/unix/sysv/linux/getsysstats.c",
+        "https://raw.githubusercontent.com/bminor/glibc/master/manual/tunables.texi",
+        "https://raw.githubusercontent.com/bminor/glibc/master/NEWS",
+        "https://raw.githubusercontent.com/apache/hadoop/branch-1/bin/hadoop-config.sh",
+        "https://issues.apache.org/jira/browse/HADOOP-7154",
+        "https://raw.githubusercontent.com/apache/hadoop/trunk/hadoop-yarn-project/hadoop-yarn/hadoop-yarn-common/src/main/resources/yarn-default.xml"
+      ],
+      "key_numbers": "8 x cores (64-bit), 2 x cores (32-bit); HEAP_MAX_SIZE 64 MiB; 128 arenas x 64 MiB ~ 8 GiB; YARN vmem-pmem-ratio 2.1; MALLOC_ARENA_MAX=4",
+      "lesson": "The design didn't change; how we measured memory and sliced CPUs did",
+      "filename": "2026-11-22-glibc-malloc-arenas-8x-cores-vmem-explosion.md"
     }
   ]
 }
