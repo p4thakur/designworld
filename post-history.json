@@ -2154,6 +2154,29 @@
       "key_numbers": "8 x cores (64-bit), 2 x cores (32-bit); HEAP_MAX_SIZE 64 MiB; 128 arenas x 64 MiB ~ 8 GiB; YARN vmem-pmem-ratio 2.1; MALLOC_ARENA_MAX=4",
       "lesson": "The design didn't change; how we measured memory and sliced CPUs did",
       "filename": "2026-11-22-glibc-malloc-arenas-8x-cores-vmem-explosion.md"
+    },
+    {
+      "date": "2026-11-23",
+      "company": "etcd/raft and CockroachDB (#92088, #104042)",
+      "topic": "Raft PreVote (thesis 9.6) in etcd/raft grants pre-votes when m.Term > r.Term (always true, pre-candidates ask for term+1) and the log is up to date; the inLease guard that refuses votes while a leader is alive is gated on checkQuorum. CockroachDB ran PreVote without CheckQuorum, restarted caught-up nodes stole leadership (#92088, Nov 2022); fixed by enabling CheckQuorum by default (#104042, Jun 28 2023). etcd server hard-codes CheckQuorum: true.",
+      "category": "availability",
+      "post_type": "structured",
+      "opening_style": "shared_pain_point",
+      "hook": "PreVote was on. A restarted node kept stealing leadership anyway.",
+      "sources": [
+        "https://raw.githubusercontent.com/etcd-io/raft/main/raft.go",
+        "https://raw.githubusercontent.com/etcd-io/etcd/main/CHANGELOG/CHANGELOG-3.4.md",
+        "https://raw.githubusercontent.com/etcd-io/etcd/main/CHANGELOG/CHANGELOG-3.5.md",
+        "https://raw.githubusercontent.com/etcd-io/etcd/release-3.4/etcdserver/raft.go",
+        "https://raw.githubusercontent.com/etcd-io/etcd/main/server/etcdserver/bootstrap.go",
+        "https://raw.githubusercontent.com/cockroachdb/cockroach/master/pkg/base/config.go",
+        "https://raw.githubusercontent.com/cockroachdb/cockroach/master/pkg/kv/kvserver/store.go",
+        "https://github.com/cockroachdb/cockroach/issues/92088",
+        "https://github.com/cockroachdb/cockroach/pull/104042"
+      ],
+      "key_numbers": "etcd 3.4 PreVote off by default, 3.5 on; pre-vote term = r.Term+1; #92088 opened 2022-11-17; #104042 merged 2023-06-28; campaign delay up to 1 election timeout",
+      "lesson": "A flag's name tells you its intent; its guard condition tells you its behavior",
+      "filename": "2026-11-23-raft-prevote-needs-checkquorum-cockroachdb.md"
     }
   ]
 }
