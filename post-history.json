@@ -2177,6 +2177,26 @@
       "key_numbers": "etcd 3.4 PreVote off by default, 3.5 on; pre-vote term = r.Term+1; #92088 opened 2022-11-17; #104042 merged 2023-06-28; campaign delay up to 1 election timeout",
       "lesson": "A flag's name tells you its intent; its guard condition tells you its behavior",
       "filename": "2026-11-23-raft-prevote-needs-checkquorum-cockroachdb.md"
+    },
+    {
+      "date": "2026-11-24",
+      "company": "MySQL (semisync replication plugin)",
+      "topic": "MySQL 5.5/5.6 semi-sync waited only in after_commit, so other sessions could read rows no replica had (phantom read on failover, bug #62174). 5.7.2 added wait_point=AFTER_SYNC as default, waiting before the engine commit. The timeout (10000 ms default) calls switch_off(), wakes waiters and returns 0, so COMMIT succeeds and the primary silently goes async (Rpl_semi_sync_source_no_tx). Bug #83158: phantom read is still possible via crash recovery.",
+      "category": "database",
+      "post_type": "narrative",
+      "opening_style": "mid_scene",
+      "hook": "A reader saw the row. The promoted replica never had it.",
+      "sources": [
+        "https://raw.githubusercontent.com/mysql/mysql-server/mysql-5.6.51/plugin/semisync/semisync_master_plugin.cc",
+        "https://raw.githubusercontent.com/mysql/mysql-server/mysql-5.7.2/plugin/semisync/semisync_master_plugin.cc",
+        "https://raw.githubusercontent.com/mysql/mysql-server/8.0/plugin/semisync/semisync_source_plugin.cc",
+        "https://raw.githubusercontent.com/mysql/mysql-server/8.0/plugin/semisync/semisync_source.cc",
+        "https://bugs.mysql.com/bug.php?id=62174",
+        "https://bugs.mysql.com/bug.php?id=83158"
+      ],
+      "key_numbers": "timeout default 10000 ms; wait_point added 5.7.2 (absent in 5.7.1), AFTER_SYNC default; commitTrx returns 0 on timeout",
+      "lesson": "Semi-sync's guarantee holds until the timeout or a restart; alert on no_tx",
+      "filename": "2026-11-24-mysql-semisync-after-commit-phantom-read.md"
     }
   ]
 }

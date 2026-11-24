@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "MySQL (semisync plugin)",
+      "category": "database",
+      "post_type": "narrative",
+      "opening_style": "mid_scene"
+    },
+    {
       "company": "etcd/raft + CockroachDB",
       "category": "availability",
       "post_type": "structured",
@@ -11,12 +17,6 @@
       "category": "performance",
       "post_type": "confessional",
       "opening_style": "specific_number"
-    },
-    {
-      "company": "PostgreSQL (fsyncgate)",
-      "category": "storage",
-      "post_type": "contrarian",
-      "opening_style": "challenge_assumption"
     }
   ]
 }
