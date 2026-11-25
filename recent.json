@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Apache Kafka (min.insync.replicas)",
+      "category": "messaging",
+      "post_type": "contrarian",
+      "opening_style": "challenge_assumption"
+    },
+    {
       "company": "MySQL (semisync plugin)",
       "category": "database",
       "post_type": "narrative",
@@ -11,12 +17,6 @@
       "category": "availability",
       "post_type": "structured",
       "opening_style": "shared_pain_point"
-    },
-    {
-      "company": "glibc malloc (Hadoop HADOOP-7154)",
-      "category": "performance",
-      "post_type": "confessional",
-      "opening_style": "specific_number"
     }
   ]
 }

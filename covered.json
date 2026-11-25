@@ -180,6 +180,7 @@
     "postgres-fsyncgate-panic-not-retry",
     "glibc-malloc-arenas-8x-cores-vmem-explosion",
     "raft-prevote-needs-checkquorum-cockroachdb",
-    "mysql-semisync-after-commit-phantom-read"
+    "mysql-semisync-after-commit-phantom-read",
+    "kafka-acks-all-min-insync-replicas-default-one"
   ]
 }
