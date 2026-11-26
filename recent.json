@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Prometheus (classic vs native histograms)",
+      "category": "observability",
+      "post_type": "confessional",
+      "opening_style": "specific_number"
+    },
+    {
       "company": "Apache Kafka (min.insync.replicas)",
       "category": "messaging",
       "post_type": "contrarian",
@@ -11,12 +17,6 @@
       "category": "database",
       "post_type": "narrative",
       "opening_style": "mid_scene"
-    },
-    {
-      "company": "etcd/raft + CockroachDB",
-      "category": "availability",
-      "post_type": "structured",
-      "opening_style": "shared_pain_point"
     }
   ]
 }

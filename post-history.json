@@ -2219,6 +2219,25 @@
       "key_numbers": "min.insync.replicas default 1; replica.lag.time.max.ms 30000 (10s before 2.5); acks default all since 3.0; unclean election off since 0.11",
       "lesson": "acks sets how long the producer waits; min.insync.replicas decides whether that wait protects anything",
       "filename": "2026-11-25-kafka-acks-all-min-insync-replicas-default-one.md"
+    },
+    {
+      "date": "2026-11-26",
+      "company": "Prometheus (classic vs native histograms)",
+      "topic": "Classic histograms use fixed le buckets chosen at instrumentation time; histogram_quantile linearly interpolates inside the bucket, so error = bucket width. Docs example: true 220ms -> p95 295ms (300ms SLO); +100ms -> true ~320ms, estimate 443ms. Quantile in +Inf returns second-highest bound (Go DefBuckets cap at 10s). Native histograms (v2.40 experimental, v3.8 stable, opt-in until v4) estimate 228ms / 323ms.",
+      "category": "observability",
+      "post_type": "confessional",
+      "opening_style": "specific_number",
+      "hook": "Every request took 220ms. Prometheus reported the p95 as 295ms, 5ms under a 300ms SLO.",
+      "sources": [
+        "https://raw.githubusercontent.com/prometheus/docs/main/docs/practices/histograms.md",
+        "https://raw.githubusercontent.com/prometheus/prometheus/main/docs/querying/functions.md",
+        "https://raw.githubusercontent.com/prometheus/prometheus/main/promql/quantile.go",
+        "https://raw.githubusercontent.com/prometheus/client_golang/main/prometheus/histogram.go",
+        "https://raw.githubusercontent.com/prometheus/docs/main/docs/specs/native_histograms.md"
+      ],
+      "key_numbers": "true 220ms -> classic 295ms / native 228ms; true 320ms -> classic 443ms / native 323ms; DefBuckets max 10s; native experimental v2.40 (Nov 2022), stable v3.8, default on v4",
+      "lesson": "A classic histogram's bucket list is a latency guess frozen at instrumentation time; histogram_quantile can only be as accurate as that guess",
+      "filename": "2026-11-26-prometheus-histogram-quantile-bucket-interpolation.md"
     }
   ]
 }
