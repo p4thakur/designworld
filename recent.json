@@ -1,6 +1,12 @@
 {
   "recent": [
     {
+      "company": "Caffeine (Window TinyLFU)",
+      "category": "caching",
+      "post_type": "structured",
+      "opening_style": "the_decision"
+    },
+    {
       "company": "Prometheus (classic vs native histograms)",
       "category": "observability",
       "post_type": "confessional",
@@ -11,12 +17,6 @@
       "category": "messaging",
       "post_type": "contrarian",
       "opening_style": "challenge_assumption"
-    },
-    {
-      "company": "MySQL (semisync plugin)",
-      "category": "database",
-      "post_type": "narrative",
-      "opening_style": "mid_scene"
     }
   ]
 }

@@ -182,6 +182,7 @@
     "raft-prevote-needs-checkquorum-cockroachdb",
     "mysql-semisync-after-commit-phantom-read",
     "kafka-acks-all-min-insync-replicas-default-one",
-    "prometheus-histogram-quantile-bucket-interpolation"
+    "prometheus-histogram-quantile-bucket-interpolation",
+    "caffeine-window-tinylfu-admission-sketch"
   ]
 }

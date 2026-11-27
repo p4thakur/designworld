@@ -2238,6 +2238,27 @@
       "key_numbers": "true 220ms -> classic 295ms / native 228ms; true 320ms -> classic 443ms / native 323ms; DefBuckets max 10s; native experimental v2.40 (Nov 2022), stable v3.8, default on v4",
       "lesson": "A classic histogram's bucket list is a latency guess frozen at instrumentation time; histogram_quantile can only be as accurate as that guess",
       "filename": "2026-11-26-prometheus-histogram-quantile-bucket-interpolation.md"
+    },
+    {
+      "date": "2026-11-27",
+      "company": "Caffeine (Window TinyLFU)",
+      "topic": "Guava evicts by LRU in independent segments (~maximumSize/concurrencyLevel, default 4). Caffeine (same authors) uses W-TinyLFU: 1% LRU admission window -> TinyLFU frequency gate -> 99% segmented LRU main (80% protected). 4-bit count-min sketch, 8 B/entry, 4 counters in one 64-byte block, halved every 10x maximumSize increments. Hill climber resizes window. Sim sample (43.7M req): optimal 48.09%, W-TinyLFU 45.25%, LIRS 38.14%, ARC 29.60%, LRU 20.24%. HashDoS: losing candidate freq>=6 admitted when (random & 127)==0.",
+      "category": "caching",
+      "post_type": "structured",
+      "opening_style": "the_decision",
+      "hook": "The people who built Guava's cache wrote a new one, and LRU didn't survive as the eviction policy.",
+      "sources": [
+        "https://github.com/ben-manes/caffeine/wiki/Efficiency",
+        "https://github.com/ben-manes/caffeine/wiki/Design",
+        "https://github.com/ben-manes/caffeine/wiki/Simulator",
+        "https://github.com/ben-manes/caffeine/blob/master/caffeine/src/main/java/com/github/benmanes/caffeine/cache/FrequencySketch.java",
+        "https://github.com/ben-manes/caffeine/blob/master/caffeine/src/main/java/com/github/benmanes/caffeine/cache/BoundedLocalCache.java",
+        "https://github.com/ben-manes/caffeine/blob/master/caffeine/src/main/java/com/github/benmanes/caffeine/cache/WindowClimber.java",
+        "https://github.com/google/guava/blob/master/guava/src/com/google/common/cache/CacheBuilder.java"
+      ],
+      "key_numbers": "hit rate 48.09/45.25/38.14/29.60/20.24 (opt/W-TinyLFU/LIRS/ARC/LRU) over 43,704,979 requests; window 1%, protected 80%; 4-bit counters cap 15; 8 B/entry; reset at 10x max; HashDoS threshold 6, 1/128",
+      "lesson": "Recency alone answers the wrong question; a 4-bit frequency estimate in front of the LRU more than doubles the hit rate",
+      "filename": "2026-11-27-caffeine-window-tinylfu-admission-sketch.md"
     }
   ]
 }
