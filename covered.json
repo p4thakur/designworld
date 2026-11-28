@@ -183,6 +183,7 @@
     "mysql-semisync-after-commit-phantom-read",
     "kafka-acks-all-min-insync-replicas-default-one",
     "prometheus-histogram-quantile-bucket-interpolation",
-    "caffeine-window-tinylfu-admission-sketch"
+    "caffeine-window-tinylfu-admission-sketch",
+    "http2-rapid-reset-concurrent-stream-limit"
   ]
 }
